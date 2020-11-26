@@ -194,27 +194,6 @@ MODELTRANSLATION_TRANSLATION_FILES = (
     "strona.translation",
 )
 
-
-# Konfiguracja CDN
-# https://github.com/jschneier/django-storages
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-AWS_S3_REGION_NAME = "fra1"
-
-AWS_S3_ENDPOINT_URL = "https://crop_rotator.fra1.digitaloceanspaces.com"
-
-AWS_ACCESS_KEY_ID = "some_access_key!"
-
-AWS_SECRET_ACCESS_KEY = "some_super_secret_access_key!"
-
-AWS_STORAGE_BUCKET_NAME = "crop_rotator"
-
-AWS_DEFAULT_ACL = None
-
-# AWS_S3_CUSTOM_DOMAIN = 'https://crop_rotator.fra1.cdn.digitaloceanspaces.com'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "crop_rotator/static")]
@@ -231,7 +210,6 @@ LOGOUT_REDIRECT_URL = "/"  # Przekierowanie po wylogowaniu.
 # Poniżej dane do ustawień Middleware blokującego strony przed niezalogowanymi.
 LOGIN_URL = "/"
 
-
 # https://github.com/CleitonDeLima/django-login-required-middleware
 LOGIN_REQUIRED_IGNORE_PATHS = [
     r"^$",
@@ -242,24 +220,6 @@ LOGIN_REQUIRED_IGNORE_PATHS = [
     r"^media/.*$",
     r"^admin/.*$",
 ]
-
-
-# Mailing Django. Do podmianki w local_settings.py
-# https://www.tutorialspoint.com/django/django_sending_emails.htm
-# https://docs.djangoproject.com/en/2.2/topics/email/
-EMAIL_HOST = "localhost"
-
-EMAIL_HOST_USER = ""
-
-EMAIL_HOST_PASSWORD = ""
-
-EMAIL_PORT = 25
-
-EMAIL_USE_SSL = False
-
-EMAIL_SSL_CERTFILE = None
-
-# FILE_UPLOAD_HANDLERS = []
 
 # Ściągnij ustawienia lokalne gdybyśmy chcieli udostępnić kod i wejść na OpenSource
 # na serwerze obok "settings" robisz plik .local_settings i ustalasz od nowa:
