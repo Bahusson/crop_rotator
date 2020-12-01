@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     # Testowo - manualna (lup przez demona) delecja zdjęć nieużywanych.
     # https://github.com/akolpakov/django-unused-media
     "django_unused_media",
-    "storages",
+    # "storages", - to chyba cdn - do usunięcia
     # Testowo - autodelecja zdjęć przy usuwaniu wydarzenia.
     # https://github.com/un1t/django-cleanup
     "django_cleanup.apps.CleanupConfig",
