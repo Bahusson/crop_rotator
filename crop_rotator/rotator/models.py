@@ -68,6 +68,9 @@ class Crop(models.Model):
     culture_override = models.PositiveSmallIntegerField(
                 choices=AGRICULTURE_STATUS, default=0)
     cooldown_override = models.IntegerField(blank=True, null=True)
+    allelopatic_to = models.ManyToManyField('Crop', blank=True, null=True)
+    # Wiemy, że nie pozwala po sobie uprawiać tych rzeczy,
+    # ze względów allelopatycznych
     #
     #
     #
