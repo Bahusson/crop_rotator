@@ -19,22 +19,34 @@ class RotationPlan(models.Model):
         return self.pubdate.strftime('%a %d %b %Y')
 
 
+# Rodzina Botaniczna - zawiera informacje o typowych wartościach
+# dla danej rodziny roślin
+class CropFamily(models.Model):
+    N_A = 0
+    BETTERS = 1
+    WORSENS = 2
+    NEUTRAL = 3
+    AGRICULTURE_STATUS = (
+    (BETTERS, "Poprawia Jakość Gleby"),
+    (WORSENS, "Pogarsza Jakość Gleby"),
+    (NEUTRAL, "Neutralna Dla Jakości Gleby"),
+    )
+    name = models.CharField(max_length=150)
+    latin_name = models.CharField(max_length=150, blank=True, null=True)
+    culture = models.PositiveSmallIntegerField(
+                choices=AGRICULTURE_STATUS, default=3)
+    # W jakim stanie zostawia glebę po sobie.
+    cooldown = models.IntegerField(blank=True, null=True)
+    # Ile lat nie wolno uprawiać po sobie.
+    is_manurable = models.BooleanField(default=False)
+    # Czy wolno nawozić obornikiem i czy to poprawia kulturę gleby?
+    culture_manured = models.PositiveSmallIntegerField(
+                choices=AGRICULTURE_STATUS, default=0)
+    # W jakiej kulturze zostawia po użyciu wraz z obornikiem?
+
+
 # Nie dla usera - model plonu/poplonu/międzyplonu
 class Crop(models.Model):
-    BRASSICACEAE = 0
-    POACEAE = 1
-    POACEAE_SEASONAL = 2
-    OTHER = 3
-    FABACEAE = 4
-    FABACEAE_PERSISTENT = 5
-    BOTANIC_FAMILY = (
-        (BRASSICACEAE, "Kapustowate"),
-        (POACEAE, "Wiechlinowate"),
-        (POACEAE_SEASONAL, "Wiechlinowate Jednoroczne"),
-        (OTHER, "Inne"),
-        (FABACEAE, "Bobowate"),
-        (FABACEAE_PERSISTENT, "Bobowate Wieloletnie"),
-        )
     AS_FAMILY = 0
     BETTERS = 1
     WORSENS = 2
@@ -51,10 +63,11 @@ class Crop(models.Model):
     owner = models.ForeignKey(
      User, on_delete=models.SET_NULL, blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
-    bio_type = models.PositiveSmallIntegerField(
-            choices=BOTANIC_FAMILY, default=3)
+    family = models.ForeignKey(
+     'CropFamily', on_delete=models.SET_NULL, blank=True, null=True)
     culture_override = models.PositiveSmallIntegerField(
                 choices=AGRICULTURE_STATUS, default=0)
+    cooldown_override = models.IntegerField(blank=True, null=True)
     #
     #
     #
@@ -67,7 +80,7 @@ class Crop(models.Model):
         ordering = ['-name']
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 # Mieszanka na miedzyplon
@@ -84,7 +97,7 @@ class CropMix(models.Model):
         ordering = ['-name']
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 # Element płodozmianu.
