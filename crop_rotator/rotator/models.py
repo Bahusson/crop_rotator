@@ -4,10 +4,18 @@ from django.contrib.auth.models import User  # Zaimportuj uproszczony model user
 
 # Plan płodozmianu - potencjalnie przyporządkowany do użytkownika.
 class RotationPlan(models.Model):
+    CLASS_14A = 0
+    CLASS_4B_LOW = 1
+    SOIL_CLASS = (
+    (CLASS_14A, "Gleby Dobrej Jakości"),
+    (CLASS_4B_LOW, "Gleby Gorszej Jakości"),
+    )
     title = models.CharField(max_length=150)
     owner = models.ForeignKey(
      User, on_delete=models.CASCADE, blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
+    soil_type = models.PositiveSmallIntegerField(
+                choices=SOIL_CLASS, default=0)
 
     class Meta:
         ordering = ['-pubdate']
@@ -74,6 +82,8 @@ class Crop(models.Model):
     allelopatic_to = models.ManyToManyField('Crop', blank=True)
     # Wiemy, że nie pozwala po sobie uprawiać tych rzeczy,
     # ze względów allelopatycznych
+    is_demanding = models.BooleanField(default=False)
+    # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
 
 
     class Meta:
