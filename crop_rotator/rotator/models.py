@@ -105,20 +105,20 @@ class RotationStep(models.Model):
     descr = models.CharField(max_length=500, blank=True, null=True)
     add_manure = models.BooleanField(default=False)  # Czy dodać nawóz?
     from_plan = models.ForeignKey(
-     'RotationPlan',related_name='+', on_delete=models.CASCADE, blank=True, null=True)
+     'RotationPlan',related_name='rotation_plan_set', on_delete=models.CASCADE, blank=True, null=True)
     order = models.IntegerField(blank=True, null=True)
     # auto: kolejność w planie.
     crop = models.ForeignKey(
-     'Crop',related_name='+', on_delete=models.SET_NULL, blank=True, null=True)
+     'Crop',related_name='crop_main_set', on_delete=models.SET_NULL, blank=True, null=True)
     # Z listy: plon główny
     co_crop = models.ForeignKey(
-     'Crop',related_name='+', on_delete=models.SET_NULL, blank=True, null=True)
+     'Crop',related_name='co_crop_set', on_delete=models.SET_NULL, blank=True, null=True)
     # Z listy: Wsiewka / uprawa współrzędna
     after_crop = models.ForeignKey(
-     'Crop',related_name='+', on_delete=models.SET_NULL, blank=True, null=True)
+     'Crop',related_name='after_crop_set', on_delete=models.SET_NULL, blank=True, null=True)
     # Międzyplon typu "poplon"
     after_crop_mix = models.ForeignKey(
-     'CropMix',related_name='+', on_delete=models.SET_NULL, blank=True, null=True)
+     'CropMix',related_name='crop_mix_set', on_delete=models.SET_NULL, blank=True, null=True)
     #
     is_ac_main = models.BooleanField(default=False)
     # Czy poplon jest rośliną ozimą z plonu głównego, którą zamierzamy zebrać
