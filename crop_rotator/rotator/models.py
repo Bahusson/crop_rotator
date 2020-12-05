@@ -27,6 +27,7 @@ class CropFamily(models.Model):
     WORSENS = 2
     NEUTRAL = 3
     AGRICULTURE_STATUS = (
+    (N_A, 'Nie Dotyczy'),
     (BETTERS, "Poprawia Jakość Gleby"),
     (WORSENS, "Pogarsza Jakość Gleby"),
     (NEUTRAL, "Neutralna Dla Jakości Gleby"),
@@ -43,7 +44,9 @@ class CropFamily(models.Model):
     culture_manured = models.PositiveSmallIntegerField(
                 choices=AGRICULTURE_STATUS, default=0)
     # W jakiej kulturze zostawia po użyciu wraz z obornikiem?
-
+    class Meta:
+        ordering = ['-name']
+        verbose_name_plural = 'Crop Families'
 
 # Nie dla usera - model plonu/poplonu/międzyplonu
 class Crop(models.Model):
@@ -90,6 +93,7 @@ class CropMix(models.Model):
 
     class Meta:
         ordering = ['-name']
+        verbose_name_plural = 'Crop Mixes'
 
     def __str__(self):
         return self.name
@@ -130,6 +134,7 @@ class RotationStep(models.Model):
 
     class Meta:
         ordering = ['-from_plan', 'order']
+        verbose_name_plural = 'Rotation Steps'
 
     def __str__(self):
         return self.title
