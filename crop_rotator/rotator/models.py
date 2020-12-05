@@ -45,16 +45,24 @@ class CropFamily(models.Model):
     culture = models.PositiveSmallIntegerField(
                 choices=AGRICULTURE_STATUS, default=3)
     # W jakim stanie zostawia glebę po sobie.
-    cooldown = models.IntegerField(blank=True, null=True)
-    # Ile lat nie wolno uprawiać po sobie.
+    cooldown_min = models.IntegerField(blank=True, null=True)
+    # Ile lat nie wolno uprawiać po sobie minimum.
+    cooldown_max = models.IntegerField(blank=True, null=True)
+    # Ile lat nie wolno uprawiać po sobie maximum.
     is_manurable = models.BooleanField(default=False)
     # Czy wolno nawozić obornikiem i czy to poprawia kulturę gleby?
     culture_manured = models.PositiveSmallIntegerField(
                 choices=AGRICULTURE_STATUS, default=0)
     # W jakiej kulturze zostawia po użyciu wraz z obornikiem?
+    is_mandatory_crop = models.BooleanField(default=False)
+    # Czy musi występować w płodozmianie? (Bo trzeba wyróżnić Bobowate)
+
     class Meta:
-        ordering = ['-name']
+        ordering = ['name']
         verbose_name_plural = 'Crop Families'
+
+    def __str__(self):
+        return self.name
 
 # Nie dla usera - model plonu/poplonu/międzyplonu
 class Crop(models.Model):
@@ -68,6 +76,7 @@ class Crop(models.Model):
     (WORSENS, "Pogarsza Jakość Gleby"),
     (NEUTRAL, "Neutralna Dla Jakości Gleby"),
     )
+    # Rozważ dodanie zajmowanego piętra w mieszance.
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to='images', blank=True, null=True)
@@ -76,18 +85,23 @@ class Crop(models.Model):
      'CropFamily', on_delete=models.SET_NULL, blank=True, null=True)
     culture_override = models.PositiveSmallIntegerField(
                 choices=AGRICULTURE_STATUS, default=0)
-    cooldown_override = models.IntegerField(blank=True, null=True)
+    cooldown_min_override = models.IntegerField(blank=True, null=True)
+    cooldown_max_override = models.IntegerField(blank=True, null=True)
     is_summercrop = models.BooleanField(default=False)
     # Czy jest rośliną jarą niszczoną przez przymrozek?
+    # Szczególnie istotne przy bobowatych dla triku wsiewka-main_crop.
     allelopatic_to = models.ManyToManyField('Crop', blank=True)
     # Wiemy, że nie pozwala po sobie uprawiać tych rzeczy,
     # ze względów allelopatycznych
     is_demanding = models.BooleanField(default=False)
     # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
-
+    is_deep_roots = models.BooleanField(default=False)
+    # Czy ma głęboki system korzeniowy?
+    is_leaves_mess = models.BooleanField(default=False)
+    # Czy zostawia dużo resztek pożniwnych?
 
     class Meta:
-        ordering = ['-name']
+        ordering = ['family', 'name']
 
     def __str__(self):
         return self.name
@@ -102,7 +116,7 @@ class CropMix(models.Model):
     ingredients = models.ManyToManyField('Crop', blank=True)
 
     class Meta:
-        ordering = ['-name']
+        ordering = ['name']
         verbose_name_plural = 'Crop Mixes'
 
     def __str__(self):
