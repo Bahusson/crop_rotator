@@ -77,6 +77,16 @@ class Crop(models.Model):
     (NEUTRAL, "Neutralna Dla Jakości Gleby"),
     )
     # Rozważ dodanie zajmowanego piętra w mieszance.
+    N_A = 0
+    LOWER = 1
+    MIDDLE = 2
+    TOP = 3
+    MIX_LEVEL = (
+    (N_A, "Nieznane"),
+    (LOWER, "Niższe"),
+    (MIDDLE, "Średnie"),
+    (TOP, "Wyższe"),
+    )
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to='images', blank=True, null=True)
@@ -99,7 +109,9 @@ class Crop(models.Model):
     # Czy ma głęboki system korzeniowy?
     is_leaves_mess = models.BooleanField(default=False)
     # Czy zostawia dużo resztek pożniwnych?
-
+    takes_mix_level = models.PositiveSmallIntegerField(
+        choices=MIX_LEVEL, default=0)
+ 
     class Meta:
         ordering = ['family', 'name']
 
