@@ -79,12 +79,16 @@ class Crop(models.Model):
     # Rozważ dodanie zajmowanego piętra w mieszance.
     N_A = 0
     LOWER = 1
-    MIDDLE = 2
-    TOP = 3
+    LOWER_MIDDLE = 2
+    MIDDLE = 3
+    MIDDLE_TOP = 4
+    TOP = 5
     MIX_LEVEL = (
     (N_A, "Nieznane"),
     (LOWER, "Niższe"),
+    (LOWER_MIDDLE, "Niższe-Średnie"),
     (MIDDLE, "Średnie"),
+    (MIDDLE_TOP, "Średnie-Wyższe"),
     (TOP, "Wyższe"),
     )
     name = models.CharField(max_length=150)
@@ -100,7 +104,8 @@ class Crop(models.Model):
     is_summercrop = models.BooleanField(default=False)
     # Czy jest rośliną jarą niszczoną przez przymrozek?
     # Szczególnie istotne przy bobowatych dla triku wsiewka-main_crop.
-    allelopatic_to = models.ManyToManyField('Crop', blank=True)
+    allelopatic_to = models.ManyToManyField(
+        'Crop', related_name="known_antagonisms", blank=True)
     # Wiemy, że nie pozwala po sobie uprawiać tych rzeczy,
     # ze względów allelopatycznych
     is_demanding = models.BooleanField(default=False)
@@ -111,7 +116,11 @@ class Crop(models.Model):
     # Czy zostawia dużo resztek pożniwnych?
     takes_mix_level = models.PositiveSmallIntegerField(
         choices=MIX_LEVEL, default=0)
- 
+    synergic_to = models.ManyToManyField(
+        'Crop', related_name="known_synergies", blank=True)
+    # Znane synergie w uprawie współrzędnej.
+
+
     class Meta:
         ordering = ['family', 'name']
 
