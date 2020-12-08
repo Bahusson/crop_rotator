@@ -120,6 +120,10 @@ class Crop(models.Model):
     # Szczególnie istotne przy bobowatych dla triku wsiewka-main_crop.
     allelopatic_to = models.ManyToManyField(
         'Crop', related_name="known_antagonisms", blank=True)
+    allelopatic_to_family = models.ManyToManyField(
+        'CropFamily', related_name="known_antagonisms_family", blank=True)
+    allelopatic_to_tag = models.ManyToManyField(
+        'CropTag', related_name="known_antagonisms_tag", blank=True)
     # Wiemy, że nie pozwala po sobie uprawiać tych rzeczy,
     # ze względów allelopatycznych
     is_demanding = models.BooleanField(default=False)
@@ -132,6 +136,10 @@ class Crop(models.Model):
         choices=MIX_LEVEL, default=0)
     synergic_to = models.ManyToManyField(
         'Crop', related_name="known_synergies", blank=True)
+    synergic_to_family = models.ManyToManyField(
+        'CropFamily', related_name="known_synergies_family", blank=True)
+    synergic_to_tag = models.ManyToManyField(
+        'CropTag', related_name="known_synergies_tag", blank=True)
     # Znane synergie w uprawie współrzędnej.
     tags = models.ManyToManyField(
         'CropTag', related_name="special_tags", blank=True)
