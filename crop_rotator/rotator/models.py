@@ -64,6 +64,20 @@ class CropFamily(models.Model):
     def __str__(self):
         return self.name
 
+
+# Rodzaj plonu ze względów praktycznych np. "okopowe" - taki dodatkowy tag.
+class CropTag(models.Model):
+    name = models.CharField(max_length=150)
+    descr = models.CharField(max_length=500, blank=True, null=True)
+    image = models.ImageField(upload_to='images', blank=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
 # Nie dla usera - model plonu/poplonu/międzyplonu
 class Crop(models.Model):
     AS_FAMILY = 0
@@ -119,7 +133,9 @@ class Crop(models.Model):
     synergic_to = models.ManyToManyField(
         'Crop', related_name="known_synergies", blank=True)
     # Znane synergie w uprawie współrzędnej.
-
+    tags = models.ManyToManyField(
+        'CropTag', related_name="special_tags", blank=True)
+    # dodatkowe cechy plonu wyrażone w tagach.
 
     class Meta:
         ordering = ['family', 'name']
