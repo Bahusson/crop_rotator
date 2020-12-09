@@ -144,6 +144,10 @@ class Crop(models.Model):
     tags = models.ManyToManyField(
         'CropTag', related_name="special_tags", blank=True)
     # dodatkowe cechy plonu wyrażone w tagach.
+    seed_norm_min = models.IntegerField(blank=True, null=True)
+    # minimalna norma wysiewu w kg/ha
+    seed_norm_max = models.IntegerField(blank=True, null=True)
+    # maksymalna norma wysiewu w kg/ha
 
     class Meta:
         ordering = ['family', 'name']
