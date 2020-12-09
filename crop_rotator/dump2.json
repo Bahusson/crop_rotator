@@ -149,6 +149,69 @@
   }
 },
 {
+  "model": "rotator.croptag",
+  "pk": 2,
+  "fields": {
+    "name": "Miododajne",
+    "descr": "Roślina miododajna - przyciąga owady zapylające.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 3,
+  "fields": {
+    "name": "Pastewne",
+    "descr": "Nadają się dobrze na karmę dla zwierząt",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 4,
+  "fields": {
+    "name": "Szkodliwe",
+    "descr": "Należy zachować ostrożność przy karmieniu zwierząt.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 5,
+  "fields": {
+    "name": "Konkurencyjna",
+    "descr": "Roślina konkurencyjna - potrafi zagłuszyć m.in chwasty",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 6,
+  "fields": {
+    "name": "Samosiejka",
+    "descr": "Roślina w klimacie polski wydaje nasiona i łatwo sama się rozsiewa - to zachowanie może być pożądane lub nie.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 7,
+  "fields": {
+    "name": "Wytrzymała na suszę",
+    "descr": "Roślina dobrze znosi suszę",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 8,
+  "fields": {
+    "name": "Wieloletnie",
+    "descr": "Roślina wieloletnia. Może pozostać na polu dłużej lub być składnikiem np. trwałego użytku zielonego. Na ogół trudna do zniszczenia.",
+    "image": ""
+  }
+},
+{
   "model": "rotator.crop",
   "pk": 1,
   "fields": {
@@ -171,7 +234,12 @@
     "synergic_to": [],
     "synergic_to_family": [],
     "synergic_to_tag": [],
-    "tags": []
+    "tags": [
+      2,
+      3,
+      8,
+      7
+    ]
   }
 },
 {
@@ -696,25 +764,31 @@
   "pk": 23,
   "fields": {
     "name": "Koniczyna krwistoczerwona",
-    "descr": null,
+    "descr": "Trifolium incarnatum, koniczyna szkarłatna, inkarnatka",
     "image": "",
     "pubdate": null,
     "family": 4,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_summercrop": false,
     "is_demanding": false,
-    "is_deep_roots": false,
+    "is_deep_roots": true,
     "is_leaves_mess": false,
-    "takes_mix_level": 0,
+    "takes_mix_level": 1,
     "allelopatic_to": [],
     "allelopatic_to_family": [],
     "allelopatic_to_tag": [],
-    "synergic_to": [],
+    "synergic_to": [
+      18,
+      22
+    ],
     "synergic_to_family": [],
     "synergic_to_tag": [],
-    "tags": []
+    "tags": [
+      2,
+      3
+    ]
   }
 },
 {
@@ -1192,6 +1266,211 @@
     ],
     "synergic_to_tag": [],
     "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 41,
+  "fields": {
+    "name": "Lędźwian Siewny",
+    "descr": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 42,
+  "fields": {
+    "name": "Kozieradka pospolita",
+    "descr": "Trigonella foenum-kraecum, kozieradka lekarska",
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      6,
+      7
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 43,
+  "fields": {
+    "name": "Koniczyna Aleksandryjska",
+    "descr": "Trifolium alexandrinum",
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": true,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [
+      1
+    ],
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 44,
+  "fields": {
+    "name": "Koniczyna perska",
+    "descr": "Trifolium resupinatum",
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 45,
+  "fields": {
+    "name": "Koniczyna michaela",
+    "descr": "Trifolium michelianum, bardziej odporna na suszę niż koniczyna krwistoczerwona",
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 46,
+  "fields": {
+    "name": "Koniczyna podziemna",
+    "descr": "Trifolium subterraneum",
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      3,
+      6,
+      4
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 47,
+  "fields": {
+    "name": "Koniczyna biała",
+    "descr": "Trifolium rapens",
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2,
+      7
+    ]
   }
 }
 ]
