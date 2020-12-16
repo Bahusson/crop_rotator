@@ -3,7 +3,7 @@ from django.contrib.auth.models import User  # Zaimportuj uproszczony model user
 from .models import (PageSkin as S,  PageNames as P, RegNames, AboutPageNames)
 from rotator.models import (RotationPlan)
 from crop_rotator.settings import LANGUAGES as L
-from meetap.core.classes import (PageElement as pe, PageLoad)
+from core.classes import (PageElement as pe, PageLoad)
 
 
 # Widok strony domowej.

@@ -1,6 +1,6 @@
 from modeltranslation.translator import translator, TranslationOptions
 from strona.models import (PageNames, RegNames, AboutPageNames)
-from crop_rotator.core.snippets import all_names
+from core.snippets import all_names
 
 
 class PageNamesTranslate(TranslationOptions):

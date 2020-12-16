@@ -54,4 +54,4 @@ class AboutPageNames (models.Model):
     login_to_see = models.CharField(max_length=200)  # zaloguj się by przeglądać
 
     class Meta:
-        verbose_name_plural = 'Registry Names'
+        verbose_name_plural = 'About Page Names'
