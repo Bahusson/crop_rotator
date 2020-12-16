@@ -25,12 +25,12 @@ def about(request):
      }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
-     skins=S)
+     skins=S, context=context)
     template = 'strona/about.html'
     return render(request, template, context_lazy)
 
 
-# Widok wszystkich płodozmianów - W_I_P, ale właściwie to tak zostanie. ;)
+# Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
     context = {
      'rotation_plans': RotationPlan,
@@ -39,4 +39,16 @@ def allplans(request):
     context_lazy = pl.lazy_context(
      skins=S, context=context)
     template = 'strona/allplans.html'
+    return render(request, template, context_lazy)
+
+
+# Widok pojedynczego płodozmianu - W_I_P.
+def plan(request, plan_id):
+    context = {
+     'plan': RotationPlan,
+     }
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(
+     skins=S, context=context)
+    template = 'strona/plan.html'
     return render(request, template, context_lazy)
