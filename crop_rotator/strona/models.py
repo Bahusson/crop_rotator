@@ -27,6 +27,7 @@ class RegNames(models.Model):
     class Meta:
         verbose_name_plural = 'Registry Names'
 
+
 # Klasa skórek do naszej apki. Pola nienulowalne.
 class PageSkin(models.Model):
     themetitle = models.CharField(max_length=200)
