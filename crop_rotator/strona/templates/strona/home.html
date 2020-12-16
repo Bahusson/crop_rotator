@@ -14,8 +14,6 @@
 {% for plan in rotation_plans|slice:":3" %}
 <!-- Iterator aktualności 1-3 -->
 {% if plan %}
-
-
 <div class="col-md-3 shdwn">
     <div class="col">
         <a href="{% url 'plan' plan.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>

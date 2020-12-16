@@ -18,7 +18,7 @@ def home(request):
     return render(request, template, context_lazy)
 
 
-# Widok "O programie" - W_I_P, do zmiany?
+# Widok "O programie"
 def about(request):
     context = {
      'about_us': AboutPageNames,
@@ -26,7 +26,7 @@ def about(request):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
      skins=S)
-    template = 'strona/home.html'
+    template = 'strona/about.html'
     return render(request, template, context_lazy)
 
 
@@ -38,5 +38,5 @@ def allplans(request):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
      skins=S, context=context)
-    template = 'strona/home.html'
+    template = 'strona/allplans.html'
     return render(request, template, context_lazy)
