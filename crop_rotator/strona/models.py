@@ -15,7 +15,7 @@ class PageNames(models.Model):
     editme = models.CharField(max_length=200)  # edytuj
 
     class Meta:
-        verbose_name_plural = 'PageNames'
+        verbose_name_plural = 'Page Names'
 
 
 # Klasa tłumaczeniowa dla Login/Register i myprofile.
@@ -32,7 +32,7 @@ class RegNames(models.Model):
 class PageSkin(models.Model):
     themetitle = models.CharField(max_length=200)
     position = models.IntegerField()
-    blogimagedefault = models.ImageField(
+    planimagedefault = models.ImageField(
      upload_to='skins', blank=True, null=True)
     rotatorlogo_main = models.ImageField(
      upload_to='skins', blank=True, null=True)
@@ -43,3 +43,15 @@ class PageSkin(models.Model):
 
     def __str__(self):
         return self.themetitle
+
+
+# klasa tłumaczeniowa dla strony "o projekcie"
+class AboutPageNames (models.Model):
+    about_project = models.TextField()  # Pole tekstowe dla strony about.
+    send_email = models.CharField(max_length=200)  # Wyślij email
+    gitter = models.CharField(max_length=200)  # Adres gittera
+    github = models.CharField(max_length=200)  # Adres github
+    login_to_see = models.CharField(max_length=200)  # zaloguj się by przeglądać
+
+    class Meta:
+        verbose_name_plural = 'Registry Names'

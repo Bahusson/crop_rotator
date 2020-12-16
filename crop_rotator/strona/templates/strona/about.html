@@ -1,0 +1,31 @@
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">{{ items.contact }}</h1>
+      <br>
+       <div class="row featurette">
+        <div class="col-md-4">
+          <img src="{{ skin.planimagedefault.url }}" height="300" />
+        </div>
+        <div class="col-md-8">
+        <p class="lead text-muted">{{ about_us.about_project|linebreaksbr }}</p>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="row featurette">
+        <div class="col-md-4">
+          <a href="mailto:jakub.kozdrowicz@gmail.com" class="btn btn-secondary my-3">{{ about_us.send_email }}</a>
+        </div>
+        <div class="col-md-4">
+        <a href="{{ items.gitter_link }}" class="btn btn-primary my-3">{{ about_us.gitter }}</a>
+        </div>
+        <div class="col-md-4">
+          <a href="{{ items.git_link }}" class="btn btn-secondary my-3">{{ about_us.github }}</a>
+        </div>
+      </div>
+      {% else %}
+        <a href="{% url 'logger' %}" class="btn btn-secondary my-3">{{ about_us.login_to_see }}</a>
+      {% endif %}
+    </div>
+  </section>
+</main>
