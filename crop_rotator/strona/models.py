@@ -33,10 +33,6 @@ class PageSkin(models.Model):
     position = models.IntegerField()
     blogimagedefault = models.ImageField(
      upload_to='skins', blank=True, null=True)
-    welcomebanner = models.ImageField(
-     upload_to='skins', blank=True, null=True)
-    welcomebanner_small = models.ImageField(
-     upload_to='skins', blank=True, null=True)
     rotatorlogo_main = models.ImageField(
      upload_to='skins', blank=True, null=True)
 

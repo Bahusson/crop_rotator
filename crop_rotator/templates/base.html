@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% block title %}
+     <title>{{ items.headtitle }}</title>
+    {% endblock %}
+    <link href="{% static 'assets/css/fontawesome.css' %}" rel="stylesheet">
+    <!-- Bootstrap core CSS - możemy sami ładować bootstrap z serwera ale to bardziej obciąży naszego klienta imo -->
+    <link href="{% static 'assets/css/bootstrap_4_3_1.css' %}" rel="stylesheet">
+    <!-- Dodatkowy CSS idzie do podmianki jak ustalimy dokładnie co ma być w stylach
+    Ogólnie Bootstrap, ale inne kolorki itp... -->
+    <link href="{% static 'langucss.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/forms.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/maps.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/side.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/blog.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/panels.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/cookiealert.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet">
+    {% block css %}
+    {% endblock %}
+    {% block css2 %}
+    {% endblock %}
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}"> <img src="{{ skin.meetaplogo_main.url }}"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active ">
+            <a class="nav-link " href="{% url 'home' %}">{{ items.mainpage }}<span class="sr-only">(current)</span></a>
+          </li>
+        <li>
+        <button class="btn btn-light my-2 my-sm-0 ">
+            {% if user.is_authenticated %}
+              <a class="btn btn-link-3 btn-light head-foot" href="{% url 'logout' %}">{{ items.logout }}</a>
+            {% else %}
+              <a class="btn btn-link-3 btn-light" href="{% url 'logger' %}">{{ items.login }}</a>
+            {% endif %}
+        </li>
+
+        </ul>
+        <!-- NAVBAR MENU ZMIANY JEZYKA -->
+        <div class="langmenu float-center">
+        <li class="nav-item dropdown list-unstyled">
+            <ul class="languagepicker roundborders large">
+                <li ><img src="{{ items.lang_flag.url }}" height="20" width="35" /></li>
+                <li>
+                  {% for lang_id, lang_flag in langs %}
+                   <img id="{{ lang_id }}" src="/media/{{ lang_flag }}" height="20" width="35" />
+                  {% endfor %}
+                </li>
+            </ul>
+        </li>
+</div>
+        <!-- KONIEC MENU ZMIANY JEZYKA -->
+
+      </div>
+    </nav>
+    <!-- KONIEC NAVBARU -->
+
+   {% block aside %} <!--Ten blok wyświetli się tylko w panelach Akademika-->
+
+    <main role="main" class="container">
+      <div class="row nopadding ">
+
+        <aside class="col-md-4 blog-sidebar nopadding"> <!-- Start bocznego menu -->
+          <br>
+      {% block menu %} <!--Ten blok wyświetli się tylko w panelach Akademika-->
+      {% endblock menu %}
+
+        </aside><!-- Koniec bocznego menu -->
+
+        <div class="col-md-8 blog-main blog-body">
+          <br>
+          <!-- Wydzielenie głównej przestrzeni od paska menu -->
+      {% block body %} <!--Ten blok jest wspólny dla Strony i dla Akademika-->
+      {% endblock body %}
+      <br>
+        </div><!-- Koniec głównej przestrzeni -->
+      </div>
+    </main><!-- end container -->
+  {% endblock aside %}
+
+  {% block body2 %}
+  {% endblock body2 %}
+
+    <!-- START Bootstrap-Cookie-Alert -->
+    <div class="alert text-center cookiealert" role="alert">
+        <b>Lubisz ciasteczka?</b> &#x1F36A; Ten serwis wykorzystuje pliki cookies. Korzystanie z witryny oznacza zgodę na ich zapis lub odczyt wg ustawień przeglądarki.
+        <a href="" target="_blank">Dowiedz się więcej</a>
+        <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">Zgadzam się!</button>
+    </div>
+    <!-- END Bootstrap-Cookie-Alert -->
+
+    <!-- Footer -->
+    <div class="mt-5 pt-5 pb-5 footer nopadding">
+        <div class="container">
+            <div class="row nopadding">
+                <!-- pusty DIV -->
+                <div class="col-lg-5 col-xs-12"></div>
+                <!-- koniec pusty DIV -->
+                <div class="col-lg-3 col-xs-12 head-foot">
+                  <br>
+                    <p class="head-foot"><a href="{% url 'home' %}">{{ items.mainpage }}</a></p>
+                </div>
+                <div class="col-lg-4 col-xs-12 location head-foot2 nopadding">
+                  <br>
+                    <!--<p><i class="fa fa-address-card mr-3"></i>...</p>
+                    <p><i class="fa fa-phone mr-3"></i>...</p>-->
+                    {% if user.is_authenticated %}
+                    <p><i class="fa fa-envelope mr-3"></i>jakub.kozdrowicz@gmail.com</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mt-5 nopadding">
+                <div class="col copyright">
+                    <p class="author"><small class="text-white-50">&copy; Jakub Kozdrowicz {% now "Y" %}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--KONIEC Footera -->
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'assets/js/cookiealert.js' %}"></script>
+    {% if service %}
+    <!--nULL-->
+    {% else %}
+    <script src="{% static 'assets/js/jquery_3_3_1.js' %}"></script>
+    {% endif %}
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/retina-1.1.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+    <!--My Javascript-->
+    <script src="{% static 'langjs.js' %}"></script>
+    <script src="{% static 'assets/js/popper_min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap_4_3_1.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+    {% block scripts2 %}
+    {% endblock %}
+
+</body>
+
+</html>
