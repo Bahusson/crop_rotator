@@ -22,13 +22,15 @@
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
               {{ step.title }}
-              {{ step.descr }}
+              {% if step.descr %}
+              <p>{{ step.descr }}</p>
+              {% endif %}
               {% if step.add_manure %}
                <p>Mały obrazek świadczący o tym, że <b>nawóz</b> dodano do tego kroku.</p>
                <p>Do tego onhover z informacją w dwóch językach, że chodzi o nawóz.</p>
               {% endif %}
               <h4>Plon wczesny/główny/ozimy z roku ubiegłego:</h4>
-              {% for crop in step.early_crop %}
+              {% for crop in step.early_crop.all %}
               <p>{{ crop.name }}</p>
                             <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
@@ -36,7 +38,7 @@
 
               {% if step.late_crop %}
               <h4>Plon ozimy/międzyplon:</h4>
-              {% for crop in step.late_crop %}
+              {% for crop in step.late_crop.all %}
               <p>{{ crop.name }}</p>
                             <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}

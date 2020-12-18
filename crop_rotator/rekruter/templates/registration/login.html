@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
+{% block aside %}
+<!-- Null -->
+{% block body %}
+
+    <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container">
+            {% if next %}
+             <p>Ta strona jest niedostępna bez logowania.</p>
+            {% endif %}
+
+          <form method="post" action="{% url 'logger' %}">
+            {% csrf_token %}
+
+            <p>{{ item.email }}: {{ form.username }} </p>
+            <p>{{ item.password }}: {{ form.password }} </p>
+
+            <input class="btn btn-primary my-2" type="submit" value="{{ items.login }}">
+            <input type="hidden" name="next" value="{{ next }}">
+            <a class="btn btn-secondary my-2" href="{% url 'register' %}">{{ items.register }}</a>
+          </form>
+        </div>
+      </section>
+    </main>
+    {% endblock body%}
+    {% endblock aside %}
+
+    {% block scripts %}
+    {% endblock %}
+
+    {% block scripts2 %}
+    {% endblock %}

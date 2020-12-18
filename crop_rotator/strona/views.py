@@ -9,8 +9,9 @@ from core.snippets import booleanate as bot, flare
 
 # Widok strony domowej.
 def home(request):
+    pe_rp = pe(RotationPlan).allelements
     context = {
-     'rotation_plans': RotationPlan,
+     'rotation_plans': pe_rp,
      }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
@@ -21,8 +22,9 @@ def home(request):
 
 # Widok "O programie"
 def about(request):
+    pe_apn = pe(AboutPageNames).baseattrs
     context = {
-     'about_us': AboutPageNames,
+     'about_us': pe_apn,
      }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
@@ -33,8 +35,9 @@ def about(request):
 
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
+    pe_rp = pe(RotationPlan).allelements
     context = {
-     'rotation_plans': RotationPlan,
+     'rotation_plans': pe_rp,
      }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
@@ -47,23 +50,23 @@ def allplans(request):
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    userdata = User.objects.get(
-     id=request.user.id)
-    user_id = userdata.id
-    flare(user_id)
-    owner_id = pe_rp_id.owner.id
-    flare(owner_id)
-    if user_id == owner_id:
-        flare("True_af")
-        pass
-    else:
-        flare("False_af")
-        pass
+    #userdata = User.objects.get(
+    # id=request.user.id)
+    #user_id = userdata.id
+    #flare(user_id)
+    #owner_id = pe_rp_id.owner.id
+    #flare(owner_id)
+    #if user_id == owner_id:
+    #    flare("True_af")
+    #    pass
+    #else:
+    #    flare("False_af")
+    #    pass
         # return redirect('logger')
     # Zrób jeśli user jest właścicielem, żeby mógł robić zmiany.
-    pe_rs = RotationStep.objects.filter(from_event=plan_id)
+    pe_rs = RotationStep.objects.filter(from_plan=plan_id)
     context = {
-     'plan': RotationPlan,
+     'plan': pe_rp_id,
      'steps': pe_rs,
      }
     pl = PageLoad(P, L)

@@ -1,0 +1,16 @@
+<!-- Działa pod warunkiem, że umieścisz to w skryptach,
+oraz zgadzają się nazwy zmiennych daty -->
+<!-- XDSoft DateTimePicker -->
+{% load static %}
+
+<link href="{% static 'assets/css/dtpicker.css' %}" rel="stylesheet">
+<script src="{% static 'assets/js/dtpicker.js' %}"></script>
+
+<script>
+  $(function () {
+    $("#id_age").datetimepicker({
+      timepicker:false,
+      format:'d.m.Y'
+    });
+  });
+</script>
