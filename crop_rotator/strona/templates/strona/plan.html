@@ -30,19 +30,15 @@
               <h4>Plon wczesny/główny/ozimy z roku ubiegłego:</h4>
               {% for crop in step.early_crop %}
               <p>{{ crop.name }}</p>
+                            <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
-              <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
-              {% if step.middle_crop %}
-              <h4>Międzyplon/plon późny/jary:</h4>
-              {% for crop in step.middle_crop %}
-              <p>{{ crop.name }}</p>
-              {% endfor %}
-              {% endif %}
+
 
               {% if step.late_crop %}
               <h4>Plon ozimy/międzyplon:</h4>
               {% for crop in step.late_crop %}
               <p>{{ crop.name }}</p>
+                            <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
               {% endif %}
             {% endfor %}

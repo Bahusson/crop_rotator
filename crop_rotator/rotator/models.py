@@ -185,9 +185,6 @@ class RotationStep(models.Model):
     early_crop = models.ManyToManyField(
      'Crop', related_name='crop_early_set', blank=True)
     # Z listy: plon główny
-    middle_crop = models.ManyToManyFiel(
-     'Crop', related_name='crop_middle_set', blank=True)
-    # Z listy: Wsiewka / uprawa współrzędna
     late_crop = models.ManyToManyField(
      'Crop', related_name='crop_late_set', blank=True)
     # Międzyplon typu "poplon"
