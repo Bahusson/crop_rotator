@@ -1,0 +1,48 @@
+*
+
+/*Rozwijane Menu z Flagami*/
+#level_one ul.level_two
+{
+    display: none;
+}
+#level_one li:hover .level_two
+{
+    display: block;
+    width: 40px;
+}
+#level_one li .level_two li
+{
+    width: 40px;
+    text-align: left;
+}
+#level_one li
+{
+    position: relative;
+}
+#level_one li .level_two
+{
+    position: absolute;
+    left: -1cm;
+    z-index: 1
+}
+#level_one > li
+{
+    height: 32px;
+}
+#level_one li .level_two li a
+{
+    display: block;
+    width: 25px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    overflow: hidden;
+
+}
+polska. {
+  display: inline-flex;
+  width: 25px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  overflow: hidden;
+
+}

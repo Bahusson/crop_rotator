@@ -1,0 +1,42 @@
+.mapsite {
+  border: 1px;
+  background: #333333;
+  color: #ffffff;
+  border-radius: 20px;
+}
+.maphead {
+  font: "Roboto";
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  background: #e98328;
+  width:100%;
+
+  border-radius: 0px 00px 0px 0px;
+
+}
+.mapsiteinfo {
+  border-radius: 0px 0px 0px 0px;
+  border-left: 1px;
+  border-right: 1px;
+
+}
+
+.mapsitepliki {
+  border-radius: 00px 0px 0px 0px;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: #e98328;
+
+}
+
+.maplist {
+  list-style-type: none;
+}
+
+.maplink {
+  text-transform: uppercase;
+  color: #ffffff;
+}

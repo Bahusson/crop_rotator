@@ -1,0 +1,213 @@
+.maintitle {
+  font: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 0px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration-style: solid;
+  text-align: center;
+  background: rgba(255,146,10,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,146,10,1)), color-stop(100%, rgba(255,175,75,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff920a', endColorstr='#ffaf4b', GradientType=1 );
+  width:auto;
+
+}
+.wnioski {
+  font: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+.wnioski2{
+  color: black;
+  font: 'Ubuntu', sans-serif;
+  font-size: 16px;
+}
+.allbutton {
+  font: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  margin-left: 5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.upraw {
+  font: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-left: 3px;
+  color: #ffffff;
+}
+.panelo {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #333333;
+}
+.panelo2 {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  background: #333333;
+}
+.wnios {
+  border-left: 1px;
+  border-right: 1px;
+}
+.sort {
+  text-align: right;
+  margin-top: 10px;
+}
+.sort2 {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.sort3 {
+  text-align: center;
+  margin-top: 5px;
+}
+.sort4 {
+  text-align: right;
+  margin-left: 5px;
+}
+.linkname {
+  font: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.formula {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.sort2 {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.sort3 {
+  text-align: right;
+  margin-top: 5px;
+}
+.formula2 {
+  margin-left: 0px;
+  margin-right: 5px;
+}
+.formula3 {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.wnioski {
+  text-align: center;
+
+}
+@media screen and (max-width: 600px) {
+  .wnioski {
+    font: 'Ubuntu', sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    margin-right: 3px;
+    text-align: center;
+}
+  .assign {
+  text-align: left;
+}
+  .smolik {
+  text-align: justify;
+  color: #ffffff;
+}
+}
+.allparty {
+  background: #c1c1c1;
+  color: #ffffff;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.alltext {
+  color: black;
+}
+
+.alerto {
+  text-transform: uppercase;
+}
+
+.czeko {
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 3px;
+  color: black;
+}
+.czeko2{
+  margin-left: 20px;
+  text-transform: uppercase;
+  color: black;
+}
+
+.mydatass {
+  background: #d6d6d6;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 10px;
+
+}
+
+.nopaddingoo {
+   padding: 0 !important;
+   margin: 10px;
+   border-radius: 10px;
+}
+
+.tabelo {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  background: #333333;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tabtxt {
+  background-color: white;
+  border-radius: 3px;
+  color: black;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight: normal;
+}
+
+.tabelo2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  background: #333333;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+.linkname2 {
+  color: #ffffff;
+}

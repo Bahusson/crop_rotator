@@ -1,0 +1,26 @@
+.title {
+  font: 'Ubuntu', sans-serif;
+}
+
+.blogtitle {
+  font: 'Ubuntu', sans-serif;
+  font-size: 12px;
+}
+
+.allimg {
+  width: auto;
+}
+
+@media screen and (max-width: 600px) {
+.allimg {
+    width: 400px;
+  }
+.kol {
+  margin-left:2px;
+  margin-right: 2px;
+}
+.title{
+  font-size: 28px;
+
+}
+}

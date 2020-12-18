@@ -1,0 +1,161 @@
+/*****OGÓLNE********/
+.box {
+  background-color: #333333;
+  padding: 10px;
+  border-radius: 0px 0px 0px;
+  width: 100%;
+}
+.card-header {
+  font: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration-style: solid;
+  text-align: center;
+  background: rgba(255,146,10,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,146,10,1)), color-stop(100%, rgba(255,175,75,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff920a', endColorstr='#ffaf4b', GradientType=1 );
+
+  width:auto;
+
+}
+/*****DANE OSOBOWE userdata1.html***/
+.cardio {
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 0px;
+  background: #333333;
+}
+.bolder {
+  font: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 1px;
+  text-align: left;
+}
+.bolder2 {
+  font: 'Ubuntu', sans-serif;
+  font-weight: lighter;
+  color: black;
+  background: #ffffff;
+  padding: 2px 5px 2px 5px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.boldererror {
+  font: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: white;
+  background: #333333;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 5px;
+}
+/****PREFERENCJE sh_preferences.html*******/
+ .pref {
+   font:'Ubuntu', sans-serif;
+   font-size: 13px;
+   color: white;
+}
+ .badge {
+   text-transform: uppercase;
+ }
+
+/****Składam preferencje jako student wydziału faculty_data.html*****/
+.pref2 {
+  font:'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+.numb {
+  width: 40%;
+}
+
+.dziek {
+  font-size: 13px;
+  color: #ffffff;
+}
+/*******Dodatkowe informacje extra_info.html**********/
+.extras {
+  font: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+.plus {
+  width: 100%;
+}
+/********agreements.html*************/
+.agree {
+  font: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+.plus {
+  width: 100%;
+}
+
+/****** formmap.html ******/
+.butt {
+  font: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: black;
+  text-transform: uppercase;
+}
+
+.buttonsend{
+  background-color:#333333;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 15px 32px;
+  border-radius: 10px;
+}
+.buttonsend2{
+  background-color:#333333;
+  color: #ffffff;
+  align-self: flex-end;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 15px 32px;
+  border-radius: 10px;
+}
+
+.fonteo {
+  font: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+.fonteo2 {
+  font: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 2px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.bloczek {
+  align-items: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
