@@ -8,12 +8,13 @@ var domain = "127.0.0.1" // Tu zmień domenę z localhost albo podepnij to jako�
 
 function setCookie(cvalue)
 {
-  document.cookie = "esks_language = " + cvalue + ";domain=" + domain + ";path=/";
+  document.cookie = "rotator_language = " + cvalue + ";domain=" + domain + ";path=/";
   location.reload();
 }
 
 $(document).ready(function()
 {
+  alert("alert kurwa!");
   $('#lang_flag_pl').click(function() // Ustaw Język Polski
  {
    setCookie("pl")
@@ -24,33 +25,4 @@ $(document).ready(function()
     setCookie("en")
   });
 
-  $('#lang_flag_de').click(function() // Ustaw Język Niemiecki
- {
-   setCookie("de")
-  });
-
-  $('#lang_flag_fr').click(function() // Ustaw Język Francuski
- {
-   setCookie("fr")
-  });
-
-  $('#lang_flag_ru').click(function() // Ustaw Język Rosyjski
- {
-    setCookie("ru")
-  });
-
-  $('#lang_flag_uk').click(function() // Ustaw Język Ukraiński
- {
-   setCookie("uk")
-  });
-
-  $('#lang_flag_es').click(function() // Ustaw Język Hiszpański
- {
-    setCookie("es")
-  });
-
-  $('#lang_flag_hi').click(function() // Ustaw Język Hindi
- {
-   setCookie("hi")
-  });
 });
