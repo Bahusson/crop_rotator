@@ -1,9 +1,10 @@
 from django.shortcuts import (render, redirect, get_object_or_404 as G404)
 from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
 from .models import (PageSkin as S,  PageNames as P, RegNames, AboutPageNames)
-from rotator.models import (RotationPlan)
+from rotator.models import (RotationPlan, RotationStep)
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (PageElement as pe, PageLoad)
+from core.snippets import booleanate as bot, flare
 
 
 # Widok strony domowej.
@@ -44,8 +45,26 @@ def allplans(request):
 
 # Widok pojedynczego płodozmianu - W_I_P.
 def plan(request, plan_id):
+    pe_rp = pe(RotationPlan)
+    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    userdata = User.objects.get(
+     id=request.user.id)
+    user_id = userdata.id
+    flare(user_id)
+    owner_id = pe_rp_id.owner.id
+    flare(owner_id)
+    if user_id == owner_id:
+        flare("True_af")
+        pass
+    else:
+        flare("False_af")
+        pass
+        # return redirect('logger')
+    # Zrób jeśli user jest właścicielem, żeby mógł robić zmiany.
+    pe_rs = RotationStep.objects.filter(from_event=plan_id)
     context = {
      'plan': RotationPlan,
+     'steps': pe_rs,
      }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(
