@@ -178,26 +178,32 @@ class RotationStep(models.Model):
     descr = models.CharField(max_length=500, blank=True, null=True)
     add_manure = models.BooleanField(default=False)  # Czy dodać nawóz?
     from_plan = models.ForeignKey(
-     'RotationPlan', related_name='rotation_plan_set',
-     on_delete=models.CASCADE, blank=True, null=True)
+     'RotationPlan',related_name='rotation_plan_set', on_delete=models.CASCADE, blank=True, null=True)
     order = models.IntegerField(blank=True, null=True)
     # auto: kolejność w planie.
-    early_crop = models.ManyToManyField(
-     'Crop', related_name='crop_early_set', blank=True)
+    crop = models.ForeignKey(
+     'Crop',related_name='crop_main_set', on_delete=models.SET_NULL, blank=True, null=True)
     # Z listy: plon główny
-    late_crop = models.ManyToManyField(
-     'Crop', related_name='crop_late_set', blank=True)
+    co_crop = models.ForeignKey(
+     'Crop',related_name='co_crop_set', on_delete=models.SET_NULL, blank=True, null=True)
+    # Z listy: Wsiewka / uprawa współrzędna
+    after_crop = models.ForeignKey(
+     'Crop',related_name='after_crop_set', on_delete=models.SET_NULL, blank=True, null=True)
     # Międzyplon typu "poplon"
-    is_late_crop_destroy = models.BooleanField(default=False)
+    after_crop_mix = models.ForeignKey(
+     'CropMix',related_name='crop_mix_set', on_delete=models.SET_NULL, blank=True, null=True)
+    #
+    is_ac_main = models.BooleanField(default=False)
+    # Czy poplon jest rośliną ozimą z plonu głównego, którą zamierzamy zebrać
+    # w przyszłym roku?
+    # Jeśli tak, to powinien zajmować automatycznie
+    # slot letni przyszłego roku.
     # (Domyślnie fałsz, pojawia się tylko jeśli is_summercrop = False)
-    # Jeśli późna roślina jest ozima i jej nie zniszczymy, to automatycznie
-    # wskakuje na pierwsze miejsce w kolejnym roku jako plon ozimy 'early'.
-    is_harvest = models.BooleanField(default=False)
+    is_ac_harvest = models.BooleanField(default=False)
     # Czy zabieramy poplon z pola, czy go zostawiamy na zielony nawóz?
-    # Pojawia się tylko wtedy jeśli roślina ma szanse przetrwać przymrozek,
-    # oraz zaznaczolyśmy "is_late_crop_destroy"
-    # Właściwie to powinny być trzy opcje w rozwijanym menu: zostaw oziminę,
-    # zrób zielony nawóz, zbierz z pola.
+    # Pojawia się tylko wtedy jeśli roślina ma szanse przetrwać przymrozek
+
+
 
     class Meta:
         ordering = ['-from_plan', 'order']
