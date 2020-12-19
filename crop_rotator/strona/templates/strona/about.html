@@ -1,3 +1,15 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Wszystkie aktualności - Roboczy</title>
+{% endblock %}
+
+ <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
+{% block aside %}
+<!-- Null -->
+{% block body %}
 <main role="main">
   <section class="jumbotron text-center">
     <div class="container">
@@ -29,3 +41,5 @@
     </div>
   </section>
 </main>
+{% endblock %}
+{% endblock aside %}
