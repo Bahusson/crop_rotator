@@ -14,7 +14,6 @@ function setCookie(cvalue)
 
 $(document).ready(function()
 {
-  alert("alert kurwa!");
   $('#lang_flag_pl').click(function() // Ustaw Język Polski
  {
    setCookie("pl")
