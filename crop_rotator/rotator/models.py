@@ -207,4 +207,4 @@ class RotationStep(models.Model):
         return self.title
 
 
-# Tutaj jeszcze trzeba zrobić klasy tłumaczeniowe dla kultury gleby, oraz poziomu w mieszance.
+# Tutaj jeszcze trzeba zrobić klasy tłumaczeniowe dla kultury gleby, oraz poziomu w mieszance

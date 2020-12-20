@@ -65,7 +65,24 @@ def plan(request, plan_id):
         # return redirect('logger')
     # Zrób jeśli user jest właścicielem, żeby mógł robić zmiany.
     pe_rs = RotationStep.objects.filter(from_plan=plan_id)
+    listed_pe_rs = list(pe_rs)
+    len_listed_pe_rs = len(listed_pe_rs)
+    lpr = listed_pe_rs[0]
+    cooldown_list = []
+    for item in listed_pe_rs:
+        i1 = list(item.early_crop.all())
+        i2 = list(item.late_crop.all())
+        for i in i1:
+            cooldown_list.append(i.family.cooldown_min)
+        for i in i2:
+            cooldown_list.append(i.family.cooldown_min)
+    cooldown_list.sort()
+    clw = False
+    if cooldown_list[-1] > len_listed_pe_rs:
+        clw = True
+
     context = {
+     'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
      'plan': pe_rp_id,
      'steps': pe_rs,
      }

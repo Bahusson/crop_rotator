@@ -19,6 +19,13 @@
             <h1 class="text-center pt-3 ">{{ plan.title }}</h1>
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             <br />
+            
+            {% if cr_len_warning %}
+             <h4>Błąd: Ten płodozmian jest za krótki!</h4>
+             <p>W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania. Usuń je lub dodaj więcej roślin.</p>
+             <br />
+            {% endif %}
+
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
               {{ step.title }}
