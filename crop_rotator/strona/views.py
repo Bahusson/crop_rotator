@@ -5,6 +5,7 @@ from rotator.models import (RotationPlan, RotationStep)
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (PageElement as pe, PageLoad)
 from core.snippets import booleanate as bot, flare
+from rotator.models import Crop
 
 
 # Widok strony domowej.
@@ -73,13 +74,18 @@ def plan(request, plan_id):
         i1 = list(item.early_crop.all())
         i2 = list(item.late_crop.all())
         for i in i1:
-            cooldown_list.append(i.family.cooldown_min)
+            cooldown_list.append((i.family.cooldown_min, i.id,))
         for i in i2:
-            cooldown_list.append(i.family.cooldown_min)
+            cooldown_list.append((i.family.cooldown_min, i.id,))
     cooldown_list.sort()
     clw = False
-    if cooldown_list[-1] > len_listed_pe_rs:
-        clw = True
+    error_len_crops = []
+
+    for item in cooldown_list:
+        if item[0] > len_listed_pe_rs:
+            error_len_crops.append(item[1])
+            clw = Crop.objects.filter(id__in=error_len_crops)
+    flare(clw)
 
     context = {
      'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
