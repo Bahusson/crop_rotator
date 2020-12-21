@@ -6,6 +6,7 @@ from crop_rotator.settings import LANGUAGES as L
 from core.classes import (PageElement as pe, PageLoad)
 from core.snippets import booleanate as bot, flare
 from rotator.models import Crop
+import copy
 
 
 # Widok strony domowej.
@@ -57,10 +58,12 @@ def plan(request, plan_id):
     len_listed_pe_rs = len(listed_pe_rs)
     lpr = listed_pe_rs[0]
     cooldown_list = []
+    top_tier_list = []
     for item in listed_pe_rs:
         i1 = (list(item.early_crop.all()), item.order)
         i2 = (list(item.late_crop.all()), item.order)
-        flare(type(i1[0]))
+        i3 = item.order
+        top_tier_list.append(i3)
         for i in i1[0]:
             cooldown_list.append(
              [i.family.cooldown_min, i.id, i.family, item.order])
@@ -68,15 +71,21 @@ def plan(request, plan_id):
             cooldown_list.append(
              [i.family.cooldown_min, i.id, i.family, item.order])
     cooldown_list.sort()
-    flare(cooldown_list)
+    top_tier_list.sort()
     clw = False
     error_len_crops = []
-
+    cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
+    for item in cooldown_list1:
+        item[3] += top_tier_list[-1]
+    cooldown_list2 = cooldown_list + cooldown_list1
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
             clw = Crop.objects.filter(id__in=error_len_crops)
-    flare(clw)
+    if not clw:
+        pass
+
+    #flare(clw)
 
     context = {
      'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
