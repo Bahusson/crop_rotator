@@ -7,6 +7,7 @@ from core.classes import (PageElement as pe, PageLoad)
 from core.snippets import booleanate as bot, flare
 from rotator.models import Crop
 import itertools
+import copy
 
 
 # Widok strony domowej.
@@ -58,9 +59,12 @@ def plan(request, plan_id):
     len_listed_pe_rs = len(listed_pe_rs)
     lpr = listed_pe_rs[0]
     cooldown_list = []
+    top_tier_list = []
     for item in listed_pe_rs:
         i1 = (list(item.early_crop.all()), item.order)
         i2 = (list(item.late_crop.all()), item.order)
+        i3 = item.order
+        top_tier_list.append(i3)
         for i in i1[0]:
             cooldown_list.append(
              [i.family.cooldown_min, i.id, i.family, item.order])
@@ -68,8 +72,14 @@ def plan(request, plan_id):
             cooldown_list.append(
              [i.family.cooldown_min, i.id, i.family, item.order])
     cooldown_list.sort()
+    top_tier_list.sort()
     clw = False
     error_len_crops = []
+    cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
+    for item in cooldown_list1:
+        item[3] += top_tier_list[-1]
+    cooldown_list2 = cooldown_list + cooldown_list1
+    flare(cooldown_list2)
     err_tab_list = []
     err_crop_list = []
     for item in cooldown_list:
@@ -77,7 +87,7 @@ def plan(request, plan_id):
             error_len_crops.append(item[1])
             clw = Crop.objects.filter(id__in=error_len_crops)
     if not clw:
-        for a, b in itertools.permutations(cooldown_list, 2):  # permutacje
+        for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
             if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > -a[0]:
                 err_tab_list.append(a[3])
                 err_tab_list.append(b[3])
@@ -85,9 +95,9 @@ def plan(request, plan_id):
     res = []
     [res.append(x) for x in err_tab_list if x not in res]
 
-    flare(res)
-    flare(err_crop_list)
-    error_family_crops = {"e_crops": error_crops, "e_tabs": res2,}
+    #flare(res)
+    #flare(err_crop_list)
+    error_family_crops = {"e_crops": err_crop_list, "e_tabs": res2,}
     context = {
      'efcs': error_family_crops,
      'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
