@@ -76,10 +76,10 @@ def plan(request, plan_id):
     clw = False
     error_len_crops = []
     cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
+    top_tier = top_tier_list[-1]
     for item in cooldown_list1:
-        item[3] += top_tier_list[-1]
+        item[3] += top_tier
     cooldown_list2 = cooldown_list + cooldown_list1
-    flare(cooldown_list2)
     err_tab_list = []
     err_crop_list = []
     for item in cooldown_list:
@@ -88,16 +88,18 @@ def plan(request, plan_id):
             clw = Crop.objects.filter(id__in=error_len_crops)
     if not clw:
         for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
-            if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > -a[0]:
+            if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > 0:
+                if a[3] > top_tier:
+                    a[3] = a[3] - top_tier
+                    if b[3] > top_tier:
+                        b[3] = b[3] - top_tier
                 err_tab_list.append(a[3])
                 err_tab_list.append(b[3])
                 err_crop_list.append((a, b))
     res = []
     [res.append(x) for x in err_tab_list if x not in res]
-
-    #flare(res)
-    #flare(err_crop_list)
-    error_family_crops = {"e_crops": err_crop_list, "e_tabs": res2,}
+    flare(err_crop_list)
+    error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
     context = {
      'efcs': error_family_crops,
      'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
