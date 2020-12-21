@@ -33,6 +33,11 @@
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
               {{ step.title }}
+              {% for e_tab in efcs.e_tabs %}
+              {% if step.order == e_tab %}
+               <h2>Ten krok zawiera błędy!!!</h2>
+              {% endif %}
+              {% endfor %}
               {% if step.descr %}
               <p>{{ step.descr }}</p>
               {% endif %}
@@ -42,7 +47,16 @@
               {% endif %}
               <h4>Plon wczesny/główny/ozimy z roku ubiegłego:</h4>
               {% for crop in step.early_crop.all %}
+
+              {% for e_tab in efcs.e_tabs %}
+              {% if step.order == e_tab %}
+              {% if crop.id in efcs.e_crops %}
+              <p><b>{{ crop.name }} - POWODUJE KOLIZJĘ!</b><p>
+              {% else %}
               <p>{{ crop.name }}</p>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
                             <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
 
@@ -50,7 +64,16 @@
               {% if step.late_crop %}
               <h4>Plon ozimy/międzyplon:</h4>
               {% for crop in step.late_crop.all %}
+              {% for e_tab in efcs.e_tabs %}
+              {% if step.order == e_tab %}
+              {% if crop.id in efcs.e_crops %}
+              <p><b>{{ crop.name }} - POWODUJE KOLIZJĘ!</b><p>
+              {% else %}
               <p>{{ crop.name }}</p>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+
                             <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
               {% endif %}
