@@ -78,19 +78,16 @@ def plan(request, plan_id):
             clw = Crop.objects.filter(id__in=error_len_crops)
     if not clw:
         for a, b in itertools.permutations(cooldown_list, 2):  # permutacje
-            if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > 0:
+            if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > -a[0]:
                 err_tab_list.append(a[3])
                 err_tab_list.append(b[3])
-                err_crop_list.append(a[1])
-                err_crop_list.append(b[1])
+                err_crop_list.append((a, b))
     res = []
-    res2 = []
-    [res.append(x) for x in err_crop_list if x not in res]
-    [res2.append(x) for x in err_tab_list if x not in res2]
+    [res.append(x) for x in err_tab_list if x not in res]
 
     flare(res)
-    flare(res2)
-    error_family_crops = {"e_crops": res, "e_tabs": res2,}
+    flare(err_crop_list)
+    error_family_crops = {"e_crops": error_crops, "e_tabs": res2,}
     context = {
      'efcs': error_family_crops,
      'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
