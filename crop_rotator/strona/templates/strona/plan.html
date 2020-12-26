@@ -26,16 +26,16 @@
              {% for crop in cr_len_warning %}
               <p><b>{{ crop.name }}</b></p>
              {% endfor %}
-             <p>Usuń je lub dodaj więcej roślin.</p>
+             <p>Usuń je i wybierz coś innego, lub dodaj więcej roślin.</p>
              <br />
             {% endif %}
 
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
-              {{ step.title }}
+              <h1>{{ step.title }}</h1>
               {% for e_tab in efcs.e_tabs %}
               {% if step.order == e_tab %}
-               <h2>Ten krok zawiera błędy!!!</h2>
+               <h5>Ten krok zawiera błędy!!!</h5>
               {% endif %}
               {% endfor %}
               {% if step.descr %}
@@ -45,18 +45,24 @@
                <p>Mały obrazek świadczący o tym, że <b>nawóz</b> dodano do tego kroku.</p>
                <p>Do tego onhover z informacją w dwóch językach, że chodzi o nawóz.</p>
               {% endif %}
-              <h4>Plon wczesny/główny/ozimy z roku ubiegłego:</h4>
               {% if step.early_crop %}
+              <h2>Plon jary:</h2>
               {% for crop in step.early_crop.all %}
-              
+              {% for e_tab in efcs.e_tabs %}
+              {% if step.order == e_tab %}
+              {% if crop.id in efcs.e_crops %}
+              <p><b>{{ crop.name }} - POWODUJE KOLIZJĘ!</b><p>
+              {% else %}
               <p>{{ crop.name }}</p>
-
-                            <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
+              <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
+              {% endif %}
+              {% endif %}
+              {% endfor %}
               {% endfor %}
               {% endif %}
 
               {% if step.late_crop %}
-              <h4>Plon ozimy/międzyplon:</h4>
+              <h2>Plon ozimy:</h2>
               {% for crop in step.late_crop.all %}
 
               <p>{{ crop.name }}</p>
@@ -64,7 +70,9 @@
                             <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
               {% endif %}
+              <hr/>        
             {% endfor %}
+
           </div>
         </div>
       </div><!-- /.row -->

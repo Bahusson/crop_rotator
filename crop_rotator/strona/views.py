@@ -67,10 +67,10 @@ def plan(request, plan_id):
         top_tier_list.append(i3)
         for i in i1[0]:
             cooldown_list.append(
-             [i.family.cooldown_min, i.id, i.family, item.order])
+             [i.family.cooldown_min, i.id, i.family, item.order, i])
         for i in i2[0]:
             cooldown_list.append(
-             [i.family.cooldown_min, i.id, i.family, item.order])
+             [i.family.cooldown_min, i.id, i.family, item.order, i])
     cooldown_list.sort()
     top_tier_list.sort()
     clw = False
@@ -102,7 +102,7 @@ def plan(request, plan_id):
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
     context = {
      'efcs': error_family_crops,
-     'cr_len_warning': clw,  # Ostrzeżenie co do długości płodozmianu (bool)
+     'cr_len_warning': clw,
      'plan': pe_rp_id,
      'steps': pe_rs,
      }
