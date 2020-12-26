@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load xfilters %}
 
 {% block title %}
 <title>{{ plan.title }}</title>
@@ -32,6 +33,8 @@
 
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
+              {% deep_list step_no=step.order search_by=6 search_pos=1 searched_item=4 as d_list %}
+              {{ d_list.name }}
               <h1>{{ step.title }}</h1>
               {% for e_tab in efcs.e_tabs %}
               {% if step.order == e_tab %}
@@ -70,7 +73,7 @@
                             <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
               {% endfor %}
               {% endif %}
-              <hr/>        
+              <hr/>
             {% endfor %}
 
           </div>

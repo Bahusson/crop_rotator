@@ -95,10 +95,9 @@ def plan(request, plan_id):
                         b[3] = b[3] - top_tier
                 err_tab_list.append(a[3])
                 err_tab_list.append(b[3])
-                err_crop_list.append((a, b))
+                err_crop_list.append(a + b)
     res = []
     [res.append(x) for x in err_tab_list if x not in res]
-    flare(err_crop_list)
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
     context = {
      'efcs': error_family_crops,
