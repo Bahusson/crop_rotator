@@ -96,6 +96,7 @@ def plan(request, plan_id):
                 err_tab_list.append(a[3])
                 err_tab_list.append(b[3])
                 err_crop_list.append(a + b)
+                err_crop_list.append(b + a)
     res = []
     [res.append(x) for x in err_tab_list if x not in res]
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}

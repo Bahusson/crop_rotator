@@ -54,7 +54,6 @@ def deep_list(context, **kwargs):
     c = int(kwargs['search_pos'])
     d = int(kwargs['searched_item'])
     for i in itemlist2:
-        if a is i[3] or a is i[8]: #można zrobić do dobrania z +5
+        if a is i[3]:
             if b is i[c]:
-                print(i[d])
-                return i[d]
+                return (i[d], i[d+5], i[8])

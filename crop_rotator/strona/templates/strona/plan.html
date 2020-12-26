@@ -33,8 +33,7 @@
 
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
-              {% deep_list step_no=step.order search_by=6 search_pos=1 searched_item=4 as d_list %}
-              {{ d_list.name }}
+
               <h1>{{ step.title }}</h1>
               {% for e_tab in efcs.e_tabs %}
               {% if step.order == e_tab %}
@@ -53,8 +52,9 @@
               {% for crop in step.early_crop.all %}
               {% for e_tab in efcs.e_tabs %}
               {% if step.order == e_tab %}
-              {% if crop.id in efcs.e_crops %}
-              <p><b>{{ crop.name }} - POWODUJE KOLIZJĘ!</b><p>
+              {% deep_list step_no=step.order search_by=crop.id search_pos=1 searched_item=4 as d_list %}
+              {% if crop.id == d_list.0.id %}
+              <p><b>{{ d_list.0.name }} - POWODUJE KOLIZJĘ z {{ d_list.1.name }} w kroku {{ d_list.2 }} ! </b><p>
               {% else %}
               <p>{{ crop.name }}</p>
               <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
@@ -67,10 +67,17 @@
               {% if step.late_crop %}
               <h2>Plon ozimy:</h2>
               {% for crop in step.late_crop.all %}
-
+              {% for e_tab in efcs.e_tabs %}
+              {% if step.order == e_tab %}
+              {% deep_list step_no=step.order search_by=crop.id search_pos=1 searched_item=4 as d_list %}
+              {% if crop.id == d_list.0.id %}
+              <p><b>{{ d_list.0.name }} - POWODUJE KOLIZJĘ z {{ d_list.1.name }} w kroku {{ d_list.2 }} ! </b><p>
+              {% else %}
               <p>{{ crop.name }}</p>
-
-                            <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
+              <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
+              {% endif %}
+              {% endif %}
+              {% endfor %}
               {% endfor %}
               {% endif %}
               <hr/>
