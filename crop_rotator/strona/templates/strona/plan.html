@@ -22,63 +22,47 @@
             <br />
 
             {% if cr_len_warning %}
-             <h4>Błąd: Ten płodozmian jest za krótki!</h4>
-             <p>W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania:</p>
-             {% for crop in cr_len_warning %}
-              <p><b>{{ crop.name }}</b></p>
-             {% endfor %}
-             <p>Usuń je i wybierz coś innego, lub dodaj więcej roślin.</p>
-             <br />
+              <h4>Błąd: Ten płodozmian jest za krótki!</h4>
+              <p>W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania:</p>
+              {% for crop in cr_len_warning %}
+                <p><b>{{ crop.name }}</b></p>
+              {% endfor %}
+              <p>Usuń je i wybierz coś innego, lub dodaj więcej roślin.</p>
+              <br />
             {% endif %}
 
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
 
               <h1>{{ step.title }}</h1>
+
               {% for e_tab in efcs.e_tabs %}
-              {% if step.order == e_tab %}
-               <h5>Ten krok zawiera błędy!!!</h5>
-              {% endif %}
+                {% if step.order == e_tab %}
+                  <h5>Ten krok zawiera błędy!!!</h5>
+                {% endif %}
               {% endfor %}
+
               {% if step.descr %}
-              <p>{{ step.descr }}</p>
+                <p>{{ step.descr }}</p>
               {% endif %}
+
               {% if step.add_manure %}
                <p>Mały obrazek świadczący o tym, że <b>nawóz</b> dodano do tego kroku.</p>
                <p>Do tego onhover z informacją w dwóch językach, że chodzi o nawóz.</p>
               {% endif %}
+
               {% if step.early_crop %}
-              <h2>Plon jary:</h2>
-              {% for crop in step.early_crop.all %}
-              {% for e_tab in efcs.e_tabs %}
-              {% if step.order == e_tab %}
-              {% deep_list step_no=step.order search_by=crop.id search_pos=1 searched_item=4 as d_list %}
-              {% if crop.id == d_list.0.id %}
-              <p><b>{{ d_list.0.name }} - POWODUJE KOLIZJĘ z {{ d_list.1.name }} w kroku {{ d_list.2 }} ! </b><p>
-              {% else %}
-              <p>{{ crop.name }}</p>
-              <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
-              {% endif %}
-              {% endif %}
-              {% endfor %}
-              {% endfor %}
+                <h2>Plon jary:</h2>
+                {% for crop in step.early_crop.all %}
+                  {% include 'strona/plan_parts/plan_step.html' %}
+                {% endfor %}
               {% endif %}
 
               {% if step.late_crop %}
-              <h2>Plon ozimy:</h2>
-              {% for crop in step.late_crop.all %}
-              {% for e_tab in efcs.e_tabs %}
-              {% if step.order == e_tab %}
-              {% deep_list step_no=step.order search_by=crop.id search_pos=1 searched_item=4 as d_list %}
-              {% if crop.id == d_list.0.id %}
-              <p><b>{{ d_list.0.name }} - POWODUJE KOLIZJĘ z {{ d_list.1.name }} w kroku {{ d_list.2 }} ! </b><p>
-              {% else %}
-              <p>{{ crop.name }}</p>
-              <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
-              {% endif %}
-              {% endif %}
-              {% endfor %}
-              {% endfor %}
+                <h2>Plon ozimy:</h2>
+                {% for crop in step.late_crop.all %}
+                  {% include 'strona/plan_parts/plan_step.html' %}
+                {% endfor %}
               {% endif %}
               <hr/>
             {% endfor %}

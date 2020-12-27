@@ -39,7 +39,7 @@ def negator(var):
     return neg
 
 
-# Podnosi wartość samego siebie o 1 za każdym razem. (Dla Menu)
+# Zipuje listy
 @register.filter(name='zip_lists')
 def zip_lists(a, b):
     return zip(a, b)
@@ -57,3 +57,13 @@ def deep_list(context, **kwargs):
         if a is i[3]:
             if b is i[c]:
                 return (i[d], i[d+5], i[8])
+
+
+@register.simple_tag(takes_context=True, name='error_tab')
+def error_tab(context, **kwargs):
+    itemlist = context['efcs']
+    itemlist2 = itemlist['e_tabs']
+    a = int(kwargs['step_no'])
+    for i in itemlist2:
+        if a is i:
+            return True
