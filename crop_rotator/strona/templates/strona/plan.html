@@ -36,11 +36,11 @@
 
               <h1>{{ step.title }}</h1>
 
-              {% for e_tab in efcs.e_tabs %}
-                {% if step.order == e_tab %}
-                  <h5>Ten krok zawiera błędy!!!</h5>
-                {% endif %}
-              {% endfor %}
+              {% error_tab step_no=step.order as is_tab_error %}
+              {% if is_tab_error %}
+                <h5>Ten krok zawiera błędy!!!</h5>
+              {% endif %}
+
 
               {% if step.descr %}
                 <p>{{ step.descr }}</p>

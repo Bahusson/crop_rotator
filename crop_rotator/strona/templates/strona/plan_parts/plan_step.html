@@ -5,12 +5,12 @@
 {% if is_tab_error %}
     {% deep_list step_no=step.order search_by=crop.id search_pos=1 searched_item=4 as d_list %}
     {% if crop.id == d_list.0.id %}
-      <p><b>{{ d_list.0.name }} - POWODUJE KOLIZJĘ z {{ d_list.1.name }} w kroku {{ d_list.2 }} ! </b><p>
+      {% include 'strona/plan_parts/crop_properties.html' %}
+      <p><b>{{ crop.name }} POWODUJE KOLIZJĘ z {{ d_list.1.name }} w kroku {{ d_list.2 }} ! </b><p>
+        <!--Powyższe ostrzeżenie dać jako wykrzyknik piktogram z informacją onhover i zmianą formatowania wrapperem -->
     {% else %}
-      <p>{{ crop.name }}</p>
-      <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
+      {% include 'strona/plan_parts/crop_properties.html' %}
     {% endif %}
 {% else %}
-  <p>{{ crop.name }}</p>
-  <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
+  {% include 'strona/plan_parts/crop_properties.html' %}
 {% endif %}
