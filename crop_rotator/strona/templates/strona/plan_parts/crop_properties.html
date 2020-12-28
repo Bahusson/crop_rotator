@@ -1,8 +1,7 @@
 {% load static %}
-
-  <div><b>{{ crop.name }}  </b><button class="show_properties2" value="2">Info</button><div>
-  <p class="hidden_properties">Texts2<p>
-  <div class="hidden_properties2">Text
+ <div>
+  <p><b>{{ crop.name }}  </b><button class="show_properties2" value="2">Info</button><p>
+  <div class="hidden_properties">
     <p>Rodzina: {{ crop.family }}</p>
     {% if crop.descr %}
      <p>Uwagi: {{ crop.descr }}
@@ -11,6 +10,7 @@
      <p><img src="{{ crop.image.url }}" alt="crop_image" height="200" width="auto"></img></p>
     {% endif %}
   </div>
+</div>
 
 <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
   <p> <!--Tan tag zostaw otwarty, bo go potem zamyka error tag. -->

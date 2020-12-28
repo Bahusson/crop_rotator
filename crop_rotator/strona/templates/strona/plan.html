@@ -92,12 +92,11 @@
 <script>
 $(".show_properties2").click(function(event){
     var button_triger = $(event.target);
-    var closest = button_triger.closest("p");
-    var x = $(closest).nextSibling.text();
+    var closest = button_triger.closest("p").nextAll(".hidden_properties").first();
+    var x = $(closest).text();
     if (closest) {
       alert(x);
     }
-    /*$("show_properties2").nextSibling.Toggle();*/
  });
  </script>
 {% endblock scripts %}
