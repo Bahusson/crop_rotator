@@ -1,13 +1,14 @@
 {% load static %}
 
-  <p class="show_properties"><b>{{ crop.name }}</b></p>
+  <p><b>{{ crop.name }}  </b><button class="show_properties2" value="2">Info</button></p>
+
   <div class="hidden_properties">
     <p>Rodzina: {{ crop.family }}</p>
     {% if crop.descr %}
      <p>Uwagi: {{ crop.descr }}
     {% endif %}
-    {% if crop.image %}
-     <p><img src="{{ crop.img.url }}" height="200" width="auto" /></p>
+    {% if crop.image %}s
+     <p><img src="{{ crop.image.url }}" alt="crop_image" height="200" width="auto"></img></p>
     {% endif %}
   </div>
 

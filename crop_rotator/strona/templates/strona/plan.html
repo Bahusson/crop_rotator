@@ -87,3 +87,13 @@
     <!-- end of empty div -->
 {% endblock %}
 {% endblock aside %}
+
+{% block scripts %}
+<script>
+$(".show_properties2").click(function(event){
+    var text = $(event.target).text();
+    alert(text);
+    /*$("show_properties2").nextSibling.Toggle();*/
+ });
+ </script>
+{% endblock scripts %}
