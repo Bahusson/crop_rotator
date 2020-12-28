@@ -1,7 +1,14 @@
 {% load static %}
 
-  <p class="show_properties">{{ crop.name }}</p>
-  <div class="hidden_properties"><p>Test</p>
+  <p class="show_properties"><b>{{ crop.name }}</b></p>
+  <div class="hidden_properties">
+    <p>Rodzina: {{ crop.family }}</p>
+    {% if crop.descr %}
+     <p>Uwagi: {{ crop.descr }}
+    {% endif %}
+    {% if crop.image %}
+     <p><img src="{{ crop.img.url }}" height="200" width="auto" /></p>
+    {% endif %}
   </div>
 
 <!--Tutaj idą dodatkowe cechy plonu głównego w tym rzeczy typu onhover -->
