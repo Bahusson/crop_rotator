@@ -19,6 +19,7 @@ def lookup(d, key):
 @register.filter(name='lookupdict')
 def lookupdict(d, key):
     return d.__getattribute__(key)
+    
 
 # Wyszukuje po liście bezwzględny integer
 @register.filter(name='lookupint')
