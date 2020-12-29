@@ -104,15 +104,19 @@ def plan(request, plan_id):
                 err_crop_list.append(b + a)
     fabs = []
     [fabs.append(x) for x in fabacae if x not in fabs]
-#    for fab in fabs:
-#        fab = fab[1:]
-#        fabs.append(fab)
-    flare(fabs)
 
+    fabs_percent = float(len(fabs))/float(top_tier*2)
+    fabs_rounded = round(fabs_percent, 2)
+    fabs_error = False
+    if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
+    else:
+        fabs_error = int(fabs_rounded * 100)
+        fabs_error = str(fabs_error) + "%"
     res = []
     [res.append(x) for x in err_tab_list if x not in res]
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
     context = {
+     'f_error': fabs_error,
      'efcs': error_family_crops,
      'cr_len_warning': clw,
      'plan': pe_rp_id,
