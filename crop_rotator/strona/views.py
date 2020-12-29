@@ -104,11 +104,11 @@ def plan(request, plan_id):
                 err_crop_list.append(b + a)
     fabs = []
     [fabs.append(x) for x in fabacae if x not in fabs]
-
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
     if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
+        pass
     else:
         fabs_error = int(fabs_rounded * 100)
         fabs_error = str(fabs_error) + "%"
