@@ -59,6 +59,7 @@ def plan(request, plan_id):
     len_listed_pe_rs = len(listed_pe_rs)
     lpr = listed_pe_rs[0]
     cooldown_list = []
+    fabacae = []
     top_tier_list = []
     for item in listed_pe_rs:
         i1 = (list(item.early_crop.all()), item.order)
@@ -68,9 +69,13 @@ def plan(request, plan_id):
         for i in i1[0]:
             cooldown_list.append(
              [i.family.cooldown_min, i.id, i.family, item.order, i])
+            if i.family.is_mandatory_crop:
+                fabacae.append(str(item.order) + "a")
         for i in i2[0]:
             cooldown_list.append(
              [i.family.cooldown_min, i.id, i.family, item.order, i])
+            if i.family.is_mandatory_crop:
+                fabacae.append(str(item.order) + "b")
     cooldown_list.sort()
     top_tier_list.sort()
     clw = False
@@ -97,6 +102,13 @@ def plan(request, plan_id):
                 err_tab_list.append(b[3])
                 err_crop_list.append(a + b)
                 err_crop_list.append(b + a)
+    fabs = []
+    [fabs.append(x) for x in fabacae if x not in fabs]
+#    for fab in fabs:
+#        fab = fab[1:]
+#        fabs.append(fab)
+    flare(fabs)
+
     res = []
     [res.append(x) for x in err_tab_list if x not in res]
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
