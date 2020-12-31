@@ -189,15 +189,13 @@ class RotationStep(models.Model):
      'Crop', related_name='crop_late_set', blank=True)
     # Międzyplon typu "poplon"
     is_late_crop_destroy = models.BooleanField(default=False)
-    # (Domyślnie fałsz, pojawia się tylko jeśli is_summercrop = False)
-    # Jeśli późna roślina jest ozima i jej nie zniszczymy, to automatycznie
-    # wskakuje na pierwsze miejsce w kolejnym roku jako plon ozimy 'early'.
-    is_harvest = models.BooleanField(default=False)
-    # Czy zabieramy poplon z pola, czy go zostawiamy na zielony nawóz?
-    # Pojawia się tylko wtedy jeśli roślina ma szanse przetrwać przymrozek,
-    # oraz zaznaczolyśmy "is_late_crop_destroy"
-    # Właściwie to powinny być trzy opcje w rozwijanym menu: zostaw oziminę,
-    # zrób zielony nawóz, zbierz z pola.
+    # Czy plon późny zostanie zniszczony na zielony nawóz?
+    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
+    # Istotne dla monitorowania przez program kultury gleby
+    is_early_crop_destroy = models.BooleanField(default=False)
+    # Czy plon wczesny zostanie zniszczony na zielony nawóz?
+    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
+    # Istotne dla monitorowania przez program kultury gleby
 
     class Meta:
         ordering = ['-from_plan', 'order']
