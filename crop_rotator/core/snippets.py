@@ -73,3 +73,7 @@ def level_off(top_tier, a, b):
         a[3] = a[3] - top_tier
         if b[3] > top_tier:
             b[3] = b[3] - top_tier
+
+# usuwa powtarzające się elementy na liście i zwraca nową listę
+def remove_repeating(new_list, old_list):
+    [new_list.append(x) for x in old_list if x not in new_list]

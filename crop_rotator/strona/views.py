@@ -5,7 +5,7 @@ from rotator.models import (RotationPlan, RotationStep)
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (PageElement as pe, PageLoad)
 from core.snippets import (booleanate as bot, flare, level_off,
- list_appending_short)
+ list_appending_short, remove_repeating)
 from rotator.models import Crop
 import itertools
 import copy
@@ -82,6 +82,7 @@ def plan(request, plan_id):
     err_tab_list = []
     err_crop_list = []
     err_allelopatic_list = []
+    synergic_list = []
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
@@ -100,10 +101,19 @@ def plan(request, plan_id):
                         if a[3] == b[3] or a[3] == b[3]-1:
                             level_off(top_tier, a, b)
                             err_allelopatic_list.append(a + b)
+            if a[4].synergic_to:
+                for i in a[4].synergic_to.all():
+                    if i == b[4] and a[3] == b[3]:
+                            level_off(top_tier, a, b)
+                            synergic_list.append(a + b)
     allels = []
-    [allels.append(x) for x in err_allelopatic_list if x not in allels]
+    synergies = []
     fabs = []
-    [fabs.append(x) for x in fabacae if x not in fabs]
+    tabs = []
+    remove_repeating(synergies, synergic_list)
+    remove_repeating(allels, err_allelopatic_list)
+    remove_repeating(fabs, fabacae)
+    remove_repeating(tabs, err_tab_list)
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
@@ -112,9 +122,7 @@ def plan(request, plan_id):
     else:
         fabs_error = int(fabs_rounded * 100)
         fabs_error = str(fabs_error) + "%"
-    res = []
-    [res.append(x) for x in err_tab_list if x not in res]
-    error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
+    error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
     context = {
      'allelopatic': allels,
      'f_error': fabs_error,
