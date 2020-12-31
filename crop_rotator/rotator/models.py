@@ -124,7 +124,7 @@ class Crop(models.Model):
         'CropFamily', related_name="known_antagonisms_family", blank=True)
     allelopatic_to_tag = models.ManyToManyField(
         'CropTag', related_name="known_antagonisms_tag", blank=True)
-    # Wiemy, że nie pozwala po sobie uprawiać tych rzeczy,
+    # Wiemy, że nie pozwala po sobie i ze sobą uprawiać tych rzeczy,
     # ze względów allelopatycznych
     is_demanding = models.BooleanField(default=False)
     # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
@@ -140,7 +140,7 @@ class Crop(models.Model):
         'CropFamily', related_name="known_synergies_family", blank=True)
     synergic_to_tag = models.ManyToManyField(
         'CropTag', related_name="known_synergies_tag", blank=True)
-    # Znane synergie w uprawie współrzędnej.
+    # Znane synergie w uprawie współrzędnej. Jako przedplon będzie inna klasa.
     tags = models.ManyToManyField(
         'CropTag', related_name="special_tags", blank=True)
     # dodatkowe cechy plonu wyrażone w tagach.

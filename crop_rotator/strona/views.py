@@ -4,7 +4,8 @@ from .models import (PageSkin as S,  PageNames as P, RegNames, AboutPageNames)
 from rotator.models import (RotationPlan, RotationStep)
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (PageElement as pe, PageLoad)
-from core.snippets import booleanate as bot, flare
+from core.snippets import (booleanate as bot, flare, level_off,
+ list_appending_short)
 from rotator.models import Crop
 import itertools
 import copy
@@ -66,16 +67,9 @@ def plan(request, plan_id):
         i2 = (list(item.late_crop.all()), item.order)
         i3 = item.order
         top_tier_list.append(i3)
-        for i in i1[0]:
-            cooldown_list.append(
-             [i.family.cooldown_min, i.id, i.family, item.order, i])
-            if i.family.is_mandatory_crop:
-                fabacae.append(str(item.order) + "a")
-        for i in i2[0]:
-            cooldown_list.append(
-             [i.family.cooldown_min, i.id, i.family, item.order, i])
-            if i.family.is_mandatory_crop:
-                fabacae.append(str(item.order) + "b")
+        vars =[cooldown_list, item, fabacae]
+        list_appending_short(i1, "a", vars)
+        list_appending_short(i2, "b", vars)
     cooldown_list.sort()
     top_tier_list.sort()
     clw = False
@@ -87,6 +81,7 @@ def plan(request, plan_id):
     cooldown_list2 = cooldown_list + cooldown_list1
     err_tab_list = []
     err_crop_list = []
+    err_allelopatic_list = []
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
@@ -94,14 +89,19 @@ def plan(request, plan_id):
     if not clw:
         for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
             if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > 0:
-                if a[3] > top_tier:
-                    a[3] = a[3] - top_tier
-                    if b[3] > top_tier:
-                        b[3] = b[3] - top_tier
+                level_off(top_tier, a, b)
                 err_tab_list.append(a[3])
                 err_tab_list.append(b[3])
                 err_crop_list.append(a + b)
                 err_crop_list.append(b + a)
+            if a[4].allelopatic_to:
+                for i in a[4].allelopatic_to.all():
+                    if i == b[4]:
+                        if a[3] == b[3] or a[3] == b[3]-1:
+                            level_off(top_tier, a, b)
+                            err_allelopatic_list.append(a + b)
+    allels = []
+    [allels.append(x) for x in err_allelopatic_list if x not in allels]
     fabs = []
     [fabs.append(x) for x in fabacae if x not in fabs]
     fabs_percent = float(len(fabs))/float(top_tier*2)
@@ -116,6 +116,7 @@ def plan(request, plan_id):
     [res.append(x) for x in err_tab_list if x not in res]
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": res,}
     context = {
+     'allelopatic': allels,
      'f_error': fabs_error,
      'efcs': error_family_crops,
      'cr_len_warning': clw,
