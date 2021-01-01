@@ -1,4 +1,5 @@
 from django import template
+from core.snippets import flare
 
 register = template.Library()
 
@@ -19,7 +20,7 @@ def lookup(d, key):
 @register.filter(name='lookupdict')
 def lookupdict(d, key):
     return d.__getattribute__(key)
-    
+
 
 # Wyszukuje po liście bezwzględny integer
 @register.filter(name='lookupint')
@@ -68,3 +69,16 @@ def error_tab(context, **kwargs):
     for i in itemlist2:
         if a is i:
             return True
+
+
+# Wielofunkcyjny tag do płytkiego przeszukiwania par zmiennych.
+@register.simple_tag(name='shallow_list')
+def shallow_list(**kwargs):
+    from_context = kwargs['from_context']
+    order = int(kwargs['step_no'])
+    plant = int(kwargs['search_by'])
+    a = from_context[3]
+    b = from_context[1]
+    c = from_context[9]
+    if a is order and b is plant:
+        return c

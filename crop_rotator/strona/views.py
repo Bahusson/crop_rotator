@@ -5,7 +5,7 @@ from rotator.models import (RotationPlan, RotationStep)
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (PageElement as pe, PageLoad)
 from core.snippets import (booleanate as bot, flare, level_off,
- list_appending_short, remove_repeating)
+ list_appending_short, remove_repeating, repack)
 from rotator.models import Crop
 import itertools
 import copy
@@ -114,6 +114,10 @@ def plan(request, plan_id):
     remove_repeating(allels, err_allelopatic_list)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
+    allels = repack(allels)
+    synergies = repack(synergies)
+    flare(allels, order="allels")
+    flare(synergies, order="synergies")
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
@@ -123,8 +127,6 @@ def plan(request, plan_id):
         fabs_error = int(fabs_rounded * 100)
         fabs_error = str(fabs_error) + "%"
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
-    flare(allels, order="Allelopatyczne")
-    flare(synergies, order="Synergiczne")
     context = {
      'synergic': synergies,
      'allelopatic': allels,

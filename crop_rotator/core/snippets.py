@@ -77,3 +77,7 @@ def level_off(top_tier, a, b):
 # usuwa powtarzające się elementy na liście i zwraca nową listę
 def remove_repeating(new_list, old_list):
     [new_list.append(x) for x in old_list if x not in new_list]
+
+def repack(wrapped_list):
+    wrapped_list1 = wrapped_list[0]
+    return wrapped_list1

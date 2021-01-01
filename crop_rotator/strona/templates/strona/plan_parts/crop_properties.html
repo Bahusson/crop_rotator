@@ -1,5 +1,15 @@
 {% load static %}
+{% load xfilters %}
+
  <div>
+  {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic as allelopaticity %}
+  {% if allelopaticity %}
+    <p>Konflikt na tle allelopatycznym. {{ crop.name }} szkodzi {{ allelopaticity.name }}!</p>
+  {% endif %}
+  {% shallow_list step_no=step.order search_by=crop.id from_context=synergic as synergism %}
+  {% if synergism %}
+    <p>{{ crop.name }} dobrze współgra z {{ synergism.name }}</p>
+  {% endif %}
   <p><b>{{ crop.name }}  </b><button class="show_properties2" value="2">Info</button><p>
   <div class="hidden_properties">
     <p>Rodzina: {{ crop.family }}</p>
