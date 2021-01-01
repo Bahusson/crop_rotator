@@ -123,7 +123,10 @@ def plan(request, plan_id):
         fabs_error = int(fabs_rounded * 100)
         fabs_error = str(fabs_error) + "%"
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
+    flare(allels, order="Allelopatyczne")
+    flare(synergies, order="Synergiczne")
     context = {
+     'synergic': synergies,
      'allelopatic': allels,
      'f_error': fabs_error,
      'efcs': error_family_crops,

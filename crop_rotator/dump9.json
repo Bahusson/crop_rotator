@@ -1,0 +1,2435 @@
+[
+{
+  "model": "rotator.rotationplan",
+  "pk": 2,
+  "fields": {
+    "title": "Przykładowy płodozmian",
+    "title_pl": "Przykładowy płodozmian",
+    "title_en": "Exemplary rotation plan",
+    "owner": 1,
+    "pubdate": "2020-12-19T13:45:48Z",
+    "soil_type": 0
+  }
+},
+{
+  "model": "rotator.rotationplan",
+  "pk": 3,
+  "fields": {
+    "title": "Zbyt krótki płodozmian testowy",
+    "title_pl": "Zbyt krótki płodozmian testowy",
+    "title_en": "Too short crop rotatoion plan",
+    "owner": 1,
+    "pubdate": "2020-12-20T12:49:38Z",
+    "soil_type": 1
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 2,
+  "fields": {
+    "name": "Kapustowate",
+    "name_pl": "Kapustowate",
+    "name_en": null,
+    "latin_name": "Brassicaceae",
+    "culture": 2,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": true,
+    "culture_manured": 3,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 4,
+  "fields": {
+    "name": "Bobowate",
+    "name_pl": "Bobowate",
+    "name_en": null,
+    "latin_name": "Fabaceae",
+    "culture": 1,
+    "cooldown_min": 4,
+    "cooldown_max": 6,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": true
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 5,
+  "fields": {
+    "name": "Astrowate",
+    "name_pl": "Astrowate",
+    "name_en": null,
+    "latin_name": "Astracae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 6,
+  "fields": {
+    "name": "Ogórecznikowate",
+    "name_pl": "Ogórecznikowate",
+    "name_en": null,
+    "latin_name": "Boraginaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": true,
+    "culture_manured": 1,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 7,
+  "fields": {
+    "name": "Lnowate",
+    "name_pl": "Lnowate",
+    "name_en": null,
+    "latin_name": "Linaceae",
+    "culture": 3,
+    "cooldown_min": 5,
+    "cooldown_max": 7,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 8,
+  "fields": {
+    "name": "Szarłatowate",
+    "name_pl": "Szarłatowate",
+    "name_en": null,
+    "latin_name": "Amaranthaceae",
+    "culture": 2,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": true,
+    "culture_manured": 1,
+    "is_mandatory_crop": true
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 9,
+  "fields": {
+    "name": "Psiankowate",
+    "name_pl": "Psiankowate",
+    "name_en": null,
+    "latin_name": "Solanaceae",
+    "culture": 2,
+    "cooldown_min": 3,
+    "cooldown_max": null,
+    "is_manurable": true,
+    "culture_manured": 1,
+    "is_mandatory_crop": true
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 10,
+  "fields": {
+    "name": "Strączkowe",
+    "name_pl": "Strączkowe",
+    "name_en": null,
+    "latin_name": "Fabaceae",
+    "culture": 1,
+    "cooldown_min": 3,
+    "cooldown_max": null,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": true
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 11,
+  "fields": {
+    "name": "Wiechlinowate",
+    "name_pl": "Wiechlinowate",
+    "name_en": null,
+    "latin_name": "Poaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 13,
+  "fields": {
+    "name": "Rdestowate",
+    "name_pl": "Rdestowate",
+    "name_en": null,
+    "latin_name": "Polygonaceae",
+    "culture": 3,
+    "cooldown_min": null,
+    "cooldown_max": null,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 14,
+  "fields": {
+    "name": "Selerowate",
+    "name_pl": "Selerowate",
+    "name_en": null,
+    "latin_name": "Apiaceae",
+    "culture": 2,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": true,
+    "culture_manured": 1,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 15,
+  "fields": {
+    "name": "Wiechlinowate (F)",
+    "name_pl": "Wiechlinowate (F)",
+    "name_en": null,
+    "latin_name": "Poaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": null,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 1,
+  "fields": {
+    "name": "Okopowe",
+    "descr": "Co to są okopowe? Opis",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 2,
+  "fields": {
+    "name": "Miododajne",
+    "descr": "Roślina miododajna - przyciąga owady zapylające.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 3,
+  "fields": {
+    "name": "Pastewne",
+    "descr": "Nadają się dobrze na karmę dla zwierząt",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 4,
+  "fields": {
+    "name": "Szkodliwe",
+    "descr": "Należy zachować ostrożność przy karmieniu zwierząt.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 5,
+  "fields": {
+    "name": "Konkurencyjna",
+    "descr": "Roślina konkurencyjna - potrafi zagłuszyć m.in chwasty",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 6,
+  "fields": {
+    "name": "Samosiejka",
+    "descr": "Roślina w klimacie polski wydaje nasiona i łatwo sama się rozsiewa - to zachowanie może być pożądane lub nie.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 7,
+  "fields": {
+    "name": "Wytrzymała na suszę",
+    "descr": "Roślina dobrze znosi suszę",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 8,
+  "fields": {
+    "name": "Wieloletnie",
+    "descr": "Roślina wieloletnia. Może pozostać na polu dłużej lub być składnikiem np. trwałego użytku zielonego. Na ogół trudna do zniszczenia.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 9,
+  "fields": {
+    "name": "Odporna na podmywanie",
+    "descr": "Roślina dobrze radzi sobie na glebach wilgotnych z tendencją do zastoisk stagnującej wody.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 10,
+  "fields": {
+    "name": "Polecana",
+    "descr": "Roślina szczególnie polecana w uprawie ze względu na swoje cechy",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 11,
+  "fields": {
+    "name": "Fitosanitarny w rodzinie",
+    "descr": "Nie powoduje kolizji ze swoją rodziną. Często dobry przedplon dla rodziny.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 1,
+  "fields": {
+    "name": "Gorczyca biała",
+    "name_pl": "Gorczyca biała",
+    "name_en": null,
+    "descr": "Sinapis alba",
+    "descr_pl": "Sinapis alba",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": true,
+    "takes_mix_level": 4,
+    "seed_norm_min": 8,
+    "seed_norm_max": 10,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      2,
+      3,
+      8,
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 2,
+  "fields": {
+    "name": "Gorczyca Sarepska",
+    "name_pl": "Gorczyca Sarepska",
+    "name_en": null,
+    "descr": "Sinapis Juncea, kapusta sitowata",
+    "descr_pl": "Sinapis Juncea, kapusta sitowata",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 5,
+    "seed_norm_min": 2,
+    "seed_norm_max": 3,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 3,
+  "fields": {
+    "name": "Kapusta Abisyńska",
+    "name_pl": "Kapusta Abisyńska",
+    "name_en": null,
+    "descr": "Brassica Carinata - Ostrożnie z karmieniem zwierząt (zawiera dużo glukozynolanów i kwasu erukowego)",
+    "descr_pl": "Brassica Carinata - Ostrożnie z karmieniem zwierząt (zawiera dużo glukozynolanów i kwasu erukowego)",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "seed_norm_min": 8,
+    "seed_norm_max": 12,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 4,
+  "fields": {
+    "name": "Rzodkiew Oleista",
+    "name_pl": "Rzodkiew Oleista",
+    "name_en": null,
+    "descr": "Raphanus sativu var. oleiformis",
+    "descr_pl": "Raphanus sativu var. oleiformis",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 5,
+    "seed_norm_min": 6,
+    "seed_norm_max": 8,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 5,
+  "fields": {
+    "name": "Rzodkiew Japońska",
+    "name_pl": "Rzodkiew Japońska",
+    "name_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 5,
+    "seed_norm_max": 8,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 6,
+  "fields": {
+    "name": "Rzepak",
+    "name_pl": "Rzepak",
+    "name_en": null,
+    "descr": "Brassica napus",
+    "descr_pl": "Brassica napus",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": true,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 8,
+    "seed_norm_max": 12,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 7,
+  "fields": {
+    "name": "Rzepak Pastewny",
+    "name_pl": "Rzepak Pastewny",
+    "name_en": null,
+    "descr": "Brassica napus",
+    "descr_pl": "Brassica napus",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": true,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "seed_norm_min": 8,
+    "seed_norm_max": 12,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 8,
+  "fields": {
+    "name": "Rzepik",
+    "name_pl": "Rzepik",
+    "name_en": null,
+    "descr": "Brassica rapa ssp. oleifera",
+    "descr_pl": "Brassica rapa ssp. oleifera",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 6,
+    "seed_norm_max": 10,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 9,
+  "fields": {
+    "name": "Lnianka siewna",
+    "name_pl": "Lnianka siewna",
+    "name_en": null,
+    "descr": "Camelina sativa",
+    "descr_pl": "Camelina sativa",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 3,
+    "seed_norm_min": 3,
+    "seed_norm_max": 5,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 10,
+  "fields": {
+    "name": "Owies Siewny",
+    "name_pl": "Owies Siewny",
+    "name_en": null,
+    "descr": "Avena sativa",
+    "descr_pl": "Avena sativa",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 15,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 4,
+    "seed_norm_min": 70,
+    "seed_norm_max": 100,
+    "allelopatic_to": [
+      2,
+      1,
+      3,
+      9,
+      6,
+      7,
+      8,
+      5,
+      4
+    ],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [],
+    "tags": [
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 11,
+  "fields": {
+    "name": "Owies szorstki",
+    "name_pl": "Owies szorstki",
+    "name_en": null,
+    "descr": "Avena strigosa",
+    "descr_pl": "Avena strigosa",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 15,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 0,
+    "seed_norm_min": 35,
+    "seed_norm_max": 50,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [],
+    "tags": [
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 12,
+  "fields": {
+    "name": "Żyto zwyczajne",
+    "name_pl": "Żyto zwyczajne",
+    "name_en": null,
+    "descr": "Secale cereale",
+    "descr_pl": "Secale cereale",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 5,
+    "seed_norm_min": 70,
+    "seed_norm_max": 100,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 13,
+  "fields": {
+    "name": "Żyto krzyca",
+    "name_pl": "Żyto krzyca",
+    "name_en": null,
+    "descr": "Secale multicaule, ż. świętojańskie, ż. pastwene",
+    "descr_pl": "Secale multicaule, ż. świętojańskie, ż. pastwene",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 5,
+    "seed_norm_min": 25,
+    "seed_norm_max": 30,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 14,
+  "fields": {
+    "name": "Pszenica",
+    "name_pl": "Pszenica",
+    "name_en": null,
+    "descr": "Komentarz testowy",
+    "descr_pl": "Komentarz testowy",
+    "descr_en": null,
+    "image": "images/pszenica.jpg",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": true,
+    "is_deep_roots": false,
+    "is_leaves_mess": true,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 16,
+  "fields": {
+    "name": "Jęczmień zwyczajny",
+    "name_pl": "Jęczmień zwyczajny",
+    "name_en": null,
+    "descr": "Hordeum vulgare",
+    "descr_pl": "Hordeum vulgare",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": true,
+    "takes_mix_level": 2,
+    "seed_norm_min": 80,
+    "seed_norm_max": 120,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [
+      11
+    ],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 17,
+  "fields": {
+    "name": "Pszenżyto",
+    "name_pl": "Pszenżyto",
+    "name_en": null,
+    "descr": "Triticale",
+    "descr_pl": "Triticale",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 4,
+    "seed_norm_min": 80,
+    "seed_norm_max": 120,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 18,
+  "fields": {
+    "name": "Kukurydza",
+    "name_pl": "Kukurydza",
+    "name_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": true,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 20,
+  "fields": {
+    "name": "Życica wielokwiatowa",
+    "name_pl": "Życica wielokwiatowa",
+    "name_en": null,
+    "descr": "Lolium multiflorum, rajgras włoski",
+    "descr_pl": "Lolium multiflorum, rajgras włoski",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 0,
+    "seed_norm_min": 15,
+    "seed_norm_max": 25,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      22,
+      23,
+      6,
+      7,
+      21,
+      18
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 21,
+  "fields": {
+    "name": "Soja",
+    "name_pl": "Soja",
+    "name_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 22,
+  "fields": {
+    "name": "Słonecznik",
+    "name_pl": "Słonecznik",
+    "name_en": null,
+    "descr": "Helianthus annuus",
+    "descr_pl": "Helianthus annuus",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 5,
+    "seed_norm_min": 20,
+    "seed_norm_max": 25,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      29
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 23,
+  "fields": {
+    "name": "Koniczyna krwistoczerwona",
+    "name_pl": "Koniczyna krwistoczerwona",
+    "name_en": null,
+    "descr": "Trifolium incarnatum, koniczyna szkarłatna, inkarnatka",
+    "descr_pl": "Trifolium incarnatum, koniczyna szkarłatna, inkarnatka",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 1,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 12,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      22,
+      18
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 24,
+  "fields": {
+    "name": "Sorgo dwubarwne",
+    "name_pl": "Sorgo dwubarwne",
+    "name_en": null,
+    "descr": "Sorghum bicolor",
+    "descr_pl": "Sorghum bicolor",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 5,
+    "seed_norm_min": 15,
+    "seed_norm_max": 25,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 25,
+  "fields": {
+    "name": "Mohar",
+    "name_pl": "Mohar",
+    "name_en": null,
+    "descr": "Setstia italica ssp. moharium",
+    "descr_pl": "Setstia italica ssp. moharium",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 5,
+    "seed_norm_min": 25,
+    "seed_norm_max": 30,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 26,
+  "fields": {
+    "name": "Włośnica ber",
+    "name_pl": "Włośnica ber",
+    "name_en": null,
+    "descr": "Setaria italica ssp. italica",
+    "descr_pl": "Setaria italica ssp. italica",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "seed_norm_min": 30,
+    "seed_norm_max": 30,
+    "allelopatic_to": [
+      14
+    ],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 27,
+  "fields": {
+    "name": "Rosplenica perłowa",
+    "name_pl": "Rosplenica perłowa",
+    "name_en": null,
+    "descr": "Pennisetum galucum, poprawia jakiść pł. warzywnego redukując nicienie # dodaj senergie i usuń komentarz",
+    "descr_pl": "Pennisetum galucum, poprawia jakiść pł. warzywnego redukując nicienie # dodaj senergie i usuń komentarz",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 5,
+    "seed_norm_min": 12,
+    "seed_norm_max": 15,
+    "allelopatic_to": [
+      14
+    ],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 28,
+  "fields": {
+    "name": "Olejarka abisyńska",
+    "name_pl": "Olejarka abisyńska",
+    "name_en": null,
+    "descr": "Guizotia abyssinica",
+    "descr_pl": "Guizotia abyssinica",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 4,
+    "seed_norm_min": 8,
+    "seed_norm_max": 12,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      29
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 29,
+  "fields": {
+    "name": "Facelia błękitna",
+    "name_pl": "Facelia błękitna",
+    "name_en": null,
+    "descr": "Phacelia tanacetifolia",
+    "descr_pl": "Phacelia tanacetifolia",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 6,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": true,
+    "takes_mix_level": 4,
+    "seed_norm_min": 6,
+    "seed_norm_max": 10,
+    "allelopatic_to": [
+      23
+    ],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      22,
+      23,
+      4
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 30,
+  "fields": {
+    "name": "Len zwyczajny",
+    "name_pl": "Len zwyczajny",
+    "name_en": null,
+    "descr": "Linum usitatissimum",
+    "descr_pl": "Linum usitatissimum",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 7,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 3,
+    "seed_norm_min": 20,
+    "seed_norm_max": 30,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      23
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 31,
+  "fields": {
+    "name": "Gryka siewna",
+    "name_pl": "Gryka siewna",
+    "name_en": null,
+    "descr": "Fagopyrum esculentum",
+    "descr_pl": "Fagopyrum esculentum",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 13,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 40,
+    "seed_norm_max": 60,
+    "allelopatic_to": [
+      22
+    ],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 32,
+  "fields": {
+    "name": "Burak",
+    "name_pl": "Burak",
+    "name_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 8,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": true,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 33,
+  "fields": {
+    "name": "Ziemniak",
+    "name_pl": "Ziemniak",
+    "name_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 9,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      32
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 34,
+  "fields": {
+    "name": "Marchew",
+    "name_pl": "Marchew",
+    "name_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 35,
+  "fields": {
+    "name": "Groch siewny pastewny",
+    "name_pl": "Groch siewny pastewny",
+    "name_en": null,
+    "descr": "Pisum sativum, sensu lato, peluszka",
+    "descr_pl": "Pisum sativum, sensu lato, peluszka",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 60,
+    "seed_norm_max": 80,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 36,
+  "fields": {
+    "name": "Wyka siewna",
+    "name_pl": "Wyka siewna",
+    "name_en": null,
+    "descr": "Vicia sativa. wyka jara",
+    "descr_pl": "Vicia sativa. wyka jara",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 40,
+    "seed_norm_max": 50,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 37,
+  "fields": {
+    "name": "Wyka kosmata",
+    "name_pl": "Wyka kosmata",
+    "name_en": null,
+    "descr": "Vicia villosa, wyka ozima",
+    "descr_pl": "Vicia villosa, wyka ozima",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 35,
+    "seed_norm_max": 45,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      18
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [
+      1
+    ],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 38,
+  "fields": {
+    "name": "Wyka bengalska",
+    "name_pl": "Wyka bengalska",
+    "name_en": null,
+    "descr": "Vicia benghalensis",
+    "descr_pl": "Vicia benghalensis",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 40,
+    "seed_norm_max": 50,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      18,
+      10,
+      11
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 39,
+  "fields": {
+    "name": "Soczewica jadalna / czarna",
+    "name_pl": "Soczewica jadalna / czarna",
+    "name_en": null,
+    "descr": "Lens culinaris & Lens nigricans",
+    "descr_pl": "Lens culinaris & Lens nigricans",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 25,
+    "seed_norm_max": 35,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      6,
+      7
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 40,
+  "fields": {
+    "name": "Bobik",
+    "name_pl": "Bobik",
+    "name_en": null,
+    "descr": "Vicia faba",
+    "descr_pl": "Vicia faba",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 4,
+    "seed_norm_min": 150,
+    "seed_norm_max": 200,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      22,
+      29,
+      35,
+      32,
+      18,
+      10,
+      11
+    ],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 41,
+  "fields": {
+    "name": "Lędźwian Siewny",
+    "name_pl": "Lędźwian Siewny",
+    "name_en": null,
+    "descr": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
+    "descr_pl": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 35,
+    "seed_norm_max": 60,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 42,
+  "fields": {
+    "name": "Kozieradka pospolita",
+    "name_pl": "Kozieradka pospolita",
+    "name_en": null,
+    "descr": "Trigonella foenum-kraecum, kozieradka lekarska",
+    "descr_pl": "Trigonella foenum-kraecum, kozieradka lekarska",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": true,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      6,
+      7
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 43,
+  "fields": {
+    "name": "Koniczyna Aleksandryjska",
+    "name_pl": "Koniczyna Aleksandryjska",
+    "name_en": null,
+    "descr": "Trifolium alexandrinum",
+    "descr_pl": "Trifolium alexandrinum",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": true,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [
+      1
+    ],
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 44,
+  "fields": {
+    "name": "Koniczyna perska",
+    "name_pl": "Koniczyna perska",
+    "name_en": null,
+    "descr": "Trifolium resupinatum",
+    "descr_pl": "Trifolium resupinatum",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 2,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 45,
+  "fields": {
+    "name": "Koniczyna michaela",
+    "name_pl": "Koniczyna michaela",
+    "name_en": null,
+    "descr": "Trifolium michelianum, bardziej odporna na suszę niż koniczyna krwistoczerwona",
+    "descr_pl": "Trifolium michelianum, bardziej odporna na suszę niż koniczyna krwistoczerwona",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 46,
+  "fields": {
+    "name": "Koniczyna podziemna",
+    "name_pl": "Koniczyna podziemna",
+    "name_en": null,
+    "descr": "Trifolium subterraneum",
+    "descr_pl": "Trifolium subterraneum",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      3,
+      6,
+      4
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 47,
+  "fields": {
+    "name": "Koniczyna biała",
+    "name_pl": "Koniczyna biała",
+    "name_en": null,
+    "descr": "Trifolium rapens",
+    "descr_pl": "Trifolium rapens",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 6,
+    "seed_norm_max": 10,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      2,
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 48,
+  "fields": {
+    "name": "Koniczyna czerwona",
+    "name_pl": "Koniczyna czerwona",
+    "name_en": null,
+    "descr": "Trifolium pratense, koniczyna łąkowa",
+    "descr_pl": "Trifolium pratense, koniczyna łąkowa",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 1,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      18
+    ],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      9,
+      3,
+      4,
+      8
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 49,
+  "fields": {
+    "name": "Lucerna siewna",
+    "name_pl": "Lucerna siewna",
+    "name_en": null,
+    "descr": "Medicago sativa",
+    "descr_pl": "Medicago sativa",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 5,
+    "seed_norm_min": 20,
+    "seed_norm_max": 25,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      14
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      2,
+      3,
+      10,
+      8,
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 50,
+  "fields": {
+    "name": "Esparceta siewna",
+    "name_pl": "Esparceta siewna",
+    "name_en": null,
+    "descr": "Onobrychis viciifolia",
+    "descr_pl": "Onobrychis viciifolia",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 5,
+    "seed_norm_min": 40,
+    "seed_norm_max": 50,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [
+      14
+    ],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      3,
+      8,
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 51,
+  "fields": {
+    "name": "Siekiernica włoska",
+    "name_pl": "Siekiernica włoska",
+    "name_en": null,
+    "descr": "Hedysarum coronarium",
+    "descr_pl": "Hedysarum coronarium",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 5,
+    "seed_norm_min": 10,
+    "seed_norm_max": 20,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      3,
+      8,
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 52,
+  "fields": {
+    "name": "Komonica zwyczajna",
+    "name_pl": "Komonica zwyczajna",
+    "name_en": null,
+    "descr": "Lotus corniculatus, komonica pospolita, komonica rożkowa",
+    "descr_pl": "Lotus corniculatus, komonica pospolita, komonica rożkowa",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 1,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [],
+    "tags": [
+      2,
+      3,
+      8,
+      7
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 53,
+  "fields": {
+    "name": "Nostrzyk żółty",
+    "name_pl": "Nostrzyk żółty",
+    "name_en": null,
+    "descr": "Melilotus officinalis, nostrzyk lekarski / zwyczajny, trawa tatarska",
+    "descr_pl": "Melilotus officinalis, nostrzyk lekarski / zwyczajny, trawa tatarska",
+    "descr_en": null,
+    "image": "",
+    "pubdate": null,
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_summercrop": false,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "allelopatic_to": [],
+    "allelopatic_to_family": [],
+    "allelopatic_to_tag": [],
+    "synergic_to": [],
+    "synergic_to_family": [
+      11
+    ],
+    "synergic_to_tag": [],
+    "tags": [
+      5,
+      2,
+      3,
+      6,
+      4
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 5,
+  "fields": {
+    "title": "Kompleks ziemniaczany",
+    "title_pl": "Kompleks ziemniaczany",
+    "title_en": "Potato complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": true,
+    "from_plan": 2,
+    "order": 1,
+    "is_late_crop_destroy": true,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      33,
+      32
+    ],
+    "late_crop": [
+      29
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 6,
+  "fields": {
+    "title": "kompleks pszenny",
+    "title_pl": "kompleks pszenny",
+    "title_en": "wheat complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 2,
+    "order": 2,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      23
+    ],
+    "late_crop": [
+      23,
+      14
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 7,
+  "fields": {
+    "title": "Kompleks lniany",
+    "title_pl": "Kompleks lniany",
+    "title_en": "Linen complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 2,
+    "order": 3,
+    "is_late_crop_destroy": true,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      14
+    ],
+    "late_crop": [
+      30
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 8,
+  "fields": {
+    "title": "Kompleks kukurydziany",
+    "title_pl": "Kompleks kukurydziany",
+    "title_en": "Corn complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 2,
+    "order": 4,
+    "is_late_crop_destroy": true,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      35,
+      18
+    ],
+    "late_crop": [
+      26
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 9,
+  "fields": {
+    "title": "Kompleks Rzepakowy",
+    "title_pl": "Kompleks Rzepakowy",
+    "title_en": "Canola complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 2,
+    "order": 5,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      2
+    ],
+    "late_crop": [
+      6
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 10,
+  "fields": {
+    "title": "Kompleks marchwiowy",
+    "title_pl": "Kompleks marchwiowy",
+    "title_en": "Carrot complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 2,
+    "order": 6,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      6
+    ],
+    "late_crop": [
+      34
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 11,
+  "fields": {
+    "title": "Kompleks żytni",
+    "title_pl": "Kompleks żytni",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 3,
+    "order": 1,
+    "is_late_crop_destroy": true,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      48,
+      12
+    ],
+    "late_crop": [
+      48
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 12,
+  "fields": {
+    "title": "Kompleks lniany",
+    "title_pl": "Kompleks lniany",
+    "title_en": "Linen complex",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 3,
+    "order": 2,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      30
+    ],
+    "late_crop": [
+      29
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 13,
+  "fields": {
+    "title": "kompleks pszenny",
+    "title_pl": "kompleks pszenny",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 3,
+    "order": 3,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      29
+    ],
+    "late_crop": [
+      14
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 16,
+  "fields": {
+    "title": "dr",
+    "title_pl": "dr",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 3,
+    "order": 5,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      32
+    ],
+    "late_crop": [
+      21
+    ]
+  }
+},
+{
+  "model": "strona.pagenames",
+  "pk": 1,
+  "fields": {
+    "lang_flag": "images/flaga-polski.png",
+    "lang_flag_pl": "images/flaga-polski.png",
+    "lang_flag_en": "images/flaga-wielkiej-brytanii.png",
+    "headtitle": "Crop Rotator - Program do optymalnego planowania płodozmianu",
+    "headtitle_pl": "Crop Rotator - Program do optymalnego planowania płodozmianu",
+    "headtitle_en": "Crop Rotator - program for optimal crop rotation",
+    "mainpage": "Strona główna",
+    "mainpage_pl": "Strona główna",
+    "mainpage_en": "Main page",
+    "about": "O projekcie",
+    "about_pl": "O projekcie",
+    "about_en": "About",
+    "contact": "Kontakt",
+    "contact_pl": "Kontakt",
+    "contact_en": "Contact",
+    "logout": "Wyloguj",
+    "logout_pl": "Wyloguj",
+    "logout_en": "Logout",
+    "login": "Zaloguj",
+    "login_pl": "Zaloguj",
+    "login_en": "Login",
+    "register": "Zarejestruj się",
+    "register_pl": "Zarejestruj się",
+    "register_en": "Register",
+    "see_more": "Zobacz więcej...",
+    "see_more_pl": "Zobacz więcej...",
+    "see_more_en": "See more...",
+    "editme": "Edytuj",
+    "editme_pl": "Edytuj",
+    "editme_en": "Edit"
+  }
+},
+{
+  "model": "strona.regnames",
+  "pk": 1,
+  "fields": {
+    "password": "Hasło",
+    "password_pl": "Hasło",
+    "password_en": "Password",
+    "re_password": "Powtórz hasło",
+    "re_password_pl": "Powtórz hasło",
+    "re_password_en": "Retype password",
+    "name": "Twój login to",
+    "name_pl": "Twój login to",
+    "name_en": "Your login is"
+  }
+},
+{
+  "model": "strona.pageskin",
+  "pk": 1,
+  "fields": {
+    "themetitle": "Rotator Basic - light",
+    "position": 0,
+    "planimagedefault": "skins/banksy-rat.jpg",
+    "rotatorlogo_main": "skins/znak_od_boga_ny_orleanska.jpg"
+  }
+},
+{
+  "model": "strona.aboutpagenames",
+  "pk": 1,
+  "fields": {
+    "about_project": "O projekcie lorem ipsum",
+    "about_project_pl": "O projekcie lorem ipsum",
+    "about_project_en": "",
+    "send_email": "Wyślij mail",
+    "send_email_pl": "Wyślij mail",
+    "send_email_en": "Send email",
+    "gitter": "Projekt na Gitterze",
+    "gitter_pl": "Projekt na Gitterze",
+    "gitter_en": "Project on Gitter",
+    "github": "Projekt na Githubie",
+    "github_pl": "Projekt na Githubie",
+    "github_en": "Project on Github",
+    "login_to_see": "Zaloguj się aby zobaczyć więcej szczegółów",
+    "login_to_see_pl": "Zaloguj się aby zobaczyć więcej szczegółów",
+    "login_to_see_en": "Login to see more details"
+  }
+}
+]
