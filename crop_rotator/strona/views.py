@@ -110,9 +110,10 @@ def plan(request, plan_id):
                             synergic_list.append(a + b)
             if a[4].allelopatic_to_family:
                 for i in a[4].allelopatic_to_family.all():
-                    if i == b[2] and a[3] == b[3]:
-                        level_off(top_tier, a, b)
-                        allelopatic_list_family.append(a + b)
+                    if i == b[2]:
+                        if a[3] == b[3] or a[3] == b[3]-1:
+                            level_off(top_tier, a, b)
+                            allelopatic_list_family.append(a + b)
             if a[4].synergic_to_family:
                 for i in a[4].synergic_to_family.all():
                     if i == b[2] and a[3] == b[3]:
