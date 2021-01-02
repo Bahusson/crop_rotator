@@ -81,8 +81,10 @@ def plan(request, plan_id):
     cooldown_list2 = cooldown_list + cooldown_list1
     err_tab_list = []
     err_crop_list = []
-    err_allelopatic_list = []
+    allelopatic_list = []
     synergic_list = []
+    allelopatic_list_family = []
+    synergic_list_family = []
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
@@ -100,22 +102,39 @@ def plan(request, plan_id):
                     if i == b[4]:
                         if a[3] == b[3] or a[3] == b[3]-1:
                             level_off(top_tier, a, b)
-                            err_allelopatic_list.append(a + b)
+                            allelopatic_list.append(a + b)
             if a[4].synergic_to:
                 for i in a[4].synergic_to.all():
                     if i == b[4] and a[3] == b[3]:
                             level_off(top_tier, a, b)
                             synergic_list.append(a + b)
+            if a[4].allelopatic_to_family:
+                for i in a[4].allelopatic_to_family.all():
+                    if i == b[2] and a[3] == b[3]:
+                        level_off(top_tier, a, b)
+                        allelopatic_list_family.append(a + b)
+            if a[4].synergic_to_family:
+                for i in a[4].synergic_to_family.all():
+                    if i == b[2] and a[3] == b[3]:
+                        level_off(top_tier, a, b)
+                        synergic_list_family.append(a + b)
+
     allels = []
+    allels_family = []
     synergies = []
+    synergies_family =[]
     fabs = []
     tabs = []
+    remove_repeating(allels, allelopatic_list)
     remove_repeating(synergies, synergic_list)
-    remove_repeating(allels, err_allelopatic_list)
+    remove_repeating(allels_family, allelopatic_list_family)
+    remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
     allels = repack(allels)
     synergies = repack(synergies)
+    allels_family = repack(allels_family)
+    synergies_family = repack(synergies_family)
     flare(allels, order="allels")
     flare(synergies, order="synergies")
     fabs_percent = float(len(fabs))/float(top_tier*2)
@@ -128,8 +147,10 @@ def plan(request, plan_id):
         fabs_error = str(fabs_error) + "%"
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
     context = {
-     'synergic': synergies,
      'allelopatic': allels,
+     'synergic': synergies,
+     'allelopatic_f': allels_family,
+     'synergic_f': synergies_family,
      'f_error': fabs_error,
      'efcs': error_family_crops,
      'cr_len_warning': clw,

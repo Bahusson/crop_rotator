@@ -309,8 +309,8 @@
   "model": "rotator.croptag",
   "pk": 11,
   "fields": {
-    "name": "Fitosanitarny w rodzinie",
-    "descr": "Nie powoduje kolizji ze swoją rodziną. Często dobry przedplon dla rodziny.",
+    "name": "Fitosanitarny",
+    "descr": "Gatunek ma specjalne właściwości poprawiające jakość płodozmianu. Patrz: zakładka \"Szczegóły\".",
     "image": ""
   }
 },
@@ -514,7 +514,9 @@
     "allelopatic_to_family": [],
     "bad_before": [],
     "synergic_to": [],
-    "synergic_to_family": [],
+    "synergic_to_family": [
+      14
+    ],
     "good_before": [],
     "tags": [
       2
@@ -1442,7 +1444,9 @@
     "seed_norm_min": 60,
     "seed_norm_max": 80,
     "allelopatic_to": [],
-    "allelopatic_to_family": [],
+    "allelopatic_to_family": [
+      11
+    ],
     "bad_before": [],
     "synergic_to": [],
     "synergic_to_family": [],
