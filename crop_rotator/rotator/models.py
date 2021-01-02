@@ -122,8 +122,8 @@ class Crop(models.Model):
         'Crop', related_name="known_antagonisms", blank=True)
     allelopatic_to_family = models.ManyToManyField(
         'CropFamily', related_name="known_antagonisms_family", blank=True)
-    allelopatic_to_tag = models.ManyToManyField(
-        'CropTag', related_name="known_antagonisms_tag", blank=True)
+    bad_before = models.ManyToManyField(
+        'Crop', related_name="bad_before_set", blank=True)
     # Wiemy, że nie pozwala po sobie i ze sobą uprawiać tych rzeczy,
     # ze względów allelopatycznych
     is_demanding = models.BooleanField(default=False)
@@ -138,8 +138,8 @@ class Crop(models.Model):
         'Crop', related_name="known_synergies", blank=True)
     synergic_to_family = models.ManyToManyField(
         'CropFamily', related_name="known_synergies_family", blank=True)
-    synergic_to_tag = models.ManyToManyField(
-        'CropTag', related_name="known_synergies_tag", blank=True)
+    good_before = models.ManyToManyField(
+        'Crop', related_name="good_before_set", blank=True)
     # Znane synergie w uprawie współrzędnej. Jako przedplon będzie inna klasa.
     tags = models.ManyToManyField(
         'CropTag', related_name="special_tags", blank=True)
