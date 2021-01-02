@@ -205,4 +205,26 @@ class RotationStep(models.Model):
         return self.title
 
 
+# Fizyczne źródła danych np. z książek.
+class CropDataSource(models.Model):
+    title = models.CharField(max_length=150)
+    descr = models.CharField(max_length=500, blank=True, null=True)
+    from_plan = models.ForeignKey(
+     'Crop', related_name='crop_source_set',
+     on_delete=models.CASCADE, blank=True, null=True)
+    at_tag = models.ManyToManyField(
+     'CropTag', related_name='crop_source_tag_set', blank=True)
+    at_data_string = models.ForeignKey(
+     'CropDataString', related_name='crop_data_string_set',
+     on_delete=models.SET_NULL, blank=True, null=True)
+    pages_from = models.IntegerField(blank=True, null=True)
+    pages_to = models.IntegerField(blank=True, null=True)
+
+
+# Część źródła danych w formia poszatkowanego stringa - reusable.
+class CropDataString(models.Model):
+    title = models.CharField(max_length=150)
+    part1 = models.CharField(max_length=500, blank=True, null=True)
+    part2 = models.CharField(max_length=500, blank=True, null=True)
+
 # Tutaj jeszcze trzeba zrobić klasy tłumaczeniowe dla kultury gleby, oraz poziomu w mieszance
