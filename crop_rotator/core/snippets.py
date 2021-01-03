@@ -79,5 +79,8 @@ def remove_repeating(new_list, old_list):
     [new_list.append(x) for x in old_list if x not in new_list]
 
 def repack(wrapped_list):
-    wrapped_list1 = wrapped_list[0]
-    return wrapped_list1
+    try:
+        wrapped_list1 = wrapped_list[0]
+        return wrapped_list1
+    except:
+        return False

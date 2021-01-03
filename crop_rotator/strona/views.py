@@ -128,8 +128,6 @@ def plan(request, plan_id):
     remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
-    flare(fabs, order="allelopatic_list")
-
     allels = repack(allels)
     synergies = repack(synergies)
     allels_family = repack(allels_family)

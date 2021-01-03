@@ -2,22 +2,29 @@
 {% load xfilters %}
 
  <div>
-  {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic as allelopaticity %}
-  {% if allelopaticity %}
-    <p>Konflikt na tle allelopatycznym. {{ crop.name }} szkodzi {{ allelopaticity.name }}!</p>
+  {% if allelopatic %}
+    {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic as allelopaticity %}
+    {% if allelopaticity %}
+      <p>Konflikt na tle allelopatycznym. {{ crop.name }} szkodzi {{ allelopaticity.name }}!</p>
+    {% endif %}
   {% endif %}
-  {% shallow_list step_no=step.order search_by=crop.id from_context=synergic as synergism %}
-  {% if synergism %}
-    <p>{{ crop.name }} dobrze współgra z {{ synergism.name }}</p>
+  {% if synergic %}
+    {% shallow_list step_no=step.order search_by=crop.id from_context=synergic as synergism %}
+    {% if synergism %}
+      <p>{{ crop.name }} dobrze współgra z {{ synergism.name }}</p>
+    {% endif %}
   {% endif %}
-
-  {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic_f as allelopaticity_f %}
-  {% if allelopaticity_f %}
-    <p>Konflikt na tle allelopatycznym. {{ crop.name }} szkodzi {{ allelopaticity_f.name }}!</p>
+  {% if allelopatic_f %}
+    {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic_f as allelopaticity_f %}
+    {% if allelopaticity_f %}
+      <p>Konflikt na tle allelopatycznym. {{ crop.name }} szkodzi {{ allelopaticity_f.name }}!</p>
+    {% endif %}
   {% endif %}
-  {% shallow_list step_no=step.order search_by=crop.id from_context=synergic_f as synergism_f %}
-  {% if synergism_f %}
-    <p>{{ crop.name }} dobrze współgra z {{ synergism_f.name }}</p>
+  {% if synergic_f %}
+    {% shallow_list step_no=step.order search_by=crop.id from_context=synergic_f as synergism_f %}
+    {% if synergism_f %}
+      <p>{{ crop.name }} dobrze współgra z {{ synergism_f.name }}</p>
+    {% endif %}
   {% endif %}
 
   <p><b>{{ crop.name }}  </b><button class="show_properties2" value="2">Info</button><p>
