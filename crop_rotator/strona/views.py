@@ -97,28 +97,24 @@ def plan(request, plan_id):
                 err_tab_list.append(b[3])
                 err_crop_list.append(a + b)
                 err_crop_list.append(b + a)
-            if a[4].allelopatic_to:
-                for i in a[4].allelopatic_to.all():
-                    if i == b[4]:
-                        if a[3] == b[3] or a[3] == b[3]-1:
-                            level_off(top_tier, a, b)
-                            allelopatic_list.append(a + b)
-            if a[4].synergic_to:
-                for i in a[4].synergic_to.all():
-                    if i == b[4] and a[3] == b[3]:
-                            level_off(top_tier, a, b)
-                            synergic_list.append(a + b)
-            if a[4].allelopatic_to_family:
-                for i in a[4].allelopatic_to_family.all():
-                    if i == b[2]:
-                        if a[3] == b[3] or a[3] == b[3]-1:
-                            level_off(top_tier, a, b)
-                            allelopatic_list_family.append(a + b)
-            if a[4].synergic_to_family:
-                for i in a[4].synergic_to_family.all():
-                    if i == b[2] and a[3] == b[3]:
-                        level_off(top_tier, a, b)
-                        synergic_list_family.append(a + b)
+
+            if a[4].allelopatic_to.filter(pk=b[4].id).exists():
+                if a[3] == b[3] or a[3] == b[3]-1:
+                    level_off(top_tier, a, b)
+                    allelopatic_list.append(a + b)
+            if a[4].synergic_to.filter(pk=b[4].id).exists() and a[3] == b[3]:
+                level_off(top_tier, a, b)
+                synergic_list.append(a + b)
+            if a[4].allelopatic_to_family.filter(pk=b[2].id).exists():
+                if a[3] == b[3] or a[3] == b[3]-1:
+                    level_off(top_tier, a, b)
+                    allelopatic_list_family.append(a + b)
+            if a[4].synergic_to_family.filter(pk=b[2].id).exists() and a[3] == b[3]:
+                level_off(top_tier, a, b)
+                synergic_list_family.append(a + b)
+    #        if a[4].bad_before:
+    #            for i in a[4].bad_before.all():
+    #                if i
 
     allels = []
     allels_family = []
@@ -132,6 +128,8 @@ def plan(request, plan_id):
     remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
+    flare(fabs, order="allelopatic_list")
+
     allels = repack(allels)
     synergies = repack(synergies)
     allels_family = repack(allels_family)
