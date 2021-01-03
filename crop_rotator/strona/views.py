@@ -97,7 +97,6 @@ def plan(request, plan_id):
                 err_tab_list.append(b[3])
                 err_crop_list.append(a + b)
                 err_crop_list.append(b + a)
-
             if a[4].allelopatic_to.filter(pk=b[4].id).exists():
                 if a[3] == b[3] or a[3] == b[3]-1:
                     level_off(top_tier, a, b)

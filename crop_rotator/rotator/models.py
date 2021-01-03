@@ -115,9 +115,11 @@ class Crop(models.Model):
                 choices=AGRICULTURE_STATUS, default=0)
     cooldown_min_override = models.IntegerField(blank=True, null=True)
     cooldown_max_override = models.IntegerField(blank=True, null=True)
-    is_summercrop = models.BooleanField(default=False)
+    is_summercrop = models.BooleanField(default=False) # do usunięcia?
     # Czy jest rośliną jarą niszczoną przez przymrozek?
     # Szczególnie istotne przy bobowatych dla triku wsiewka-main_crop.
+    crop_relationships = models.ManyToManyField(
+        'CropInteraction', related_name="known_crop_interactions", blank=True)
     allelopatic_to = models.ManyToManyField(
         'Crop', related_name="known_antagonisms", blank=True)
     allelopatic_to_family = models.ManyToManyField(
@@ -172,6 +174,34 @@ class CropMix(models.Model):
         return self.name
 
 
+class CropInteraction(models.Model):
+    title = models.CharField(max_length=150) # Tytuł i od razu opis relacji
+    is_positive = models.BooleanField(default=True)  # Typ oddziaływania
+    about_crop = models.ForeignKey(
+     'Crop', related_name='crop_interaction_set',
+      on_delete=models.SET_NULL, blank=True, null=True)
+    about_family = models.ForeignKey(
+      'CropFamily', related_name='family_interaction_set',
+      on_delete=models.SET_NULL, blank=True, null=True)
+    info_source = models.ForeignKey(
+      'CropDataSource', related_name='info_source_set',
+      on_delete=models.SET_NULL, blank=True, null=True)
+    start_int = models.IntegerField(default=0) # początek rozpoczęcia oddziaływania
+    end_int = models.IntegerField(default=0) # koniec rozpoczecia oddziaływania
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        return self.name
+
+class FamilyInteraction(CropInteraction):
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        return self.name
+
 # Element płodozmianu.
 class RotationStep(models.Model):
     title = models.CharField(max_length=150)
@@ -211,7 +241,7 @@ class CropDataSource(models.Model):
     descr = models.TextField(blank=True, null=True)
     from_crop = models.ForeignKey(
      'Crop', related_name='crop_source_set',
-     on_delete=models.CASCADE, blank=True, null=True)
+     on_delete=models.SET_NULL, blank=True, null=True)
     at_tag = models.ManyToManyField(
      'CropTag', related_name='crop_source_tag_set', blank=True)
     at_data_string = models.ForeignKey(
