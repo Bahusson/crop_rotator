@@ -12,22 +12,26 @@
   {% if interactions %}
     {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions as complexity %}
     {% if complexity %}
-      {% if complexity.1 %}
-        <p>{{ crop.name }} dobrze współgra z {{ complexity.0.name }} w kroku {{ complexity.2 }}</p>
-      {% else %}
-        <p>{{ crop.name }} szkodzi {{ complexity.0.name }} w kroku {{ complexity.2 }}</p>
-      {% endif %}
+      {% for complex in complexity %}
+        {% if complex.1 %}
+          <p>{{ crop.name }} dobrze współgra z {{ complex.0.name }} w kroku {{ complex.2 }}</p>
+        {% else %}
+          <p>{{ crop.name }} szkodzi {{ complex.0.name }} w kroku {{ complex.2 }}</p>
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
 
   {% if interactions_f %}
     {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions_f as complexity_f %}
     {% if complexity_f %}
-      {% if complexity_f.1 %}
-        <p>{{ crop.name }} dobrze współgra z {{ complexity_f.0.name }} w kroku {{ complexity_f.2 }}</p>
-      {% else %}
-        <p>{{ crop.name }} szkodzi {{ complexity_f.0.name }} w kroku {{ complexity_f.2 }}</p>
-      {% endif %}
+      {% for complex_f in complexity_f %}
+        {% if complex_f.1 %}
+          <p>{{ crop.name }} dobrze współgra z {{ complex_f.0.name }} w kroku {{ complex_f.2 }}</p>
+        {% else %}
+          <p>{{ crop.name }} szkodzi {{ complex_f.0.name }} w kroku {{ complex_f.2 }}</p>
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
 
