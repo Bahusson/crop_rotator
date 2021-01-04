@@ -82,3 +82,16 @@ def shallow_list(**kwargs):
     c = from_context[9]
     if a is order and b is plant:
         return c
+
+# Przeróbka powyższego. Jak będzie działać to powyższy do usunięcia, bo przestarzały.
+@register.simple_tag(name="complex_list")
+def complex_list(**kwargs):
+    from_context = kwargs['from_context']
+    order = int(kwargs['step_no'])
+    subject = int(kwargs['search_by'])
+    sub_type = int(kwargs['subject_type'])
+    a = from_context[3]
+    b = from_context[sub_type] # 1 dla rośliny a 2 dla rodziny.
+    specimen = from_context[9]
+    if a is order and b is subject:
+        return specimen

@@ -102,7 +102,7 @@ def plan(request, plan_id):
                 for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
                     if a[3] == b[3]-i.start_int or a[3] == b[3]-i.end_int:
                         level_off(top_tier, a, b)
-                        crop_interaction_list.append(a + b)
+                        crop_interaction_list.append(a + b + [i.is_positive])
 
         #    if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
 
