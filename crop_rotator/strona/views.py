@@ -123,21 +123,24 @@ def plan(request, plan_id):
     #        if a[4].bad_before:
     #            for i in a[4].bad_before.all():
     #                if i
+    #flare(crop_interaction_list, order="xxxs")
 
+    interactions = [k for k, g in itertools.groupby(sorted(crop_interaction_list))]
     allels = []
     allels_family = []
     synergies = []
     synergies_family =[]
     fabs = []
     tabs = []
-    interactions = []
+    #interactions = []
+    flare(interactions, order="crop_interaction_list")
     remove_repeating(allels, allelopatic_list)
     remove_repeating(synergies, synergic_list)
     remove_repeating(allels_family, allelopatic_list_family)
     remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
-    remove_repeating(interactions, crop_interaction_list)
+    #remove_repeating(interactions, crop_interaction_list)
     allels = repack(allels)
     synergies = repack(synergies)
     allels_family = repack(allels_family)
@@ -145,7 +148,6 @@ def plan(request, plan_id):
     interactions = repack(interactions)
     #flare(allels, order="allels")
     #flare(synergies, order="synergies")
-    flare(interactions, order="interactions")
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
