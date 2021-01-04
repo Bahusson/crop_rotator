@@ -106,13 +106,6 @@ def plan(request, plan_id):
 
         #    if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
 
-            if a[4].allelopatic_to.filter(pk=b[4].id).exists():
-                if a[3] == b[3] or a[3] == b[3]-1:
-                    level_off(top_tier, a, b)
-                    allelopatic_list.append(a + b)
-            if a[4].synergic_to.filter(pk=b[4].id).exists() and a[3] == b[3]:
-                level_off(top_tier, a, b)
-                synergic_list.append(a + b)
             if a[4].allelopatic_to_family.filter(pk=b[2].id).exists():
                 if a[3] == b[3] or a[3] == b[3]-1:
                     level_off(top_tier, a, b)
@@ -120,34 +113,18 @@ def plan(request, plan_id):
             if a[4].synergic_to_family.filter(pk=b[2].id).exists() and a[3] == b[3]:
                 level_off(top_tier, a, b)
                 synergic_list_family.append(a + b)
-    #        if a[4].bad_before:
-    #            for i in a[4].bad_before.all():
-    #                if i
-    #flare(crop_interaction_list, order="xxxs")
 
     interactions = [k for k, g in itertools.groupby(sorted(crop_interaction_list))]
-    allels = []
     allels_family = []
-    synergies = []
     synergies_family =[]
     fabs = []
     tabs = []
-#    flare(interactions, order="POST ORG")
-    #interactions = []
-    remove_repeating(allels, allelopatic_list)
-    remove_repeating(synergies, synergic_list)
     remove_repeating(allels_family, allelopatic_list_family)
     remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
-    #remove_repeating(interactions, crop_interaction_list)
-    allels = repack(allels)
-    synergies = repack(synergies)
     allels_family = repack(allels_family)
     synergies_family = repack(synergies_family)
-    flare(interactions, order="crop_interaction_list")
-    #flare(allels, order="allels")
-    #flare(synergies, order="synergies")
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
@@ -159,8 +136,6 @@ def plan(request, plan_id):
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
     context = {
      'interactions': interactions,
-     'allelopatic': allels,
-     'synergic': synergies,
      'allelopatic_f': allels_family,
      'synergic_f': synergies_family,
      'f_error': fabs_error,
