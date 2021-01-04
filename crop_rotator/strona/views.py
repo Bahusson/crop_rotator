@@ -132,8 +132,8 @@ def plan(request, plan_id):
     synergies_family =[]
     fabs = []
     tabs = []
+#    flare(interactions, order="POST ORG")
     #interactions = []
-    flare(interactions, order="crop_interaction_list")
     remove_repeating(allels, allelopatic_list)
     remove_repeating(synergies, synergic_list)
     remove_repeating(allels_family, allelopatic_list_family)
@@ -145,7 +145,7 @@ def plan(request, plan_id):
     synergies = repack(synergies)
     allels_family = repack(allels_family)
     synergies_family = repack(synergies_family)
-    interactions = repack(interactions)
+    flare(interactions, order="crop_interaction_list")
     #flare(allels, order="allels")
     #flare(synergies, order="synergies")
     fabs_percent = float(len(fabs))/float(top_tier*2)

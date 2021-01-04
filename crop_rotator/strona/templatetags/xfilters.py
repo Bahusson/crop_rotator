@@ -90,8 +90,11 @@ def complex_list(**kwargs):
     order = int(kwargs['step_no'])
     subject = int(kwargs['search_by'])
     sub_type = int(kwargs['subject_type'])
-    a = from_context[3]
-    b = from_context[sub_type] # 1 dla rośliny a 2 dla rodziny.
-    specimen = from_context[9]
-    if a is order and b is subject:
-        return specimen
+    for i in from_context:
+        a = i[3]
+        b = i[sub_type] # 1 dla rośliny a 2 dla rodziny.
+        specimen = i[9]
+        i_value = i[10]
+        step = i[8]
+        if a is order and b is subject:
+            return (specimen,i_value,step)

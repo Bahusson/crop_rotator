@@ -12,10 +12,10 @@
   {% if interactions %}
     {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions as complexity %}
     {% if complexity %}
-      {% if interactions.10 %}
-        <p>{{ crop.name }} dobrze współgra z {{ complexity.name }} w kroku {{ interactions.8 }}</p>
+      {% if complexity.1 %}
+        <p>{{ crop.name }} dobrze współgra z {{ complexity.0.name }} w kroku {{ complexity.2 }}</p>
       {% else %}
-        <p>{{ crop.name }} szkodzi {{ complexity.name }} w kroku {{ interactions.8 }}</p>
+        <p>{{ crop.name }} szkodzi {{ complexity.0.name }} w kroku {{ complexity.2 }}</p>
       {% endif %}
     {% endif %}
   {% endif %}
