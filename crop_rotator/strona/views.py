@@ -85,6 +85,7 @@ def plan(request, plan_id):
     synergic_list = []
     allelopatic_list_family = []
     synergic_list_family = []
+    crop_interaction_list = []
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
@@ -97,6 +98,14 @@ def plan(request, plan_id):
                 err_tab_list.append(b[3])
                 err_crop_list.append(a + b)
                 err_crop_list.append(b + a)
+            if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
+                for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
+                    if a[3] == b[3]-i.start_int or a[3] == b[3]-i.end_int:
+                        level_off(top_tier, a, b)
+                        crop_interaction_list.append(a + b)
+
+        #    if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
+
             if a[4].allelopatic_to.filter(pk=b[4].id).exists():
                 if a[3] == b[3] or a[3] == b[3]-1:
                     level_off(top_tier, a, b)
@@ -121,18 +130,22 @@ def plan(request, plan_id):
     synergies_family =[]
     fabs = []
     tabs = []
+    interactions = []
     remove_repeating(allels, allelopatic_list)
     remove_repeating(synergies, synergic_list)
     remove_repeating(allels_family, allelopatic_list_family)
     remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
+    remove_repeating(interactions, crop_interaction_list)
     allels = repack(allels)
     synergies = repack(synergies)
     allels_family = repack(allels_family)
     synergies_family = repack(synergies_family)
-    flare(allels, order="allels")
-    flare(synergies, order="synergies")
+    interactions = repack(interactions)
+    #flare(allels, order="allels")
+    #flare(synergies, order="synergies")
+    flare(interactions, order="interactions")
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
@@ -143,6 +156,7 @@ def plan(request, plan_id):
         fabs_error = str(fabs_error) + "%"
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
     context = {
+     'interactions': interactions,
      'allelopatic': allels,
      'synergic': synergies,
      'allelopatic_f': allels_family,

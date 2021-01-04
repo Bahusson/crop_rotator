@@ -193,14 +193,14 @@ class CropInteraction(models.Model):
         ordering = ['title']
 
     def __str__(self):
-        return self.name
+        return self.title
 
 class FamilyInteraction(CropInteraction):
     class Meta:
         ordering = ['title']
 
     def __str__(self):
-        return self.name
+        return self.title
 
 # Element płodozmianu.
 class RotationStep(models.Model):
