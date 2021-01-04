@@ -92,7 +92,7 @@ def complex_list(**kwargs):
     sub_type = int(kwargs['subject_type'])
     for i in from_context:
         a = i[3]
-        b = i[sub_type] # 1 dla rośliny a 2 dla rodziny.
+        b = i[sub_type]
         specimen = i[9]
         i_value = i[10]
         step = i[8]

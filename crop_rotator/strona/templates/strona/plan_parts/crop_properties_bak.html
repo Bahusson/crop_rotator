@@ -8,12 +8,20 @@
       <p>Konflikt na tle allelopatycznym. {{ crop.name }} szkodzi {{ allelopaticity.name }}!</p>
     {% endif %}
   {% endif %}
-  {% if synergic %}
-    {% shallow_list step_no=step.order search_by=crop.id from_context=synergic as synergism %}
-    {% if synergism %}
-      <p>{{ crop.name }} dobrze współgra z {{ synergism.name }}</p>
+
+  {% if interactions %}
+    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions as complexity %}
+    {% if complexity %}
+      {% if complexity.1 %}
+        <p>{{ crop.name }} dobrze współgra z {{ complexity.0.name }} w kroku {{ complexity.2 }}</p>
+      {% else %}
+        <p>{{ crop.name }} szkodzi {{ complexity.0.name }} w kroku {{ complexity.2 }}</p>
+      {% endif %}
     {% endif %}
   {% endif %}
+
+  
+
   {% if allelopatic_f %}
     {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic_f as allelopaticity_f %}
     {% if allelopaticity_f %}

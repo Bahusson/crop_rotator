@@ -81,11 +81,10 @@ def plan(request, plan_id):
     cooldown_list2 = cooldown_list + cooldown_list1
     err_tab_list = []
     err_crop_list = []
-    allelopatic_list = []
-    synergic_list = []
-    allelopatic_list_family = []
-    synergic_list_family = []
+#    allelopatic_list_family = []
+#    synergic_list_family = []
     crop_interaction_list = []
+    family_interaction_list = []
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
@@ -103,28 +102,34 @@ def plan(request, plan_id):
                     if a[3] == b[3]-i.start_int or a[3] == b[3]-i.end_int:
                         level_off(top_tier, a, b)
                         crop_interaction_list.append(a + b + [i.is_positive])
+            if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
+                for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
+                    if a[3] == b[3]-i.start_int or a[3] == b[3]-i.end_int:
+                        level_off(top_tier, a, b)
+                        family_interaction_list.append(a + b + [i.is_positive])
 
-        #    if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
 
-            if a[4].allelopatic_to_family.filter(pk=b[2].id).exists():
-                if a[3] == b[3] or a[3] == b[3]-1:
-                    level_off(top_tier, a, b)
-                    allelopatic_list_family.append(a + b)
-            if a[4].synergic_to_family.filter(pk=b[2].id).exists() and a[3] == b[3]:
-                level_off(top_tier, a, b)
-                synergic_list_family.append(a + b)
+#            if a[4].allelopatic_to_family.filter(pk=b[2].id).exists():
+#                if a[3] == b[3] or a[3] == b[3]-1:
+#                    level_off(top_tier, a, b)
+#                    allelopatic_list_family.append(a + b)
+#            if a[4].synergic_to_family.filter(pk=b[2].id).exists() and a[3] == b[3]:
+#                level_off(top_tier, a, b)
+#                synergic_list_family.append(a + b)
 
     interactions = [k for k, g in itertools.groupby(sorted(crop_interaction_list))]
-    allels_family = []
-    synergies_family =[]
+    interactions_f = [k for k, g in itertools.groupby(sorted(family_interaction_list))]
+#    allels_family = []
+#    synergies_family =[]
     fabs = []
     tabs = []
-    remove_repeating(allels_family, allelopatic_list_family)
-    remove_repeating(synergies_family, synergic_list_family)
+#    flare(interactions_f, order="family_interaction_list")
+#    remove_repeating(allels_family, allelopatic_list_family)
+#    remove_repeating(synergies_family, synergic_list_family)
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
-    allels_family = repack(allels_family)
-    synergies_family = repack(synergies_family)
+#    allels_family = repack(allels_family)
+#    synergies_family = repack(synergies_family)
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
@@ -136,8 +141,9 @@ def plan(request, plan_id):
     error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
     context = {
      'interactions': interactions,
-     'allelopatic_f': allels_family,
-     'synergic_f': synergies_family,
+     'interactions_f': interactions_f,
+#     'allelopatic_f': allels_family,
+#     'synergic_f': synergies_family,
      'f_error': fabs_error,
      'efcs': error_family_crops,
      'cr_len_warning': clw,
