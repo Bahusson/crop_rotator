@@ -61,9 +61,10 @@ def flare(debugged_content, **kwargs):
 
 # Skraca powtarzający się kawałek kodu na widokach.
 def list_appending_short(items, letter, vars):
+    subst = {"a": 1, "b": 0,}
     for i in items[0]:
         vars[0].append(
-         [i.family.cooldown_min, i.id, i.family, [vars[1].order, letter], i,])
+         [i.family.cooldown_min, i.id, i.family, [vars[1].order, vars[1].order*2-subst[letter]], i,])
         # Policz bobowate i strączkowe (tzw. mandatory crops):
         if i.family.is_mandatory_crop:
             vars[2].append(str(vars[1].order) + letter)
@@ -72,8 +73,9 @@ def list_appending_short(items, letter, vars):
 def level_off(top_tier, a, b):
     if a[3][0] > top_tier:
         a[3][0] = a[3][0] - top_tier
-        if b[3][0] > top_tier:
-            b[3][0] = b[3][0] - top_tier
+    if b[3][0] > top_tier:
+        b[3][0] = b[3][0] - top_tier
+
 
 # usuwa powtarzające się elementy na liście i zwraca nową listę
 def remove_repeating(new_list, old_list):
