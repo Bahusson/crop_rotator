@@ -56,7 +56,7 @@ def deep_list(context, **kwargs):
     c = int(kwargs['search_pos'])
     d = int(kwargs['searched_item'])
     for i in itemlist2:
-        if a is i[3]:
+        if a is i[3][0]:
             if b is i[c]:
                 return (i[d], i[d+5], i[8])
 
@@ -77,13 +77,13 @@ def shallow_list(**kwargs):
     from_context = kwargs['from_context']
     order = int(kwargs['step_no'])
     plant = int(kwargs['search_by'])
-    a = from_context[3]
+    a = from_context[3][0]
     b = from_context[1]
     c = from_context[9]
     if a is order and b is plant:
         return c
 
-# Przeróbka powyższego. Jak będzie działać to powyższy do usunięcia, bo przestarzały.
+# Przeróbka powyższego.
 @register.simple_tag(name="complex_list")
 def complex_list(**kwargs):
     from_context = kwargs['from_context']
@@ -92,7 +92,7 @@ def complex_list(**kwargs):
     sub_type = int(kwargs['subject_type'])
     mylist = []
     for i in from_context:
-        a = i[3]
+        a = i[3][0]
         b = i[sub_type] # 1 dla rośliny a 2 dla rodziny.
         specimen = i[9]
         i_value = i[10]

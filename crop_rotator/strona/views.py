@@ -77,7 +77,7 @@ def plan(request, plan_id):
     cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
     top_tier = top_tier_list[-1]
     for item in cooldown_list1:
-        item[3] += top_tier
+        item[3][0] += top_tier
     cooldown_list2 = cooldown_list + cooldown_list1
     err_tab_list = []
     err_crop_list = []
@@ -89,20 +89,20 @@ def plan(request, plan_id):
             clw = Crop.objects.filter(id__in=error_len_crops)
     if not clw:
         for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
-            if a[2] == b[2] and a[3] - b[3] < a[0] and a[3] - b[3] > 0:
+            if a[2] == b[2] and a[3][0] - b[3][0] < a[0] and a[3][0] - b[3][0] > 0:
                 level_off(top_tier, a, b)
-                err_tab_list.append(a[3])
-                err_tab_list.append(b[3])
+                err_tab_list.append(a[3][0])
+                err_tab_list.append(b[3][0])
                 err_crop_list.append(a + b)
                 err_crop_list.append(b + a)
             if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
                 for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
-                    if a[3] == b[3]-i.start_int or a[3] == b[3]-i.end_int:
+                    if a[3][0] == b[3][0]-i.start_int or a[3][0] == b[3][0]-i.end_int:
                         level_off(top_tier, a, b)
                         crop_interaction_list.append(a + b + [i.is_positive])
             if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
                 for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
-                    if a[3] == b[3]-i.start_int or a[3] == b[3]-i.end_int:
+                    if a[3][0] == b[3][0]-i.start_int or a[3][0] == b[3][0]-i.end_int:
                         level_off(top_tier, a, b)
                         family_interaction_list.append(a + b + [i.is_positive])
     interactions = [k for k, g in itertools.groupby(sorted(crop_interaction_list))]
