@@ -45,16 +45,16 @@ def booleanate(mystring):
     return mystring
 
 
-# Flara debugująca
-def flare(keyword, **kwargs):
-    if "order" in kwargs:
-        num = " # " + str(kwargs['order'])
+# Flara debugująca...  :3
+def flare(debugged_content, **kwargs):
+    if "name" in kwargs:
+        num = " # " + str(kwargs['name'])
     else:
         num = ''
     print("")
     print("")
     print("")
-    print("THIS IS A DEBUGGING FLARE" + num + ' - ' + str(keyword))
+    print("THIS IS A DEBUGGING FLARE" + num + ' - ' + str(debugged_content))
     print("")
     print("")
     print("")
