@@ -115,19 +115,8 @@ class Crop(models.Model):
                 choices=AGRICULTURE_STATUS, default=0)
     cooldown_min_override = models.IntegerField(blank=True, null=True)
     cooldown_max_override = models.IntegerField(blank=True, null=True)
-    is_summercrop = models.BooleanField(default=False) # do usunięcia?
-    # Czy jest rośliną jarą niszczoną przez przymrozek?
-    # Szczególnie istotne przy bobowatych dla triku wsiewka-main_crop.
     crop_relationships = models.ManyToManyField(
         'CropInteraction', related_name="known_crop_interactions", blank=True)
-    allelopatic_to = models.ManyToManyField(
-        'Crop', related_name="known_antagonisms", blank=True)
-    allelopatic_to_family = models.ManyToManyField(
-        'CropFamily', related_name="known_antagonisms_family", blank=True)
-    bad_before = models.ManyToManyField(
-        'Crop', related_name="bad_before_set", blank=True)
-    # Wiemy, że nie pozwala po sobie i ze sobą uprawiać tych rzeczy,
-    # ze względów allelopatycznych
     is_demanding = models.BooleanField(default=False)
     # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
     is_deep_roots = models.BooleanField(default=False)
@@ -136,13 +125,6 @@ class Crop(models.Model):
     # Czy zostawia dużo resztek pożniwnych?
     takes_mix_level = models.PositiveSmallIntegerField(
         choices=MIX_LEVEL, default=0)
-    synergic_to = models.ManyToManyField(
-        'Crop', related_name="known_synergies", blank=True)
-    synergic_to_family = models.ManyToManyField(
-        'CropFamily', related_name="known_synergies_family", blank=True)
-    good_before = models.ManyToManyField(
-        'Crop', related_name="good_before_set", blank=True)
-    # Znane synergie w uprawie współrzędnej. Jako przedplon będzie inna klasa.
     tags = models.ManyToManyField(
         'CropTag', related_name="special_tags", blank=True)
     # dodatkowe cechy plonu wyrażone w tagach.
