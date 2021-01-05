@@ -527,7 +527,9 @@
     "takes_mix_level": 1,
     "seed_norm_min": 8,
     "seed_norm_max": 12,
-    "crop_relationships": [],
+    "crop_relationships": [
+      6
+    ],
     "allelopatic_to": [],
     "allelopatic_to_family": [],
     "bad_before": [],
@@ -1171,9 +1173,7 @@
     "crop_relationships": [
       2
     ],
-    "allelopatic_to": [
-      2
-    ],
+    "allelopatic_to": [],
     "allelopatic_to_family": [],
     "bad_before": [],
     "synergic_to": [],
@@ -1491,7 +1491,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 60,
     "seed_norm_max": 80,
-    "crop_relationships": [],
+    "crop_relationships": [
+      5
+    ],
     "allelopatic_to": [],
     "allelopatic_to_family": [
       11
@@ -2204,6 +2206,32 @@
     "is_positive": true,
     "about_crop": 32,
     "about_family": null,
+    "info_source": null,
+    "start_int": 0,
+    "end_int": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 5,
+  "fields": {
+    "title": "groch - - wiechlinowate (test)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 11,
+    "info_source": null,
+    "start_int": 0,
+    "end_int": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 6,
+  "fields": {
+    "title": "Rzepak ++ selerowate",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": 14,
     "info_source": null,
     "start_int": 0,
     "end_int": 0

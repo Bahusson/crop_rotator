@@ -64,6 +64,7 @@ def list_appending_short(items, letter, vars):
     for i in items[0]:
         vars[0].append(
          [i.family.cooldown_min, i.id, i.family, vars[1].order, i])
+        # Policz bobowate i strączkowe (tzw. mandatory crops):
         if i.family.is_mandatory_crop:
             vars[2].append(str(vars[1].order) + letter)
 
