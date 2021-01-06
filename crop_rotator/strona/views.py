@@ -83,6 +83,8 @@ def plan(request, plan_id):
     err_crop_list = []
     crop_interaction_list = []
     family_interaction_list = []
+    crop_interaction_list_f = []
+    family_interaction_list_f = []
     for item in cooldown_list:
         if item[0] > len_listed_pe_rs:
             error_len_crops.append(item[1])
@@ -107,12 +109,30 @@ def plan(request, plan_id):
                         level_off(top_tier, a, b)
                         flare((a[3][0], b[3][0]))
                         family_interaction_list.append(a + b + [i.is_positive])
-    interactions = [k for k, g in itertools.groupby(sorted(crop_interaction_list))]
-    interactions_f = [k for k, g in itertools.groupby(sorted(family_interaction_list))]
+            if a[4].family.family_relationships.filter(about_crop__id=b[4].id).exists():
+                for i in a[4].family.family_relationships.filter(about_crop__id=b[4].id):
+                    if a[3][1] == b[3][1]-i.start_int or a[3][1] == b[3][1]-i.end_int:
+                        level_off(top_tier, a, b)
+                        flare((a[3][0], b[3][0]))
+                        crop_interaction_list_f.append(a + b + [i.is_positive])
+            if a[4].family.family_relationships.filter(about_family__id=b[2].id).exists():
+                for i in a[4].family.family_relationships.filter(about_family__id=b[2].id):
+                    if a[3][1] == b[3][1]-i.start_int or a[3][1] == b[3][1]-i.end_int:
+                        level_off(top_tier, a, b)
+                        flare((a[3][0], b[3][0]))
+                        family_interaction_list_f.append(a + b + [i.is_positive])
     fabs = []
     tabs = []
+    interactions = []
+    interactions_f = []
+    f_interactions = []
+    f_interactions_f = []
     remove_repeating(fabs, fabacae)
     remove_repeating(tabs, err_tab_list)
+    remove_repeating(interactions, crop_interaction_list)
+    remove_repeating(interactions_f, family_interaction_list)
+    remove_repeating(f_interactions, crop_interaction_list_f)
+    remove_repeating(f_interactions_f, family_interaction_list_f)
     fabs_percent = float(len(fabs))/float(top_tier*2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
@@ -125,6 +145,8 @@ def plan(request, plan_id):
     context = {
      'interactions': interactions,
      'interactions_f': interactions_f,
+     'f_interactions': f_interactions,
+     'f_if_interactions_f': f_interactions_f,
      'f_error': fabs_error,
      'efcs': error_family_crops,
      'cr_len_warning': clw,

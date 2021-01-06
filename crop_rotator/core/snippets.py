@@ -81,6 +81,9 @@ def level_off(top_tier, a, b):
 def remove_repeating(new_list, old_list):
     [new_list.append(x) for x in old_list if x not in new_list]
 
+def remove_repeating_2(list):
+    [k for k, g in itertools.groupby(sorted(family_interaction_list))]
+
 def repack(wrapped_list):
     try:
         wrapped_list1 = wrapped_list[0]
