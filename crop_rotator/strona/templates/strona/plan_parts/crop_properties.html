@@ -11,29 +11,24 @@
 
   {% if interactions %}
     {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions as complexity %}
-    {% if complexity %}
-      {% for complex in complexity %}
-        {% if complex.1 %}
-          <p>{{ crop.name }} dobrze współgra z {{ complex.0.name }} w kroku {{ complex.2 }}</p>
-        {% else %}
-          <p>{{ crop.name }} szkodzi {{ complex.0.name }} w kroku {{ complex.2 }}</p>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+    {% include 'strona/plan_parts/deep_properties.html' %}
   {% endif %}
 
   {% if interactions_f %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions_f as complexity_f %}
-    {% if complexity_f %}
-      {% for complex_f in complexity_f %}
-        {% if complex_f.1 %}
-          <p>{{ crop.name }} dobrze współgra z {{ complex_f.0.name }} w kroku {{ complex_f.2 }}</p>
-        {% else %}
-          <p>{{ crop.name }} szkodzi {{ complex_f.0.name }} w kroku {{ complex_f.2 }}</p>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions_f as complexity %}
+    {% include 'strona/plan_parts/deep_properties.html' %}
   {% endif %}
+
+  {% if f_interactions %}
+    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=f_interactions as complexity %}
+    {% include 'strona/plan_parts/deep_properties.html' %}
+  {% endif %}
+
+  {% if f_interactions_f %}
+    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=f_interactions_f as complexity %}
+    {% include 'strona/plan_parts/deep_properties.html' %}
+  {% endif %}
+
 
   <p><b>{{ crop.name }}  </b><button class="show_properties2" value="2">Info</button><p>
   <div class="hidden_properties">
