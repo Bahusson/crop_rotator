@@ -3,10 +3,8 @@
 
 {% if complexity %}
   {% for complex in complexity %}
-    {% if complex.1 %}
-      <p>{{ crop.name }} dobrze współgra z {{ complex.0.name }} w kroku {{ complex.2 }}</p>
-    {% else %}
-      <p>{{ crop.name }} szkodzi {{ complex.0.name }} w kroku {{ complex.2 }}</p>
-    {% endif %}
+      <p>{{ crop.name }}
+        {% if complex.1 %} dobrze współgra z {% else %} szkodzi {% endif %}
+      {{ complex.0.name }} w kroku {{ complex.2 }}</p>
   {% endfor %}
 {% endif %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404 as G404
 from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
 from .models import PageSkin as S, PageNames as P, RegNames, AboutPageNames
-from rotator.models import RotationPlan, RotationStep
+from rotator.models import RotationPlan, RotationStep, Crop, CropFamily
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import PageElement as pe, PageLoad
 from core.snippets import (
@@ -53,7 +53,7 @@ def allplans(request):
     return render(request, template, context_lazy)
 
 
-# Widok pojedynczego płodozmianu - W_I_P.
+# Widok pojedynczego płodozmianu
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
@@ -178,6 +178,32 @@ def plan(request, plan_id):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
     template = "strona/plan.html"
+    return render(request, template, context_lazy)
+
+
+# Widok szczegółowy pojedynczego gatunku - W_I_P
+def crop(request, crop_id):
+    pe_c = pe(Crop)
+    pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
+    context = {
+        "crop": pe_c_id,
+    }
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/crop.html"
+    return render(request, template, context_lazy)
+
+
+# Widok szczegółowy danej rodziny
+def family(request, family_id):
+    pe_f = pe(CropFamily)
+    pe_f_id = pe_f.by_id(G404=G404, id=family_id)
+    context = {
+        "family": pe_f_id,
+    }
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/family.html"
     return render(request, template, context_lazy)
 
 
