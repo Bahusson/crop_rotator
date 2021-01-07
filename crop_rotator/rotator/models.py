@@ -7,24 +7,22 @@ class RotationPlan(models.Model):
     CLASS_14A = 0
     CLASS_4B_LOW = 1
     SOIL_CLASS = (
-    (CLASS_14A, "Gleby Dobrej Jakości"),
-    (CLASS_4B_LOW, "Gleby Gorszej Jakości"),
+        (CLASS_14A, "Gleby Dobrej Jakości"),
+        (CLASS_4B_LOW, "Gleby Gorszej Jakości"),
     )
     title = models.CharField(max_length=150)
-    owner = models.ForeignKey(
-     User, on_delete=models.CASCADE, blank=True, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
-    soil_type = models.PositiveSmallIntegerField(
-                choices=SOIL_CLASS, default=0)
+    soil_type = models.PositiveSmallIntegerField(choices=SOIL_CLASS, default=0)
 
     class Meta:
-        ordering = ['-pubdate']
+        ordering = ["-pubdate"]
 
     def __str__(self):
         return self.title
 
     def pubdate_short(self):
-        return self.pubdate.strftime('%a %d %b %Y')
+        return self.pubdate.strftime("%a %d %b %Y")
 
 
 # Rodzina Botaniczna - zawiera informacje o typowych wartościach
@@ -35,15 +33,14 @@ class CropFamily(models.Model):
     WORSENS = 2
     NEUTRAL = 3
     AGRICULTURE_STATUS = (
-    (N_A, 'Nie Dotyczy'),
-    (BETTERS, "Poprawia Jakość Gleby"),
-    (WORSENS, "Pogarsza Jakość Gleby"),
-    (NEUTRAL, "Neutralna Dla Jakości Gleby"),
+        (N_A, "Nie Dotyczy"),
+        (BETTERS, "Poprawia Jakość Gleby"),
+        (WORSENS, "Pogarsza Jakość Gleby"),
+        (NEUTRAL, "Neutralna Dla Jakości Gleby"),
     )
     name = models.CharField(max_length=150)
     latin_name = models.CharField(max_length=150, blank=True, null=True)
-    culture = models.PositiveSmallIntegerField(
-                choices=AGRICULTURE_STATUS, default=3)
+    culture = models.PositiveSmallIntegerField(choices=AGRICULTURE_STATUS, default=3)
     # W jakim stanie zostawia glebę po sobie.
     cooldown_min = models.IntegerField(blank=True, null=True)
     # Ile lat nie wolno uprawiać po sobie minimum.
@@ -52,16 +49,18 @@ class CropFamily(models.Model):
     is_manurable = models.BooleanField(default=False)
     # Czy wolno nawozić obornikiem i czy to poprawia kulturę gleby?
     culture_manured = models.PositiveSmallIntegerField(
-                choices=AGRICULTURE_STATUS, default=0)
+        choices=AGRICULTURE_STATUS, default=0
+    )
     # W jakiej kulturze zostawia po użyciu wraz z obornikiem?
     is_mandatory_crop = models.BooleanField(default=False)
     # Czy musi występować w płodozmianie? (Bo trzeba wyróżnić Bobowate)
     family_relationships = models.ManyToManyField(
-        'FamilyInteraction', related_name="known_family_interactions", blank=True)
+        "FamilyInteraction", related_name="known_family_interactions", blank=True
+    )
 
     class Meta:
-        ordering = ['name']
-        verbose_name_plural = 'Crop Families'
+        ordering = ["name"]
+        verbose_name_plural = "Crop Families"
 
     def __str__(self):
         return self.name
@@ -71,10 +70,10 @@ class CropFamily(models.Model):
 class CropTag(models.Model):
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
-    image = models.ImageField(upload_to='images', blank=True, null=True)
+    image = models.ImageField(upload_to="images", blank=True, null=True)
 
     class Meta:
-        ordering = ['name']
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -87,10 +86,10 @@ class Crop(models.Model):
     WORSENS = 2
     NEUTRAL = 3
     AGRICULTURE_STATUS = (
-    (AS_FAMILY, "Domyślnie dla Rodziny"),
-    (BETTERS, "Poprawia Jakość Gleby"),
-    (WORSENS, "Pogarsza Jakość Gleby"),
-    (NEUTRAL, "Neutralna Dla Jakości Gleby"),
+        (AS_FAMILY, "Domyślnie dla Rodziny"),
+        (BETTERS, "Poprawia Jakość Gleby"),
+        (WORSENS, "Pogarsza Jakość Gleby"),
+        (NEUTRAL, "Neutralna Dla Jakości Gleby"),
     )
     # Rozważ dodanie zajmowanego piętra w mieszance.
     N_A = 0
@@ -100,35 +99,36 @@ class Crop(models.Model):
     MIDDLE_TOP = 4
     TOP = 5
     MIX_LEVEL = (
-    (N_A, "Nieznane"),
-    (LOWER, "Niższe"),
-    (LOWER_MIDDLE, "Niższe-Średnie"),
-    (MIDDLE, "Średnie"),
-    (MIDDLE_TOP, "Średnie-Wyższe"),
-    (TOP, "Wyższe"),
+        (N_A, "Nieznane"),
+        (LOWER, "Niższe"),
+        (LOWER_MIDDLE, "Niższe-Średnie"),
+        (MIDDLE, "Średnie"),
+        (MIDDLE_TOP, "Średnie-Wyższe"),
+        (TOP, "Wyższe"),
     )
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
-    image = models.ImageField(upload_to='images', blank=True, null=True)
+    image = models.ImageField(upload_to="images", blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
     family = models.ForeignKey(
-     'CropFamily', on_delete=models.SET_NULL, blank=True, null=True)
+        "CropFamily", on_delete=models.SET_NULL, blank=True, null=True
+    )
     culture_override = models.PositiveSmallIntegerField(
-                choices=AGRICULTURE_STATUS, default=0)
+        choices=AGRICULTURE_STATUS, default=0
+    )
     cooldown_min_override = models.IntegerField(blank=True, null=True)
     cooldown_max_override = models.IntegerField(blank=True, null=True)
     crop_relationships = models.ManyToManyField(
-        'CropInteraction', related_name="known_crop_interactions", blank=True)
+        "CropInteraction", related_name="known_crop_interactions", blank=True
+    )
     is_demanding = models.BooleanField(default=False)
     # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
     is_deep_roots = models.BooleanField(default=False)
     # Czy ma głęboki system korzeniowy?
     is_leaves_mess = models.BooleanField(default=False)
     # Czy zostawia dużo resztek pożniwnych?
-    takes_mix_level = models.PositiveSmallIntegerField(
-        choices=MIX_LEVEL, default=0)
-    tags = models.ManyToManyField(
-        'CropTag', related_name="special_tags", blank=True)
+    takes_mix_level = models.PositiveSmallIntegerField(choices=MIX_LEVEL, default=0)
+    tags = models.ManyToManyField("CropTag", related_name="special_tags", blank=True)
     # dodatkowe cechy plonu wyrażone w tagach.
     seed_norm_min = models.IntegerField(blank=True, null=True)
     # minimalna norma wysiewu w kg/ha
@@ -136,7 +136,7 @@ class Crop(models.Model):
     # maksymalna norma wysiewu w kg/ha
 
     class Meta:
-        ordering = ['family', 'name']
+        ordering = ["family", "name"]
 
     def __str__(self):
         return self.name
@@ -146,45 +146,59 @@ class Crop(models.Model):
 class CropMix(models.Model):
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
-    image = models.ImageField(upload_to='images', blank=True, null=True)
+    image = models.ImageField(upload_to="images", blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
-    ingredients = models.ManyToManyField('Crop', blank=True)
+    ingredients = models.ManyToManyField("Crop", blank=True)
 
     class Meta:
-        ordering = ['name']
-        verbose_name_plural = 'Crop Mixes'
+        ordering = ["name"]
+        verbose_name_plural = "Crop Mixes"
 
     def __str__(self):
         return self.name
 
 
 class CropInteraction(models.Model):
-    title = models.CharField(max_length=150) # Tytuł i od razu opis relacji
+    title = models.CharField(max_length=150)  # Tytuł i od razu opis relacji
     is_positive = models.BooleanField(default=True)  # Typ oddziaływania
     about_crop = models.ForeignKey(
-     'Crop', related_name='crop_interaction_set',
-      on_delete=models.SET_NULL, blank=True, null=True)
+        "Crop",
+        related_name="crop_interaction_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     about_family = models.ForeignKey(
-      'CropFamily', related_name='family_interaction_set',
-      on_delete=models.SET_NULL, blank=True, null=True)
+        "CropFamily",
+        related_name="family_interaction_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     info_source = models.ForeignKey(
-      'CropDataSource', related_name='info_source_set',
-      on_delete=models.SET_NULL, blank=True, null=True)
-    start_int = models.IntegerField(default=0) # początek rozpoczęcia oddziaływania
-    end_int = models.IntegerField(default=0) # koniec rozpoczecia oddziaływania
+        "CropDataSource",
+        related_name="info_source_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    start_int = models.IntegerField(default=0)  # początek rozpoczęcia oddziaływania
+    end_int = models.IntegerField(default=0)  # koniec rozpoczecia oddziaływania
 
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]
 
     def __str__(self):
         return self.title
+
 
 class FamilyInteraction(CropInteraction):
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]
 
     def __str__(self):
         return self.title
+
 
 # Element płodozmianu.
 class RotationStep(models.Model):
@@ -192,15 +206,19 @@ class RotationStep(models.Model):
     descr = models.CharField(max_length=500, blank=True, null=True)
     add_manure = models.BooleanField(default=False)  # Czy dodać nawóz?
     from_plan = models.ForeignKey(
-     'RotationPlan', related_name='rotation_plan_set',
-     on_delete=models.CASCADE, blank=True, null=True)
+        "RotationPlan",
+        related_name="rotation_plan_set",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
     order = models.IntegerField(blank=True, null=True)
     # auto: kolejność w planie.
     early_crop = models.ManyToManyField(
-     'Crop', related_name='crop_early_set', blank=True)
+        "Crop", related_name="crop_early_set", blank=True
+    )
     # Z listy: plon główny
-    late_crop = models.ManyToManyField(
-     'Crop', related_name='crop_late_set', blank=True)
+    late_crop = models.ManyToManyField("Crop", related_name="crop_late_set", blank=True)
     # Międzyplon typu "poplon"
     is_late_crop_destroy = models.BooleanField(default=False)
     # Czy plon późny zostanie zniszczony na zielony nawóz?
@@ -212,8 +230,8 @@ class RotationStep(models.Model):
     # Istotne dla monitorowania przez program kultury gleby
 
     class Meta:
-        ordering = ['-from_plan', 'order']
-        verbose_name_plural = 'Rotation Steps'
+        ordering = ["-from_plan", "order"]
+        verbose_name_plural = "Rotation Steps"
 
     def __str__(self):
         return self.title
@@ -224,18 +242,27 @@ class CropDataSource(models.Model):
     title = models.CharField(max_length=150)
     descr = models.TextField(blank=True, null=True)
     from_crop = models.ForeignKey(
-     'Crop', related_name='crop_source_set',
-     on_delete=models.SET_NULL, blank=True, null=True)
+        "Crop",
+        related_name="crop_source_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     at_tag = models.ManyToManyField(
-     'CropTag', related_name='crop_source_tag_set', blank=True)
+        "CropTag", related_name="crop_source_tag_set", blank=True
+    )
     at_data_string = models.ForeignKey(
-     'CropDataString', related_name='crop_data_string_set',
-     on_delete=models.SET_NULL, blank=True, null=True)
+        "CropDataString",
+        related_name="crop_data_string_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     pages_from = models.IntegerField(blank=True, null=True)
     pages_to = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        ordering = ['-from_crop', 'title']
+        ordering = ["-from_crop", "title"]
 
     def __str__(self):
         return self.title
@@ -248,9 +275,10 @@ class CropDataString(models.Model):
     link = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:
-        ordering = ['title']
+        ordering = ["title"]
 
     def __str__(self):
         return self.title
+
 
 # Tutaj jeszcze trzeba zrobić klasy tłumaczeniowe dla kultury gleby, oraz poziomu w mieszance

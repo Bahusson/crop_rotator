@@ -2,9 +2,17 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import (
- RotationPlan, CropFamily, Crop, CropMix, RotationStep, CropTag,
- CropDataSource, CropDataString, CropInteraction, FamilyInteraction,
- )
+    RotationPlan,
+    CropFamily,
+    Crop,
+    CropMix,
+    RotationStep,
+    CropTag,
+    CropDataSource,
+    CropDataString,
+    CropInteraction,
+    FamilyInteraction,
+)
 
 admin.site.register(RotationPlan)
 admin.site.register(CropFamily)

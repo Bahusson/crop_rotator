@@ -1,11 +1,17 @@
-from django.shortcuts import (render, redirect, get_object_or_404 as G404)
+from django.shortcuts import render, redirect, get_object_or_404 as G404
 from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
-from .models import (PageSkin as S,  PageNames as P, RegNames, AboutPageNames)
-from rotator.models import (RotationPlan, RotationStep)
+from .models import PageSkin as S, PageNames as P, RegNames, AboutPageNames
+from rotator.models import RotationPlan, RotationStep
 from crop_rotator.settings import LANGUAGES as L
-from core.classes import (PageElement as pe, PageLoad)
-from core.snippets import (booleanate as bot, flare, level_off,
- list_appending_short, remove_repeating, repack)
+from core.classes import PageElement as pe, PageLoad
+from core.snippets import (
+    booleanate as bot,
+    flare,
+    level_off,
+    list_appending_short,
+    remove_repeating,
+    repack,
+)
 from rotator.models import Crop
 import itertools
 import copy
@@ -15,12 +21,11 @@ import copy
 def home(request):
     pe_rp = pe(RotationPlan).allelements
     context = {
-     'rotation_plans': pe_rp,
-     }
+        "rotation_plans": pe_rp,
+    }
     pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(
-     skins=S, context=context)
-    template = 'strona/home.html'
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/home.html"
     return render(request, template, context_lazy)
 
 
@@ -28,12 +33,11 @@ def home(request):
 def about(request):
     pe_apn = pe(AboutPageNames).baseattrs
     context = {
-     'about_us': pe_apn,
-     }
+        "about_us": pe_apn,
+    }
     pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(
-     skins=S, context=context)
-    template = 'strona/about.html'
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/about.html"
     return render(request, template, context_lazy)
 
 
@@ -41,12 +45,11 @@ def about(request):
 def allplans(request):
     pe_rp = pe(RotationPlan).allelements
     context = {
-     'rotation_plans': pe_rp,
-     }
+        "rotation_plans": pe_rp,
+    }
     pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(
-     skins=S, context=context)
-    template = 'strona/allplans.html'
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/allplans.html"
     return render(request, template, context_lazy)
 
 
@@ -67,7 +70,7 @@ def plan(request, plan_id):
         i2 = (list(item.late_crop.all()), item.order)
         i3 = item.order
         top_tier_list.append(i3)
-        vars =[cooldown_list, item, fabacae]
+        vars = [cooldown_list, item, fabacae]
         list_appending_short(i1, "a", vars)
         list_appending_short(i2, "b", vars)
     cooldown_list.sort()
@@ -99,22 +102,42 @@ def plan(request, plan_id):
                 err_crop_list.append(b + a)
             if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
                 for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
-                    if a[3][1] == b[3][1]-i.start_int or a[3][1] == b[3][1]-i.end_int:
+                    if (
+                        a[3][1] == b[3][1] - i.start_int
+                        or a[3][1] == b[3][1] - i.end_int
+                    ):
                         level_off(top_tier, a, b)
                         crop_interaction_list.append(a + b + [i.is_positive])
             if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
                 for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
-                    if a[3][1] == b[3][1]-i.start_int or a[3][1] == b[3][1]-i.end_int:
+                    if (
+                        a[3][1] == b[3][1] - i.start_int
+                        or a[3][1] == b[3][1] - i.end_int
+                    ):
                         level_off(top_tier, a, b)
                         family_interaction_list.append(a + b + [i.is_positive])
             if a[4].family.family_relationships.filter(about_crop__id=b[4].id).exists():
-                for i in a[4].family.family_relationships.filter(about_crop__id=b[4].id):
-                    if a[3][1] == b[3][1]-i.start_int or a[3][1] == b[3][1]-i.end_int:
+                for i in a[4].family.family_relationships.filter(
+                    about_crop__id=b[4].id
+                ):
+                    if (
+                        a[3][1] == b[3][1] - i.start_int
+                        or a[3][1] == b[3][1] - i.end_int
+                    ):
                         level_off(top_tier, a, b)
                         crop_interaction_list_f.append(a + b + [i.is_positive])
-            if a[4].family.family_relationships.filter(about_family__id=b[2].id).exists():
-                for i in a[4].family.family_relationships.filter(about_family__id=b[2].id):
-                    if a[3][1] == b[3][1]-i.start_int or a[3][1] == b[3][1]-i.end_int:
+            if (
+                a[4]
+                .family.family_relationships.filter(about_family__id=b[2].id)
+                .exists()
+            ):
+                for i in a[4].family.family_relationships.filter(
+                    about_family__id=b[2].id
+                ):
+                    if (
+                        a[3][1] == b[3][1] - i.start_int
+                        or a[3][1] == b[3][1] - i.end_int
+                    ):
                         level_off(top_tier, a, b)
                         family_interaction_list_f.append(a + b + [i.is_positive])
     fabs = []
@@ -129,7 +152,7 @@ def plan(request, plan_id):
     remove_repeating(interactions_f, family_interaction_list)
     remove_repeating(f_interactions, crop_interaction_list_f)
     remove_repeating(f_interactions_f, family_interaction_list_f)
-    fabs_percent = float(len(fabs))/float(top_tier*2)
+    fabs_percent = float(len(fabs)) / float(top_tier * 2)
     fabs_rounded = round(fabs_percent, 2)
     fabs_error = False
     if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
@@ -137,36 +160,39 @@ def plan(request, plan_id):
     else:
         fabs_error = int(fabs_rounded * 100)
         fabs_error = str(fabs_error) + "%"
-    error_family_crops = {"e_crops": err_crop_list, "e_tabs": tabs,}
+    error_family_crops = {
+        "e_crops": err_crop_list,
+        "e_tabs": tabs,
+    }
     context = {
-     'interactions': interactions,
-     'interactions_f': interactions_f,
-     'f_interactions': f_interactions,
-     'f_interactions_f': f_interactions_f,
-     'f_error': fabs_error,
-     'efcs': error_family_crops,
-     'cr_len_warning': clw,
-     'plan': pe_rp_id,
-     'steps': pe_rs,
-     }
+        "interactions": interactions,
+        "interactions_f": interactions_f,
+        "f_interactions": f_interactions,
+        "f_interactions_f": f_interactions_f,
+        "f_error": fabs_error,
+        "efcs": error_family_crops,
+        "cr_len_warning": clw,
+        "plan": pe_rp_id,
+        "steps": pe_rs,
+    }
     pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(
-     skins=S, context=context)
-    template = 'strona/plan.html'
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/plan.html"
     return render(request, template, context_lazy)
 
+
 ###### BRUDNOPIS ######
-    #userdata = User.objects.get(
-    # id=request.user.id)
-    #user_id = userdata.id
-    #flare(user_id)
-    #owner_id = pe_rp_id.owner.id
-    #flare(owner_id)
-    #if user_id == owner_id:
-    #    flare("True_af")
-    #    pass
-    #else:
-    #    flare("False_af")
-    #    pass
-        # return redirect('logger')
-    # Zrób jeśli user jest właścicielem, żeby mógł robić zmiany.
+# userdata = User.objects.get(
+# id=request.user.id)
+# user_id = userdata.id
+# flare(user_id)
+# owner_id = pe_rp_id.owner.id
+# flare(owner_id)
+# if user_id == owner_id:
+#    flare("True_af")
+#    pass
+# else:
+#    flare("False_af")
+#    pass
+# return redirect('logger')
+# Zrób jeśli user jest właścicielem, żeby mógł robić zmiany.

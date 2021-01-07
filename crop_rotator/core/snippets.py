@@ -5,11 +5,26 @@ import random
 # bo nicki nie muszą być unikalne a jakoś trzeba się banować, polecać,
 # wyszukiwać itp.
 def gen_login():
-    vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+    vowels = ["a", "e", "i", "o", "u", "y"]
     consonants = [
-     'b', 'c', 'd', 'f', 'g', 'h', 'j',
-     'k', 'l', 'm', 'n', 'p', 'r', 's',
-     't', 'w', 'z']
+        "b",
+        "c",
+        "d",
+        "f",
+        "g",
+        "h",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "p",
+        "r",
+        "s",
+        "t",
+        "w",
+        "z",
+    ]
 
     L1 = random.choice(consonants).capitalize()
     L2 = random.choice(vowels)
@@ -38,7 +53,7 @@ def all_names(classname):
 
 # Zmienia Stringi True/False w Booleany
 def booleanate(mystring):
-    if mystring == 'True':
+    if mystring == "True":
         mystring = True
     else:
         mystring = False
@@ -48,26 +63,38 @@ def booleanate(mystring):
 # Flara debugująca...  :3
 def flare(debugged_content, **kwargs):
     if "name" in kwargs:
-        num = " # " + str(kwargs['name'])
+        num = " # " + str(kwargs["name"])
     else:
-        num = ''
+        num = ""
     print("")
     print("")
     print("")
-    print("THIS IS A DEBUGGING FLARE" + num + ' - ' + str(debugged_content))
+    print("THIS IS A DEBUGGING FLARE" + num + " - " + str(debugged_content))
     print("")
     print("")
     print("")
 
+
 # Skraca powtarzający się kawałek kodu na widokach.
 def list_appending_short(items, letter, vars):
-    subst = {"a": 1, "b": 0,}
+    subst = {
+        "a": 1,
+        "b": 0,
+    }
     for i in items[0]:
         vars[0].append(
-         [i.family.cooldown_min, i.id, i.family, [vars[1].order, vars[1].order*2-subst[letter]], i,])
+            [
+                i.family.cooldown_min,
+                i.id,
+                i.family,
+                [vars[1].order, vars[1].order * 2 - subst[letter]],
+                i,
+            ]
+        )
         # Policz bobowate i strączkowe (tzw. mandatory crops):
         if i.family.is_mandatory_crop:
             vars[2].append(str(vars[1].order) + letter)
+
 
 # Skraca usuwanie niepoprawnego numeru cropstepu.
 def level_off(top_tier, a, b):
@@ -81,8 +108,10 @@ def level_off(top_tier, a, b):
 def remove_repeating(new_list, old_list):
     [new_list.append(x) for x in old_list if x not in new_list]
 
+
 def remove_repeating_2(list):
     [k for k, g in itertools.groupby(sorted(family_interaction_list))]
+
 
 def repack(wrapped_list):
     try:
