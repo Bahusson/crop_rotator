@@ -30,8 +30,8 @@
               <p>{{ source.descr }}({{ forloop.counter }})</p>
             {% endfor %}
             <p>Gatunki:</p>
-              {% for crop in crops %}
-                <p><a href="{% url 'family' family.family.id %}">{{ crop.name }}</a></p>
+              {% for crop in house %}
+                <p><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></p>
               {% endfor %}
             <p>Źródła:</p>
               {% for source in sources %}
