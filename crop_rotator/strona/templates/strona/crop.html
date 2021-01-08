@@ -9,7 +9,41 @@
 {% block aside %}
 <!-- Null -->
 {% block body %}
+<br>
+<br>
+<br>
+    <main role="main">
+      <div class="row">
+        <div class="col-md-7 blog-main">
+          <div class="container">
+            <h1 class="text-center pt-3 ">{{ crop.name }}</h1>
+            <h4 class="pt-2">{{ crop.pubdate_short }}</h4>
+            <hr />
+            {% if crop.image %}<!--jeśli jest link to go wyświetl -->
+                <br/>
+                <img class="img-fluid" src="{{ crop.image.url }}" width=50% height=auto />
+            {% endif %}
+            <br />
+            <p>Rodzina: <a href="{% url 'family' crop.family.id %}">{{ crop.family }}</a></p>
+            <p>Opis: {{ crop.descr|linebreaksbr }}</p>
+            <p>Źródła:</p>
+              {% for source in sources %}
+                <p> </p>
+              {% endfor %}
+            <br />
+          </div>
+        </div>
+      </div><!-- /.row -->
+
+    </main>
+    <!-- empty div -->
+      <div class="top-content">
+        <div class="container">
+      <div class="row">	<div class="col-sm-12 text wow fadeInLeft"></div></div>
 
 
+    </div>
+    </div>
+    <!-- end of empty div -->
 {% endblock %}
 {% endblock aside %}

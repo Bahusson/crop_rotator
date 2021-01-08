@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404 as G404
 from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
 from .models import PageSkin as S, PageNames as P, RegNames, AboutPageNames
-from rotator.models import RotationPlan, RotationStep, Crop, CropFamily
+from rotator.models import RotationPlan, RotationStep, Crop, CropFamily, CropDataSource
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import PageElement as pe, PageLoad
 from core.snippets import (
@@ -185,6 +185,7 @@ def plan(request, plan_id):
 def crop(request, crop_id):
     pe_c = pe(Crop)
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
+
     context = {
         "crop": pe_c_id,
     }
@@ -194,7 +195,7 @@ def crop(request, crop_id):
     return render(request, template, context_lazy)
 
 
-# Widok szczegółowy danej rodziny
+# Widok szczegółowy danej rodziny - W_I_P
 def family(request, family_id):
     pe_f = pe(CropFamily)
     pe_f_id = pe_f.by_id(G404=G404, id=family_id)
