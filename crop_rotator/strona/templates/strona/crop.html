@@ -26,9 +26,15 @@
             <br />
             <p>Rodzina: <a href="{% url 'family' crop.family.id %}">{{ crop.family }}</a></p>
             <p>Opis: {{ crop.descr|linebreaksbr }}</p>
+            {% for source in sources %}
+              <p>{{ source.descr }}({{ forloop.counter }})</p>
+            {% endfor %}
             <p>Źródła:</p>
               {% for source in sources %}
-                <p> </p>
+                <p>({{ forloop.counter }}) {{ source.at_data_string.part1 }}
+                  {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}
+                  {% else %} p.{{ source.pages_from }}.
+                  {% endif %} </p>
               {% endfor %}
             <br />
           </div>
