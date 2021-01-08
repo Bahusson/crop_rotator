@@ -57,6 +57,19 @@ class CropFamily(models.Model):
     family_relationships = models.ManyToManyField(
         "FamilyInteraction", related_name="known_family_interactions", blank=True
     )
+    is_family_slave = models.BooleanField(default=False)
+    # Czy jest programistycznym podtypem rodziny
+    # (np. workaround dla Owsa jako rodziny fitosanitarnej)
+    family_master = models.ForeignKey(
+        "CropFamily",
+        related_name="family_subtype_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    family_slaves = models.ManyToManyField(
+        "CropFamily", related_name="family_slaves_set", blank=True
+    )
 
     class Meta:
         ordering = ["name"]

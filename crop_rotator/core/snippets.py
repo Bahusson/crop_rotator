@@ -119,3 +119,12 @@ def repack(wrapped_list):
         return wrapped_list1
     except:
         return False
+
+def check_slaves(*args):
+    slavedict = {True: 1, False: 0,}
+    master_id = args[slavedict[args[2]]]
+    family_slav_list = [master_id]
+    if master_id.family_slaves.exists():
+        for i in master_id.family_slaves.all():
+            family_slav_list.append(i)
+    return family_slav_list

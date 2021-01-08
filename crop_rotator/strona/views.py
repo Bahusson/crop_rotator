@@ -17,6 +17,7 @@ from core.snippets import (
     list_appending_short,
     remove_repeating,
     repack,
+    check_slaves,
 )
 from rotator.models import Crop
 import itertools
@@ -206,6 +207,16 @@ def crop(request, crop_id):
 def family(request, family_id):
     pe_f = pe(CropFamily)
     pe_f_id = pe_f.by_id(G404=G404, id=family_id)
+    pe_f_id_sub = False
+    if pe_f_id.is_family_slave:
+        sub_id = pe_f_id.family_master.id
+        pe_f_id_sub = pe_f.by_id(G404=G404, id=sub_id)
+    family_slav_list = check_slaves(
+        pe_f_id,
+        pe_f_id_sub,
+        pe_f_id.is_family_slave,
+    )
+    flare(family_slav_list, name="family_slav_list")
     context = {
         "family": pe_f_id,
     }

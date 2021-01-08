@@ -10,6 +10,51 @@
 <!-- Null -->
 {% block body %}
 
+<br>
+<br>
+<br>
+    <main role="main">
+      <div class="row">
+        <div class="col-md-7 blog-main">
+          <div class="container">
+            <h1 class="text-center pt-3 ">{{ family.name }}</h1>
+            <h4 class="pt-2">{{ family.pubdate_short }}</h4>
+            <hr />
+            {% if family.image %}<!--jeśli jest link to go wyświetl -->
+                <br/>
+                <img class="img-fluid" src="{{ family.image.url }}" width=50% height=auto />
+            {% endif %}
+            <br />
+            <p>Opis: {{ family.descr|linebreaksbr }}</p>
+            {% for source in sources %}
+              <p>{{ source.descr }}({{ forloop.counter }})</p>
+            {% endfor %}
+            <p>Gatunki:</p>
+              {% for crop in crops %}
+                <p><a href="{% url 'family' family.family.id %}">{{ crop.name }}</a></p>
+              {% endfor %}
+            <p>Źródła:</p>
+              {% for source in sources %}
+                <p>({{ forloop.counter }}) {{ source.at_data_string.part1 }}
+                  {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}
+                  {% else %} p.{{ source.pages_from }}.
+                  {% endif %} </p>
+              {% endfor %}
+            <br />
+          </div>
+        </div>
+      </div><!-- /.row -->
+
+    </main>
+    <!-- empty div -->
+      <div class="top-content">
+        <div class="container">
+      <div class="row">	<div class="col-sm-12 text wow fadeInLeft"></div></div>
+
+
+    </div>
+    </div>
+    <!-- end of empty div -->
 
 {% endblock %}
 {% endblock aside %}
