@@ -149,7 +149,7 @@ class Crop(models.Model):
     # maksymalna norma wysiewu w kg/ha
 
     class Meta:
-        ordering = ["family", "name"]
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

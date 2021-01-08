@@ -203,7 +203,7 @@ def crop(request, crop_id):
     return render(request, template, context_lazy)
 
 
-# Widok szczegółowy danej rodziny - W_I_P
+# Widok szczegółowy danej rodziny, oraz "nibyrodzin" (patrz: owies)
 def family(request, family_id):
     pe_f = pe(CropFamily)
     pe_f_id = pe_f.by_id(G404=G404, id=family_id)
@@ -216,9 +216,15 @@ def family(request, family_id):
         pe_f_id_sub,
         pe_f_id.is_family_slave,
     )
-    flare(family_slav_list, name="family_slav_list")
+    house = []
+    for item in family_slav_list:
+        pe_c_all = Crop.objects.filter(family=item.id)
+        for crop_object in pe_c_all:
+            house.append(crop_object)
+    flare(house, name="full_house")
     context = {
-        "family": pe_f_id,
+        "family": family_slav_list[0],
+        "house": house,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
