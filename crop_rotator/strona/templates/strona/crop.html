@@ -24,7 +24,7 @@
                 <img class="img-fluid" src="{{ crop.image.url }}" width=50% height=auto />
             {% endif %}
             <br />
-            <p>Rodzina: <a href="{% url 'family' crop.family.id %}">{{ crop.family }}</a></p>
+            <p>Rodzina: <a href="{% url 'family' crop.family.id %}">{{ family }}</a></p>
             <p>Opis: {{ crop.descr|linebreaksbr }}</p>
             {% for source in sources %}
               <p>{{ source.descr }}({{ forloop.counter }})</p>

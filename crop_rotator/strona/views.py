@@ -22,6 +22,7 @@ from core.snippets import (
 from rotator.models import Crop
 import itertools
 import copy
+from operator import attrgetter
 
 
 # Widok strony domowej.
@@ -193,7 +194,11 @@ def crop(request, crop_id):
     pe_c = pe(Crop)
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
     pe_cds = CDS.objects.filter(from_crop=crop_id)
+    master_family = pe_c_id.family.name
+    if pe_c_id.family.is_family_slave:
+        master_family = pe_c_id.family.family_master.name
     context = {
+        "family": master_family,
         "crop": pe_c_id,
         "sources": pe_cds,
     }
@@ -221,7 +226,7 @@ def family(request, family_id):
         pe_c_all = Crop.objects.filter(family=item.id)
         for crop_object in pe_c_all:
             house.append(crop_object)
-    flare(house, name="full_house")
+    house = sorted(house, key=attrgetter('name'))
     context = {
         "family": family_slav_list[0],
         "house": house,
