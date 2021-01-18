@@ -49,7 +49,10 @@
     "is_manurable": true,
     "culture_manured": 3,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -66,7 +69,10 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": true,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -83,7 +89,10 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -100,7 +109,12 @@
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [
+      10
+    ],
+    "family_slaves": []
   }
 },
 {
@@ -117,7 +131,10 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -134,7 +151,12 @@
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": true,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [
+      9
+    ],
+    "family_slaves": []
   }
 },
 {
@@ -151,7 +173,10 @@
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": true,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -168,7 +193,10 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": true,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -185,7 +213,12 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": [
+      15
+    ]
   }
 },
 {
@@ -202,7 +235,10 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -219,7 +255,10 @@
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -236,7 +275,10 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
-    "family_relationships": []
+    "is_family_slave": true,
+    "family_master": 11,
+    "family_relationships": [],
+    "family_slaves": []
   }
 },
 {
@@ -1824,6 +1866,46 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 9,
+  "fields": {
+    "title": "szarłatowate ++ facelia (test)",
+    "is_positive": true,
+    "about_crop": 29,
+    "about_family": null,
+    "info_source": null,
+    "start_int": 1,
+    "end_int": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 10,
+  "fields": {
+    "title": "ogórecznikowate -- bobowate (test)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 4,
+    "info_source": null,
+    "start_int": 0,
+    "end_int": 1
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 10,
+  "fields": {
+    "cropinteraction_ptr": 10
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 9,
+  "fields": {
+    "cropinteraction_ptr": 9
+  }
+},
+{
   "model": "rotator.rotationstep",
   "pk": 5,
   "fields": {
@@ -1839,8 +1921,8 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      33,
-      32
+      32,
+      33
     ],
     "late_crop": [
       29
@@ -2074,11 +2156,30 @@
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      26
+      10
     ],
     "late_crop": [
       47
     ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 18,
+  "fields": {
+    "title": "kompleks testowy",
+    "title_pl": "kompleks testowy",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure": false,
+    "from_plan": 4,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
   }
 },
 {
@@ -2157,7 +2258,10 @@
     "see_more_en": "See more...",
     "editme": "Edytuj",
     "editme_pl": "Edytuj",
-    "editme_en": "Edit"
+    "editme_en": "Edit",
+    "new_plan": "Dodaj nowy plan",
+    "new_plan_pl": "Dodaj nowy plan",
+    "new_plan_en": "Add a new plan"
   }
 },
 {

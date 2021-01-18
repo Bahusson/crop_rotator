@@ -239,7 +239,15 @@ def family(request, family_id):
 # Widok pozwala userowi stworzyć zupełnie nowy plan.
 @login_required
 def new_plan(request):
-    pass
+    userdata = User.objects.get(
+     id=request.user.id)
+    user_id = userdata.id
+    context = {}
+    flare(user_id)
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/new_plan.html"
+    return render(request, template, context_lazy)
 
 
 ###### BRUDNOPIS ######

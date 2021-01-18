@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ items.new_plan }}</title>
+{% endblock %}
+
+ <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
+{% block aside %}
+<!-- Null -->
+{% block body %}
+
+<br>
+<br>
+<br>
+    <main role="main">
+      <div class="row">
+        <div class="col-md-7 blog-main">
+          <div class="container">
+            <p>Tutaj idzie formularz dodawania nowego planu z pierwszym krokiem</p>
+            <br />
+          </div>
+        </div>
+      </div><!-- /.row -->
+
+    </main>
+    <!-- empty div -->
+      <div class="top-content">
+        <div class="container">
+      <div class="row">	<div class="col-sm-12 text wow fadeInLeft"></div></div>
+
+
+    </div>
+    </div>
+    <!-- end of empty div -->
+
+{% endblock %}
+{% endblock aside %}
