@@ -13,6 +13,7 @@ class PageNames(models.Model):
     register = models.CharField(max_length=50)
     see_more = models.CharField(max_length=200)
     editme = models.CharField(max_length=200)  # edytuj
+    new_plan = models.CharField(max_length=200)  # dodaj nowy plan
 
     class Meta:
         verbose_name_plural = 'Page Names'

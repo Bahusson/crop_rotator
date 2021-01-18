@@ -19,6 +19,7 @@ from core.snippets import (
     repack,
     check_slaves,
 )
+from django.contrib.auth.decorators import login_required
 from rotator.models import Crop
 import itertools
 import copy
@@ -69,7 +70,6 @@ def plan(request, plan_id):
     pe_rs = RotationStep.objects.filter(from_plan=plan_id)
     listed_pe_rs = list(pe_rs)
     len_listed_pe_rs = len(listed_pe_rs)
-    lpr = listed_pe_rs[0]
     cooldown_list = []
     fabacae = []
     top_tier_list = []
@@ -235,6 +235,11 @@ def family(request, family_id):
     context_lazy = pl.lazy_context(skins=S, context=context)
     template = "strona/family.html"
     return render(request, template, context_lazy)
+
+# Widok pozwala userowi stworzyć zupełnie nowy plan.
+@login_required
+def new_plan(request):
+    pass
 
 
 ###### BRUDNOPIS ######
