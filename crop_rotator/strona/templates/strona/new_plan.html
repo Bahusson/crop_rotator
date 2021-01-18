@@ -22,7 +22,13 @@
           </div>
         </div>
       </div><!-- /.row -->
+      <div class="container kol">
+      <form enctype="multipart/form-data" method="post"> <!-- Do wysyłania plików -->
+      {% csrf_token %}
 
+      <p class="wnioski2">$Tytuł/Nazwa : {{ form.title }}</p>
+      <button id="send" class="button btn btn-dark btn-sm" type="submit">$Dodaj nowy dział.</button>
+    </div>
     </main>
     <!-- empty div -->
       <div class="top-content">

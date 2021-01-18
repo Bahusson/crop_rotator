@@ -20,6 +20,7 @@ from core.snippets import (
     check_slaves,
 )
 from django.contrib.auth.decorators import login_required
+from rotator.forms import FirstRotationStepForm
 from rotator.models import Crop
 import itertools
 import copy
@@ -239,15 +240,20 @@ def family(request, family_id):
 # Widok pozwala userowi stworzyć zupełnie nowy plan.
 @login_required
 def new_plan(request):
-    userdata = User.objects.get(
-     id=request.user.id)
-    user_id = userdata.id
-    context = {}
-    flare(user_id)
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/new_plan.html"
-    return render(request, template, context_lazy)
+    if request.method == 'POST':
+        form = FirstRotationStepForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home') # Przekierowuj później na stronę planu
+    else:
+        form = FirstRotationStepForm()
+        context = {
+         "form": form,
+        }
+        pl = PageLoad(P, L)
+        context_lazy = pl.lazy_context(skins=S, context=context)
+        template = "strona/new_plan.html"
+        return render(request, template, context_lazy)
 
 
 ###### BRUDNOPIS ######

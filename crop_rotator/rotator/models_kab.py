@@ -3,6 +3,52 @@ from django.contrib.auth.models import User  # Zaimportuj uproszczony model user
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
+# Element płodozmianu.
+class RotationStep(models.Model):
+    title = models.CharField(max_length=150)
+    descr = models.CharField(max_length=500, blank=True, null=True)
+    add_manure = models.BooleanField(default=False)  # Czy dodać nawóz?
+    from_plan = models.ForeignKey(
+        "RotationPlan",
+        related_name="rotation_plan_set",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+    order = models.IntegerField(blank=True, null=True)
+    # auto: kolejność w planie.
+    early_crop = models.ManyToManyField(
+        "Crop", related_name="crop_early_set", blank=True
+    )
+    # Z listy: plon główny
+    late_crop = models.ManyToManyField("Crop", related_name="crop_late_set", blank=True)
+    # Międzyplon typu "poplon"
+    is_late_crop_destroy = models.BooleanField(default=False)
+    # Czy plon późny zostanie zniszczony na zielony nawóz?
+    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
+    # Istotne dla monitorowania przez program kultury gleby
+    is_early_crop_destroy = models.BooleanField(default=False)
+    # Czy plon wczesny zostanie zniszczony na zielony nawóz?
+    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
+    # Istotne dla monitorowania przez program kultury gleby
+
+    class Meta:
+        ordering = ["-from_plan", "order"]
+        verbose_name_plural = "Rotation Steps"
+
+    def __str__(self):
+        return self.title
+
+
+#    def save(self, *args, **kwargs):
+#        if self.from_plan is None:
+#            self.model = RotationPlan.objects.create(
+#             title=self.cleaned_data["title"],
+#             owner=User.objects.get(id=request.user.id).id,
+#             pubdate = datetime.datetime.now(),)
+#        super().save(*args, **kwargs)
+
+
 
 # Plan płodozmianu - potencjalnie przyporządkowany do użytkownika.
 class RotationPlan(models.Model):
@@ -25,6 +71,14 @@ class RotationPlan(models.Model):
 
     def pubdate_short(self):
         return self.pubdate.strftime("%a %d %b %Y")
+
+    @receiver(pre_save, sender=RotationStep)
+    def sideby_handler(sender, **kwargs):
+        if sender.pk is None:
+            sender.model = RotationPlan.objects.create(
+                         title=self.cleaned_data["title"],
+                         owner=User.objects.get(id=request.user.id).id,
+                         pubdate = datetime.datetime.now(),)
 
 
 # Rodzina Botaniczna - zawiera informacje o typowych wartościach
@@ -215,50 +269,6 @@ class FamilyInteraction(CropInteraction):
         return self.title
 
 
-# Element płodozmianu.
-class RotationStep(models.Model):
-    title = models.CharField(max_length=150)
-    descr = models.CharField(max_length=500, blank=True, null=True)
-    add_manure = models.BooleanField(default=False)  # Czy dodać nawóz?
-    from_plan = models.ForeignKey(
-        "RotationPlan",
-        related_name="rotation_plan_set",
-        on_delete=models.CASCADE,
-        blank=True,
-        null=True,
-    )
-    order = models.IntegerField(blank=True, null=True)
-    # auto: kolejność w planie.
-    early_crop = models.ManyToManyField(
-        "Crop", related_name="crop_early_set", blank=True
-    )
-    # Z listy: plon główny
-    late_crop = models.ManyToManyField("Crop", related_name="crop_late_set", blank=True)
-    # Międzyplon typu "poplon"
-    is_late_crop_destroy = models.BooleanField(default=False)
-    # Czy plon późny zostanie zniszczony na zielony nawóz?
-    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
-    # Istotne dla monitorowania przez program kultury gleby
-    is_early_crop_destroy = models.BooleanField(default=False)
-    # Czy plon wczesny zostanie zniszczony na zielony nawóz?
-    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
-    # Istotne dla monitorowania przez program kultury gleby
-
-    class Meta:
-        ordering = ["-from_plan", "order"]
-        verbose_name_plural = "Rotation Steps"
-
-    def __str__(self):
-        return self.title
-
-
-#    def save(self, *args, **kwargs):
-#        if self.from_plan is None:
-#            self.model = RotationPlan.objects.create(
-#             title=self.cleaned_data["title"],
-#             owner=User.objects.get(id=request.user.id).id,
-#             pubdate = datetime.datetime.now(),)
-#        super().save(*args, **kwargs)
 
 
 # Fizyczne źródła danych np. z książek.
@@ -303,7 +313,6 @@ class CropDataString(models.Model):
 
     def __str__(self):
         return self.title
-
 
 
 # Tutaj jeszcze trzeba zrobić klasy tłumaczeniowe dla kultury gleby, oraz poziomu w mieszance
