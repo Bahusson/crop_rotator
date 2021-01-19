@@ -270,6 +270,31 @@ def my_plans(request):
         return render(request, template, context_lazy)
 
 
+# Funkcja przekierowująca w zależnośni od tego,
+# czy user dodał już chociaż jeden element do planu, czy nie.
+# Sprawdza też, czy user jest właścicielem.
+@login_required
+def plan_edit(request, plan_id):
+    pe_rp = pe(RotationPlan)
+    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    userdata = User.objects.get(
+    id=request.user.id)
+    user_id = userdata.id
+    owner_id = pe_rp_id.owner.id
+    if user_id == owner_id:
+        if RotationStep.objects.filter(from_plan=plan_id).exists():
+            return redirect('plan', plan_id)
+        else:
+            return redirect('step1', plan_id)
+    else:
+       return redirect('home')
+
+
+@login_required
+def step1(request, plan_id):
+    pass
+
+
 ###### BRUDNOPIS ######
 # userdata = User.objects.get(
 # id=request.user.id)
