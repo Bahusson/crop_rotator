@@ -25,13 +25,17 @@ from rotator.models import Crop
 import itertools
 import copy
 from operator import attrgetter
+from random import shuffle
 
 
 # Widok strony domowej.
 def home(request):
     pe_rp = pe(RotationPlan).allelements
+    pe_rp_published = pe_rp.filter(published=True)
+    pe_rp_shuffled = list(pe_rp_published)
+    shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
     context = {
-        "rotation_plans": pe_rp,
+        "rotation_plans": pe_rp_shuffled,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
@@ -54,8 +58,9 @@ def about(request):
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
     pe_rp = pe(RotationPlan).allelements
+    pe_rp_published = pe_rp.filter(published=True)
     context = {
-        "rotation_plans": pe_rp,
+        "rotation_plans": pe_rp_published,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)

@@ -16,6 +16,7 @@ class RotationPlan(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
     soil_type = models.PositiveSmallIntegerField(choices=SOIL_CLASS, default=0)
+    published = models.BooleanField(default=False)  # Czy ma być widoczny na głównej.
 
     class Meta:
         ordering = ["-pubdate"]
@@ -250,15 +251,6 @@ class RotationStep(models.Model):
 
     def __str__(self):
         return self.title
-
-
-#    def save(self, *args, **kwargs):
-#        if self.from_plan is None:
-#            self.model = RotationPlan.objects.create(
-#             title=self.cleaned_data["title"],
-#             owner=User.objects.get(id=request.user.id).id,
-#             pubdate = datetime.datetime.now(),)
-#        super().save(*args, **kwargs)
 
 
 # Fizyczne źródła danych np. z książek.
