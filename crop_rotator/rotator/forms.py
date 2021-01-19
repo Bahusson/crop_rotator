@@ -15,11 +15,11 @@ class RotationPlanForm(forms.ModelForm):
         model = RotationPlan
         fields = ("title", )
 
-    def save(self, user_id, commit=True):
+    def save(self, commit=True, **kwargs):
         plan = super(RotationPlanForm, self).save(commit=False)
         plan.title = self.cleaned_data["title"]
         if plan.owner is None:
-            plan.owner = user_id
+            plan.owner = kwargs['user_id']
         if plan.pubdate is None:
             plan.pubdate = datetime.datetime.now()
 

@@ -20,7 +20,7 @@ from core.snippets import (
     check_slaves,
 )
 from django.contrib.auth.decorators import login_required
-from rotator.forms import FirstRotationStepForm
+from rotator.forms import RotationPlanForm
 from rotator.models import Crop
 import itertools
 import copy
@@ -245,15 +245,24 @@ def family(request, family_id):
 # Widok pozwala userowi stworzyć zupełnie nowy plan.
 @login_required
 def my_plans(request):
+    userdata = User.objects.get(
+     id=request.user.id)
+    pe_upl = pe(RotationPlan).allelements.filter(owner=userdata)
+    user_limit_reached = False
+    if len(list(pe_upl)) > 11:
+        user_limit_reached = True
+
     if request.method == 'POST':
-        form = FirstRotationStepForm(request.POST)
+        form = RotationPlanForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('home') # Przekierowuj później na stronę planu
+            form.save(user_id=userdata)
+            return redirect('my_plans') # Przekierowuj później na stronę planu
     else:
-        form = FirstRotationStepForm()
+        form = RotationPlanForm()
         context = {
          "form": form,
+         "user_plans": pe_upl,
+         "user_limit": user_limit_reached,
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
