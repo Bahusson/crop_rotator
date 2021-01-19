@@ -244,7 +244,7 @@ def family(request, family_id):
 
 # Widok pozwala userowi stworzyć zupełnie nowy plan.
 @login_required
-def new_plan(request):
+def my_plans(request):
     if request.method == 'POST':
         form = FirstRotationStepForm(request.POST)
         if form.is_valid():
@@ -257,7 +257,7 @@ def new_plan(request):
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
-        template = "strona/new_plan.html"
+        template = "strona/my_plans.html"
         return render(request, template, context_lazy)
 
 
