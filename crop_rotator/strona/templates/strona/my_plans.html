@@ -16,35 +16,19 @@
     <main role="main">
       <h2>{{ items.new_plan }}</h2>
       <div class="row">
-
         <div class="col-md-4 blog-main">
           {% for plan in user_plans|slice:":4" %}
-          {% if plan %}
-          <div class="container">
-            <p>{{ plan.title }}</p>
-            <br />
-          </div>
-          {% endif %}
+          {% include 'strona/user_plan_parts/plan_entry.html' %}
           {% endfor %}
         </div>
         <div class="col-md-4 blog-main">
           {% for plan in user_plans|slice:"4:8" %}
-          {% if plan %}
-          <div class="container">
-            <p>{{ plan.title }}</p>
-            <br />
-          </div>
-          {% endif %}
+          {% include 'strona/user_plan_parts/plan_entry.html' %}
           {% endfor %}
         </div>
         <div class="col-md-4 blog-main">
           {% for plan in user_plans|slice:"8:12" %}
-          {% if plan %}
-          <div class="container">
-            <p>{{ plan.title }}</p>
-            <br />
-          </div>
-          {% endif %}
+          {% include 'strona/user_plan_parts/plan_entry.html' %}
           {% endfor %}
         </div>
       </div><!-- /.row -->
