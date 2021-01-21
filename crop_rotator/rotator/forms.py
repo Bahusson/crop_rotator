@@ -43,3 +43,20 @@ class FirstRotationStepForm(forms.ModelForm):
         if commit:
             step.save()
         return step
+
+
+class NextRotationStepForm(forms.ModelForm):
+    title = forms.CharField(max_length=150)
+    class Meta:
+        model = RotationStep
+        fields = ("title", )
+
+    def save(self, plan_id, step_order, commit=True):
+        step = super(FirstRotationStepForm, self).save(commit=False)
+        step.title = self.cleaned_data["title"]
+        step.order = int(step_order) + 1
+        step.from_plan = plan_id
+
+        if commit:
+            step.save()
+        return step

@@ -20,7 +20,11 @@ from core.snippets import (
     check_slaves,
 )
 from django.contrib.auth.decorators import login_required
-from rotator.forms import RotationPlanForm, FirstRotationStepForm
+from rotator.forms import (
+    RotationPlanForm,
+    FirstRotationStepForm,
+    NextRotationStepForm
+)
 from rotator.models import Crop
 import itertools
 import copy
@@ -154,6 +158,11 @@ def plan(request, plan_id):
                     ):
                         level_off(top_tier, a, b)
                         family_interaction_list_f.append(a + b + [i.is_positive])
+    if "next_step" in request.POST:
+        form = NextRotationStepForm(request.POST)
+        if form.is_valid():
+            form.save(pe_rp_id, top_tier)
+            return redirect(request.META.get('HTTP_REFERER'))
     fabs = []
     tabs = []
     interactions = []
@@ -178,7 +187,9 @@ def plan(request, plan_id):
         "e_crops": err_crop_list,
         "e_tabs": tabs,
     }
+    form = NextRotationStepForm()
     context = {
+        "form": form,
         "interactions": interactions,
         "interactions_f": interactions_f,
         "f_interactions": f_interactions,
