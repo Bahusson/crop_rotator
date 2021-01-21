@@ -20,7 +20,7 @@ from core.snippets import (
     check_slaves,
 )
 from django.contrib.auth.decorators import login_required
-from rotator.forms import RotationPlanForm
+from rotator.forms import RotationPlanForm, FirstRotationStepForm
 from rotator.models import Crop
 import itertools
 import copy
@@ -285,14 +285,24 @@ def plan_edit(request, plan_id):
         if RotationStep.objects.filter(from_plan=plan_id).exists():
             return redirect('plan', plan_id)
         else:
-            return redirect('step1', plan_id)
+            if request.method == 'POST':
+                form = FirstRotationStepForm(request.POST)
+                if form.is_valid():
+                    form.save()
+                    return redirect('plan', plan_id) # Przekierowuj później na stronę planu
+            else:
+                form = FirstRotationStepForm()
+                context = {
+                 "form": form,
+                }
+                pl = PageLoad(P, L)
+                context_lazy = pl.lazy_context(skins=S, context=context)
+                template = "strona/first_step_create.html"
+                return render(request, template, context_lazy)
     else:
        return redirect('home')
 
 
-@login_required
-def step1(request, plan_id):
-    pass
 
 
 ###### BRUDNOPIS ######
