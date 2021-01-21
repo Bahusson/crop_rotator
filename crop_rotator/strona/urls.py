@@ -9,4 +9,6 @@ urlpatterns = [
     path("crop/<int:crop_id>/", views.crop, name="crop"),
     path("family/<int:family_id>/", views.family, name="family"),
     path("my_plans", views.my_plans, name="my_plans"),
+    path("plan_edit/<int:plan_id>", views.plan_edit, name="plan_edit"),
+    path("step1/edit/<int:plan_id>", views.step1, name="step1"),
 ]
