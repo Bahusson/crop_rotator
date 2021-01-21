@@ -74,9 +74,15 @@ def allplans(request):
 
 # Widok pojedynczego płodozmianu
 def plan(request, plan_id):
+    user_editable = False
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    # Linijka userdata z brudnopisu wrzuć tutaj późnej.
+    userdata = User.objects.get(
+    id=request.user.id)
+    user_id = userdata.id
+    owner_id = pe_rp_id.owner.id
+    if user_id == owner_id:
+        user_editable = True
     pe_rs = RotationStep.objects.filter(from_plan=plan_id)
     listed_pe_rs = list(pe_rs)
     len_listed_pe_rs = len(listed_pe_rs)
@@ -189,6 +195,7 @@ def plan(request, plan_id):
     }
     form = NextRotationStepForm()
     context = {
+        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "form": form,
         "interactions": interactions,
         "interactions_f": interactions_f,
