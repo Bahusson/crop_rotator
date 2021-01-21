@@ -288,7 +288,7 @@ def plan_edit(request, plan_id):
             if request.method == 'POST':
                 form = FirstRotationStepForm(request.POST)
                 if form.is_valid():
-                    form.save()
+                    form.save(pe_rp_id)
                     return redirect('plan', plan_id) # Przekierowuj później na stronę planu
             else:
                 form = FirstRotationStepForm()
