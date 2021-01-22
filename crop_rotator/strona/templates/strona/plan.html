@@ -24,7 +24,7 @@
             <h1 class="text-center pt-3 ">{{ plan.title }}</h1>
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             <button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">$Usuń plan</button>
-            <div name="EventButtonHiddenDiv" class="toggle" value="0">
+            <div name="EventButtonHiddenDiv" class="toggle" style="display: none" value="0">
              <form name="EventDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
               {% csrf_token %}
               <p class="wnioski2">$Na pewno chcesz usunąć ten plan?</p>
@@ -124,4 +124,5 @@ $(".show_properties2").click(function(event){
     $(closest).toggle();
  });
  </script>
+  <script src="/static/assets/js/event_remove_safelock.js"></script>
 {% endblock scripts %}
