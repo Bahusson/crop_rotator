@@ -52,7 +52,7 @@ class NextRotationStepForm(forms.ModelForm):
         fields = ("title", )
 
     def save(self, plan_id, step_order, commit=True):
-        step = super(FirstRotationStepForm, self).save(commit=False)
+        step = super(NextRotationStepForm, self).save(commit=False)
         step.title = self.cleaned_data["title"]
         step.order = int(step_order) + 1
         step.from_plan = plan_id

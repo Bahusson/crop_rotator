@@ -164,11 +164,16 @@ def plan(request, plan_id):
                     ):
                         level_off(top_tier, a, b)
                         family_interaction_list_f.append(a + b + [i.is_positive])
+    # Dodaj następny krok do planu
     if "next_step" in request.POST:
         form = NextRotationStepForm(request.POST)
         if form.is_valid():
             form.save(pe_rp_id, top_tier)
             return redirect(request.META.get('HTTP_REFERER'))
+    # Usuń cały plan.
+    if "delete_plan" in request.POST:
+        pe_rp_id.delete()
+        return redirect('my_plans')
     fabs = []
     tabs = []
     interactions = []
@@ -289,8 +294,9 @@ def my_plans(request):
 
 
 # Funkcja przekierowująca w zależnośni od tego,
-# czy user dodał już chociaż jeden element do planu, czy nie.
-# Sprawdza też, czy user jest właścicielem.
+# czy user dodał już chociaż jeden element do planu, czy nie
+# i w razie czego wymusza jego dodanie.
+# Sprawdza też, czy user jest właścicielem i jeśli nie jest wywala na główną.
 @login_required
 def plan_edit(request, plan_id):
     pe_rp = pe(RotationPlan)

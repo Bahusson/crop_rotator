@@ -23,6 +23,15 @@
           <div class="container">
             <h1 class="text-center pt-3 ">{{ plan.title }}</h1>
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
+            <button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">$Usuń plan</button>
+            <div name="EventButtonHiddenDiv" class="toggle" value="0">
+             <form name="EventDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+              {% csrf_token %}
+              <p class="wnioski2">$Na pewno chcesz usunąć ten plan?</p>
+              <button class="btn btn-link-3 btn-light" name="delete_plan" type="submit">$Tak usuń trwale!</button>
+              <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">$Nie usuwaj!</button>
+             </form> <!-- Koniec formularz usuwającego wydarzenie -->
+            </div>
             <br />
 
             {% if cr_len_warning %}
@@ -79,6 +88,20 @@
           </div>
         </div>
       </div><!-- /.row -->
+      {% if user_editable %}
+      <div class="row"> <!-- Tutaj idzie dodawanie kolejnych kroków - widoczne tylko dla właściciela -->
+        <div class="col-md-7 plan-main">
+        <div class="container">
+          <form name="AddNewStepForm" method="post"> <!-- Do wysyłania plików -->
+          {% csrf_token %}
+
+          <p class="wnioski2">$Tytuł/Nazwa kroku: {{ form.title }}</p>
+          <button class="button btn btn-dark btn-sm" name="next_step" type="submit">$Dodaj nowy krok.</button>
+          </form>
+        </div>
+        </div>
+      </div>
+      {% endif %}
 
     </main>
     <!-- empty div -->
