@@ -23,7 +23,8 @@ from django.contrib.auth.decorators import login_required
 from rotator.forms import (
     RotationPlanForm,
     FirstRotationStepForm,
-    NextRotationStepForm
+    NextRotationStepForm,
+    UserPlanPublicationForm
 )
 from rotator.models import Crop
 import itertools
@@ -174,6 +175,16 @@ def plan(request, plan_id):
     if "delete_plan" in request.POST:
         pe_rp_id.delete()
         return redirect('my_plans')
+    if "publish_plan" in request.POST:
+        form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
+        if form.is_valid():
+            form.save(True)
+            return redirect(request.META.get('HTTP_REFERER'))
+    if "unpublish_plan" in request.POST:
+        form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
+        if form.is_valid():
+            form.save(False)
+            return redirect(request.META.get('HTTP_REFERER'))
     fabs = []
     tabs = []
     interactions = []

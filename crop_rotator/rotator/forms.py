@@ -1,11 +1,8 @@
 from django import forms
 from .models import RotationPlan, RotationStep
 from core.classes import checkifnull as cn
-#  from core.snippets import flare
+from core.snippets import flare
 import datetime
-
-
-
 
 
 class RotationPlanForm(forms.ModelForm):
@@ -60,3 +57,19 @@ class NextRotationStepForm(forms.ModelForm):
         if commit:
             step.save()
         return step
+
+
+
+class UserPlanPublicationForm(forms.ModelForm):
+    class Meta:
+        model = RotationPlan
+        fields = ("published",)
+
+    def save(self, published, commit=True):
+        plan = super(UserPlanPublicationForm, self).save(commit=False)
+        flare(published)
+        plan.published = published
+
+        if commit:
+            plan.save()
+        return plan
