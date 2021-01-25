@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404 as G404
 from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
 from .models import PageSkin as S, PageNames as P, RegNames, AboutPageNames
+from django.views.decorators.cache import cache_page
 from rotator.models import (
     RotationPlan,
     RotationStep,
@@ -74,13 +75,16 @@ def allplans(request):
     return render(request, template, context_lazy)
 
 
-# Widok pojedynczego płodozmianu
+# Widok pojedynczego płodozmianu dla Edytora - shortcache 1min
+@cache_page(60)
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
     user_editable = False
     if check_ownership(request, User, pe_rp_id):
         user_editable = True
+    else:
+        return redirect("lurk_plan", plan_id)
     form = NextRotationStepForm()
     context = {
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
@@ -88,7 +92,6 @@ def plan(request, plan_id):
     }
     cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
     plans_context = cp.basic_context(context=context)
-    # Do przeniesienia dla widoku tylko w wersji dla edytora.
     # Dodaj następny krok do planu
     if "next_step" in request.POST:
         form = NextRotationStepForm(request.POST)
@@ -109,6 +112,23 @@ def plan(request, plan_id):
         if form.is_valid():
             form.save(False)
             return redirect(request.META.get('HTTP_REFERER'))
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=plans_context)
+    template = "strona/plan.html"
+    return render(request, template, context_lazy)
+
+
+# Widok pojedynczego płodozmianu dla lurkera - longcache 15min
+@cache_page(60 * 15)
+def lurk_plan(request, plan_id):
+    pe_rp = pe(RotationPlan)
+    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    user_editable = False
+    context = {
+        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
+    }
+    cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
+    plans_context = cp.basic_context(context=context)
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=plans_context)
     template = "strona/plan.html"

@@ -132,8 +132,11 @@ def check_slaves(*args):
 
 
 def check_ownership(request, user_model, checked_model):
-    userdata = user_model.objects.get(
-    id=request.user.id)
-    user_id = userdata.id
+    try:
+        userdata = user_model.objects.get(
+        id=request.user.id)
+        user_id = userdata.id
+    except:
+        user_id = -1
     owner_id = checked_model.owner.id
     return user_id is owner_id
