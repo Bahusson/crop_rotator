@@ -75,8 +75,7 @@ def allplans(request):
     return render(request, template, context_lazy)
 
 
-# Widok pojedynczego płodozmianu dla Edytora - shortcache 1min
-@cache_page(60)
+# Widok pojedynczego płodozmianu dla Edytora - no_cache
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
@@ -96,7 +95,7 @@ def plan(request, plan_id):
     if "next_step" in request.POST:
         form = NextRotationStepForm(request.POST)
         if form.is_valid():
-            form.save(pe_rp_id, top_tier)
+            form.save(pe_rp_id, cp.top_tier)
             return redirect(request.META.get('HTTP_REFERER'))
     # Usuń cały plan.
     if "delete_plan" in request.POST:
@@ -118,8 +117,8 @@ def plan(request, plan_id):
     return render(request, template, context_lazy)
 
 
-# Widok pojedynczego płodozmianu dla lurkera - longcache 15min
-@cache_page(60 * 15)
+# Widok pojedynczego płodozmianu dla lurkera - longcache 24h
+@cache_page(60 * 60 * 24)
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)

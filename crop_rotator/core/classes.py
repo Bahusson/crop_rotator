@@ -322,9 +322,9 @@ class CropPlanner(object):
         self.clw = False
         error_len_crops = []
         cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
-        top_tier = top_tier_list[-1]
+        self.top_tier = top_tier_list[-1]
         for item in cooldown_list1:
-            item[3][0] += top_tier
+            item[3][0] += self.top_tier
         cooldown_list2 = cooldown_list + cooldown_list1
         err_tab_list = []
         err_crop_list = []
@@ -339,7 +339,7 @@ class CropPlanner(object):
         if not self.clw:
             for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
                 if a[2] == b[2] and a[3][0] - b[3][0] < a[0] and a[3][0] - b[3][0] > 0:
-                    level_off(top_tier, a, b)
+                    level_off(self.top_tier, a, b)
                     err_tab_list.append(a[3][0])
                     err_tab_list.append(b[3][0])
                     err_crop_list.append(a + b)
@@ -350,7 +350,7 @@ class CropPlanner(object):
                             a[3][1] == b[3][1] - i.start_int
                             or a[3][1] == b[3][1] - i.end_int
                         ):
-                            level_off(top_tier, a, b)
+                            level_off(self.top_tier, a, b)
                             crop_interaction_list.append(a + b + [i.is_positive])
                 if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
                     for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
@@ -358,7 +358,7 @@ class CropPlanner(object):
                             a[3][1] == b[3][1] - i.start_int
                             or a[3][1] == b[3][1] - i.end_int
                         ):
-                            level_off(top_tier, a, b)
+                            level_off(self.top_tier, a, b)
                             family_interaction_list.append(a + b + [i.is_positive])
                 if a[4].family.family_relationships.filter(about_crop__id=b[4].id).exists():
                     for i in a[4].family.family_relationships.filter(
@@ -368,7 +368,7 @@ class CropPlanner(object):
                             a[3][1] == b[3][1] - i.start_int
                             or a[3][1] == b[3][1] - i.end_int
                         ):
-                            level_off(top_tier, a, b)
+                            level_off(self.top_tier, a, b)
                             crop_interaction_list_f.append(a + b + [i.is_positive])
                 if (
                     a[4]
@@ -382,7 +382,7 @@ class CropPlanner(object):
                             a[3][1] == b[3][1] - i.start_int
                             or a[3][1] == b[3][1] - i.end_int
                         ):
-                            level_off(top_tier, a, b)
+                            level_off(self.top_tier, a, b)
                             family_interaction_list_f.append(a + b + [i.is_positive])
         fabs = []
         tabs = []
@@ -396,7 +396,7 @@ class CropPlanner(object):
         remove_repeating(self.interactions_f, family_interaction_list)
         remove_repeating(self.f_interactions, crop_interaction_list_f)
         remove_repeating(self.f_interactions_f, family_interaction_list_f)
-        fabs_percent = float(len(fabs)) / float(top_tier * 2)
+        fabs_percent = float(len(fabs)) / float(self.top_tier * 2)
         fabs_rounded = round(fabs_percent, 2)
         self.fabs_error = False
         if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
@@ -422,3 +422,6 @@ class CropPlanner(object):
         }
         self.context.update(kwargs['context'])
         return self.context
+
+    def top_tier(self):
+        return self.top_tier

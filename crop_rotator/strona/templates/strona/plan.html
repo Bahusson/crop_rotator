@@ -45,8 +45,9 @@
             <form name="PublishUserPlanForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
              {% csrf_token %}
              <p class="wnioski2"><button class="btn btn-link-3 btn-light" name="publish_plan" type="submit">
-               $Publikuj!</button>$Opublikuj plan. *onhover(Może zostać wylosowany na stronie głównej i będzie dostępny w spisie wszystkich planów).</p>
-           </form>
+               $Publikuj!</button>$Opublikuj plan. *onhover(Może zostać wylosowany na stronie głównej i będzie dostępny w spisie wszystkich planów).
+               Uwaga: W związku z mechanizmem ograniczającym aktywność botów na stronie, wszystkie zmiany w publikowanych planach mogą być widoczne z poślizgiem do 24h.
+             </p></form>
             {% endif %}
             {% endif %}
 
