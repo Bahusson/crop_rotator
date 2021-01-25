@@ -9,7 +9,7 @@ from rotator.models import (
     CropDataSource as CDS,
 )
 from crop_rotator.settings import LANGUAGES as L
-from core.classes import PageElement as pe, PageLoad
+from core.classes import PageElement as pe, PageLoad, CropPlanner
 from core.snippets import (
     booleanate as bot,
     flare,
@@ -18,6 +18,7 @@ from core.snippets import (
     remove_repeating,
     repack,
     check_slaves,
+    check_ownership,
 )
 from django.contrib.auth.decorators import login_required
 from rotator.forms import (
@@ -27,8 +28,8 @@ from rotator.forms import (
     UserPlanPublicationForm
 )
 from rotator.models import Crop
-import itertools
-import copy
+#import itertools
+#import copy
 from operator import attrgetter
 from random import shuffle
 
@@ -75,96 +76,19 @@ def allplans(request):
 
 # Widok pojedynczego płodozmianu
 def plan(request, plan_id):
-    user_editable = False
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    userdata = User.objects.get(
-    id=request.user.id)
-    user_id = userdata.id
-    owner_id = pe_rp_id.owner.id
-    if user_id == owner_id:
+    user_editable = False
+    if check_ownership(request, User, pe_rp_id):
         user_editable = True
-    pe_rs = RotationStep.objects.filter(from_plan=plan_id)
-    listed_pe_rs = list(pe_rs)
-    len_listed_pe_rs = len(listed_pe_rs)
-    cooldown_list = []
-    fabacae = []
-    top_tier_list = []
-    for item in listed_pe_rs:
-        i1 = (list(item.early_crop.all()), item.order)
-        i2 = (list(item.late_crop.all()), item.order)
-        i3 = item.order
-        top_tier_list.append(i3)
-        vars = [cooldown_list, item, fabacae]
-        list_appending_short(i1, "a", vars)
-        list_appending_short(i2, "b", vars)
-    cooldown_list.sort()
-    top_tier_list.sort()
-    clw = False
-    error_len_crops = []
-    cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
-    top_tier = top_tier_list[-1]
-    for item in cooldown_list1:
-        item[3][0] += top_tier
-    cooldown_list2 = cooldown_list + cooldown_list1
-    err_tab_list = []
-    err_crop_list = []
-    crop_interaction_list = []
-    family_interaction_list = []
-    crop_interaction_list_f = []
-    family_interaction_list_f = []
-    for item in cooldown_list:
-        if item[0] > len_listed_pe_rs:
-            error_len_crops.append(item[1])
-            clw = Crop.objects.filter(id__in=error_len_crops)
-    if not clw:
-        for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
-            if a[2] == b[2] and a[3][0] - b[3][0] < a[0] and a[3][0] - b[3][0] > 0:
-                level_off(top_tier, a, b)
-                err_tab_list.append(a[3][0])
-                err_tab_list.append(b[3][0])
-                err_crop_list.append(a + b)
-                err_crop_list.append(b + a)
-            if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
-                for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
-                    if (
-                        a[3][1] == b[3][1] - i.start_int
-                        or a[3][1] == b[3][1] - i.end_int
-                    ):
-                        level_off(top_tier, a, b)
-                        crop_interaction_list.append(a + b + [i.is_positive])
-            if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
-                for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
-                    if (
-                        a[3][1] == b[3][1] - i.start_int
-                        or a[3][1] == b[3][1] - i.end_int
-                    ):
-                        level_off(top_tier, a, b)
-                        family_interaction_list.append(a + b + [i.is_positive])
-            if a[4].family.family_relationships.filter(about_crop__id=b[4].id).exists():
-                for i in a[4].family.family_relationships.filter(
-                    about_crop__id=b[4].id
-                ):
-                    if (
-                        a[3][1] == b[3][1] - i.start_int
-                        or a[3][1] == b[3][1] - i.end_int
-                    ):
-                        level_off(top_tier, a, b)
-                        crop_interaction_list_f.append(a + b + [i.is_positive])
-            if (
-                a[4]
-                .family.family_relationships.filter(about_family__id=b[2].id)
-                .exists()
-            ):
-                for i in a[4].family.family_relationships.filter(
-                    about_family__id=b[2].id
-                ):
-                    if (
-                        a[3][1] == b[3][1] - i.start_int
-                        or a[3][1] == b[3][1] - i.end_int
-                    ):
-                        level_off(top_tier, a, b)
-                        family_interaction_list_f.append(a + b + [i.is_positive])
+    form = NextRotationStepForm()
+    context = {
+        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
+        "form": form,
+    }
+    cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
+    plans_context = cp.basic_context(context=context)
+    # Do przeniesienia dla widoku tylko w wersji dla edytora.
     # Dodaj następny krok do planu
     if "next_step" in request.POST:
         form = NextRotationStepForm(request.POST)
@@ -185,46 +109,8 @@ def plan(request, plan_id):
         if form.is_valid():
             form.save(False)
             return redirect(request.META.get('HTTP_REFERER'))
-    fabs = []
-    tabs = []
-    interactions = []
-    interactions_f = []
-    f_interactions = []
-    f_interactions_f = []
-    remove_repeating(fabs, fabacae)
-    remove_repeating(tabs, err_tab_list)
-    remove_repeating(interactions, crop_interaction_list)
-    remove_repeating(interactions_f, family_interaction_list)
-    remove_repeating(f_interactions, crop_interaction_list_f)
-    remove_repeating(f_interactions_f, family_interaction_list_f)
-    fabs_percent = float(len(fabs)) / float(top_tier * 2)
-    fabs_rounded = round(fabs_percent, 2)
-    fabs_error = False
-    if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
-        pass
-    else:
-        fabs_error = int(fabs_rounded * 100)
-        fabs_error = str(fabs_error) + "%"
-    error_family_crops = {
-        "e_crops": err_crop_list,
-        "e_tabs": tabs,
-    }
-    form = NextRotationStepForm()
-    context = {
-        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
-        "form": form,
-        "interactions": interactions,
-        "interactions_f": interactions_f,
-        "f_interactions": f_interactions,
-        "f_interactions_f": f_interactions_f,
-        "f_error": fabs_error,
-        "efcs": error_family_crops,
-        "cr_len_warning": clw,
-        "plan": pe_rp_id,
-        "steps": pe_rs,
-    }
     pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
+    context_lazy = pl.lazy_context(skins=S, context=plans_context)
     template = "strona/plan.html"
     return render(request, template, context_lazy)
 
@@ -312,11 +198,7 @@ def my_plans(request):
 def plan_edit(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    userdata = User.objects.get(
-    id=request.user.id)
-    user_id = userdata.id
-    owner_id = pe_rp_id.owner.id
-    if user_id == owner_id:
+    if check_ownership(request, User, pe_rp_id):
         if RotationStep.objects.filter(from_plan=plan_id).exists():
             return redirect('plan', plan_id)
         else:

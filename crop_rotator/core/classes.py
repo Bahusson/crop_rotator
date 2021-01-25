@@ -1,5 +1,11 @@
-# from .snippets import flare
-
+from .snippets import (
+    remove_repeating,
+    flare,
+    list_appending_short,
+    level_off,
+    )
+import itertools
+import copy
 
 class PageLoad(object):
     """Zwraca tyle języków ile mamy zainstalowane
@@ -291,3 +297,128 @@ def checkifnull(x, y):
         return y
     else:
         return x
+
+
+class CropPlanner(object):
+    def __init__(self, *args, **kwargs):
+        plan_id = kwargs['plan_id']
+        self.pe_rp_id = args[0]
+        self.pe_rs = args[1].objects.filter(from_plan=plan_id)
+        listed_pe_rs = list(self.pe_rs)
+        len_listed_pe_rs = len(listed_pe_rs)
+        cooldown_list = []
+        fabacae = []
+        top_tier_list = []
+        for item in listed_pe_rs:
+            i1 = (list(item.early_crop.all()), item.order)
+            i2 = (list(item.late_crop.all()), item.order)
+            i3 = item.order
+            top_tier_list.append(i3)
+            vars = [cooldown_list, item, fabacae]
+            list_appending_short(i1, "a", vars)
+            list_appending_short(i2, "b", vars)
+        cooldown_list.sort()
+        top_tier_list.sort()
+        self.clw = False
+        error_len_crops = []
+        cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
+        top_tier = top_tier_list[-1]
+        for item in cooldown_list1:
+            item[3][0] += top_tier
+        cooldown_list2 = cooldown_list + cooldown_list1
+        err_tab_list = []
+        err_crop_list = []
+        crop_interaction_list = []
+        family_interaction_list = []
+        crop_interaction_list_f = []
+        family_interaction_list_f = []
+        for item in cooldown_list:
+            if item[0] > len_listed_pe_rs:
+                error_len_crops.append(item[1])
+                self.clw = Crop.objects.filter(id__in=error_len_crops)
+        if not self.clw:
+            for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
+                if a[2] == b[2] and a[3][0] - b[3][0] < a[0] and a[3][0] - b[3][0] > 0:
+                    level_off(top_tier, a, b)
+                    err_tab_list.append(a[3][0])
+                    err_tab_list.append(b[3][0])
+                    err_crop_list.append(a + b)
+                    err_crop_list.append(b + a)
+                if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
+                    for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
+                        if (
+                            a[3][1] == b[3][1] - i.start_int
+                            or a[3][1] == b[3][1] - i.end_int
+                        ):
+                            level_off(top_tier, a, b)
+                            crop_interaction_list.append(a + b + [i.is_positive])
+                if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
+                    for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
+                        if (
+                            a[3][1] == b[3][1] - i.start_int
+                            or a[3][1] == b[3][1] - i.end_int
+                        ):
+                            level_off(top_tier, a, b)
+                            family_interaction_list.append(a + b + [i.is_positive])
+                if a[4].family.family_relationships.filter(about_crop__id=b[4].id).exists():
+                    for i in a[4].family.family_relationships.filter(
+                        about_crop__id=b[4].id
+                    ):
+                        if (
+                            a[3][1] == b[3][1] - i.start_int
+                            or a[3][1] == b[3][1] - i.end_int
+                        ):
+                            level_off(top_tier, a, b)
+                            crop_interaction_list_f.append(a + b + [i.is_positive])
+                if (
+                    a[4]
+                    .family.family_relationships.filter(about_family__id=b[2].id)
+                    .exists()
+                ):
+                    for i in a[4].family.family_relationships.filter(
+                        about_family__id=b[2].id
+                    ):
+                        if (
+                            a[3][1] == b[3][1] - i.start_int
+                            or a[3][1] == b[3][1] - i.end_int
+                        ):
+                            level_off(top_tier, a, b)
+                            family_interaction_list_f.append(a + b + [i.is_positive])
+        fabs = []
+        tabs = []
+        self.interactions = []
+        self.interactions_f = []
+        self.f_interactions = []
+        self.f_interactions_f = []
+        remove_repeating(fabs, fabacae)
+        remove_repeating(tabs, err_tab_list)
+        remove_repeating(self.interactions, crop_interaction_list)
+        remove_repeating(self.interactions_f, family_interaction_list)
+        remove_repeating(self.f_interactions, crop_interaction_list_f)
+        remove_repeating(self.f_interactions_f, family_interaction_list_f)
+        fabs_percent = float(len(fabs)) / float(top_tier * 2)
+        fabs_rounded = round(fabs_percent, 2)
+        self.fabs_error = False
+        if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
+            pass
+        else:
+            self.fabs_error = int(fabs_rounded * 100)
+            self.fabs_error = str(self.fabs_error) + "%"
+        self.error_family_crops = {
+            "e_crops": err_crop_list,
+            "e_tabs": tabs,
+        }
+    def basic_context(self, **kwargs):
+        self.context = {
+            "self.interactions": self.interactions,
+            "self.interactions_f": self.interactions_f,
+            "self.f_interactions": self.f_interactions,
+            "self.f_interactions_f": self.f_interactions_f,
+            "f_error": self.fabs_error,
+            "efcs": self.error_family_crops,
+            "cr_len_warning": self.clw,
+            "plan": self.pe_rp_id,
+            "steps": self.pe_rs,
+        }
+        self.context.update(kwargs['context'])
+        return self.context

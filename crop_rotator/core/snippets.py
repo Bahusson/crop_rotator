@@ -120,6 +120,7 @@ def repack(wrapped_list):
     except:
         return False
 
+
 def check_slaves(*args):
     slavedict = {True: 1, False: 0,}
     master_id = args[slavedict[args[2]]]
@@ -128,3 +129,11 @@ def check_slaves(*args):
         for i in master_id.family_slaves.all():
             family_slav_list.append(i)
     return family_slav_list
+
+
+def check_ownership(request, user_model, checked_model):
+    userdata = user_model.objects.get(
+    id=request.user.id)
+    user_id = userdata.id
+    owner_id = checked_model.owner.id
+    return user_id is owner_id
