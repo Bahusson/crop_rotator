@@ -16,9 +16,9 @@
 {% if plan %}
 <div class="col-md-3 shdwn">
     <div class="col">
-        <a href="{% url 'plan' plan.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>
+        <a href="{% url 'lurk_plan' plan.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>
         <div class="desc ">
-            <h4 class="head-news"><a href="{% url 'plan' plan.id %}">{{ plan.title }}</a></h4>
+            <h4 class="head-news"><a href="{% url 'lurk_plan' plan.id %}">{{ plan.title }}</a></h4>
             <p>{{ plan.summary }}</p>
         </div>
     </div>
@@ -32,9 +32,9 @@
 <!--- DODATKOWY BLOG -->
   <div class="col-md-3 shdwn extrablog">
       <div class="col">
-           <a href="{% url 'plan' rotation_plans.3.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>
+           <a href="{% url 'lurk_plan' rotation_plans.3.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>
           <div class="desc">
-              <h4 class="head-news"><a href="{% url 'plan' rotation_plans.3.id %}">{{ rotation_plans.3.title }}</a></h4>
+              <h4 class="head-news"><a href="{% url 'lurk_plan' rotation_plans.3.id %}">{{ rotation_plans.3.title }}</a></h4>
               <p>{{ rotation_plans.3.summary }}</p>
           </div>
       </div>
