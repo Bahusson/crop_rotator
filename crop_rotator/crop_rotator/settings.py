@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "rekruter.apps.RekruterConfig",
     "strona.apps.StronaConfig",
     "modeltranslation",
+    'clearcache',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

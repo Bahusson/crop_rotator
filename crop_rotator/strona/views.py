@@ -118,7 +118,7 @@ def plan(request, plan_id):
 
 
 # Widok pojedynczego płodozmianu dla lurkera - longcache 24h
-@cache_page(60 * 60 * 24)
+#@cache_page(60 * 15)
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
