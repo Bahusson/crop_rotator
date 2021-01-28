@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404 as G404
-from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
+from django.contrib.auth.models import User
 from .models import PageSkin as S, PageNames as P, RegNames, AboutPageNames
 from django.views.decorators.cache import cache_page
 from rotator.models import (
@@ -29,8 +29,6 @@ from rotator.forms import (
     UserPlanPublicationForm
 )
 from rotator.models import Crop
-#import itertools
-#import copy
 from operator import attrgetter
 from random import shuffle
 
@@ -101,11 +99,13 @@ def plan(request, plan_id):
     if "delete_plan" in request.POST:
         pe_rp_id.delete()
         return redirect('my_plans')
+    # Opublikuj plan.
     if "publish_plan" in request.POST:
         form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
         if form.is_valid():
             form.save(True)
             return redirect(request.META.get('HTTP_REFERER'))
+    # Wycofaj plan z pubilkacji.
     if "unpublish_plan" in request.POST:
         form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
         if form.is_valid():
@@ -118,7 +118,7 @@ def plan(request, plan_id):
 
 
 # Widok pojedynczego płodozmianu dla lurkera - longcache 24h
-#@cache_page(60 * 15)
+@cache_page(60 * 15)
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
