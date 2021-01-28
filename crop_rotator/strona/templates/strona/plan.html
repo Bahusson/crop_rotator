@@ -72,12 +72,9 @@
               <h1>{{ step.title }}</h1>
 
               Zamień z innym krokiem w planie:
-              <form name="SwitchStepsForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
-               {% csrf_token %}
-               <p class="wnioski2">
-                 
-                 <button class="btn btn-link-3 btn-light" name="move_plan" type="submit">$Zamień miejscami!</button></p>
-             </form>
+
+              <button class="btn btn-link-3 btn-light" name="move_plan" type="submit">$Zamień miejscami!</button></p>
+
 
               {% error_tab step_no=step.order as is_tab_error %}
               {% if is_tab_error %}
@@ -128,6 +125,13 @@
       </div>
       {% endif %}
 
+      <form name="SwitchStepsForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+       {% csrf_token %}
+       <p class="wnioski2">
+         {{ form2.receiver_step }}
+         {{ form2.receiver_step_order }}
+      </form>
+
     </main>
     <!-- empty div -->
       <div class="top-content">
@@ -150,4 +154,5 @@ $(".show_properties2").click(function(event){
  });
  </script>
   <script src="/static/assets/js/event_remove_safelock.js"></script>
+  <script src=/static/assets/js/swap_steps.js"></script>
 {% endblock scripts %}

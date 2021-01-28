@@ -100,10 +100,11 @@ class StepEditionForm(forms.ModelForm):
 # Służy do zamiany dowolnych dwóch kroków miejscami (zamienia im indeksowanie)
 class StepMoveForm(forms.ModelForm):
     receiver_step_order = forms.CharField(widget=forms.HiddenInput(), required=False)
+    sender_step = forms.CharField(widget=forms.HiddenInput(), required=False)
     receiver_step = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
         model = RotationStep
-        fields = ("order")
+        fields = ("order",)
 
     def save(self, commit=True, **kwargs):
         step = super(StepEditionForm, self).save(commit=False)
