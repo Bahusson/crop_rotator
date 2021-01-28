@@ -120,12 +120,12 @@ def plan(request, plan_id):
         receiver_step_id = pe_stp.by_id(
          G404=G404, id=request.POST.get('receiver_step_id'))
         sender_step_order = sender_step_id.order
-        receiver_step_order = receiver_step_id.order
+#        receiver_step_order = receiver_step_id.order
         form2 = StepMoveForm(request.POST, instance=sender_step_id)
         form3 = StepMoveForm(request.POST, instance=receiver_step_id)
         if form2.is_valid() and form3.is_valid():
-            form2.save(receiver_step_order)
-            form3.save(sender_step_order)
+            form2.save()
+            form3.save(order=sender_step_order)
             return redirect(request.META.get('HTTP_REFERER'))
 
     pl = PageLoad(P, L)
