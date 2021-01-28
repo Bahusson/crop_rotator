@@ -244,7 +244,12 @@ def step_edit(request, step_id):
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
     if check_ownership(request, User, pe_stp_id.from_plan):
-        form = False
+        if "save_step_changes" in request.POST:
+            form = StepEditionForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect(request.META.get('HTTP_REFERER'))
+        form = StepEditionForm()
         context = {
          "form": form,
         }

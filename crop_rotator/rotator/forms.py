@@ -67,9 +67,30 @@ class UserPlanPublicationForm(forms.ModelForm):
 
     def save(self, published, commit=True):
         plan = super(UserPlanPublicationForm, self).save(commit=False)
-        flare(published)
         plan.published = published
 
         if commit:
             plan.save()
         return plan
+
+
+class StepEditionForm(forms.ModelForm):
+    class Meta:
+        model = RotationStep
+        fields = (
+         "title", "descr", "add_manure", "early_crop", "late_crop",
+         "is_late_crop_destroy", "is_early_crop_destroy",
+         )
+    def save(self, commit=True):
+        step = super(StepEditionForm, self).save(commit=False)
+        step.title = self.cleaned_data["title"]
+        step.descr = self.cleaned_data["descr"]
+        step.add_manure = self.cleaned_data["add_manure"]
+        step.early_crop = self.cleaned_data["early_crop"]
+        step.late_crop = self.cleaned_data["late_crop"]
+        step.is_late_crop_destroy = self.cleaned_data["is_late_crop_destroy"]
+        step.is_early_crop_destroy = self.cleaned_data["is_early_crop_destroy"]
+
+        if commit:
+            step.save()
+        return step
