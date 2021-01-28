@@ -76,6 +76,7 @@ def allplans(request):
 # Widok pojedynczego płodozmianu dla Edytora - no_cache
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
+    pe_stp = pe(RotationStep)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
     user_editable = False
     if check_ownership(request, User, pe_rp_id):
@@ -83,9 +84,11 @@ def plan(request, plan_id):
     else:
         return redirect("lurk_plan", plan_id)
     form = NextRotationStepForm()
+    form2 = StepMoveForm()
     context = {
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "form": form,
+        "form2": form2,
     }
     cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
     plans_context = cp.basic_context(context=context)
@@ -111,6 +114,20 @@ def plan(request, plan_id):
         if form.is_valid():
             form.save(False)
             return redirect(request.META.get('HTTP_REFERER'))
+    if "move_plan" in request.POST:
+        sender_step_id = pe_stp.by_id(
+         G404=G404, id=request.POST.get('sender_step_id'))
+        receiver_step_id = pe_stp.by_id(
+         G404=G404, id=request.POST.get('receiver_step_id'))
+        sender_step_order = sender_step_id.order
+        receiver_step_order = receiver_step_id.order
+        form2 = StepMoveForm(request.POST, instance=sender_step_id)
+        form3 = StepMoveForm(request.POST, instance=receiver_step_id)
+        if form2.is_valid() and form3.is_valid():
+            form2.save(receiver_step_order)
+            form3.save(sender_step_order)
+            return redirect(request.META.get('HTTP_REFERER'))
+
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=plans_context)
     template = "strona/plan.html"
@@ -255,7 +272,7 @@ def step_edit(request, step_id):
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
-        template = "strona/first_step_create.html"
+        template = "strona/step_edit.html"
         return render(request, template, context_lazy)
     else:
         return redirect('home')

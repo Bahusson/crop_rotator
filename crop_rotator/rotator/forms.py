@@ -81,6 +81,7 @@ class StepEditionForm(forms.ModelForm):
          "title", "descr", "add_manure", "early_crop", "late_crop",
          "is_late_crop_destroy", "is_early_crop_destroy",
          )
+
     def save(self, commit=True):
         step = super(StepEditionForm, self).save(commit=False)
         step.title = self.cleaned_data["title"]
@@ -90,6 +91,21 @@ class StepEditionForm(forms.ModelForm):
         step.late_crop = self.cleaned_data["late_crop"]
         step.is_late_crop_destroy = self.cleaned_data["is_late_crop_destroy"]
         step.is_early_crop_destroy = self.cleaned_data["is_early_crop_destroy"]
+
+        if commit:
+            step.save()
+        return step
+
+
+# Służy do zamiany dowolnych dwóch kroków miejscami (zamienia im indeksowanie)
+class StepMoveForm(forms.ModelForm):
+    class Meta:
+        model = RotationStep
+        fields = ("order")
+
+    def save(self, order, commit=True):
+        step = super(StepEditionForm, self).save(commit=False)
+        step.order = order
 
         if commit:
             step.save()
