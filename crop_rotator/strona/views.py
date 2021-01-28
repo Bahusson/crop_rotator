@@ -117,7 +117,7 @@ def plan(request, plan_id):
     return render(request, template, context_lazy)
 
 
-# Widok pojedynczego płodozmianu dla lurkera - longcache 24h
+# Widok pojedynczego płodozmianu dla lurkera - longcache 24h - Popraw czas w produkcji
 @cache_page(60 * 15)
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
@@ -212,7 +212,6 @@ def my_plans(request):
 # Funkcja przekierowująca w zależnośni od tego,
 # czy user dodał już chociaż jeden element do planu, czy nie
 # i w razie czego wymusza jego dodanie.
-# Sprawdza też, czy user jest właścicielem i jeśli nie jest wywala na główną.
 @login_required
 def plan_edit(request, plan_id):
     pe_rp = pe(RotationPlan)
@@ -239,7 +238,22 @@ def plan_edit(request, plan_id):
        return redirect('home')
 
 
-
+# Widok edycji pojedynczego kroku w planie zmianowania.
+@login_required
+def step_edit(request, step_id):
+    pe_stp = pe(RotationStep)
+    pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
+    if check_ownership(request, User, pe_stp_id.from_plan):
+        form = False
+        context = {
+         "form": form,
+        }
+        pl = PageLoad(P, L)
+        context_lazy = pl.lazy_context(skins=S, context=context)
+        template = "strona/first_step_create.html"
+        return render(request, template, context_lazy)
+    else:
+        return redirect('home')
 
 ###### BRUDNOPIS ######
 # userdata = User.objects.get(
