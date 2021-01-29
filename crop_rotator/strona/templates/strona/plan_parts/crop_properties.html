@@ -30,13 +30,13 @@
   {% endif %}
 
 
-  <p><b><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></b><button class="show_properties2" value="2">Info</button><p>
+  <p><b><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></b><button class="show_properties2" value="2">Info</button></p>
   <div class="hidden_properties">
     <p>Rodzina: <a href="{% url 'family' crop.family.id %}">{{ crop.family }}</a></p>
     {% if crop.descr %}
      <p>Uwagi: {{ crop.descr }}
     {% endif %}
-    {% if crop.image %}s
+    {% if crop.image %}
      <p><img src="{{ crop.image.url }}" alt="crop_image" height="200" width="auto"></img></p>
     {% endif %}
   </div>

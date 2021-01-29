@@ -13,11 +13,14 @@ function hidden_input_name_set()
 
 $(document).ready(function()
 {
-  $("button[name='move_plan']").click(function()
+  $("button[name='move_plan']").click(function(event)
  {
-  alert("button działa!")
-  //var button_triger2 = $(event.target);
-  //var closest = button_triger2.closest(".p").nextAll("select[name='step_selection']").first().filter(":selected"); // .selected()?
+//  console.log(event);
+  var button_triger = $(event.target);
+  var sender_id = button_triger.attr('value');
+  var closest = button_triger.closest("p").nextAll(".selectables").first().attr('value') //.filter(":selected").attr('value');
+  //var closest = button_triger.closest(".select").nextAll().first().filter(":selected").attr('value');
+  alert(closest);
   //hidden_input_value_set(closest)
   });
 });
