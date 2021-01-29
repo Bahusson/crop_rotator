@@ -109,9 +109,9 @@ class StepMoveForm(forms.ModelForm):
     def save(self, commit=True, **kwargs):
         step = super(StepEditionForm, self).save(commit=False)
         if "order" in kwargs:
-            step.order = order
+            step.order = int(kwargs['order'])
         else:
-            step.order = self.cleaned_data["receiver_step_order"]
+            step.order = int(self.cleaned_data["receiver_step_order"])
 
         if commit:
             step.save()
