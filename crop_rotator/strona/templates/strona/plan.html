@@ -72,12 +72,11 @@
               <h1>{{ step.title }}</h1>
 
               Zamień z innym krokiem w planie:
-
               <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">$Zamień miejscami!</button>
               <p>$Zamień z krokiem:<select name="step_selection">
                 <option value ="None" disabled>$Wybierz opcję:</option>
                 {% for step2 in steps %}
-                  {% if step2 not step %}
+                  {% if step2 != step %}
                     <option name="{{ step2.id }}" value ="{{ step2.order }}">{{ step2.title }}</option>
                   {% endif %}
                 {% endfor %}
@@ -162,5 +161,5 @@ $(".show_properties2").click(function(event){
  });
  </script>
   <script src="/static/assets/js/event_remove_safelock.js"></script>
-  <script src=/static/assets/js/swap_steps.js"></script>
+  <script src="/static/assets/js/swap_steps.js"></script>
 {% endblock scripts %}
