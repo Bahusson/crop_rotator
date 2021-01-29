@@ -132,7 +132,7 @@
       </div>
       {% endif %}
 
-      <form id="SwitchStepsForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+      <form id="SwitchStepsForm" name="move_plan" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
        {% csrf_token %}
          {{ form2.receiver_step }}
          {{ form2.sender_step }}

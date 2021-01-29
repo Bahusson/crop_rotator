@@ -115,13 +115,12 @@ def plan(request, plan_id):
         if form.is_valid():
             form.save(False)
             return redirect(request.META.get('HTTP_REFERER'))
-    if "move_plan" in request.POST:
+    if "receiver_step" in request.POST:
         sender_step_id = pe_stp.by_id(
-         G404=G404, id=request.POST.get('sender_step_id'))
+         G404=G404, id=request.POST.get('sender_step'))
         receiver_step_id = pe_stp.by_id(
-         G404=G404, id=request.POST.get('receiver_step_id'))
+         G404=G404, id=request.POST.get('receiver_step'))
         sender_step_order = sender_step_id.order
-#        receiver_step_order = receiver_step_id.order
         form2 = StepMoveForm(request.POST, instance=sender_step_id)
         form3 = StepMoveForm(request.POST, instance=receiver_step_id)
         if form2.is_valid() and form3.is_valid():
