@@ -73,8 +73,15 @@
 
               Zamień z innym krokiem w planie:
 
-              <button class="btn btn-link-3 btn-light" name="move_plan" type="submit">$Zamień miejscami!</button>
-              <p>
+              <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">$Zamień miejscami!</button>
+              <p>$Zamień z krokiem:<select name="step_selection">
+                <option value ="None" disabled>$Wybierz opcję:</option>
+                {% for step2 in steps %}
+                  {% if step2 not step %}
+                    <option name="{{ step2.id }}" value ="{{ step2.order }}">{{ step2.title }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select></p>
 
 
               {% error_tab step_no=step.order as is_tab_error %}
