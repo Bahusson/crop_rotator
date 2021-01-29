@@ -18,9 +18,9 @@ $(document).ready(function()
 //  console.log(event);
   var button_triger = $(event.target);
   var sender_id = button_triger.attr('value');
-  var closest = button_triger.closest("p").nextAll(".selectables").first().attr('value') //.filter(":selected").attr('value');
-  //var closest = button_triger.closest(".select").nextAll().first().filter(":selected").attr('value');
-  alert(closest);
+  var receiver_order = button_triger.closest("p").nextAll(".selectables").first().children("option:selected").attr('value')
+  var receiver_id = button_triger.closest("p").nextAll(".selectables").first().children("option:selected").attr('name')
+  alert(receiver_id);
   //hidden_input_value_set(closest)
   });
 });
