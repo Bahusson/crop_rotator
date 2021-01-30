@@ -127,6 +127,10 @@ def plan(request, plan_id):
             form2.save()
             form3.save(order=sender_step_order)
             return redirect(request.META.get('HTTP_REFERER'))
+    if "delete_step" in request.POST:
+        last_step = pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
+        last_step.delete()
+        return redirect(request.META.get('HTTP_REFERER'))
 
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=plans_context)
@@ -276,19 +280,3 @@ def step_edit(request, step_id):
         return render(request, template, context_lazy)
     else:
         return redirect('home')
-
-###### BRUDNOPIS ######
-# userdata = User.objects.get(
-# id=request.user.id)
-# user_id = userdata.id
-# flare(user_id)
-# owner_id = pe_rp_id.owner.id
-# flare(owner_id)
-# if user_id == owner_id:
-#    flare("True_af")
-#    pass
-# else:
-#    flare("False_af")
-#    pass
-# return redirect('logger')
-# Zrób jeśli user jest właścicielem, żeby mógł robić zmiany.

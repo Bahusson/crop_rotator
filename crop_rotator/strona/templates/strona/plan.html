@@ -24,7 +24,7 @@
             <h1 class="text-center pt-3 ">{{ plan.title }}</h1>
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             {% if user_editable %}
-            <button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">$Usuń plan</button>
+            <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">$Usuń plan</button></p>
             <div name="EventButtonHiddenDiv" class="toggle" style="display: none" value="0">
              <form name="EventDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
               {% csrf_token %}
@@ -81,6 +81,18 @@
                   {% endif %}
                 {% endfor %}
               </select>
+              <br>
+                {% if step.order == top_tier %}
+                <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve">$Usuń krok</button></p>
+                <div name="ButtonHiddenDiv" class="toggle" style="display: none" value="0">
+                 <form name="StepDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa ostatni -->
+                  {% csrf_token %}
+                  <p class="wnioski2">$Na pewno chcesz usunąć ten krok?</p>
+                  <button class="btn btn-link-3 btn-light" name="delete_step" value="{{ step.id }}" type="submit">$Tak usuń trwale!</button>
+                  <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">$Nie usuwaj!</button>
+                </form> <!-- Koniec formularza usywającego ostatni krok-->
+                </div>
+                {% endif %}
               {% endif %}
 
 

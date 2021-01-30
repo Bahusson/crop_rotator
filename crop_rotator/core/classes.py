@@ -419,6 +419,7 @@ class CropPlanner(object):
             "cr_len_warning": self.clw,
             "plan": self.pe_rp_id,
             "steps": self.pe_rs,
+            "top_tier": self.top_tier,
         }
         self.context.update(kwargs['context'])
         return self.context
