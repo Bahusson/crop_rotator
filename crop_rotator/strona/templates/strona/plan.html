@@ -70,7 +70,7 @@
             {% for step in steps %}
 
               <h1>{{ step.title }}</h1>
-
+              {% if user_editable %}
               Zamień z innym krokiem w planie:
               <p><button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">$Zamień miejscami!</button></p>
               $Zamień z krokiem:<select class="selectables" name="step_selection">
@@ -81,6 +81,7 @@
                   {% endif %}
                 {% endfor %}
               </select>
+              {% endif %}
 
 
               {% error_tab step_no=step.order as is_tab_error %}
