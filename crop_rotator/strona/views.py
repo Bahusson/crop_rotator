@@ -261,7 +261,7 @@ def plan_edit(request, plan_id):
 
 # Widok edycji pojedynczego kroku w planie zmianowania.
 @login_required
-def step_edit(request, step_id):
+def step(request, step_id):
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
     if check_ownership(request, User, pe_stp_id.from_plan):
@@ -276,7 +276,7 @@ def step_edit(request, step_id):
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
-        template = "strona/step_edit.html"
+        template = "strona/step.html"
         return render(request, template, context_lazy)
     else:
         return redirect('home')
