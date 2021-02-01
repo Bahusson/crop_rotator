@@ -267,11 +267,11 @@ def step(request, step_id):
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
     if check_ownership(request, User, pe_stp_id.from_plan):
         if "save_step_changes" in request.POST:
-            form = StepEditionForm(request.POST)
+            form = StepEditionForm(request.POST, instance=pe_stp_id)
             if form.is_valid():
                 form.save()
                 return redirect(request.META.get('HTTP_REFERER'))
-        form = StepEditionForm()
+        form = StepEditionForm(instance=pe_stp_id)
         context = {
          "form": form,
          "step": pe_stp_id,

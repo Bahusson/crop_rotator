@@ -88,8 +88,8 @@ class StepEditionForm(forms.ModelForm):
         step.descr = self.cleaned_data["descr"]
         step.add_manure_early = self.cleaned_data["add_manure_early"]
         step.add_manure_late = self.cleaned_data["add_manure_late"]
-        step.early_crop = self.cleaned_data["early_crop"]
-        step.late_crop = self.cleaned_data["late_crop"]
+        step.early_crop.set(self.cleaned_data["early_crop"])
+        step.late_crop.set(self.cleaned_data["late_crop"])
         step.is_late_crop_destroy = self.cleaned_data["is_late_crop_destroy"]
         step.is_early_crop_destroy = self.cleaned_data["is_early_crop_destroy"]
 

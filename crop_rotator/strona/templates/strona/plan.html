@@ -112,11 +112,6 @@
                 <p>{{ step.descr }}</p>
               {% endif %}
 
-              {% if step.add_manure %}
-               <p>Mały obrazek świadczący o tym, że <b>nawóz</b> dodano do tego kroku.</p>
-               <p>Do tego onhover z informacją w dwóch językach, że chodzi o nawóz.</p>
-              {% endif %}
-
               {% if step.early_crop %}
                 <h2>Plon jary:</h2>
                 {% for crop in step.early_crop.all %}
