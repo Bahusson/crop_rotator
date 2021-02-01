@@ -220,7 +220,8 @@ class FamilyInteraction(CropInteraction):
 class RotationStep(models.Model):
     title = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
-    add_manure = models.BooleanField(default=False)  # Czy dodać nawóz?
+    add_manure_early = models.BooleanField(default=False)
+    add_manure_late = models.BooleanField(default=False)
     from_plan = models.ForeignKey(
         "RotationPlan",
         related_name="rotation_plan_set",

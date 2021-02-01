@@ -78,7 +78,7 @@ class StepEditionForm(forms.ModelForm):
     class Meta:
         model = RotationStep
         fields = (
-         "title", "descr", "add_manure", "early_crop", "late_crop",
+         "title", "descr", "add_manure_early", "add_manure_late", "early_crop", "late_crop",
          "is_late_crop_destroy", "is_early_crop_destroy",
          )
 
@@ -86,7 +86,8 @@ class StepEditionForm(forms.ModelForm):
         step = super(StepEditionForm, self).save(commit=False)
         step.title = self.cleaned_data["title"]
         step.descr = self.cleaned_data["descr"]
-        step.add_manure = self.cleaned_data["add_manure"]
+        step.add_manure_early = self.cleaned_data["add_manure_early"]
+        step.add_manure_late = self.cleaned_data["add_manure_late"]
         step.early_crop = self.cleaned_data["early_crop"]
         step.late_crop = self.cleaned_data["late_crop"]
         step.is_late_crop_destroy = self.cleaned_data["is_late_crop_destroy"]
