@@ -20,8 +20,17 @@
       <div class="row">
         <div class="col-md-7 plan-main">
           <div class="container">
+            <h6 class="text-center pt-3 ">$Edytujesz krok nr.{{ step.order }}:</h6>
             <h1 class="text-center pt-3 ">{{ step.title }}</h1>
             <h4 class="pt-2">{{ step.pubdate_short }}</h4>
+            <p>$Tytuł: {{ form.title }}</p>
+            <p>$Opis: {{ form.descr }}</p>
+            <!-- W tym kroku zrób tak, że jeśli jakieś rośliny nie nadają się pod obornik, to wyświetl błąd na górze.
+            Można też założyć, że rolnik wie jaki dać nawóz pod jakie rośliny i dać po prostu "dodaj właściwy nawóz" z onhover,
+            że ta opcja poprawia kulturę gleby i sam rolnik ma dociec, który nawóz będzie najlepszy (uproszczenie programu).-->
+            <p>$Dodaj obornik: {{ form.add_manure }}</p>
+            <!-- I tu pojawia się problem, bo trzeba dać możliwość userowi dodać obornik 2 razy - raz do kroku wczesnego, a raz do późnego.-->
+            <p>$Wczesny plon: {{ form.early_crop }}</p>
 
         </div>
         </div>
