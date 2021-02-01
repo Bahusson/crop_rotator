@@ -69,7 +69,12 @@
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
 
-              <h1>{{ step.title }}</h1>
+              <h1>
+                {{ step.title }}
+                {% if user_editable %}
+                    <a href="{% url 'step' step.id %}"><button class="btn btn-link-3 btn-light">$Edytuj!</button></a>
+                {% endif %}
+              </h1>
               {% if user_editable %}
 
               <p class="master0">Zamień z innym krokiem w planie:

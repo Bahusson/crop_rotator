@@ -28,6 +28,7 @@ from rotator.forms import (
     NextRotationStepForm,
     UserPlanPublicationForm,
     StepMoveForm,
+    StepEditionForm,
 )
 from rotator.models import Crop
 from operator import attrgetter
