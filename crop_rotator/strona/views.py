@@ -273,6 +273,7 @@ def step(request, step_id):
         form = StepEditionForm()
         context = {
          "form": form,
+         "step": pe_stp_id,
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
