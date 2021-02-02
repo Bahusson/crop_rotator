@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+<title>$Rejestracja</title>
+{% endblock title %}
+
+{% block css %}
+{% endblock css %}
+
 <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
 {% block aside %}
 <!-- Null -->
 {% block body %}
-
+<br>
+<br>
+<br>
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
@@ -15,36 +24,27 @@
             {% if form.errors %}
             <p>Formularz zawiera błędy! Hasło nie może być zbyt proste.</p>
             {% endif %}
-
-            <p>{{ item.name }} {{ form.first_name }}</p>
-            <p>{{ item.email }} {{ form.email }}</p>
+            <p>$Twoja nazwa użytkownika to: <b id="username" >{{ gen_username }}</b>*odśwież?</p>
             <p>{{ item.password }} {{ form.password1 }}</p>
             <p>{{ item.re_password }} {{ form.password2 }}</p>
-            <!--Weź zrób tak, żeby się nie dało zarejestrować jak masz poniżej 15 rż. -->
-            <p>{{ item.age }} {{ form.age }}</p>
-
-            <p>{{ item.gender }}  <select id="Genderselector">
-              <option value ="None" disabled>{{ item.list_select }}:</option>
-              <option value ="0">{{ item.other }}</option>
-              <option value ="1">{{ item.male }}</option>
-              <option value ="2">{{ item.female }}</option>
-            </select></p>
-
-            <p>{{ form.gender }}</p>
-            <input id="send" class="button" type="submit" value="{{ items.register }}">
+            <p>{{ form.username }} </p>
+            <button id="send" value="{{ gen_username }}" type="submit">{{ items.register }}"</button>
           </form>
         </div>
       </section>
     </main>
+    <!-- empty div -->
+      <div class="top-content">
+        <div class="container">
+      <div class="row">	<div class="col-sm-12 text wow fadeInLeft"></div></div>
 
-    {% endblock body%}
-    {% endblock aside %}
 
-    {% block scripts %}
-    <script src="{% static "assets/js/jquery.js" %}"></script>
-    <script src="{% static "genderchange.js" %}"></script>
-    {% include 'forms/widgets/date_event_notime.html' %}
-    {% endblock %}
+    </div>
+    </div>
+    <!-- end of empty div -->
+{% endblock body%}
+{% endblock aside %}
 
-    {% block scripts2 %}
-    {% endblock %}
+{% block scripts %}
+<script src="/static/assets/js/username_script.js"></script>
+{% endblock scripts %}

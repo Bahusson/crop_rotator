@@ -1,12 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from core.snippets import gen_login
 
 
 class ExtendedCreationForm(UserCreationForm):
-    username = forms.CharField(max_length=30)
-
+    username = forms.CharField(widget=forms.HiddenInput())
 
     class Meta:
         model = User
@@ -18,7 +16,7 @@ class ExtendedCreationForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(ExtendedCreationForm, self).save(commit=False)
-        user.username = gen_login()  # Może by tak generować login na formularzu, żeby user też go widział?
+        user.username = self.cleaned_data["username"]
 
         if commit:
             user.save()
