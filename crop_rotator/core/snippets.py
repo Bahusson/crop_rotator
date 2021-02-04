@@ -140,3 +140,10 @@ def check_ownership(request, user_model, checked_model):
         user_id = -1
     owner_id = checked_model.owner.id
     return user_id is owner_id
+
+
+def slice_list_3(list):
+    master_len = len(list)
+    master_len_1 = round(master_len/3)
+    master_len_2 = master_len_1*2
+    return (master_len_1,master_len_2)

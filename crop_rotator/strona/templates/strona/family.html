@@ -15,7 +15,7 @@
 <br>
     <main role="main">
       <div class="row">
-        <div class="col-md-7 blog-main">
+        <div class="col-md-12 blog-main">
           <div class="container">
             <h1 class="text-center pt-3 ">{{ family.name }}</h1>
             <h4 class="pt-2">{{ family.pubdate_short }}</h4>
@@ -30,9 +30,44 @@
               <p>{{ source.descr }}({{ forloop.counter }})</p>
             {% endfor %}
             <p>Gatunki:</p>
-              {% for crop in house %}
-                <p><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></p>
-              {% endfor %}
+              <div class="container">
+                <div class="row">
+                  <hr />
+                  <br />
+                      <div class="col-4">
+                      {% with  master_slice1=ml1|stringformat:"s" %}
+                      {% with  msl=":"|add:master_slice1 %}
+                      {% for crop in house|slice:msl %}
+                        <p><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></p>
+                      {% endfor %}
+                      {% endwith %}
+                      {% endwith %}
+                      </div>
+                      <div class="col-4">
+                      {% with  master_slice1=ml1|stringformat:"s" %}
+                      {% with  middleman=master_slice1|add:":" %}
+                      {% with  master_slice2=ml2|stringformat:"s" %}
+                      {% with  msl=middleman|add:master_slice2 %}
+                      {% for crop in house|slice:msl %}
+                        <p><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></p>
+                      {% endfor %}
+                      {% endwith %}
+                      {% endwith %}
+                      {% endwith %}
+                      {% endwith %}
+                      </div>
+                      <div class="col-4">
+                      {% with  master_slice2=ml2|stringformat:"s" %}
+                      {% with  msl=master_slice2|add:":" %}
+                      {% for crop in house|slice:msl %}
+                        <p><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></p>
+                      {% endfor %}
+                      {% endwith %}
+                      {% endwith %}
+                      </div>
+                  <br />
+                  </div>
+                </div>
             <p>Źródła:</p>
               {% for source in sources %}
                 <p>({{ forloop.counter }}) {{ source.at_data_string.part1 }}

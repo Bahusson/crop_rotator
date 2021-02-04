@@ -20,6 +20,7 @@ from core.snippets import (
     repack,
     check_slaves,
     check_ownership,
+    slice_list_3,
 )
 from django.contrib.auth.decorators import login_required
 from rotator.forms import (
@@ -184,14 +185,11 @@ def all_plant_families(request):
             pass
         else:
             pe_f_master_list.append(item)
-    master_len = len(pe_f_master_list)
-    master_len_1 = round(master_len/3)
-    master_len_2 = master_len_1*2
-    flare(master_len_2)
+    sl3 = slice_list_3(pe_f_master_list)
     context = {
         "families": pe_f_master_list,
-        "ml1": master_len_1,
-        "ml2": master_len_2,
+        "ml1": sl3[0],
+        "ml2": sl3[1],
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
@@ -218,9 +216,12 @@ def family(request, family_id):
         for crop_object in pe_c_all:
             house.append(crop_object)
     house = sorted(house, key=attrgetter('name'))
+    sl3 = slice_list_3(house)
     context = {
         "family": family_slav_list[0],
         "house": house,
+        "ml1": sl3[0],
+        "ml2": sl3[1],
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
