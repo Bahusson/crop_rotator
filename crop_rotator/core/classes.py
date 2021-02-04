@@ -301,6 +301,7 @@ def checkifnull(x, y):
 
 class CropPlanner(object):
     def __init__(self, *args, **kwargs):
+        interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
@@ -347,16 +348,16 @@ class CropPlanner(object):
                 if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
                     for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
                         if (
-                            a[3][1] == b[3][1] - i.start_int
-                            or a[3][1] == b[3][1] - i.end_int
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
                         ):
                             level_off(self.top_tier, a, b)
                             crop_interaction_list.append(a + b + [i.is_positive])
                 if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
                     for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
                         if (
-                            a[3][1] == b[3][1] - i.start_int
-                            or a[3][1] == b[3][1] - i.end_int
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
                         ):
                             level_off(self.top_tier, a, b)
                             family_interaction_list.append(a + b + [i.is_positive])
@@ -365,8 +366,8 @@ class CropPlanner(object):
                         about_crop__id=b[4].id
                     ):
                         if (
-                            a[3][1] == b[3][1] - i.start_int
-                            or a[3][1] == b[3][1] - i.end_int
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
                         ):
                             level_off(self.top_tier, a, b)
                             crop_interaction_list_f.append(a + b + [i.is_positive])
@@ -379,8 +380,8 @@ class CropPlanner(object):
                         about_family__id=b[2].id
                     ):
                         if (
-                            a[3][1] == b[3][1] - i.start_int
-                            or a[3][1] == b[3][1] - i.end_int
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
                         ):
                             level_off(self.top_tier, a, b)
                             family_interaction_list_f.append(a + b + [i.is_positive])

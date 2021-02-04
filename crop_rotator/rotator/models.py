@@ -175,6 +175,14 @@ class CropMix(models.Model):
 
 
 class CropInteraction(models.Model):
+    CO_CROP = 0
+    ALLELOPATIC = 1
+    NEXT_CROP = 2
+    INTERACTION_TYPE = (
+        (CO_CROP, "Współrzędne"),
+        (ALLELOPATIC, "Allelopatyczne"),
+        (NEXT_CROP, "Następcze"),
+    )
     title = models.CharField(max_length=150)  # Tytuł i od razu opis relacji
     is_positive = models.BooleanField(default=True)  # Typ oddziaływania
     about_crop = models.ForeignKey(
@@ -198,8 +206,9 @@ class CropInteraction(models.Model):
         blank=True,
         null=True,
     )
-    start_int = models.IntegerField(default=0)  # początek rozpoczęcia oddziaływania
-    end_int = models.IntegerField(default=0)  # koniec rozpoczecia oddziaływania
+    type_of_interaction = models.PositiveSmallIntegerField(
+        choices=INTERACTION_TYPE, default=0
+    )
 
     class Meta:
         ordering = ["title"]
