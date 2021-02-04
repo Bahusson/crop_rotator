@@ -175,6 +175,30 @@ def crop(request, crop_id):
     return render(request, template, context_lazy)
 
 
+# Spis wszystkich rodzin, bez "nibyrodzin" (typu owies u wiechlinowatych).
+def all_plant_families(request):
+    pe_f = pe(CropFamily).allelements
+    pe_f_master_list = []
+    for item in pe_f:
+        if item.is_family_slave:
+            pass
+        else:
+            pe_f_master_list.append(item)
+    master_len = len(pe_f_master_list)
+    master_len_1 = round(master_len/3)
+    master_len_2 = master_len_1*2
+    flare(master_len_2)
+    context = {
+        "families": pe_f_master_list,
+        "ml1": master_len_1,
+        "ml2": master_len_2,
+    }
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/all_plant_families.html"
+    return render(request, template, context_lazy)
+
+
 # Widok szczegółowy danej rodziny, oraz "nibyrodzin" (patrz: owies)
 def family(request, family_id):
     pe_f = pe(CropFamily)

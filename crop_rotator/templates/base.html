@@ -42,14 +42,17 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active ">
+          <li class="nav-item">
             <a class="nav-link " href="{% url 'home' %}">{{ items.mainpage }}<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
+            <a class="nav-link " href="{% url 'all_plant_families' %}">$Spis roślin</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link " href="{% url 'about' %}">{{ items.about }}</a>
           </li>
           {% if user.is_authenticated %}
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link " href="{% url 'my_plans' %}">{{ items.new_plan }}</a>
           </li>
           {% endif %}
