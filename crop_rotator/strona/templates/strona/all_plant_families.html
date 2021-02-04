@@ -23,7 +23,7 @@ $Spis wszystkich rodzin
         <div class="row">
           <hr />
           <br />
-              <div class="col-4">
+              <div class="col-md-4 shdwn">
               {% with  master_slice1=ml1|stringformat:"s" %}
               {% with  msl=":"|add:master_slice1 %}
               {% for family in families|slice:msl %}
@@ -32,7 +32,7 @@ $Spis wszystkich rodzin
               {% endwith %}
               {% endwith %}
               </div>
-              <div class="col-4">
+              <div class="col-md-4 shdwn">
               {% with  master_slice1=ml1|stringformat:"s" %}
               {% with  middleman=master_slice1|add:":" %}
               {% with  master_slice2=ml2|stringformat:"s" %}
@@ -45,7 +45,7 @@ $Spis wszystkich rodzin
               {% endwith %}
               {% endwith %}
               </div>
-              <div class="col-4">
+              <div class="col-md-4 shdwn">
               {% with  master_slice2=ml2|stringformat:"s" %}
               {% with  msl=master_slice2|add:":" %}
               {% for family in families|slice:msl %}

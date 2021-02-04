@@ -16,17 +16,17 @@
     <main role="main">
       <h2>{{ items.new_plan }}</h2>
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 shdwn">
           {% for plan in user_plans|slice:":4" %}
           {% include 'strona/user_plan_parts/plan_entry.html' %}
           {% endfor %}
         </div>
-        <div class="col-4">
+        <div class="col-md-4 shdwn">
           {% for plan in user_plans|slice:"4:8" %}
           {% include 'strona/user_plan_parts/plan_entry.html' %}
           {% endfor %}
         </div>
-        <div class="col-4">
+        <div class="col-md-4 shdwn">
           {% for plan in user_plans|slice:"8:12" %}
           {% include 'strona/user_plan_parts/plan_entry.html' %}
           {% endfor %}
