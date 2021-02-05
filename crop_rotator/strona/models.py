@@ -66,6 +66,9 @@ class RotatorEditorPageNames(models.Model):
     name_step = models.CharField(max_length=200) # Nazwa kroku
     plan_remove = models.CharField(max_length=200) # Usuń plan (button)
     step_remove = models.CharField(max_length=200) # Usuń krok (button)
+    remove_warning = models.CharField(max_length=200, blank=True, null=True) # Czy na pewno usunąć? (text)
+    remove_permanent = models.CharField(max_length=200, blank=True, null=True) # Tak usuń trwale (button)
+    dont_remove = models.CharField(max_length=200, blank=True, null=True) # Nie usuwaj (button)
     editme = models.CharField(max_length=200) # Edytuj
     switch_places = models.CharField(max_length=200) # Zamień miejscami (button)
     switch_with = models.CharField(max_length=200) # Zamień z krokiem:
@@ -80,6 +83,14 @@ class RotatorEditorPageNames(models.Model):
     add_fertilizer = models.CharField(max_length=200) # Dodaj nawóz
     add_fertilizer_onhover = models.CharField(max_length=800) # Wyjaśnienie co program rozumie przez nawóz w onhover nad ikonką "Info"
     change = models.CharField(max_length=200) # Zachowaj zmiany (button)
+    publish = models.CharField(max_length=200, blank=True, null=True) # Opublikuj
+    unpublish = models.CharField(max_length=200, blank=True, null=True) # Wycofaj
+    publish_text = models.CharField(max_length=200, blank=True, null=True) # Opublikuj swój plan (text)
+    unpublish_text = models.CharField(max_length=200, blank=True, null=True) # Wycofaj plan z publikacji (text)
+    publish_onhover = models.CharField(max_length=900, blank=True, null=True) # Wyjaśnienie onhover o publikacji
+    unpublish_onhover = models.CharField(max_length=900, blank=True, null=True) # Wyjaśnienie onhover o wycofywaniu publikacji
+    more_info = models.CharField(max_length=900, blank=True, null=True) # więcej informacji (button "info")
+
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
