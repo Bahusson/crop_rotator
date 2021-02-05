@@ -1,5 +1,10 @@
 from modeltranslation.translator import translator, TranslationOptions
-from strona.models import (PageNames, RegNames, AboutPageNames)
+from strona.models import (
+    PageNames,
+    RegNames,
+    AboutPageNames,
+    RotatorEditorPageNames
+)
 from core.snippets import all_names
 
 
@@ -25,3 +30,11 @@ class AboutPageNamesTranslate(TranslationOptions):
 
 
 translator.register(AboutPageNames, AboutPageNamesTranslate)
+
+
+class RotatorEditorPageNamesTranslate(TranslationOptions):
+    allfields = all_names(RotatorEditorPageNames)
+    fields = allfields
+
+
+translator.register(RotatorEditorPageNames, RotatorEditorPageNamesTranslate)

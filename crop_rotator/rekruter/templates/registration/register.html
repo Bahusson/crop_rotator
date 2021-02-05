@@ -24,11 +24,11 @@
             {% if form.errors %}
             <p>Formularz zawiera błędy! Hasło nie może być zbyt proste.</p>
             {% endif %}
-            <p>$Twoja nazwa użytkownika to: <b id="username" >{{ gen_username }}</b>*odśwież?</p>
+            <p>{{ item.name }}: <b id="username" >{{ gen_username }}</b>*odśwież?</p>
             <p>{{ item.password }} {{ form.password1 }}</p>
             <p>{{ item.re_password }} {{ form.password2 }}</p>
             <p>{{ form.username }} </p>
-            <button id="send" value="{{ gen_username }}" type="submit">{{ items.register }}"</button>
+            <button id="send" value="{{ gen_username }}" type="submit">{{ items.register }}</button>
           </form>
         </div>
       </section>
