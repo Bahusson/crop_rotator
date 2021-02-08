@@ -86,7 +86,7 @@ def allplans(request):
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
-    translatables = pe(RotatorEditorPageNames)
+    translatables = pe(RotatorEditorPageNames).baseattrs
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
     user_editable = False
     if check_ownership(request, User, pe_rp_id):
@@ -128,8 +128,11 @@ def plan(request, plan_id):
     if "receiver_step" in request.POST:
         sender_step_id = pe_stp.by_id(
          G404=G404, id=request.POST.get('sender_step'))
-        receiver_step_id = pe_stp.by_id(
-         G404=G404, id=request.POST.get('receiver_step'))
+        try:
+            receiver_step_id = pe_stp.by_id(
+            G404=G404, id=request.POST.get('receiver_step'))
+        except:
+            return redirect(request.META.get('HTTP_REFERER'))
         sender_step_order = sender_step_id.order
         form2 = StepMoveForm(request.POST, instance=sender_step_id)
         form3 = StepMoveForm(request.POST, instance=receiver_step_id)
@@ -153,7 +156,7 @@ def plan(request, plan_id):
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    translatables = pe(RotatorEditorPageNames)
+    translatables = pe(RotatorEditorPageNames).baseattrs
     user_editable = False
     context = {
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.

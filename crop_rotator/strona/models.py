@@ -90,7 +90,13 @@ class RotatorEditorPageNames(models.Model):
     publish_onhover = models.CharField(max_length=900, blank=True, null=True) # Wyjaśnienie onhover o publikacji
     unpublish_onhover = models.CharField(max_length=900, blank=True, null=True) # Wyjaśnienie onhover o wycofywaniu publikacji
     more_info = models.CharField(max_length=900, blank=True, null=True) # więcej informacji (button "info")
-
+    option_select = models.CharField(max_length=200, blank=True, null=True) # Wybierz opcję: (dropdown)
+    in_this_plan = models.CharField(max_length=200, blank=True, null=True) # W tym planie znajduje się
+    fabs_and = models.CharField(max_length=200, blank=True, null=True) # bobowatych lub strączkowych
+    should_be_fabs = models.CharField(max_length=200, blank=True, null=True) # Powinno ich być między 25% a 33%
+    error_len = models.CharField(max_length=200, blank=True, null=True) # Błąd: ten płodozmian jest za krótki.
+    len_required = models.CharField(max_length=200, blank=True, null=True) # W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania.
+    remove_or_add = models.CharField(max_length=200, blank=True, null=True) # Usuń je i wybierz coś innego, lub dodaj więcej roślin.
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'

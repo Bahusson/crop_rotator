@@ -24,13 +24,13 @@
             <h1 class="text-center pt-3 ">{{ plan.title }}</h1>
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             {% if user_editable %}
-            <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">$Usuń plan</button></p>
+            <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">{{ translatables.plan_remove }}</button></p>
             <div name="EventButtonHiddenDiv" class="toggle" style="display: none" value="0">
              <form name="EventDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
               {% csrf_token %}
-              <p class="wnioski2">$Na pewno chcesz usunąć ten plan?</p>
-              <button class="btn btn-link-3 btn-light" name="delete_plan" type="submit">$Tak usuń trwale!</button>
-              <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">$Nie usuwaj!</button>
+              <p class="wnioski2">{{ translatables.remove_warning }} </p>
+              <button class="btn btn-link-3 btn-light" name="delete_plan" type="submit">{{ translatables.remove_permanent }}</button>
+              <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
              </form> <!-- Koniec formularz usuwającego wydarzenie -->
             </div>
             <br />
@@ -38,32 +38,31 @@
             <form name="UnpublishUserPlanForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
              {% csrf_token %}
              <p class="wnioski2">
-               <button class="btn btn-link-3 btn-light" name="unpublish_plan" type="submit">$Wycofaj!</button> -
-               $Wycofaj plan z publikacji. *onhover(Nie będzie widoczny na stronie głównej i w spisie planów).</p>
+               <button class="btn btn-link-3 btn-light" name="unpublish_plan" type="submit">{{ translatables.unpublish }}</button> -
+               {{ translatables.unpublish_text }} *{{ translatables.unpublish_onhover }}.</p>
            </form>
             {% else %}
             <form name="PublishUserPlanForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
              {% csrf_token %}
              <p class="wnioski2"><button class="btn btn-link-3 btn-light" name="publish_plan" type="submit">
-               $Publikuj!</button>$Opublikuj plan. *onhover(Może zostać wylosowany na stronie głównej i będzie dostępny w spisie wszystkich planów).
-               Uwaga: W związku z mechanizmem ograniczającym aktywność botów na stronie, wszystkie zmiany w publikowanych planach mogą być widoczne z poślizgiem do 24h.
+               {{ translatables.publish }}</button>{{ translatables.publish_text }} *{{ translatables.publish_onhover }}
              </p></form>
             {% endif %}
             {% endif %}
 
             {% if cr_len_warning %}
-              <h4>Błąd: Ten płodozmian jest za krótki!</h4>
-              <p>W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania:</p>
+              <h4>{{ translatables.error_len }}</h4>
+              <p>{{ translatables.len_required }}:</p>
               {% for crop in cr_len_warning %}
                 <p><b>{{ crop.name }}</b></p>
               {% endfor %}
-              <p>Usuń je i wybierz coś innego, lub dodaj więcej roślin.</p>
+              <p>{{ translatables.remove_or_add }}.</p>
               <br />
             {% endif %}
 
             {% if f_error %}
-              <p>W tym płodozmianie znajduje się <b>{{ f_error }}</b> bobowatych (w tym strączkowych).</p>
-              <p>Powinno ich być między 25% a 33%.</p>
+              <p>{{ translatables.in_this_plan }} <b>{{ f_error }}</b> {{ translatables.fabs_and }}.</p>
+              <p>{{ translatables.should_be_fabs }}.</p>
             {% endif %}
 
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
@@ -72,15 +71,15 @@
               <h1>
                 {{ step.title }}
                 {% if user_editable %}
-                    <a href="{% url 'step' step.id %}"><button class="btn btn-link-3 btn-light">$Edytuj!</button></a>
+                    <a href="{% url 'step' step.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.editme }}</button></a>
                 {% endif %}
               </h1>
               {% if user_editable %}
 
-              <p class="master0">Zamień z innym krokiem w planie:
-              <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">$Zamień miejscami!</button></p>
-              <p class="slave0" value="test_slave0">$Zamień z krokiem: <select class="selectables" name="step_selection">
-                <option value ="None" disabled>$Wybierz opcję:</option>
+              <p class="master0">{{ translatables.switch_text }}:
+              <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">{{ translatables.switch_places }}</button></p>
+              <p class="slave0" value="test_slave0">{{ translatables.switch_with }}: <select class="selectables" name="step_selection">
+                <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
                 {% for step2 in steps %}
                   {% if step2 != step %}
                     <option name="{{ step2.id }}" value ="{{ step2.order }}">{{ step2.title }}</option>
@@ -89,13 +88,13 @@
               </select></p>
               <br>
                 {% if step.order == top_tier %}
-                <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve">$Usuń krok</button></p>
+                <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve">{{ translatables.step_remove }}</button></p>
                 <div name="ButtonHiddenDiv" class="toggle" style="display: none" value="0">
                  <form name="StepDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa ostatni -->
                   {% csrf_token %}
-                  <p class="wnioski2">$Na pewno chcesz usunąć ten krok?</p>
-                  <button class="btn btn-link-3 btn-light" name="delete_step" value="{{ step.id }}" type="submit">$Tak usuń trwale!</button>
-                  <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">$Nie usuwaj!</button>
+                  <p class="wnioski2">{{ translatables.remove_warning }}</p>
+                  <button class="btn btn-link-3 btn-light" name="delete_step" value="{{ step.id }}" type="submit">{{ translatables.remove_permanent }}</button>
+                  <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
                 </form> <!-- Koniec formularza usywającego ostatni krok-->
                 </div>
                 {% endif %}
@@ -104,7 +103,7 @@
 
               {% error_tab step_no=step.order as is_tab_error %}
               {% if is_tab_error %}
-                <h5>Ten krok zawiera błędy!!!</h5>
+                <h5>$Ten krok zawiera błędy!!!</h5>
               {% endif %}
 
 
@@ -113,14 +112,14 @@
               {% endif %}
 
               {% if step.early_crop %}
-                <h2>Plon jary:</h2>
+                <h2>{{ translatables.early_crop }}:</h2>
                 {% for crop in step.early_crop.all %}
                   {% include 'strona/plan_parts/plan_step.html' %}
                 {% endfor %}
               {% endif %}
 
               {% if step.late_crop %}
-                <h2>Plon ozimy:</h2>
+                <h2>{{ translatables.late_crop }}:</h2>
                 {% for crop in step.late_crop.all %}
                   {% include 'strona/plan_parts/plan_step.html' %}
                 {% endfor %}
@@ -138,8 +137,8 @@
           <form name="AddNewStepForm" method="post"> <!-- Do wysyłania plików -->
           {% csrf_token %}
 
-          <p class="wnioski2">$Tytuł/Nazwa kroku: {{ form.title }}</p>
-          <button class="button btn btn-dark btn-sm" name="next_step" type="submit">$Dodaj nowy krok.</button>
+          <p class="wnioski2">{{ translatables.name_step }}: {{ form.title }}</p>
+          <button class="button btn btn-dark btn-sm" name="next_step" type="submit">{{ translatables.new_step }}</button>
           </form>
         </div>
         </div>
