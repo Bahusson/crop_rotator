@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404 as G404
 from django.contrib.auth.models import User
-from .models import PageSkin as S, PageNames as P, RegNames, AboutPageNames
+from .models import (
+    PageSkin as S,
+    PageNames as P,
+    RegNames,
+    AboutPageNames,
+    RotatorEditorPageNames,
+)
 from django.views.decorators.cache import cache_page
 from rotator.models import (
     RotationPlan,
@@ -80,6 +86,7 @@ def allplans(request):
 def plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
+    translatables = pe(RotatorEditorPageNames)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
     user_editable = False
     if check_ownership(request, User, pe_rp_id):
@@ -92,6 +99,7 @@ def plan(request, plan_id):
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "form": form,
         "form2": form2,
+        "translatables": translatables,
     }
     cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
     plans_context = cp.basic_context(context=context)
@@ -145,9 +153,11 @@ def plan(request, plan_id):
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    translatables = pe(RotatorEditorPageNames)
     user_editable = False
     context = {
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
+        "translatables": translatables,
     }
     cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
     plans_context = cp.basic_context(context=context)
