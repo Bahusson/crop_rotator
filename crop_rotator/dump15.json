@@ -1947,9 +1947,9 @@
     "title": "Kompleks ziemniaczany",
     "title_pl": "Kompleks ziemniaczany",
     "title_en": "Potato complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
+    "descr": "Testowy opis",
+    "descr_pl": "Testowy opis",
+    "descr_en": "Test description",
     "add_manure_early": true,
     "add_manure_late": false,
     "from_plan": 2,
@@ -2446,9 +2446,9 @@
     "mainpage": "Strona główna",
     "mainpage_pl": "Strona główna",
     "mainpage_en": "Main page",
-    "all_plants": null,
-    "all_plants_pl": null,
-    "all_plants_en": null,
+    "all_plants": "Spis roślin",
+    "all_plants_pl": "Spis roślin",
+    "all_plants_en": "All plants",
     "about": "O projekcie",
     "about_pl": "O projekcie",
     "about_en": "About",
@@ -2466,7 +2466,10 @@
     "register_en": "Register",
     "see_more": "Zobacz więcej...",
     "see_more_pl": "Zobacz więcej...",
-    "see_more_en": "See more..."
+    "see_more_en": "See more...",
+    "my_plans": "Moje plany",
+    "my_plans_pl": "Moje plany",
+    "my_plans_en": "My plans"
   }
 },
 {

@@ -20,24 +20,24 @@
       <div class="row">
         <div class="col-md-7 plan-main">
           <div class="container">
-            <h6 class="text-center pt-3 ">$Edytujesz krok nr.{{ step.order }}:</h6>
+            <h6 class="text-center pt-3 ">{{ translatables.u_edit_step_no }}{{ step.order }}:</h6>
             <h1 class="text-center pt-3 ">{{ step.title }}</h1>
             <h4 class="pt-2">{{ step.pubdate_short }}</h4>
             <form name="StepChangeForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
              {% csrf_token %}
-              <p>$Tytuł: {{ form.title }}</p>
-              <p>$Opis: {{ form.descr }}</p>
+              <p>{{ translatables.title }}: {{ form.title }}</p>
+              <p>{{ translatables.descr }}: {{ form.descr }}</p>
               <!--Można założyć, że rolnik wie jaki dać nawóz pod jakie rośliny i dać po prostu "dodaj właściwy nawóz" z onhover,
               że ta opcja poprawia kulturę gleby i sam rolnik ma dociec, który nawóz będzie najlepszy (uproszczenie programu).-->
-              <p>$Wczesny plon: {{ form.early_crop }}; $Dodać nawóz?: {{ form.add_manure_early }} (Onhover - patrz komentarz)</p>
-              <p>$Zniszcz wczesny plon na zielony nawóz: {{ form.is_early_crop_destroy }}</p>
-              <p>$Późny plon: {{ form.late_crop }}; $Dodać nawóz?: {{ form.add_manure_late }} (Onhover - patrz komentarz)</p>
-              <p>$Zniszcz późny plon na zielony nawóz: {{ form.is_late_crop_destroy }}</p>
+              <p>{{ translatables.early_crop }}: {{ form.early_crop }}; {{ translatables.add_fertilizer }}: {{ form.add_manure_early }} *{{ translatables.add_fertilizer_onhover }}</p>
+              <p>{{ translatables.destroy_early_crop }}: {{ form.is_early_crop_destroy }}</p>
+              <p>{{ translatables.late_crop }}: {{ form.late_crop }}; {{ translatables.add_fertilizer }}: {{ form.add_manure_late }} *{{ translatables.add_fertilizer_onhover }}</p>
+              <p>{{ translatables.destroy_late_crop }}: {{ form.is_late_crop_destroy }}</p>
               <!--Zrób coś, żeby wykrywał, że user dodał nawóz do obydwu kroków i informował go o ryzyku przenawożenia.
               Coś w stylu "Dodałeś nawóz w obydwu krokach, czy na pewno wiesz co robisz?"
               Tak samo ze zniszczeniem na zielony nawóz i nawożeniem.
               Ogólnie jak zaznaczy dwa dowolne checkboxy "nawożące" to mu wywal ten błąd.-->
-              <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">$Zmień!</button></p>
+              <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button></p>
             </form>
 
         </div>
@@ -58,3 +58,4 @@
 
 {% block scripts %}
 {% endblock scripts %}
+{{ translatables. }}

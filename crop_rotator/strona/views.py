@@ -303,6 +303,7 @@ def plan_edit(request, plan_id):
 def step(request, step_id):
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
+    translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_stp_id.from_plan):
         if "save_step_changes" in request.POST:
             form = StepEditionForm(request.POST, instance=pe_stp_id)
@@ -313,6 +314,7 @@ def step(request, step_id):
         context = {
          "form": form,
          "step": pe_stp_id,
+         "translatables": translatables,
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-$Spis wszystkich rodzin
+{{ items.all_plants }}
 {% endblock %}
 
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
@@ -16,7 +16,7 @@ $Spis wszystkich rodzin
     <main role="main">
       <div class="row">
         <div class="col-md-12 blog-main">
-          <h1 class="text-center pt-3 ">$ Spis wszystkich rodzin</h1>
+          <h1 class="text-center pt-3 ">{{ items.all_plants }}</h1>
         </div>
       </div>
       <div class="container">

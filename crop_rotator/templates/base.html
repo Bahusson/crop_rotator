@@ -46,14 +46,14 @@
             <a class="nav-link " href="{% url 'home' %}">{{ items.mainpage }}<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{% url 'all_plant_families' %}">$Spis roślin</a>
+            <a class="nav-link " href="{% url 'all_plant_families' %}">{{ items.all_plants }}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{% url 'about' %}">{{ items.about }}</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link " href="{% url 'my_plans' %}">{{ items.new_plan }}</a>
+            <a class="nav-link " href="{% url 'my_plans' %}">{{ items.my_plans }}</a>
           </li>
           {% endif %}
         <li>

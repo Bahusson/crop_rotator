@@ -13,6 +13,8 @@ class PageNames(models.Model):
     login = models.CharField(max_length=200)  # zaloguj
     register = models.CharField(max_length=50)
     see_more = models.CharField(max_length=200)
+    my_plans= models.CharField(max_length=200, blank=True, null=True) # Spis roślin
+
 
     class Meta:
         verbose_name_plural = 'Page Names'
