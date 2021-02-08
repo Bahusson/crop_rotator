@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>{{ items.new_plan }}</title>
+<title>{{ items.my_plans }}</title>
 {% endblock %}
 
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
@@ -14,7 +14,7 @@
 <br>
 <br>
     <main role="main">
-      <h2>{{ items.new_plan }}</h2>
+      <h2>{{ items.my_plans }}</h2>
       <div class="row">
         <div class="col-md-4 shdwn">
           {% for plan in user_plans|slice:":4" %}
@@ -34,17 +34,15 @@
       </div><!-- /.row -->
       <div class="container kol">
     {% if user_limit %}
-    <p> $Osiągnąłeś limit 12 planów zmianowania na użytkownika.
-      Limit został nałożony w celu przeciwdziałania aktywności złośliwych botów.
-      Jeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.
-      Skasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.
+    <p> $
+      {{ translatables.plan_limit_reached|linebreaksbr }}
     </p>
     {% else %}
       <form enctype="multipart/form-data" method="post"> <!-- Do wysyłania plików -->
       {% csrf_token %}
 
-      <p class="wnioski2">$Tytuł/Nazwa planu: {{ form.title }}</p>
-      <button id="send" class="button btn btn-dark btn-sm" type="submit">$Dodaj nowy plan.</button>
+      <p class="wnioski2">{{ translatables.name_plan }}: {{ form.title }}</p>
+      <button id="send" class="button btn btn-dark btn-sm" type="submit">{{ translatables.new_plan }}.</button>
       </form>
     {% endif %}
     </div>

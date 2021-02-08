@@ -26,6 +26,8 @@ class RegNames(models.Model):
     re_password = models.CharField(max_length=50, blank=True, null=True)
     name = models.CharField(max_length=50, blank=True, null=True)
     refresh = models.CharField(max_length=50, blank=True, null=True)
+    passwd_too_simple = models.CharField(max_length=250, blank=True, null=True)
+    register = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Registry Names'
@@ -99,6 +101,7 @@ class RotatorEditorPageNames(models.Model):
     error_len = models.CharField(max_length=200, blank=True, null=True) # Błąd: ten płodozmian jest za krótki.
     len_required = models.CharField(max_length=200, blank=True, null=True) # W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania.
     remove_or_add = models.CharField(max_length=200, blank=True, null=True) # Usuń je i wybierz coś innego, lub dodaj więcej roślin.
+    plan_limit_reached = models.TextField(blank=True, null=True) # Osiągnięto limit planów
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'

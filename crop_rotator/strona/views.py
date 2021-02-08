@@ -247,6 +247,7 @@ def my_plans(request):
     userdata = User.objects.get(
      id=request.user.id)
     pe_upl = pe(RotationPlan).allelements.filter(owner=userdata)
+    translatables = pe(RotatorEditorPageNames).baseattrs
     user_limit_reached = False
     if len(list(pe_upl)) > 11:
         user_limit_reached = True
@@ -262,6 +263,8 @@ def my_plans(request):
          "form": form,
          "user_plans": pe_upl,
          "user_limit": user_limit_reached,
+          "translatables": translatables,
+
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)

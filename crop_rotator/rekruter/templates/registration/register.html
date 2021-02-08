@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>$Rejestracja</title>
+<title>{{ item.register }}</title>
 {% endblock title %}
 
 {% block css %}
@@ -22,9 +22,9 @@
             {% csrf_token %}
 
             {% if form.errors %}
-            <p>Formularz zawiera błędy! Hasło nie może być zbyt proste.</p>
+            <p>{{ item.refresh }}</p>
             {% endif %}
-            <p>{{ item.name }}: <b id="username" >{{ gen_username }}</b>*odśwież?</p>
+            <p>{{ item.name }}: <b id="username" >{{ gen_username }}</b> *{{ item.refresh }}</p>
             <p>{{ item.password }} {{ form.password1 }}</p>
             <p>{{ item.re_password }} {{ form.password2 }}</p>
             <p>{{ form.username }} </p>
