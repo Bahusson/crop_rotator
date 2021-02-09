@@ -8,7 +8,8 @@
     "title_en": "Exemplary rotation plan",
     "owner": 1,
     "pubdate": "2020-12-19T13:45:48Z",
-    "soil_type": 0
+    "soil_type": 0,
+    "published": true
   }
 },
 {
@@ -20,7 +21,8 @@
     "title_en": "Too short crop rotatoion plan",
     "owner": 1,
     "pubdate": "2020-12-20T12:49:38Z",
-    "soil_type": 1
+    "soil_type": 1,
+    "published": true
   }
 },
 {
@@ -32,7 +34,47 @@
     "title_en": null,
     "owner": 1,
     "pubdate": "2021-01-03T10:07:56Z",
-    "soil_type": 0
+    "soil_type": 0,
+    "published": true
+  }
+},
+{
+  "model": "rotator.rotationplan",
+  "pk": 5,
+  "fields": {
+    "title": "Testowy Plan Usera",
+    "title_pl": "Testowy Plan Usera",
+    "title_en": null,
+    "owner": 1,
+    "pubdate": "2021-01-19T11:37:48.782Z",
+    "soil_type": 0,
+    "published": false
+  }
+},
+{
+  "model": "rotator.rotationplan",
+  "pk": 7,
+  "fields": {
+    "title": "Plan 2",
+    "title_pl": "Plan 2",
+    "title_en": null,
+    "owner": 1,
+    "pubdate": "2021-01-19T12:09:41.935Z",
+    "soil_type": 0,
+    "published": false
+  }
+},
+{
+  "model": "rotator.rotationplan",
+  "pk": 8,
+  "fields": {
+    "title": "Plan 3",
+    "title_pl": "Plan 3",
+    "title_en": null,
+    "owner": 1,
+    "pubdate": "2021-01-19T12:10:21.442Z",
+    "soil_type": 0,
+    "published": false
   }
 },
 {
@@ -41,7 +83,7 @@
   "fields": {
     "name": "Kapustowate",
     "name_pl": "Kapustowate",
-    "name_en": null,
+    "name_en": "Brassicaceae",
     "latin_name": "Brassicaceae",
     "culture": 2,
     "cooldown_min": 4,
@@ -61,7 +103,7 @@
   "fields": {
     "name": "Bobowate",
     "name_pl": "Bobowate",
-    "name_en": null,
+    "name_en": "Fabaceae",
     "latin_name": "Fabaceae",
     "culture": 1,
     "cooldown_min": 4,
@@ -81,7 +123,7 @@
   "fields": {
     "name": "Astrowate",
     "name_pl": "Astrowate",
-    "name_en": null,
+    "name_en": "Astracae",
     "latin_name": "Astracae",
     "culture": 3,
     "cooldown_min": 4,
@@ -101,7 +143,7 @@
   "fields": {
     "name": "Ogórecznikowate",
     "name_pl": "Ogórecznikowate",
-    "name_en": null,
+    "name_en": "Boraginaceae",
     "latin_name": "Boraginaceae",
     "culture": 3,
     "cooldown_min": 4,
@@ -123,7 +165,7 @@
   "fields": {
     "name": "Lnowate",
     "name_pl": "Lnowate",
-    "name_en": null,
+    "name_en": "Linaceae",
     "latin_name": "Linaceae",
     "culture": 3,
     "cooldown_min": 5,
@@ -143,7 +185,7 @@
   "fields": {
     "name": "Szarłatowate",
     "name_pl": "Szarłatowate",
-    "name_en": null,
+    "name_en": "Amaranthaceae",
     "latin_name": "Amaranthaceae",
     "culture": 2,
     "cooldown_min": 4,
@@ -165,10 +207,10 @@
   "fields": {
     "name": "Psiankowate",
     "name_pl": "Psiankowate",
-    "name_en": null,
+    "name_en": "Solanaceae",
     "latin_name": "Solanaceae",
     "culture": 2,
-    "cooldown_min": 3,
+    "cooldown_min": 4,
     "cooldown_max": null,
     "is_manurable": true,
     "culture_manured": 1,
@@ -185,7 +227,7 @@
   "fields": {
     "name": "Strączkowe",
     "name_pl": "Strączkowe",
-    "name_en": null,
+    "name_en": "Fabaceae",
     "latin_name": "Fabaceae",
     "culture": 1,
     "cooldown_min": 3,
@@ -205,7 +247,7 @@
   "fields": {
     "name": "Wiechlinowate",
     "name_pl": "Wiechlinowate",
-    "name_en": null,
+    "name_en": "Poaceae",
     "latin_name": "Poaceae",
     "culture": 3,
     "cooldown_min": 4,
@@ -227,7 +269,7 @@
   "fields": {
     "name": "Rdestowate",
     "name_pl": "Rdestowate",
-    "name_en": null,
+    "name_en": "Polygonaceae",
     "latin_name": "Polygonaceae",
     "culture": 3,
     "cooldown_min": null,
@@ -247,7 +289,7 @@
   "fields": {
     "name": "Selerowate",
     "name_pl": "Selerowate",
-    "name_en": null,
+    "name_en": "Apiaceae",
     "latin_name": "Apiaceae",
     "culture": 2,
     "cooldown_min": 4,
@@ -267,7 +309,7 @@
   "fields": {
     "name": "Wiechlinowate (F)",
     "name_pl": "Wiechlinowate (F)",
-    "name_en": null,
+    "name_en": "Poaceae (F)",
     "latin_name": "Poaceae",
     "culture": 3,
     "cooldown_min": 4,
@@ -1809,8 +1851,7 @@
     "about_crop": 2,
     "about_family": null,
     "info_source": null,
-    "start_int": 0,
-    "end_int": 1
+    "type_of_interaction": 2
   }
 },
 {
@@ -1822,8 +1863,7 @@
     "about_crop": 32,
     "about_family": null,
     "info_source": null,
-    "start_int": 0,
-    "end_int": 0
+    "type_of_interaction": 1
   }
 },
 {
@@ -1835,21 +1875,19 @@
     "about_crop": null,
     "about_family": 11,
     "info_source": null,
-    "start_int": 0,
-    "end_int": 1
+    "type_of_interaction": 1
   }
 },
 {
   "model": "rotator.cropinteraction",
   "pk": 6,
   "fields": {
-    "title": "Rzepak ++ selerowate",
+    "title": "Rzepak ++ selerowate (test)",
     "is_positive": true,
     "about_crop": null,
     "about_family": 14,
     "info_source": null,
-    "start_int": 0,
-    "end_int": 0
+    "type_of_interaction": 2
   }
 },
 {
@@ -1861,8 +1899,7 @@
     "about_crop": 14,
     "about_family": null,
     "info_source": null,
-    "start_int": 0,
-    "end_int": 1
+    "type_of_interaction": 1
   }
 },
 {
@@ -1874,8 +1911,7 @@
     "about_crop": 29,
     "about_family": null,
     "info_source": null,
-    "start_int": 1,
-    "end_int": 1
+    "type_of_interaction": 1
   }
 },
 {
@@ -1887,8 +1923,7 @@
     "about_crop": null,
     "about_family": 4,
     "info_source": null,
-    "start_int": 0,
-    "end_int": 1
+    "type_of_interaction": 2
   }
 },
 {
@@ -1912,10 +1947,11 @@
     "title": "Kompleks ziemniaczany",
     "title_pl": "Kompleks ziemniaczany",
     "title_en": "Potato complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure": true,
+    "descr": "Testowy opis",
+    "descr_pl": "Testowy opis",
+    "descr_en": "Test description",
+    "add_manure_early": true,
+    "add_manure_late": false,
     "from_plan": 2,
     "order": 1,
     "is_late_crop_destroy": true,
@@ -1936,15 +1972,17 @@
     "title": "kompleks pszenny",
     "title_pl": "kompleks pszenny",
     "title_en": "wheat complex",
-    "descr": null,
-    "descr_pl": null,
+    "descr": "Opis testowy",
+    "descr_pl": "Opis testowy",
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": true,
+    "add_manure_late": false,
     "from_plan": 2,
-    "order": 2,
-    "is_late_crop_destroy": false,
+    "order": 4,
+    "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
+      48,
       23
     ],
     "late_crop": [
@@ -1963,9 +2001,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 2,
-    "order": 3,
+    "order": 2,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -1986,9 +2025,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 2,
-    "order": 4,
+    "order": 3,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2011,9 +2051,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 2,
-    "order": 5,
+    "order": 6,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2034,9 +2075,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 2,
-    "order": 6,
+    "order": 5,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2057,9 +2099,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 3,
-    "order": 1,
+    "order": 2,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2081,9 +2124,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 3,
-    "order": 2,
+    "order": 1,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2104,7 +2148,8 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 3,
     "order": 3,
     "is_late_crop_destroy": false,
@@ -2127,9 +2172,10 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 3,
-    "order": 5,
+    "order": 4,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2150,7 +2196,8 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 3,
     "order": 5,
     "is_late_crop_destroy": false,
@@ -2173,9 +2220,170 @@
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "add_manure": false,
+    "add_manure_early": false,
+    "add_manure_late": false,
     "from_plan": 4,
     "order": 1,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 22,
+  "fields": {
+    "title": "TestTestTest step",
+    "title_pl": "TestTestTest step",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": null,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 23,
+  "fields": {
+    "title": "Testowy krok",
+    "title_pl": "Testowy krok",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": null,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 24,
+  "fields": {
+    "title": "TestTestTest",
+    "title_pl": "TestTestTest",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": null,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 25,
+  "fields": {
+    "title": "TestTestTest",
+    "title_pl": "TestTestTest",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": null,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 42,
+  "fields": {
+    "title": "tfjjrrtyjt",
+    "title_pl": "tfjjrrtyjt",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": 4,
+    "order": 2,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 43,
+  "fields": {
+    "title": "ryyjrt7yj",
+    "title_pl": "ryyjrt7yj",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": 3,
+    "order": 6,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 44,
+  "fields": {
+    "title": "5y3e5y4e",
+    "title_pl": "5y3e5y4e",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": 3,
+    "order": 7,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 45,
+  "fields": {
+    "title": "s",
+    "title_pl": "s",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": 2,
+    "order": 7,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
@@ -2238,6 +2446,9 @@
     "mainpage": "Strona główna",
     "mainpage_pl": "Strona główna",
     "mainpage_en": "Main page",
+    "all_plants": "Spis roślin",
+    "all_plants_pl": "Spis roślin",
+    "all_plants_en": "All plants",
     "about": "O projekcie",
     "about_pl": "O projekcie",
     "about_en": "About",
@@ -2256,12 +2467,9 @@
     "see_more": "Zobacz więcej...",
     "see_more_pl": "Zobacz więcej...",
     "see_more_en": "See more...",
-    "editme": "Edytuj",
-    "editme_pl": "Edytuj",
-    "editme_en": "Edit",
-    "new_plan": "Dodaj nowy plan",
-    "new_plan_pl": "Dodaj nowy plan",
-    "new_plan_en": "Add a new plan"
+    "my_plans": "Moje plany",
+    "my_plans_pl": "Moje plany",
+    "my_plans_en": "My plans"
   }
 },
 {
@@ -2276,7 +2484,16 @@
     "re_password_en": "Retype password",
     "name": "Twój login to",
     "name_pl": "Twój login to",
-    "name_en": "Your login is"
+    "name_en": "Your login is",
+    "refresh": "Login się nie podoba? Odśwież stronę!",
+    "refresh_pl": "Login się nie podoba? Odśwież stronę!",
+    "refresh_en": "Don't like your login? Refresh page!",
+    "passwd_too_simple": "Formularz zawiera błędy! Hasło nie może być zbyt proste.",
+    "passwd_too_simple_pl": "Formularz zawiera błędy! Hasło nie może być zbyt proste.",
+    "passwd_too_simple_en": "This form contains errors! Password cannot be too simple!",
+    "register": "Rejestracja",
+    "register_pl": "Rejestracja",
+    "register_en": "Register"
   }
 },
 {
@@ -2308,6 +2525,126 @@
     "login_to_see": "Zaloguj się aby zobaczyć więcej szczegółów",
     "login_to_see_pl": "Zaloguj się aby zobaczyć więcej szczegółów",
     "login_to_see_en": "Login to see more details"
+  }
+},
+{
+  "model": "strona.rotatoreditorpagenames",
+  "pk": 1,
+  "fields": {
+    "new_plan": "Dodaj nowy plan",
+    "new_plan_pl": "Dodaj nowy plan",
+    "new_plan_en": "Add a new plan",
+    "new_step": "Dodaj nowy krok",
+    "new_step_pl": "Dodaj nowy krok",
+    "new_step_en": "Add a new step",
+    "name_plan": "Nazwa planu",
+    "name_plan_pl": "Nazwa planu",
+    "name_plan_en": "Plans name",
+    "name_step": "Nazwa kroku",
+    "name_step_pl": "Nazwa kroku",
+    "name_step_en": "Steps title",
+    "plan_remove": "Usuń plan",
+    "plan_remove_pl": "Usuń plan",
+    "plan_remove_en": "Remove plan",
+    "step_remove": "Usuń krok",
+    "step_remove_pl": "Usuń krok",
+    "step_remove_en": "Remove step",
+    "remove_warning": "Czy na pewno chcesz go usunąć? Tej operacji nie można cofnąć!",
+    "remove_warning_pl": "Czy na pewno chcesz go usunąć? Tej operacji nie można cofnąć!",
+    "remove_warning_en": "Are you sure you want to remove this item? It cannot be undone!",
+    "remove_permanent": "Tak, usuń trwale!",
+    "remove_permanent_pl": "Tak, usuń trwale!",
+    "remove_permanent_en": "Yes, remove!",
+    "dont_remove": "Nie usuwaj!",
+    "dont_remove_pl": "Nie usuwaj!",
+    "dont_remove_en": "Don't remove!",
+    "editme": "Edytuj",
+    "editme_pl": "Edytuj",
+    "editme_en": "Edit",
+    "switch_places": "Zamień miejscami",
+    "switch_places_pl": "Zamień miejscami",
+    "switch_places_en": "Switch places",
+    "switch_with": "Zamień z krokiem",
+    "switch_with_pl": "Zamień z krokiem",
+    "switch_with_en": "Switch with step",
+    "switch_text": "Zamień z innym krokiem w planie",
+    "switch_text_pl": "Zamień z innym krokiem w planie",
+    "switch_text_en": "Switch with other step in rotation plan",
+    "u_edit_step_no": "Edytujesz krok nr",
+    "u_edit_step_no_pl": "Edytujesz krok nr",
+    "u_edit_step_no_en": "You are editing step no",
+    "title": "Tytuł",
+    "title_pl": "Tytuł",
+    "title_en": "Title",
+    "descr": "Opis",
+    "descr_pl": "Opis",
+    "descr_en": "Description",
+    "early_crop": "Wczesny plon",
+    "early_crop_pl": "Wczesny plon",
+    "early_crop_en": "Early crop",
+    "late_crop": "Późny plon",
+    "late_crop_pl": "Późny plon",
+    "late_crop_en": "Late crop",
+    "destroy_early_crop": "Zniszcz wczesny plon na zielony nawóz",
+    "destroy_early_crop_pl": "Zniszcz wczesny plon na zielony nawóz",
+    "destroy_early_crop_en": "Destroy early crop to make green fertilizer",
+    "destroy_late_crop": "Zniszcz późny plon na zielony nawóz",
+    "destroy_late_crop_pl": "Zniszcz późny plon na zielony nawóz",
+    "destroy_late_crop_en": "Destroy late crop to make green fertilizer",
+    "add_fertilizer": "Dodaj nawóz",
+    "add_fertilizer_pl": "Dodaj nawóz",
+    "add_fertilizer_en": "Add fertilizer",
+    "add_fertilizer_onhover": "Program zakłada, że wiesz co robisz i dodasz nawóz odpowiedni do uprawy, a więc zaznaczenie tej opcji wpływa na dalsze kalkulacje w sposób najbardziej logiczny. Np. do ziemniaków będzie to obornik, a do zbóż już coś innego.",
+    "add_fertilizer_onhover_pl": "Program zakłada, że wiesz co robisz i dodasz nawóz odpowiedni do uprawy, a więc zaznaczenie tej opcji wpływa na dalsze kalkulacje w sposób najbardziej logiczny. Np. do ziemniaków będzie to obornik, a do zbóż już coś innego.",
+    "add_fertilizer_onhover_en": "This program assumes that you know which fertilizer to use on which crop, thus marking this field will influence calculations in most logical way possible. For example: you will naturally use manure with potatoes but will rather use something else for cereals.",
+    "change": "Zapisz zmiany",
+    "change_pl": "Zapisz zmiany",
+    "change_en": "Save changes",
+    "publish": "Opublikuj",
+    "publish_pl": "Opublikuj",
+    "publish_en": "Publish",
+    "unpublish": "Wycofaj",
+    "unpublish_pl": "Wycofaj",
+    "unpublish_en": "Withdraw",
+    "publish_text": "Opublikuj swój płodozmian",
+    "publish_text_pl": "Opublikuj swój płodozmian",
+    "publish_text_en": "Publish your rotation plan",
+    "unpublish_text": "Wycofaj ten płodozmian z publikacji",
+    "unpublish_text_pl": "Wycofaj ten płodozmian z publikacji",
+    "unpublish_text_en": "Widthdraw this rotation plan from publication",
+    "publish_onhover": "Może zostać wylosowany na stronie głównej i będzie dostępny w spisie wszystkich planów.",
+    "publish_onhover_pl": "Może zostać wylosowany na stronie głównej i będzie dostępny w spisie wszystkich planów.",
+    "publish_onhover_en": "Your plan will be searchable in plans library, and may be randomly displayed on the main page among others.",
+    "unpublish_onhover": "Nie będzie widoczny na stronie głównej i w spisie planów",
+    "unpublish_onhover_pl": "Nie będzie widoczny na stronie głównej i w spisie planów",
+    "unpublish_onhover_en": "Your plan will cease to be visible on the main page and in plans library.",
+    "more_info": "Więcej...",
+    "more_info_pl": "Więcej...",
+    "more_info_en": "More...",
+    "option_select": "Wybierz opcję",
+    "option_select_pl": "Wybierz opcję",
+    "option_select_en": "Select option",
+    "in_this_plan": "W tym planie znajduje się",
+    "in_this_plan_pl": "W tym planie znajduje się",
+    "in_this_plan_en": "In this plan there is",
+    "fabs_and": "bobowatych (w tym strączkowych)",
+    "fabs_and_pl": "bobowatych (w tym strączkowych)",
+    "fabs_and_en": "of fabacae family",
+    "should_be_fabs": "Powinno ich być między 25% a 33%",
+    "should_be_fabs_pl": "Powinno ich być między 25% a 33%",
+    "should_be_fabs_en": "Ratio should be between 25% and 33%",
+    "error_len": "Błąd: ten płodozmian jest za krótki.",
+    "error_len_pl": "Błąd: ten płodozmian jest za krótki.",
+    "error_len_en": "Error: This rotation plan is too short",
+    "len_required": "W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania",
+    "len_required_pl": "W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania",
+    "len_required_en": "In this plan there are plants that require longer rotation",
+    "remove_or_add": "Usuń je i wybierz coś innego, lub dodaj więcej kroków",
+    "remove_or_add_pl": "Usuń je i wybierz coś innego, lub dodaj więcej kroków",
+    "remove_or_add_en": "Remove them or add more steps to your rotation plan",
+    "plan_limit_reached": "Osiągnąłeś limit 12 planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
+    "plan_limit_reached_pl": "Osiągnąłeś limit 12 planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
+    "plan_limit_reached_en": "You have reached limit of 12 rotation plans per user.\r\nThis limit has been introduced to limit malicious bots activity across the site.\r\nIf you are not a bot we sincerely apologize for the inconvenience.\r\nConsider either removing the plans you no longer need or opening another anonymous account."
   }
 }
 ]
