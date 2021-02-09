@@ -267,7 +267,7 @@ def my_plans(request):
          "form": form,
          "user_plans": pe_upl,
          "user_limit": user_limit_reached,
-          "translatables": translatables,
+         "translatables": translatables,
 
         }
         pl = PageLoad(P, L)
@@ -283,6 +283,7 @@ def my_plans(request):
 def plan_edit(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_rp_id):
         if RotationStep.objects.filter(from_plan=plan_id).exists():
             return redirect('plan', plan_id)
@@ -296,6 +297,7 @@ def plan_edit(request, plan_id):
                 form = FirstRotationStepForm()
                 context = {
                  "form": form,
+                 "translatables": translatables,
                 }
                 pl = PageLoad(P, L)
                 context_lazy = pl.lazy_context(skins=S, context=context)

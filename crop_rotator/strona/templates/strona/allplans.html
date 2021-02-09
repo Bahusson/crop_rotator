@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>Wszystkie aktualności - Roboczy</title>
+<title>{{ items.all_plans }}</title>
 {% endblock %}
 
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
@@ -22,7 +22,7 @@
              <div class="col-md-7 kol">
                <!-- Tutaj gdzieś dodaj soil type -->
                <a href="{% url 'lurk_plan' plan.id %}"><h2 class="featurette-heading title">{{ plan.title }}</h2></a> <h5 class="text-muted">{{ plan.pubdate_short }}</h5>
-               <a href="{% url 'lurk_plan' plan.id %}">Czytaj dalej...-roboczy</a>
+               <a href="{% url 'lurk_plan' plan.id %}">{{ items.see_more }}</a>
              </div>
            </div>
         {% endfor %}

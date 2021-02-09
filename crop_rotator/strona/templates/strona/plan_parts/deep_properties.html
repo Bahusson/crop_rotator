@@ -4,7 +4,7 @@
 {% if complexity %}
   {% for complex in complexity %}
       <p>{{ crop.name }}
-        {% if complex.1 %} dobrze współgra z {% else %} szkodzi {% endif %}
-      {{ complex.0.name }} w kroku {{ complex.2 }}</p>
+        {% if complex.1 %} {{ translatables.well_cooperates }} {% else %} {{ translatables.harms }} {% endif %}
+      {{ complex.0.name }} {{ translatables.in_step }} {{ complex.2 }}</p>
   {% endfor %}
 {% endif %}

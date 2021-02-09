@@ -18,8 +18,8 @@
 <form enctype="multipart/form-data" method="post"> <!-- Do wysyłania plików -->
 {% csrf_token %}
 
-<p class="wnioski2">$Tytuł/Nazwa kroku: {{ form.title }}</p>
-<button id="send" class="button btn btn-dark btn-sm" type="submit">$Dodaj nowy krok.</button>
+<p class="wnioski2">{{ translatables.name_step }}: {{ form.title }}</p>
+<button id="send" class="button btn btn-dark btn-sm" type="submit">{{ translatables.new_step }}</button>
 </form>
 </div>
 </main>

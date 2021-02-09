@@ -14,8 +14,9 @@ class PageNames(models.Model):
     login = models.CharField(max_length=200)  # zaloguj
     register = models.CharField(max_length=50)
     see_more = models.CharField(max_length=200)
-    my_plans= models.CharField(max_length=200, blank=True, null=True) # Spis roślin
-
+    my_plans = models.CharField(max_length=200, blank=True, null=True) # Spis roślin
+    all_plans = models.CharField(max_length=200, blank=True, null=True) # Wszystkie plany
+    see_more = models.CharField(max_length=200, blank=True, null=True) # Czytaj dalej
 
     class Meta:
         verbose_name_plural = 'Page Names'
@@ -106,6 +107,13 @@ class RotatorEditorPageNames(models.Model):
     family = models.CharField(max_length=200, blank=True, null=True) # Rodzina
     species = models.CharField(max_length=200, blank=True, null=True) # Gatunki
     sources = models.CharField(max_length=200, blank=True, null=True) # Źródła
+    notes = models.CharField(max_length=200, blank=True, null=True) # Uwagi
+    allelopatic_conflict = models.CharField(max_length=200, blank=True, null=True) # Konflikt na tle allelopatycznym
+    harms = models.CharField(max_length=200, blank=True, null=True) # Szkodzi
+    in_step = models.CharField(max_length=200, blank=True, null=True) # W kroku
+    well_cooperates = models.CharField(max_length=200, blank=True, null=True) # dobrze współgra z
+    collides = models.CharField(max_length=200, blank=True, null=True) # Powoduje KOLIZJĘ z
+
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
