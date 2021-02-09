@@ -123,6 +123,7 @@ class Crop(models.Model):
         (TOP, "Wyższe"),
     )
     name = models.CharField(max_length=150)
+    latin_name = models.CharField(max_length=150, blank=True, null=True)
     descr = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji

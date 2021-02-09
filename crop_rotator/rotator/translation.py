@@ -1,6 +1,13 @@
 from modeltranslation.translator import translator, TranslationOptions
 from .models import (
- RotationPlan, RotationStep, CropMix, Crop, CropFamily)
+    RotationPlan,
+    RotationStep,
+    CropMix,
+    Crop,
+    CropFamily,
+    CropDataSource,
+    CropTag,
+ )
 from core.snippets import all_names
 
 
@@ -37,3 +44,17 @@ class CropFamilyTranslate(TranslationOptions):
 
 
 translator.register(CropFamily, CropFamilyTranslate)
+
+
+class CropDataSourceTranslate(TranslationOptions):
+    fields = ("descr",)
+
+
+translator.register(CropDataSource, CropDataSourceTranslate)
+
+
+class CropTagTranslate(TranslationOptions):
+    fields = ("name", "descr",)
+
+
+translator.register(CropTag, CropTagTranslate)
