@@ -102,6 +102,9 @@ class RotatorEditorPageNames(models.Model):
     len_required = models.CharField(max_length=200, blank=True, null=True) # W płodozmianie znajdują się rośliny, które wymagają dłuższego zmianowania.
     remove_or_add = models.CharField(max_length=200, blank=True, null=True) # Usuń je i wybierz coś innego, lub dodaj więcej roślin.
     plan_limit_reached = models.TextField(blank=True, null=True) # Osiągnięto limit planów
+    family = models.CharField(max_length=200, blank=True, null=True) # Rodzina
+    species = models.CharField(max_length=200, blank=True, null=True) # Gatunki
+    sources = models.CharField(max_length=200, blank=True, null=True) # Źródła
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'

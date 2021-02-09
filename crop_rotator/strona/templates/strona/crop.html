@@ -24,12 +24,12 @@
                 <img class="img-fluid" src="{{ crop.image.url }}" width=50% height=auto />
             {% endif %}
             <br />
-            <p>Rodzina: <a href="{% url 'family' crop.family.id %}">{{ family }}</a></p>
-            <p>Opis: {{ crop.descr|linebreaksbr }}</p>
+            <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{{ family }}</a></p>
+            <p>{{ translatables.descr }}: {{ crop.descr|linebreaksbr }}</p>
             {% for source in sources %}
               <p>{{ source.descr }}({{ forloop.counter }})</p>
             {% endfor %}
-            <p>Źródła:</p>
+            <p>{{ translatables.sources }}:</p>
               {% for source in sources %}
                 <p>({{ forloop.counter }}) {{ source.at_data_string.part1 }}
                   {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}

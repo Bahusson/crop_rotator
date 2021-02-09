@@ -25,11 +25,11 @@
                 <img class="img-fluid" src="{{ family.image.url }}" width=50% height=auto />
             {% endif %}
             <br />
-            <p>Opis: {{ family.descr|linebreaksbr }}</p>
+            <p>{{ translatables.descr }}: {{ family.descr|linebreaksbr }}</p>
             {% for source in sources %}
               <p>{{ source.descr }}({{ forloop.counter }})</p>
             {% endfor %}
-            <p>Gatunki:</p>
+            <p>{{ translatables.species }}:</p>
               <div class="container">
                 <div class="row">
                   <hr />
@@ -68,7 +68,7 @@
                   <br />
                   </div>
                 </div>
-            <p>Źródła:</p>
+            <p>{{ translatables.sources }}:</p>
               {% for source in sources %}
                 <p>({{ forloop.counter }}) {{ source.at_data_string.part1 }}
                   {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}

@@ -176,12 +176,14 @@ def crop(request, crop_id):
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name
+    translatables = pe(RotatorEditorPageNames).baseattrs
     if pe_c_id.family.is_family_slave:
         master_family = pe_c_id.family.family_master.name
     context = {
         "family": master_family,
         "crop": pe_c_id,
         "sources": pe_cds,
+        "translatables": translatables,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
@@ -215,6 +217,7 @@ def family(request, family_id):
     pe_f = pe(CropFamily)
     pe_f_id = pe_f.by_id(G404=G404, id=family_id)
     pe_f_id_sub = False
+    translatables = pe(RotatorEditorPageNames).baseattrs
     if pe_f_id.is_family_slave:
         sub_id = pe_f_id.family_master.id
         pe_f_id_sub = pe_f.by_id(G404=G404, id=sub_id)
@@ -235,6 +238,7 @@ def family(request, family_id):
         "house": house,
         "ml1": sl3[0],
         "ml2": sl3[1],
+        "translatables": translatables,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)

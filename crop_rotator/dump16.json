@@ -2644,7 +2644,16 @@
     "remove_or_add_en": "Remove them or add more steps to your rotation plan",
     "plan_limit_reached": "Osiągnąłeś limit 12 planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
     "plan_limit_reached_pl": "Osiągnąłeś limit 12 planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
-    "plan_limit_reached_en": "You have reached limit of 12 rotation plans per user.\r\nThis limit has been introduced to limit malicious bots activity across the site.\r\nIf you are not a bot we sincerely apologize for the inconvenience.\r\nConsider either removing the plans you no longer need or opening another anonymous account."
+    "plan_limit_reached_en": "You have reached limit of 12 rotation plans per user.\r\nThis limit has been introduced to limit malicious bots activity across the site.\r\nIf you are not a bot we sincerely apologize for the inconvenience.\r\nConsider either removing the plans you no longer need or opening another anonymous account.",
+    "family": "Rodzina",
+    "family_pl": "Rodzina",
+    "family_en": "Family",
+    "species": "Gatunek",
+    "species_pl": "Gatunek",
+    "species_en": "Species",
+    "sources": "Źródła",
+    "sources_pl": "Źródła",
+    "sources_en": "Sources"
   }
 }
 ]
