@@ -4,6 +4,7 @@ from django.db import models
 # Klasa tłumaczeniowa dla "core"
 class PageNames(models.Model):
     lang_flag = models.ImageField(upload_to='images')  # Mały obrazek języka
+    lang_flag_id = models.CharField(max_length=20, blank=True, null=True)
     headtitle = models.CharField(max_length=200)  # Nagłówek strony w tym j
     mainpage = models.CharField(max_length=200)  # Strona główna w tym języku
     all_plants = models.CharField(max_length=200, blank=True, null=True) # Spis roślin
