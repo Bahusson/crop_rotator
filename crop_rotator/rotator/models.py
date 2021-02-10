@@ -294,14 +294,30 @@ class CropDataSource(models.Model):
     def __str__(self):
         return self.title
 
+# Fizyczne źródła danych obrazków.
+class CropImagesSource(models.Model):
+    title = models.CharField(max_length=150)
+    from_crop = models.ForeignKey(
+        "Crop",
+        related_name="crop_source_set1",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    at_data_string = models.ForeignKey(
+        "CropDataString",
+        related_name="crop_data_string_set1",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
 
-class CropImageSource(CropDataSource):
     class Meta:
         ordering = ["-from_crop", "title"]
 
     def __str__(self):
         return self.title
-        
+
 
 # Część źródła danych w formia poszatkowanego stringa - reusable.
 class CropDataString(models.Model):
