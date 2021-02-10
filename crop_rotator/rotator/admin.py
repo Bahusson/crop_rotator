@@ -12,6 +12,7 @@ from .models import (
     CropDataString,
     CropInteraction,
     FamilyInteraction,
+    CropImageSource,
 )
 
 admin.site.register(RotationPlan)
@@ -24,3 +25,4 @@ admin.site.register(CropDataSource)
 admin.site.register(CropDataString)
 admin.site.register(CropInteraction)
 admin.site.register(FamilyInteraction)
+admin.site.register(CropImageSource)

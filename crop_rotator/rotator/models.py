@@ -295,6 +295,14 @@ class CropDataSource(models.Model):
         return self.title
 
 
+class CropImageSource(CropDataSource):
+    class Meta:
+        ordering = ["-from_crop", "title"]
+
+    def __str__(self):
+        return self.title
+        
+
 # Część źródła danych w formia poszatkowanego stringa - reusable.
 class CropDataString(models.Model):
     title = models.CharField(max_length=150)
