@@ -113,7 +113,9 @@
     "is_mandatory_crop": true,
     "is_family_slave": false,
     "family_master": null,
-    "family_relationships": [],
+    "family_relationships": [
+      11
+    ],
     "family_slaves": []
   }
 },
@@ -153,9 +155,7 @@
     "is_mandatory_crop": false,
     "is_family_slave": false,
     "family_master": null,
-    "family_relationships": [
-      10
-    ],
+    "family_relationships": [],
     "family_slaves": []
   }
 },
@@ -195,9 +195,7 @@
     "is_mandatory_crop": true,
     "is_family_slave": false,
     "family_master": null,
-    "family_relationships": [
-      9
-    ],
+    "family_relationships": [],
     "family_slaves": []
   }
 },
@@ -325,37 +323,14 @@
 },
 {
   "model": "rotator.croptag",
-  "pk": 1,
-  "fields": {
-    "name": "Okopowe",
-    "descr": "Co to są okopowe? Opis",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
   "pk": 2,
   "fields": {
-    "name": "Miododajne",
-    "descr": "Roślina miododajna - przyciąga owady zapylające.",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 3,
-  "fields": {
-    "name": "Pastewne",
-    "descr": "Nadają się dobrze na karmę dla zwierząt",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 4,
-  "fields": {
-    "name": "Szkodliwe",
-    "descr": "Należy zachować ostrożność przy karmieniu zwierząt.",
+    "name": "Miododajna",
+    "name_pl": "Miododajna",
+    "name_en": "Nectar source",
+    "descr": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
+    "descr_pl": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
+    "descr_en": "This species is particularly popular among pollinators.",
     "image": ""
   }
 },
@@ -364,52 +339,11 @@
   "pk": 5,
   "fields": {
     "name": "Konkurencyjna",
-    "descr": "Roślina konkurencyjna - potrafi zagłuszyć m.in chwasty",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 6,
-  "fields": {
-    "name": "Samosiejka",
-    "descr": "Roślina w klimacie polski wydaje nasiona i łatwo sama się rozsiewa - to zachowanie może być pożądane lub nie.",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 7,
-  "fields": {
-    "name": "Wytrzymała na suszę",
-    "descr": "Roślina dobrze znosi suszę",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 8,
-  "fields": {
-    "name": "Wieloletnie",
-    "descr": "Roślina wieloletnia. Może pozostać na polu dłużej lub być składnikiem np. trwałego użytku zielonego. Na ogół trudna do zniszczenia.",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 9,
-  "fields": {
-    "name": "Odporna na podmywanie",
-    "descr": "Roślina dobrze radzi sobie na glebach wilgotnych z tendencją do zastoisk stagnującej wody.",
-    "image": ""
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 10,
-  "fields": {
-    "name": "Polecana",
-    "descr": "Roślina szczególnie polecana w uprawie ze względu na swoje cechy",
+    "name_pl": "Konkurencyjna",
+    "name_en": "Competitive",
+    "descr": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
+    "descr_pl": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
+    "descr_en": "This species supresses nearby weeds - probably is a weed itself.",
     "image": ""
   }
 },
@@ -417,8 +351,25 @@
   "model": "rotator.croptag",
   "pk": 11,
   "fields": {
-    "name": "Fitosanitarny",
-    "descr": "Gatunek ma specjalne właściwości poprawiające jakość płodozmianu. Patrz: zakładka \"Szczegóły\".",
+    "name": "Międzyplon",
+    "name_pl": "Międzyplon",
+    "name_en": "Catch crop",
+    "descr": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
+    "descr_pl": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
+    "descr_en": "This species has special characteristics which make it a valuable catch crop.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 12,
+  "fields": {
+    "name": "Fitosanitarna / Pułapkowe",
+    "name_pl": "Fitosanitarna / Pułapkowe",
+    "name_en": "Phytosanitary / Trap plant",
+    "descr": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
+    "descr_pl": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
+    "descr_en": "This plant has unique properties that enable it to fight off pathogens, hance improving the well-being of surrounding plants.",
     "image": ""
   }
 },
@@ -428,12 +379,14 @@
   "fields": {
     "name": "Gorczyca biała",
     "name_pl": "Gorczyca biała",
-    "name_en": null,
-    "descr": "Sinapis alba",
-    "descr_pl": "Sinapis alba",
-    "descr_en": null,
-    "image": "",
-    "pubdate": null,
+    "name_en": "White mustard",
+    "latin_name": "Sinapis alba",
+    "descr": "Roślina Jednoroczna. Późny międzyplon jary.",
+    "descr_pl": "Roślina Jednoroczna. Późny międzyplon jary.",
+    "descr_en": "Annual plant. Late annual catch crop.",
+    "image": "images/gorczyca_biała2_eCClo7Z.jpg",
+    "image_source": 4,
+    "pubdate": "2021-02-09T10:53:56Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -446,11 +399,8 @@
     "seed_norm_max": 10,
     "crop_relationships": [],
     "tags": [
-      5,
       2,
-      3,
-      8,
-      7
+      11
     ]
   }
 },
@@ -460,12 +410,14 @@
   "fields": {
     "name": "Gorczyca Sarepska",
     "name_pl": "Gorczyca Sarepska",
-    "name_en": null,
-    "descr": "Sinapis Juncea, kapusta sitowata",
-    "descr_pl": "Sinapis Juncea, kapusta sitowata",
-    "descr_en": null,
-    "image": "",
-    "pubdate": null,
+    "name_en": "Brown mustard",
+    "latin_name": "Sinapis Juncea",
+    "descr": "in. \"Kapusta sitowata\", Międzyplon jary - od wczesnego do późnego.",
+    "descr_pl": "in. \"Kapusta sitowata\", Międzyplon jary - od wczesnego do późnego.",
+    "descr_en": "also: \"leaf mustard\", Late to early annual catch crop",
+    "image": "images/gorczyca_sarepska2_l4jJD0x.jpg",
+    "image_source": 4,
+    "pubdate": "2021-02-10T12:49:12Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -478,8 +430,9 @@
     "seed_norm_max": 3,
     "crop_relationships": [],
     "tags": [
-      5,
-      2
+      12,
+      2,
+      11
     ]
   }
 },
@@ -490,10 +443,12 @@
     "name": "Kapusta Abisyńska",
     "name_pl": "Kapusta Abisyńska",
     "name_en": null,
+    "latin_name": null,
     "descr": "Brassica Carinata - Ostrożnie z karmieniem zwierząt (zawiera dużo glukozynolanów i kwasu erukowego)",
     "descr_pl": "Brassica Carinata - Ostrożnie z karmieniem zwierząt (zawiera dużo glukozynolanów i kwasu erukowego)",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -506,9 +461,7 @@
     "seed_norm_min": 8,
     "seed_norm_max": 12,
     "crop_relationships": [],
-    "tags": [
-      7
-    ]
+    "tags": []
   }
 },
 {
@@ -518,10 +471,12 @@
     "name": "Rzodkiew Oleista",
     "name_pl": "Rzodkiew Oleista",
     "name_en": null,
+    "latin_name": null,
     "descr": "Raphanus sativu var. oleiformis",
     "descr_pl": "Raphanus sativu var. oleiformis",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -534,9 +489,7 @@
     "seed_norm_min": 6,
     "seed_norm_max": 8,
     "crop_relationships": [],
-    "tags": [
-      7
-    ]
+    "tags": []
   }
 },
 {
@@ -546,10 +499,12 @@
     "name": "Rzodkiew Japońska",
     "name_pl": "Rzodkiew Japońska",
     "name_en": null,
+    "latin_name": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -572,10 +527,12 @@
     "name": "Rzepak",
     "name_pl": "Rzepak",
     "name_en": null,
+    "latin_name": null,
     "descr": "Brassica napus",
     "descr_pl": "Brassica napus",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -587,9 +544,7 @@
     "takes_mix_level": 1,
     "seed_norm_min": 8,
     "seed_norm_max": 12,
-    "crop_relationships": [
-      6
-    ],
+    "crop_relationships": [],
     "tags": [
       2
     ]
@@ -602,10 +557,12 @@
     "name": "Rzepak Pastewny",
     "name_pl": "Rzepak Pastewny",
     "name_en": null,
+    "latin_name": null,
     "descr": "Brassica napus",
     "descr_pl": "Brassica napus",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -630,10 +587,12 @@
     "name": "Rzepik",
     "name_pl": "Rzepik",
     "name_en": null,
+    "latin_name": null,
     "descr": "Brassica rapa ssp. oleifera",
     "descr_pl": "Brassica rapa ssp. oleifera",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -658,10 +617,12 @@
     "name": "Lnianka siewna",
     "name_pl": "Lnianka siewna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Camelina sativa",
     "descr_pl": "Camelina sativa",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 2,
     "culture_override": 0,
@@ -684,10 +645,12 @@
     "name": "Owies Siewny",
     "name_pl": "Owies Siewny",
     "name_en": null,
+    "latin_name": null,
     "descr": "Avena sativa",
     "descr_pl": "Avena sativa",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 15,
     "culture_override": 0,
@@ -712,10 +675,12 @@
     "name": "Owies szorstki",
     "name_pl": "Owies szorstki",
     "name_en": null,
+    "latin_name": null,
     "descr": "Avena strigosa",
     "descr_pl": "Avena strigosa",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 15,
     "culture_override": 0,
@@ -740,10 +705,12 @@
     "name": "Żyto zwyczajne",
     "name_pl": "Żyto zwyczajne",
     "name_en": null,
+    "latin_name": null,
     "descr": "Secale cereale",
     "descr_pl": "Secale cereale",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -768,10 +735,12 @@
     "name": "Żyto krzyca",
     "name_pl": "Żyto krzyca",
     "name_en": null,
+    "latin_name": null,
     "descr": "Secale multicaule, ż. świętojańskie, ż. pastwene",
     "descr_pl": "Secale multicaule, ż. świętojańskie, ż. pastwene",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -796,10 +765,12 @@
     "name": "Pszenica",
     "name_pl": "Pszenica",
     "name_en": null,
+    "latin_name": null,
     "descr": "Komentarz testowy",
     "descr_pl": "Komentarz testowy",
     "descr_en": null,
     "image": "images/pszenica.jpg",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -822,10 +793,12 @@
     "name": "Jęczmień zwyczajny",
     "name_pl": "Jęczmień zwyczajny",
     "name_en": null,
+    "latin_name": null,
     "descr": "Hordeum vulgare",
     "descr_pl": "Hordeum vulgare",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -848,10 +821,12 @@
     "name": "Pszenżyto",
     "name_pl": "Pszenżyto",
     "name_en": null,
+    "latin_name": null,
     "descr": "Triticale",
     "descr_pl": "Triticale",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -874,10 +849,12 @@
     "name": "Kukurydza",
     "name_pl": "Kukurydza",
     "name_en": null,
+    "latin_name": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -900,10 +877,12 @@
     "name": "Życica wielokwiatowa",
     "name_pl": "Życica wielokwiatowa",
     "name_en": null,
+    "latin_name": null,
     "descr": "Lolium multiflorum, rajgras włoski",
     "descr_pl": "Lolium multiflorum, rajgras włoski",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -926,10 +905,12 @@
     "name": "Soja",
     "name_pl": "Soja",
     "name_en": null,
+    "latin_name": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -952,10 +933,12 @@
     "name": "Słonecznik",
     "name_pl": "Słonecznik",
     "name_en": null,
+    "latin_name": null,
     "descr": "Helianthus annuus",
     "descr_pl": "Helianthus annuus",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 5,
     "culture_override": 0,
@@ -978,10 +961,12 @@
     "name": "Koniczyna krwistoczerwona",
     "name_pl": "Koniczyna krwistoczerwona",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium incarnatum, koniczyna szkarłatna, inkarnatka",
     "descr_pl": "Trifolium incarnatum, koniczyna szkarłatna, inkarnatka",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 1,
@@ -995,8 +980,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
-      2,
-      3
+      2
     ]
   }
 },
@@ -1007,10 +991,12 @@
     "name": "Sorgo dwubarwne",
     "name_pl": "Sorgo dwubarwne",
     "name_en": null,
+    "latin_name": null,
     "descr": "Sorghum bicolor",
     "descr_pl": "Sorghum bicolor",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -1033,10 +1019,12 @@
     "name": "Mohar",
     "name_pl": "Mohar",
     "name_en": null,
+    "latin_name": null,
     "descr": "Setstia italica ssp. moharium",
     "descr_pl": "Setstia italica ssp. moharium",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -1059,10 +1047,12 @@
     "name": "Włośnica ber",
     "name_pl": "Włośnica ber",
     "name_en": null,
+    "latin_name": null,
     "descr": "Setaria italica ssp. italica",
     "descr_pl": "Setaria italica ssp. italica",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -1074,9 +1064,7 @@
     "takes_mix_level": 2,
     "seed_norm_min": 30,
     "seed_norm_max": 30,
-    "crop_relationships": [
-      2
-    ],
+    "crop_relationships": [],
     "tags": []
   }
 },
@@ -1087,10 +1075,12 @@
     "name": "Rosplenica perłowa",
     "name_pl": "Rosplenica perłowa",
     "name_en": null,
+    "latin_name": null,
     "descr": "Pennisetum galucum, poprawia jakiść pł. warzywnego redukując nicienie # dodaj senergie i usuń komentarz",
     "descr_pl": "Pennisetum galucum, poprawia jakiść pł. warzywnego redukując nicienie # dodaj senergie i usuń komentarz",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 11,
     "culture_override": 0,
@@ -1113,10 +1103,12 @@
     "name": "Olejarka abisyńska",
     "name_pl": "Olejarka abisyńska",
     "name_en": null,
+    "latin_name": null,
     "descr": "Guizotia abyssinica",
     "descr_pl": "Guizotia abyssinica",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 5,
     "culture_override": 0,
@@ -1139,10 +1131,12 @@
     "name": "Facelia błękitna",
     "name_pl": "Facelia błękitna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Phacelia tanacetifolia",
     "descr_pl": "Phacelia tanacetifolia",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 6,
     "culture_override": 0,
@@ -1154,7 +1148,9 @@
     "takes_mix_level": 4,
     "seed_norm_min": 6,
     "seed_norm_max": 10,
-    "crop_relationships": [],
+    "crop_relationships": [
+      12
+    ],
     "tags": [
       2
     ]
@@ -1167,10 +1163,12 @@
     "name": "Len zwyczajny",
     "name_pl": "Len zwyczajny",
     "name_en": null,
+    "latin_name": null,
     "descr": "Linum usitatissimum",
     "descr_pl": "Linum usitatissimum",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 7,
     "culture_override": 0,
@@ -1182,9 +1180,7 @@
     "takes_mix_level": 3,
     "seed_norm_min": 20,
     "seed_norm_max": 30,
-    "crop_relationships": [
-      7
-    ],
+    "crop_relationships": [],
     "tags": []
   }
 },
@@ -1195,10 +1191,12 @@
     "name": "Gryka siewna",
     "name_pl": "Gryka siewna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Fagopyrum esculentum",
     "descr_pl": "Fagopyrum esculentum",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 13,
     "culture_override": 0,
@@ -1223,10 +1221,12 @@
     "name": "Burak",
     "name_pl": "Burak",
     "name_en": null,
+    "latin_name": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 8,
     "culture_override": 0,
@@ -1249,10 +1249,12 @@
     "name": "Ziemniak",
     "name_pl": "Ziemniak",
     "name_en": null,
+    "latin_name": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 9,
     "culture_override": 0,
@@ -1264,9 +1266,7 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [
-      3
-    ],
+    "crop_relationships": [],
     "tags": []
   }
 },
@@ -1277,10 +1277,12 @@
     "name": "Marchew",
     "name_pl": "Marchew",
     "name_en": null,
+    "latin_name": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 14,
     "culture_override": 0,
@@ -1303,10 +1305,12 @@
     "name": "Groch siewny pastewny",
     "name_pl": "Groch siewny pastewny",
     "name_en": null,
+    "latin_name": null,
     "descr": "Pisum sativum, sensu lato, peluszka",
     "descr_pl": "Pisum sativum, sensu lato, peluszka",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1318,9 +1322,7 @@
     "takes_mix_level": 0,
     "seed_norm_min": 60,
     "seed_norm_max": 80,
-    "crop_relationships": [
-      5
-    ],
+    "crop_relationships": [],
     "tags": []
   }
 },
@@ -1331,10 +1333,12 @@
     "name": "Wyka siewna",
     "name_pl": "Wyka siewna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Vicia sativa. wyka jara",
     "descr_pl": "Vicia sativa. wyka jara",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1357,10 +1361,12 @@
     "name": "Wyka kosmata",
     "name_pl": "Wyka kosmata",
     "name_en": null,
+    "latin_name": null,
     "descr": "Vicia villosa, wyka ozima",
     "descr_pl": "Vicia villosa, wyka ozima",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1383,10 +1389,12 @@
     "name": "Wyka bengalska",
     "name_pl": "Wyka bengalska",
     "name_en": null,
+    "latin_name": null,
     "descr": "Vicia benghalensis",
     "descr_pl": "Vicia benghalensis",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1409,10 +1417,12 @@
     "name": "Soczewica jadalna / czarna",
     "name_pl": "Soczewica jadalna / czarna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Lens culinaris & Lens nigricans",
     "descr_pl": "Lens culinaris & Lens nigricans",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1435,10 +1445,12 @@
     "name": "Bobik",
     "name_pl": "Bobik",
     "name_en": null,
+    "latin_name": null,
     "descr": "Vicia faba",
     "descr_pl": "Vicia faba",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1461,10 +1473,12 @@
     "name": "Lędźwian Siewny",
     "name_pl": "Lędźwian Siewny",
     "name_en": null,
+    "latin_name": null,
     "descr": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
     "descr_pl": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1487,10 +1501,12 @@
     "name": "Kozieradka pospolita",
     "name_pl": "Kozieradka pospolita",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trigonella foenum-kraecum, kozieradka lekarska",
     "descr_pl": "Trigonella foenum-kraecum, kozieradka lekarska",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 10,
     "culture_override": 0,
@@ -1513,10 +1529,12 @@
     "name": "Koniczyna Aleksandryjska",
     "name_pl": "Koniczyna Aleksandryjska",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium alexandrinum",
     "descr_pl": "Trifolium alexandrinum",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1530,8 +1548,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
-      2,
-      3
+      2
     ]
   }
 },
@@ -1542,10 +1559,12 @@
     "name": "Koniczyna perska",
     "name_pl": "Koniczyna perska",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium resupinatum",
     "descr_pl": "Trifolium resupinatum",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1558,9 +1577,7 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "crop_relationships": [],
-    "tags": [
-      3
-    ]
+    "tags": []
   }
 },
 {
@@ -1570,10 +1587,12 @@
     "name": "Koniczyna michaela",
     "name_pl": "Koniczyna michaela",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium michelianum, bardziej odporna na suszę niż koniczyna krwistoczerwona",
     "descr_pl": "Trifolium michelianum, bardziej odporna na suszę niż koniczyna krwistoczerwona",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1587,8 +1606,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
-      2,
-      3
+      2
     ]
   }
 },
@@ -1599,10 +1617,12 @@
     "name": "Koniczyna podziemna",
     "name_pl": "Koniczyna podziemna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium subterraneum",
     "descr_pl": "Trifolium subterraneum",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1616,10 +1636,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
-      5,
-      3,
-      6,
-      4
+      5
     ]
   }
 },
@@ -1630,10 +1647,12 @@
     "name": "Koniczyna biała",
     "name_pl": "Koniczyna biała",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium rapens",
     "descr_pl": "Trifolium rapens",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1647,8 +1666,7 @@
     "seed_norm_max": 10,
     "crop_relationships": [],
     "tags": [
-      2,
-      7
+      2
     ]
   }
 },
@@ -1659,10 +1677,12 @@
     "name": "Koniczyna czerwona",
     "name_pl": "Koniczyna czerwona",
     "name_en": null,
+    "latin_name": null,
     "descr": "Trifolium pratense, koniczyna łąkowa",
     "descr_pl": "Trifolium pratense, koniczyna łąkowa",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1676,11 +1696,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
-      5,
-      9,
-      3,
-      4,
-      8
+      5
     ]
   }
 },
@@ -1691,10 +1707,12 @@
     "name": "Lucerna siewna",
     "name_pl": "Lucerna siewna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Medicago sativa",
     "descr_pl": "Medicago sativa",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1709,11 +1727,7 @@
     "crop_relationships": [],
     "tags": [
       5,
-      2,
-      3,
-      10,
-      8,
-      7
+      2
     ]
   }
 },
@@ -1724,10 +1738,12 @@
     "name": "Esparceta siewna",
     "name_pl": "Esparceta siewna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Onobrychis viciifolia",
     "descr_pl": "Onobrychis viciifolia",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1741,10 +1757,7 @@
     "seed_norm_max": 50,
     "crop_relationships": [],
     "tags": [
-      5,
-      3,
-      8,
-      7
+      5
     ]
   }
 },
@@ -1755,10 +1768,12 @@
     "name": "Siekiernica włoska",
     "name_pl": "Siekiernica włoska",
     "name_en": null,
+    "latin_name": null,
     "descr": "Hedysarum coronarium",
     "descr_pl": "Hedysarum coronarium",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1772,10 +1787,7 @@
     "seed_norm_max": 20,
     "crop_relationships": [],
     "tags": [
-      5,
-      3,
-      8,
-      7
+      5
     ]
   }
 },
@@ -1786,10 +1798,12 @@
     "name": "Komonica zwyczajna",
     "name_pl": "Komonica zwyczajna",
     "name_en": null,
+    "latin_name": null,
     "descr": "Lotus corniculatus, komonica pospolita, komonica rożkowa",
     "descr_pl": "Lotus corniculatus, komonica pospolita, komonica rożkowa",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 1,
@@ -1803,10 +1817,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
-      2,
-      3,
-      8,
-      7
+      2
     ]
   }
 },
@@ -1817,10 +1828,12 @@
     "name": "Nostrzyk żółty",
     "name_pl": "Nostrzyk żółty",
     "name_en": null,
+    "latin_name": null,
     "descr": "Melilotus officinalis, nostrzyk lekarski / zwyczajny, trawa tatarska",
     "descr_pl": "Melilotus officinalis, nostrzyk lekarski / zwyczajny, trawa tatarska",
     "descr_en": null,
     "image": "",
+    "image_source": null,
     "pubdate": null,
     "family": 4,
     "culture_override": 0,
@@ -1835,109 +1848,39 @@
     "crop_relationships": [],
     "tags": [
       5,
-      2,
-      3,
-      6,
-      4
+      2
     ]
   }
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 2,
+  "pk": 11,
   "fields": {
-    "title": "Włośnica ber -- gorczyca sarepska (test)",
-    "is_positive": false,
-    "about_crop": 2,
-    "about_family": null,
-    "info_source": null,
-    "type_of_interaction": 2
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 3,
-  "fields": {
-    "title": "Ziemniak + burak (test)",
+    "title": "Bobowate + Gorczyca Biała (W)",
     "is_positive": true,
-    "about_crop": 32,
+    "about_crop": 1,
     "about_family": null,
-    "info_source": null,
-    "type_of_interaction": 1
+    "info_source": 2,
+    "type_of_interaction": 0
   }
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 5,
+  "pk": 12,
   "fields": {
-    "title": "groch - - wiechlinowate (test)",
-    "is_positive": false,
-    "about_crop": null,
-    "about_family": 11,
-    "info_source": null,
-    "type_of_interaction": 1
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 6,
-  "fields": {
-    "title": "Rzepak ++ selerowate (test)",
+    "title": "Facelia + Gorczyca biała  (W)",
     "is_positive": true,
-    "about_crop": null,
-    "about_family": 14,
-    "info_source": null,
-    "type_of_interaction": 2
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 7,
-  "fields": {
-    "title": "Len - - pszenica (testowe)",
-    "is_positive": false,
-    "about_crop": 14,
+    "about_crop": 1,
     "about_family": null,
-    "info_source": null,
-    "type_of_interaction": 1
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 9,
-  "fields": {
-    "title": "szarłatowate ++ facelia (test)",
-    "is_positive": true,
-    "about_crop": 29,
-    "about_family": null,
-    "info_source": null,
-    "type_of_interaction": 1
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 10,
-  "fields": {
-    "title": "ogórecznikowate -- bobowate (test)",
-    "is_positive": false,
-    "about_crop": null,
-    "about_family": 4,
-    "info_source": null,
-    "type_of_interaction": 2
+    "info_source": 2,
+    "type_of_interaction": 0
   }
 },
 {
   "model": "rotator.familyinteraction",
-  "pk": 10,
+  "pk": 11,
   "fields": {
-    "cropinteraction_ptr": 10
-  }
-},
-{
-  "model": "rotator.familyinteraction",
-  "pk": 9,
-  "fields": {
-    "cropinteraction_ptr": 9
+    "cropinteraction_ptr": 11
   }
 },
 {
@@ -2395,14 +2338,50 @@
   "pk": 1,
   "fields": {
     "title": "Włośnica Ber - Międzyplony w Praktyce",
-    "descr": "Roślina rosnąca dobrze na słabych glebach, wektor \"fusarium\", a więc słaby przedplon dla pszenicy. Ze względu na małe zdolności konkurencyjne warto ją uprawiać z koniczyną aleksandryjską. Nadaje się na paszę. Jest rośliną o średnio-niskim pokroju. Dobrze znosi suszę w początkowych stadiach rozwoju.",
+    "descr": "\"Roślina rosnąca dobrze na słabych glebach, wektor \"fusarium\", a więc słaby przedplon dla pszenicy. Ze względu na małe zdolności konkurencyjne warto ją uprawiać z koniczyną aleksandryjską. Nadaje się na paszę. Jest rośliną o średnio-niskim pokroju. Dobrze znosi suszę w początkowych stadiach rozwoju.\",",
+    "descr_pl": "\"Roślina rosnąca dobrze na słabych glebach, wektor \"fusarium\", a więc słaby przedplon dla pszenicy. Ze względu na małe zdolności konkurencyjne warto ją uprawiać z koniczyną aleksandryjską. Nadaje się na paszę. Jest rośliną o średnio-niskim pokroju. Dobrze znosi suszę w początkowych stadiach rozwoju.\",",
+    "descr_en": null,
     "from_crop": 26,
     "at_data_string": 1,
     "pages_from": 193,
     "pages_to": 194,
+    "at_tag": []
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 2,
+  "fields": {
+    "title": "Gorczyca biała - MwP",
+    "descr": "Roślina dobrze znosi późny wysiew, bo daje sobie radę ze słabym nasłonecznieniem. Szybko okrywa glebę i daje dużo biomasy w krótkim czasie (30-45 dni od siewu do zbioru). Jest rośliną miododajną przyciągającą wszystkie zapylacze. Dobrze rośnie szczególnie z bobowatymi i facelią.",
+    "descr_pl": "Roślina dobrze znosi późny wysiew, bo daje sobie radę ze słabym nasłonecznieniem. Szybko okrywa glebę i daje dużo biomasy w krótkim czasie (30-45 dni od siewu do zbioru). Jest rośliną miododajną przyciągającą wszystkie zapylacze. Dobrze rośnie szczególnie z bobowatymi i facelią.",
+    "descr_en": "This plant doesn't mind late sowing, because it can handle poor insolation. It covers the ground quickly and provides a lot of biomass in short period of time (30-45 days from sowing to harvest). As a nectar source it attracts all nearby pollinators. Grows well along fabacae and phacelia.",
+    "from_crop": 1,
+    "at_data_string": 1,
+    "pages_from": 149,
+    "pages_to": null,
     "at_tag": [
-      3,
-      7
+      2,
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 3,
+  "fields": {
+    "title": "Gorczyca sarepska - MwP",
+    "descr": "Zakłada się, że posiada właściwości biofumigacyjne, gdyż zmniejsza ilość szkodliwych nicieni w glebie. Ma wysoką zdolność wiązania składników pokarmowych, czym zdobyła sobie uznanie jako roślina fotosanitarna przy rekultywacji terenów skażonych przemysłowo i przenawożonych. Bardzo dobrze wykorzystuje m.in. azot.",
+    "descr_pl": "Zakłada się, że posiada właściwości biofumigacyjne, gdyż zmniejsza ilość szkodliwych nicieni w glebie. Ma wysoką zdolność wiązania składników pokarmowych, czym zdobyła sobie uznanie jako roślina fotosanitarna przy rekultywacji terenów skażonych przemysłowo i przenawożonych. Bardzo dobrze wykorzystuje m.in. azot.",
+    "descr_en": "It is assumed that this plant has biofumigation properties due to its positive influence on reducing the amount of harmful nematodes in soil. Its ability to intake high amounts of nutrients is recognized in phytosanitary usage in recultivation of post-industrial and overfertilized landscape. It manages nitrogen among other elements well.",
+    "from_crop": 2,
+    "at_data_string": 1,
+    "pages_from": 152,
+    "pages_to": 153,
+    "at_tag": [
+      12,
+      2,
+      11
     ]
   }
 },
@@ -2428,8 +2407,17 @@
   "model": "rotator.cropdatastring",
   "pk": 3,
   "fields": {
-    "title": "Grzebisz W. i in. 2020 ROLNICTWO VI",
-    "part1": null,
+    "title": "ROLNICTWO VI",
+    "part1": "Grzebisz W. i in. 2020 ROLNICTWO VI",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 4,
+  "fields": {
+    "title": "Köhler's Medizinal-Pflanzen",
+    "part1": "Franz Eugen Köhler 1897 Köhler's Medizinal-Pflanzen",
     "link": null
   }
 },
@@ -2440,6 +2428,9 @@
     "lang_flag": "images/flaga-polski.png",
     "lang_flag_pl": "images/flaga-polski.png",
     "lang_flag_en": "images/flaga-wielkiej-brytanii.png",
+    "lang_flag_id": "lang_flag_pl",
+    "lang_flag_id_pl": "lang_flag_pl",
+    "lang_flag_id_en": "lang_flag_en",
     "headtitle": "Crop Rotator - Program do optymalnego planowania płodozmianu",
     "headtitle_pl": "Crop Rotator - Program do optymalnego planowania płodozmianu",
     "headtitle_en": "Crop Rotator - program for optimal crop rotation",
@@ -2464,12 +2455,15 @@
     "register": "Zarejestruj się",
     "register_pl": "Zarejestruj się",
     "register_en": "Register",
-    "see_more": "Zobacz więcej...",
-    "see_more_pl": "Zobacz więcej...",
-    "see_more_en": "See more...",
     "my_plans": "Moje plany",
     "my_plans_pl": "Moje plany",
-    "my_plans_en": "My plans"
+    "my_plans_en": "My plans",
+    "all_plans": "Wszystkie plany zmianowania",
+    "all_plans_pl": "Wszystkie plany zmianowania",
+    "all_plans_en": "All rotation plans",
+    "see_more": "Zobacz więcej...",
+    "see_more_pl": "Zobacz więcej...",
+    "see_more_en": "See more..."
   }
 },
 {
@@ -2653,7 +2647,28 @@
     "species_en": "Species",
     "sources": "Źródła",
     "sources_pl": "Źródła",
-    "sources_en": "Sources"
+    "sources_en": "Sources",
+    "notes": "Uwagi",
+    "notes_pl": "Uwagi",
+    "notes_en": "Notes",
+    "allelopatic_conflict": "Konflikt na tle allelopatycznym",
+    "allelopatic_conflict_pl": "Konflikt na tle allelopatycznym",
+    "allelopatic_conflict_en": "Allelopatic conflict",
+    "harms": "szkodzi",
+    "harms_pl": "szkodzi",
+    "harms_en": "harms",
+    "in_step": "w kroku",
+    "in_step_pl": "w kroku",
+    "in_step_en": "in step",
+    "well_cooperates": "dobrze współgra z",
+    "well_cooperates_pl": "dobrze współgra z",
+    "well_cooperates_en": "well cooperates with",
+    "collides": "Powoduje kolizję z",
+    "collides_pl": "Powoduje kolizję z",
+    "collides_en": "Collides with",
+    "image_source": "Żródło obrazu",
+    "image_source_pl": "Żródło obrazu",
+    "image_source_en": "Image source"
   }
 }
 ]
