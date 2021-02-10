@@ -126,9 +126,14 @@ class Crop(models.Model):
     latin_name = models.CharField(max_length=150, blank=True, null=True)
     descr = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
+    image_source = models.ForeignKey(
+        "CropDataString", on_delete=models.SET_NULL,
+        related_name="set_image_cds", blank=True, null=True
+        )
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
     family = models.ForeignKey(
-        "CropFamily", on_delete=models.SET_NULL, blank=True, null=True
+        "CropFamily", on_delete=models.SET_NULL, related_name="set_family",
+         blank=True, null=True
     )
     culture_override = models.PositiveSmallIntegerField(
         choices=AGRICULTURE_STATUS, default=0
@@ -287,30 +292,6 @@ class CropDataSource(models.Model):
     )
     pages_from = models.IntegerField(blank=True, null=True)
     pages_to = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        ordering = ["-from_crop", "title"]
-
-    def __str__(self):
-        return self.title
-
-# Fizyczne źródła danych obrazków.
-class CropImagesSource(models.Model):
-    title = models.CharField(max_length=150)
-    from_crop = models.ForeignKey(
-        "Crop",
-        related_name="crop_source_set1",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-    )
-    at_data_string = models.ForeignKey(
-        "CropDataString",
-        related_name="crop_data_string_set1",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-    )
 
     class Meta:
         ordering = ["-from_crop", "title"]

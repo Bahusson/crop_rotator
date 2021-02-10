@@ -113,7 +113,7 @@ class RotatorEditorPageNames(models.Model):
     in_step = models.CharField(max_length=200, blank=True, null=True) # W kroku
     well_cooperates = models.CharField(max_length=200, blank=True, null=True) # dobrze współgra z
     collides = models.CharField(max_length=200, blank=True, null=True) # Powoduje KOLIZJĘ z
-
+    image_source = models.CharField(max_length=200, blank=True, null=True) # Źródło obrazka    
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
