@@ -69,6 +69,18 @@ def about(request):
     return render(request, template, context_lazy)
 
 
+# Widok strony "O nawozach"
+def fertilize(request):
+    pe_apn = pe(AboutPageNames).baseattrs
+    context = {
+        "about_us": pe_apn,
+    }
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/about.html"
+    return render(request, template, context_lazy)
+
+
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
     pe_rp = pe(RotationPlan).allelements

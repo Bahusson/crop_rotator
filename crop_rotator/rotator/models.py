@@ -269,7 +269,7 @@ class RotationStep(models.Model):
         return self.title
 
 
-# Fizyczne źródła danych np. z książek.
+# Fizyczne źródła danych dot. roślin np. z książek.
 class CropDataSource(models.Model):
     title = models.CharField(max_length=150)
     descr = models.TextField(blank=True, null=True)

@@ -117,6 +117,82 @@ class RotatorEditorPageNames(models.Model):
     add_fertilizer_main = models.CharField(max_length=200, blank=True, null=True) # W tym planie brakuje nawozu z zewnątrz!
     add_fertilizer_onhover_main = models.CharField(max_length=300, blank=True, null=True) # Dowiedz się więcej o dodawaniu nawozów do płodozmianu.
 
-
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
+
+
+# klasa tłumaczeniowa dla strony "o nawozach"
+class FertilizerPageNames(models.Model):
+    title = models.CharField(max_length=50)
+    descr = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'Fertilizer Page Names'
+
+
+# klasa opisująca poszczególne pierwiastki chemiczne w glebie dla strony "o nawozach".
+class BasicElement(models.Model):
+    name = models.CharField(max_length=50)
+    latin_name = models.CharField(max_length=50)
+    symbol = models.CharField(max_length=2)
+    image = models.ImageField(upload_to="images", blank=True, null=True)
+    image_source = models.ForeignKey(
+        "ElementDataString", on_delete=models.SET_NULL,
+        related_name="set_image_eds_basic", blank=True, null=True
+        )
+    is_trace_element = models.BooleanField(default=True)
+    descr = models.TextField()
+
+# klasa opisująca poszczególne nawozy - many-to-many do każdego zawartego w nim elementu?
+class Fertilizer(models.Model):
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="images", blank=True, null=True)
+    image_source = models.ForeignKey(
+        "ElementDataString", on_delete=models.SET_NULL,
+        related_name="set_image_eds_fertilizer", blank=True, null=True
+        )
+    descr = models.TextField()
+    contains_elements = models.ManyToManyField(
+        "BasicElement", related_name="contains_elements", blank=True)
+    is_natural = models.BooleanField(default=False)
+
+
+# Fizyczne źródła danych dot. nawozów np. z książek.
+class FertilizerDataSource(models.Model):
+    title = models.CharField(max_length=150)
+    descr = models.TextField(blank=True, null=True)
+    from_fertilizer = models.ForeignKey(
+        "Fertilizer",
+        related_name="fertilizer_source_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    at_data_string = models.ForeignKey(
+        "ElementDataString",
+        related_name="element_data_string_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    pages_from = models.IntegerField(blank=True, null=True)
+    pages_to = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        ordering = ["from_fertilizer", "title"]
+
+    def __str__(self):
+        return self.title
+
+
+# Część źródła danych w formia poszatkowanego stringa - reusable.
+class ElementDataString(models.Model):
+    title = models.CharField(max_length=150)
+    part1 = models.CharField(max_length=500, blank=True, null=True)
+    link = models.CharField(max_length=500, blank=True, null=True)
+
+    class Meta:
+        ordering = ["title"]
+
+    def __str__(self):
+        return self.title

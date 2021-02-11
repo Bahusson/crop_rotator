@@ -3,7 +3,12 @@ from strona.models import (
     PageNames,
     RegNames,
     AboutPageNames,
-    RotatorEditorPageNames
+    RotatorEditorPageNames,
+    FertilizerPageNames,
+    BasicElement,
+    Fertilizer,
+    FertilizerDataSource,
+    ElementDataString,
 )
 from core.snippets import all_names
 
@@ -38,3 +43,39 @@ class RotatorEditorPageNamesTranslate(TranslationOptions):
 
 
 translator.register(RotatorEditorPageNames, RotatorEditorPageNamesTranslate)
+
+
+class FertilizerPageNamesTranslate(TranslationOptions):
+    allfields = all_names(FertilizerPageNames)
+    fields = allfields
+
+
+translator.register(FertilizerPageNames, FertilizerPageNamesTranslate)
+
+
+class BasicElementTranslate(TranslationOptions):
+    fields = ("name", "descr",)
+
+
+translator.register(BasicElement, BasicElementTranslate)
+
+
+class FertilizerTranslate(TranslationOptions):
+    fields = ("name", "descr",)
+
+
+translator.register(Fertilizer, FertilizerTranslate)
+
+
+class FertilizerDataSourceTranslate(TranslationOptions):
+    fields = ("title", "descr",)
+
+
+translator.register(FertilizerDataSource, FertilizerDataSourceTranslate)
+
+
+class ElementDataStringTranslate(TranslationOptions):
+    fields = ("title", "part1", "link",)
+
+
+translator.register(ElementDataString, ElementDataStringTranslate)

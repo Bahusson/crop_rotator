@@ -7,6 +7,11 @@ from .models import(
     PageSkin,
     AboutPageNames,
     RotatorEditorPageNames,
+    FertilizerPageNames,
+    BasicElement,
+    Fertilizer,
+    FertilizerDataSource,
+    ElementDataString,
 )
 
 
@@ -15,3 +20,8 @@ admin.site.register(RegNames)
 admin.site.register(PageSkin)
 admin.site.register(AboutPageNames)
 admin.site.register(RotatorEditorPageNames)
+admin.site.register(FertilizerPageNames)
+admin.site.register(BasicElement)
+admin.site.register(Fertilizer)
+admin.site.register(FertilizerDataSource)
+admin.site.register(ElementDataString)
