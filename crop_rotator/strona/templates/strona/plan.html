@@ -60,6 +60,11 @@
               <br />
             {% endif %}
 
+            {% if fertilized %}
+            <p><b>{{ translatables.add_fertilizer_main }}</b> *{{ translatables.add_fertilizer_onhover_main }}</p>
+            <br />
+            {% endif %}
+
             {% if f_error %}
               <p>{{ translatables.in_this_plan }} <b>{{ f_error }}</b> {{ translatables.fabs_and }}.</p>
               <p>{{ translatables.should_be_fabs }}.</p>

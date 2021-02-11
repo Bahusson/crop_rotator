@@ -310,13 +310,13 @@ class CropPlanner(object):
         cooldown_list = []
         fabacae = []
         top_tier_list = []
-        self.fertilized = False
+        self.fertilized = True
         for item in listed_pe_rs:
             i1 = (list(item.early_crop.all()), item.order)
             i2 = (list(item.late_crop.all()), item.order)
             i3 = item.order
             if item.add_manure_early or item.add_manure_late:
-                self.fertilized = True
+                self.fertilized = False
             top_tier_list.append(i3)
             vars = [cooldown_list, item, fabacae]
             list_appending_short(i1, "a", vars)

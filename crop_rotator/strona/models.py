@@ -113,7 +113,10 @@ class RotatorEditorPageNames(models.Model):
     in_step = models.CharField(max_length=200, blank=True, null=True) # W kroku
     well_cooperates = models.CharField(max_length=200, blank=True, null=True) # dobrze współgra z
     collides = models.CharField(max_length=200, blank=True, null=True) # Powoduje KOLIZJĘ z
-    image_source = models.CharField(max_length=200, blank=True, null=True) # Źródło obrazka    
+    image_source = models.CharField(max_length=200, blank=True, null=True) # Źródło obrazka
+    add_fertilizer_main = models.CharField(max_length=200, blank=True, null=True) # W tym planie brakuje nawozu z zewnątrz!
+    add_fertilizer_onhover_main = models.CharField(max_length=300, blank=True, null=True) # Dowiedz się więcej o dodawaniu nawozów do płodozmianu.
+
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
