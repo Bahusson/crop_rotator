@@ -124,7 +124,17 @@ class RotatorEditorPageNames(models.Model):
 # klasa tłumaczeniowa dla strony "o nawozach"
 class FertilizerPageNames(models.Model):
     title = models.CharField(max_length=50)
-    descr = models.TextField()
+    descr = models.TextField()  # Intro o nawozach w ogóle
+    elements_head = models.CharField(max_length=50,blank=True, null=True)  # Duży nagłówek "Składniki gleby", albo "Pierwiastki"
+    makro_head = models.CharField(max_length=50,blank=True, null=True)  # Nagłówek makroelementy
+    makro_descr = models.TextField(blank=True, null=True)  # Opis czym są makroelementy
+    micro_head = models.CharField(max_length=50,blank=True, null=True)  # Nagłówek mikroelementy
+    micro_descr = models.TextField(blank=True, null=True)  # Opis czym są mikroelementy
+    fertilizers_head = models.CharField(max_length=50,blank=True, null=True)  # Duży nagłówek "Rodzaje nawozów"
+    natural_fertilizers_head = models.CharField(max_length=50,blank=True, null=True)  # Nagłówek "nawozy naturalne"
+    natural_fertilizers_descr = models.TextField(blank=True, null=True)  # Opis czym są nawozy naturalne.
+    artificial_fertilizers_head = models.CharField(max_length=50,blank=True, null=True)  # Nagłówek nawozy sztuczne
+    artificial_fertilizers_descr = models.TextField(blank=True, null=True)  # Opis czym są nawozy sztuczne.
 
     class Meta:
         verbose_name_plural = 'Fertilizer Page Names'
@@ -143,6 +153,15 @@ class BasicElement(models.Model):
     is_trace_element = models.BooleanField(default=True)
     descr = models.TextField()
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+    def summary(self):
+        return self.descr[:150]
+
 # klasa opisująca poszczególne nawozy - many-to-many do każdego zawartego w nim elementu?
 class Fertilizer(models.Model):
     name = models.CharField(max_length=50)
@@ -156,6 +175,14 @@ class Fertilizer(models.Model):
         "BasicElement", related_name="contains_elements", blank=True)
     is_natural = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+    def summary(self):
+        return self.descr[:150]
 
 # Fizyczne źródła danych dot. nawozów np. z książek.
 class FertilizerDataSource(models.Model):
