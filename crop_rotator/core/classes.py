@@ -414,10 +414,10 @@ class CropPlanner(object):
         }
     def basic_context(self, **kwargs):
         self.context = {
-            "self.interactions": self.interactions,
-            "self.interactions_f": self.interactions_f,
-            "self.f_interactions": self.f_interactions,
-            "self.f_interactions_f": self.f_interactions_f,
+            "interactions": self.interactions,
+            "interactions_f": self.interactions_f,
+            "f_interactions": self.f_interactions,
+            "f_interactions_f": self.f_interactions_f,
             "f_error": self.fabs_error,
             "efcs": self.error_family_crops,
             "cr_len_warning": self.clw,
