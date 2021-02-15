@@ -129,7 +129,7 @@
     "latin_name": "Astracae",
     "culture": 3,
     "cooldown_min": 4,
-    "cooldown_max": null,
+    "cooldown_max": 4,
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
@@ -225,17 +225,19 @@
   "fields": {
     "name": "Strączkowe",
     "name_pl": "Strączkowe",
-    "name_en": "Fabaceae",
+    "name_en": "Legumes",
     "latin_name": "Fabaceae",
     "culture": 1,
     "cooldown_min": 3,
-    "cooldown_max": null,
+    "cooldown_max": 3,
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": true,
     "is_family_slave": false,
     "family_master": null,
-    "family_relationships": [],
+    "family_relationships": [
+      14
+    ],
     "family_slaves": []
   }
 },
@@ -353,10 +355,10 @@
   "fields": {
     "name": "Międzyplon",
     "name_pl": "Międzyplon",
-    "name_en": "Catch crop",
+    "name_en": "Cover Crop",
     "descr": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
     "descr_pl": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
-    "descr_en": "This species has special characteristics which make it a valuable catch crop.",
+    "descr_en": "This species has special characteristics which make it a valuable cover crop.",
     "image": ""
   }
 },
@@ -374,6 +376,58 @@
   }
 },
 {
+  "model": "rotator.croptag",
+  "pk": 13,
+  "fields": {
+    "name": "Ostrożnie z karmieniem zwierząt!",
+    "name_pl": "Ostrożnie z karmieniem zwierząt!",
+    "name_en": "Take caution while feeding livestock!",
+    "descr": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
+    "descr_pl": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
+    "descr_en": "Caution! This plant produces chenicals that in large quantities may be harmful to livestock.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 14,
+  "fields": {
+    "name": "Odporna na suszę",
+    "name_pl": "Odporna na suszę",
+    "name_en": "Resistant to drought",
+    "descr": "Ta roślina dobrze znosi okresowe niedobory wody.",
+    "descr_pl": "Ta roślina dobrze znosi okresowe niedobory wody.",
+    "descr_en": "This plant can manage temporary droughts.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 15,
+  "fields": {
+    "name": "Odporna na podmywanie",
+    "name_pl": "Odporna na podmywanie",
+    "name_en": "Resistant do damp",
+    "descr": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
+    "descr_pl": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
+    "descr_en": "This plant can stand temporary flooding.",
+    "image": ""
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 16,
+  "fields": {
+    "name": "Głębosz",
+    "name_pl": "Głębosz",
+    "name_en": "Sobsoiler",
+    "descr": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
+    "descr_pl": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
+    "descr_en": "This plants root system is so strong it literally pierces through compacted soil!",
+    "image": ""
+  }
+},
+{
   "model": "rotator.crop",
   "pk": 1,
   "fields": {
@@ -383,7 +437,7 @@
     "latin_name": "Sinapis alba",
     "descr": "Roślina Jednoroczna. Późny międzyplon jary.",
     "descr_pl": "Roślina Jednoroczna. Późny międzyplon jary.",
-    "descr_en": "Annual plant. Late annual catch crop.",
+    "descr_en": "Annual plant. Late annual cover crop.",
     "image": "images/gorczyca_biała2_eCClo7Z.jpg",
     "image_source": 4,
     "pubdate": "2021-02-09T10:53:56Z",
@@ -414,7 +468,7 @@
     "latin_name": "Sinapis Juncea",
     "descr": "in. \"Kapusta sitowata\", Międzyplon jary - od wczesnego do późnego.",
     "descr_pl": "in. \"Kapusta sitowata\", Międzyplon jary - od wczesnego do późnego.",
-    "descr_en": "also: \"leaf mustard\", Late to early annual catch crop",
+    "descr_en": "also: \"leaf mustard\", Late to early annual cover crop",
     "image": "images/gorczyca_sarepska2_l4jJD0x.jpg",
     "image_source": 4,
     "pubdate": "2021-02-10T12:49:12Z",
@@ -442,14 +496,14 @@
   "fields": {
     "name": "Kapusta Abisyńska",
     "name_pl": "Kapusta Abisyńska",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Brassica Carinata - Ostrożnie z karmieniem zwierząt (zawiera dużo glukozynolanów i kwasu erukowego)",
-    "descr_pl": "Brassica Carinata - Ostrożnie z karmieniem zwierząt (zawiera dużo glukozynolanów i kwasu erukowego)",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Ethiopian Mustard",
+    "latin_name": "Brassica Carinata",
+    "descr": "Międzyplon jary od wczesnego do późnego.",
+    "descr_pl": "Międzyplon jary od wczesnego do późnego.",
+    "descr_en": "also: Abissynian Mustard, late to early cover crop.",
+    "image": "images/Kapusta_Abisyńska.jpg",
+    "image_source": 7,
+    "pubdate": "2021-02-13T09:56:10Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -461,7 +515,10 @@
     "seed_norm_min": 8,
     "seed_norm_max": 12,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      11,
+      13
+    ]
   }
 },
 {
@@ -470,14 +527,14 @@
   "fields": {
     "name": "Rzodkiew Oleista",
     "name_pl": "Rzodkiew Oleista",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Raphanus sativu var. oleiformis",
-    "descr_pl": "Raphanus sativu var. oleiformis",
-    "descr_en": null,
+    "name_en": "Five fodder radish",
+    "latin_name": "Raphanus Sativus var. oleiformis",
+    "descr": "Międzyplon jary od wczesnego do późnego.",
+    "descr_pl": "Międzyplon jary od wczesnego do późnego.",
+    "descr_en": "Early to late annual cover crop.",
     "image": "",
     "image_source": null,
-    "pubdate": null,
+    "pubdate": "2021-02-14T10:45:57Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -489,7 +546,12 @@
     "seed_norm_min": 6,
     "seed_norm_max": 8,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      16,
+      2,
+      11,
+      14
+    ]
   }
 },
 {
@@ -498,16 +560,16 @@
   "fields": {
     "name": "Rzodkiew Japońska",
     "name_pl": "Rzodkiew Japońska",
-    "name_en": null,
-    "latin_name": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Japanese Radish",
+    "latin_name": "Raphanus sativus var. longipinnatus",
+    "descr": "Międzyplon jary od wczesnego do późnego.",
+    "descr_pl": "Międzyplon jary od wczesnego do późnego.",
+    "descr_en": "Early to late annual cover crop.",
+    "image": "images/Rzodkiew_Japońska.jpg",
+    "image_source": 5,
+    "pubdate": "2021-02-15T10:31:13Z",
     "family": 2,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
@@ -516,8 +578,13 @@
     "takes_mix_level": 1,
     "seed_norm_min": 5,
     "seed_norm_max": 8,
-    "crop_relationships": [],
-    "tags": []
+    "crop_relationships": [
+      13
+    ],
+    "tags": [
+      5,
+      11
+    ]
   }
 },
 {
@@ -526,14 +593,14 @@
   "fields": {
     "name": "Rzepak",
     "name_pl": "Rzepak",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Brassica napus",
-    "descr_pl": "Brassica napus",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Canola",
+    "latin_name": "Brassica napus",
+    "descr": "Międzyplon jary lub ozimy od wczesnego do późnego.",
+    "descr_pl": "Międzyplon jary lub ozimy od wczesnego do późnego.",
+    "descr_en": "Annual or perennial, early to late cover crop.",
+    "image": "images/Rzepak.jpg",
+    "image_source": 4,
+    "pubdate": "2021-02-15T11:02:39Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -546,37 +613,9 @@
     "seed_norm_max": 12,
     "crop_relationships": [],
     "tags": [
-      2
-    ]
-  }
-},
-{
-  "model": "rotator.crop",
-  "pk": 7,
-  "fields": {
-    "name": "Rzepak Pastewny",
-    "name_pl": "Rzepak Pastewny",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Brassica napus",
-    "descr_pl": "Brassica napus",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
-    "family": 2,
-    "culture_override": 0,
-    "cooldown_min_override": null,
-    "cooldown_max_override": null,
-    "is_demanding": true,
-    "is_deep_roots": false,
-    "is_leaves_mess": false,
-    "takes_mix_level": 2,
-    "seed_norm_min": 8,
-    "seed_norm_max": 12,
-    "crop_relationships": [],
-    "tags": [
-      2
+      5,
+      2,
+      11
     ]
   }
 },
@@ -586,14 +625,14 @@
   "fields": {
     "name": "Rzepik",
     "name_pl": "Rzepik",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Brassica rapa ssp. oleifera",
-    "descr_pl": "Brassica rapa ssp. oleifera",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Field Mustard",
+    "latin_name": "Brassica rapa ssp. oleifera",
+    "descr": "Międzyplon jary lub ozimy od wczesnego do późnego.",
+    "descr_pl": "Międzyplon jary lub ozimy od wczesnego do późnego.",
+    "descr_en": "Annual or perennial, early to late cover crop.",
+    "image": "images/Rzepik.jpg",
+    "image_source": 6,
+    "pubdate": "2021-02-15T12:00:27Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -606,7 +645,9 @@
     "seed_norm_max": 10,
     "crop_relationships": [],
     "tags": [
-      2
+      2,
+      11,
+      15
     ]
   }
 },
@@ -616,14 +657,14 @@
   "fields": {
     "name": "Lnianka siewna",
     "name_pl": "Lnianka siewna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Camelina sativa",
-    "descr_pl": "Camelina sativa",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Camelina",
+    "latin_name": "Camelina sativa",
+    "descr": "Wczesny międzyplon jary",
+    "descr_pl": "Wczesny międzyplon jary",
+    "descr_en": "Early annual cover crop",
+    "image": "images/Lnianka_Siewna.jpg",
+    "image_source": 8,
+    "pubdate": "2021-02-15T12:55:29Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -635,7 +676,11 @@
     "seed_norm_min": 3,
     "seed_norm_max": 5,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      5,
+      2,
+      11
+    ]
   }
 },
 {
@@ -1877,10 +1922,41 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 13,
+  "fields": {
+    "title": "Rzodkiew Japońska + Kukurydza (N)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "info_source": 6,
+    "type_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 14,
+  "fields": {
+    "title": "Strączkowe + Lnianka siewna",
+    "is_positive": true,
+    "about_crop": 9,
+    "about_family": null,
+    "info_source": null,
+    "type_of_interaction": 0
+  }
+},
+{
   "model": "rotator.familyinteraction",
   "pk": 11,
   "fields": {
     "cropinteraction_ptr": 11
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 14,
+  "fields": {
+    "cropinteraction_ptr": 14
   }
 },
 {
@@ -1896,7 +1972,7 @@
     "add_manure_early": true,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 1,
+    "order": 2,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -1947,7 +2023,7 @@
     "add_manure_early": false,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 2,
+    "order": 1,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2049,8 +2125,7 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      48,
-      12
+      33
     ],
     "late_crop": [
       48
@@ -2076,9 +2151,7 @@
     "early_crop": [
       30
     ],
-    "late_crop": [
-      29
-    ]
+    "late_crop": []
   }
 },
 {
@@ -2100,9 +2173,7 @@
     "early_crop": [
       29
     ],
-    "late_crop": [
-      14
-    ]
+    "late_crop": []
   }
 },
 {
@@ -2124,9 +2195,7 @@
     "early_crop": [
       32
     ],
-    "late_crop": [
-      21
-    ]
+    "late_crop": []
   }
 },
 {
@@ -2146,10 +2215,10 @@
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      10
+      5
     ],
     "late_crop": [
-      47
+      18
     ]
   }
 },
@@ -2290,7 +2359,9 @@
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
-    "late_crop": []
+    "late_crop": [
+      5
+    ]
   }
 },
 {
@@ -2309,7 +2380,9 @@
     "order": 7,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
-    "early_crop": [],
+    "early_crop": [
+      18
+    ],
     "late_crop": []
   }
 },
@@ -2337,7 +2410,7 @@
   "model": "rotator.cropdatasource",
   "pk": 1,
   "fields": {
-    "title": "Włośnica Ber - Międzyplony w Praktyce",
+    "title": "Włośnica Ber - MwP (popraw)",
     "descr": "\"Roślina rosnąca dobrze na słabych glebach, wektor \"fusarium\", a więc słaby przedplon dla pszenicy. Ze względu na małe zdolności konkurencyjne warto ją uprawiać z koniczyną aleksandryjską. Nadaje się na paszę. Jest rośliną o średnio-niskim pokroju. Dobrze znosi suszę w początkowych stadiach rozwoju.\",",
     "descr_pl": "\"Roślina rosnąca dobrze na słabych glebach, wektor \"fusarium\", a więc słaby przedplon dla pszenicy. Ze względu na małe zdolności konkurencyjne warto ją uprawiać z koniczyną aleksandryjską. Nadaje się na paszę. Jest rośliną o średnio-niskim pokroju. Dobrze znosi suszę w początkowych stadiach rozwoju.\",",
     "descr_en": null,
@@ -2386,6 +2459,118 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 4,
+  "fields": {
+    "title": "Kapusta Abisyńska - MwP",
+    "descr": "Roślina produkująca dużo biomasy, łatwa w niszczeniu, o przedłużonym okresie wegetacji (150 dni). Rośnie na słabych i luźnych glebaci. Jest zatem świetnym kandydatem na międzyplon. Może być również używana jako warzywo liściaste i oleiste. Posiada głęboki system korzeniowy. Należy zachować szczególną ostrożność przy stosowaniu tego gatunku jako paszy dla zwierząt!",
+    "descr_pl": "Roślina produkująca dużo biomasy, łatwa w niszczeniu, o przedłużonym okresie wegetacji (150 dni). Rośnie na słabych i luźnych glebaci. Jest zatem świetnym kandydatem na międzyplon. Może być również używana jako warzywo liściaste i oleiste. Posiada głęboki system korzeniowy. Należy zachować szczególną ostrożność przy stosowaniu tego gatunku jako paszy dla zwierząt!",
+    "descr_en": "This species produces large amounts of biomass, is easy to destroy and has long vegetation period (150 days). Grows on weak and loose soils. It's therefore great candidate for a cover crop. It can also be used as leaf vegetable and oil source. It produces deep roots. Please be extra  cautious while using this plant as livestock feed!",
+    "from_crop": 3,
+    "at_data_string": 1,
+    "pages_from": 154,
+    "pages_to": 155,
+    "at_tag": [
+      11,
+      13
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 5,
+  "fields": {
+    "title": "Rzodkiew oleista - MwP",
+    "descr": "Nadaje się do uprawy na wszelkich glebach i w każdych warunkach. Silny korzeń palowy przebija podeszwę płużną. Produkuje dużo biomasy, jest odporna na ślimaki i suszę. Dodatkowo jest rośliną miododajną. Łatwa do niszczenia i wrażliwa na mróz - dobry gatunek na międzyplon.",
+    "descr_pl": "Nadaje się do uprawy na wszelkich glebach i w każdych warunkach. Silny korzeń palowy przebija podeszwę płużną. Produkuje dużo biomasy, jest odporna na ślimaki i suszę. Dodatkowo jest rośliną miododajną. Łatwa do niszczenia i wrażliwa na mróz - dobry gatunek na międzyplon.",
+    "descr_en": "Well suited for any type of soil in any circumstances. Powerful stem root pierces through compacted soil with ease. Produces lots of biomass and is resistant to slugs and drought. Also it is a nectar source. It's easy to destroy mechanically and by frost witch makes it a great cover crop.",
+    "from_crop": 4,
+    "at_data_string": 1,
+    "pages_from": 156,
+    "pages_to": 157,
+    "at_tag": [
+      16,
+      2,
+      11,
+      14
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 6,
+  "fields": {
+    "title": "Rzodkiew Japońska - MwP",
+    "descr": "Ta odmiana rzodkwi skutecznie tłumi chwasty wiążąc cały dostępny w glebie azot i nie pozostawiając go innym roślinom. Ze względu na częściowo wystający z ziemi korzeń jest łatwa w niszczeniu mechanicznym. Nie drewnieje i zniszczona łatwo oddaje wszystkie zgromadzone składniki odżywcze roślinie następczej. Jest wymagająca względem wilgoci, ciepła i przestrzeni. Dobrze spulchnia glebę. Szczególnie polecana na przedplon kukurydzy w uprawie strip-till.",
+    "descr_pl": "Ta odmiana rzodkwi skutecznie tłumi chwasty wiążąc cały dostępny w glebie azot i nie pozostawiając go innym roślinom. Ze względu na częściowo wystający z ziemi korzeń jest łatwa w niszczeniu mechanicznym. Nie drewnieje i zniszczona łatwo oddaje wszystkie zgromadzone składniki odżywcze roślinie następczej. Jest wymagająca względem wilgoci, ciepła i przestrzeni. Dobrze spulchnia glebę. Szczególnie polecana na przedplon kukurydzy w uprawie strip-till.",
+    "descr_en": "This radish species is particularily efficient at suppressing weeds by depriving them of nitrogen. Due to its root being partially exposed it is easily destroyed mechanically. It won't lignify and if destroyed it will easily return accumulated nutrients to be used by following crop. It is demanding in terms of warmth, humidity and space. It loosens the soil well. Good forecrop to corn.",
+    "from_crop": 5,
+    "at_data_string": 1,
+    "pages_from": 158,
+    "pages_to": 160,
+    "at_tag": [
+      5,
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 7,
+  "fields": {
+    "title": "Rzepak - MwP",
+    "descr": "Rzepak oleisty, oraz rzepak pastewny są dość łatwe w uprawie. Jako międzyplon często stosuje się je w mieszankach z innymi roślinami w płodozmianach, gdzie rzepak już nie występuje. Produces lots of quality biomass. Ze względu na luksusowe pobierania azotu działa tłumiąco na chwasty. Można go domieszać lub (co się czasami spotyka w praktyce) pozostawiać nieliczne samosiewy w roślinie następczej, aby zamiast niej przyciągał ślimaki.",
+    "descr_pl": "Rzepak oleisty, oraz rzepak pastewny są dość łatwe w uprawie. Jako międzyplon często stosuje się je w mieszankach z innymi roślinami w płodozmianach, gdzie rzepak już nie występuje. Produces lots of quality biomass. Ze względu na luksusowe pobierania azotu działa tłumiąco na chwasty. Można go domieszać lub (co się czasami spotyka w praktyce) pozostawiać nieliczne samosiewy w roślinie następczej, aby zamiast niej przyciągał ślimaki.",
+    "descr_en": "Canola is relatively easy to cultivate. As a cover crop it is often planted with other species in rotation plans where canola is not present already. It produces lots of quality biomass. Due to luxuriousy high nitrogen intake it supresses nearby weeds. It can be scarcely mixed with another crop (or in practice use the seeds self-seeded by canola from previous year) for attract slugs instead.",
+    "from_crop": 6,
+    "at_data_string": 1,
+    "pages_from": 161,
+    "pages_to": 162,
+    "at_tag": [
+      5,
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 8,
+  "fields": {
+    "title": "Rzepik - MwP",
+    "descr": "Rzepik jest rośliną hydrofilną, rosnącą w pobliżu wód. Lepiej od rzepachu znosi dłuższe przebywanie w stojącej wodzie. Podobnie jak rzodkiew japońska wiąże dużą ilość azotu i dobrze spulchnia glebę dla rośliny następczej. Zimnoodporny, stosowany na terenach górskich i w północno-wschodniej polsce zamiast rzepaku.",
+    "descr_pl": "Rzepik jest rośliną hydrofilną, rosnącą w pobliżu wód. Lepiej od rzepachu znosi dłuższe przebywanie w stojącej wodzie. Podobnie jak rzodkiew japońska wiąże dużą ilość azotu i dobrze spulchnia glebę dla rośliny następczej. Zimnoodporny, stosowany na terenach górskich i w północno-wschodniej polsce zamiast rzepaku.",
+    "descr_en": "Field mustard is hydrophilic, meaning it grows well near aquifiers. It can stand longer periods of standing water than its cousin canola. Alike japanese radish it uses much nitrogen and loosens soil for next crop. Resistant to cold, used on mountainous terrain and in north-eastern Poland in place of canola.",
+    "from_crop": 8,
+    "at_data_string": 1,
+    "pages_from": 165,
+    "pages_to": 166,
+    "at_tag": [
+      2,
+      11,
+      15
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 9,
+  "fields": {
+    "title": "Lnianka siewna MwP",
+    "descr": "Lnianka siewna to znana od tysiącleci roślina oleista udająca się nawet na słabych glebach. Mimo to produkuje wysokiej jakości olej ceniony w gastronomii. Wyjątkowo skutecznie tłumi rozwój chwastów. Cechuje ją szybki wzrost (90-100 dni). Bardzo dobrze współgra w uprawie współrzędnej ze strączkowymi. Jest rośliną miododajną przyciągającą wszystkie zapylacze.",
+    "descr_pl": "Lnianka siewna to znana od tysiącleci roślina oleista udająca się nawet na słabych glebach. Mimo to produkuje wysokiej jakości olej ceniony w gastronomii. Wyjątkowo skutecznie tłumi rozwój chwastów. Cechuje ją szybki wzrost (90-100 dni). Bardzo dobrze współgra w uprawie współrzędnej ze strączkowymi. Jest rośliną miododajną przyciągającą wszystkie zapylacze.",
+    "descr_en": "Camelina has been cultivated for thousands of years in regions with poor quality soils as an oilseed crop. It produces high quality oil priced in quisine and as biofuel additive. It is highly efficient in suppressing weeds. It grows fast (90-100 days) and especially well along legumes. As a nectar source it attracts all types of pollinators.",
+    "from_crop": 9,
+    "at_data_string": 1,
+    "pages_from": 167,
+    "pages_to": 168,
+    "at_tag": [
+      5,
+      2,
+      11
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
   "pk": 1,
   "fields": {
@@ -2418,6 +2603,42 @@
   "fields": {
     "title": "Köhler's Medizinal-Pflanzen",
     "part1": "Franz Eugen Köhler 1897 Köhler's Medizinal-Pflanzen",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 5,
+  "fields": {
+    "title": "Wikipedia CC - Rzodkiew Japońska",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Daikon.Japan.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 6,
+  "fields": {
+    "title": "Wikipedia CC - Rzepik",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_subsp._oleifera,_raapzaad_plant.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 7,
+  "fields": {
+    "title": "Wikipedia CC - Kapusta Abisyńska",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Habesha_gomen_in_Ethiopian_garden.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 8,
+  "fields": {
+    "title": "Bilder ur Nordens Flora",
+    "part1": "A. M. Lindman 1901-1905 Bilder ur Nordens Flora",
     "link": null
   }
 },
@@ -2588,9 +2809,9 @@
     "add_fertilizer": "Dodaj nawóz",
     "add_fertilizer_pl": "Dodaj nawóz",
     "add_fertilizer_en": "Add fertilizer",
-    "add_fertilizer_onhover": "Program zakłada, że wiesz co robisz i dodasz nawóz odpowiedni do uprawy, a więc zaznaczenie tej opcji wpływa na dalsze kalkulacje w sposób najbardziej logiczny. Np. do ziemniaków będzie to obornik, a do zbóż już coś innego.",
-    "add_fertilizer_onhover_pl": "Program zakłada, że wiesz co robisz i dodasz nawóz odpowiedni do uprawy, a więc zaznaczenie tej opcji wpływa na dalsze kalkulacje w sposób najbardziej logiczny. Np. do ziemniaków będzie to obornik, a do zbóż już coś innego.",
-    "add_fertilizer_onhover_en": "This program assumes that you know which fertilizer to use on which crop, thus marking this field will influence calculations in most logical way possible. For example: you will naturally use manure with potatoes but will rather use something else for cereals.",
+    "add_fertilizer_onhover": "Program zakłada, że wiesz co robisz i dodasz nawóz odpowiedni do uprawy, a więc zaznaczenie tej opcji wpływa na dalsze kalkulacje w sposób najbardziej logiczny. Kliknij aby dowiedzieć się więcej na temat dodawania nawozów do płodozmianu.",
+    "add_fertilizer_onhover_pl": "Program zakłada, że wiesz co robisz i dodasz nawóz odpowiedni do uprawy, a więc zaznaczenie tej opcji wpływa na dalsze kalkulacje w sposób najbardziej logiczny. Kliknij aby dowiedzieć się więcej na temat dodawania nawozów do płodozmianu.",
+    "add_fertilizer_onhover_en": "This program assumes that you know which fertilizer to use on which crop, thus marking this field will influence calculations in most logical way possible. Click here to learn more about adding fertilizer to rotation plan.",
     "change": "Zapisz zmiany",
     "change_pl": "Zapisz zmiany",
     "change_en": "Save changes",
@@ -2668,7 +2889,140 @@
     "collides_en": "Collides with",
     "image_source": "Żródło obrazu",
     "image_source_pl": "Żródło obrazu",
-    "image_source_en": "Image source"
+    "image_source_en": "Image source",
+    "add_fertilizer_main": "W tym planie brakuje nawozu z zewnątrz! Zagrożenie wyjałowieniem gleby!",
+    "add_fertilizer_main_pl": "W tym planie brakuje nawozu z zewnątrz! Zagrożenie wyjałowieniem gleby!",
+    "add_fertilizer_main_en": "This plan lacks external fertilization! Threat of soil exhaustion!",
+    "add_fertilizer_onhover_main": "Kliknij tutaj, aby dowiedzieć się więcej o dodawaniu nawozów do płodozmianu.",
+    "add_fertilizer_onhover_main_pl": "Kliknij tutaj, aby dowiedzieć się więcej o dodawaniu nawozów do płodozmianu.",
+    "add_fertilizer_onhover_main_en": "Click here to learn more about adding fertilizer to crop rotation."
+  }
+},
+{
+  "model": "strona.fertilizerpagenames",
+  "pk": 1,
+  "fields": {
+    "title": "Kilka słów o nawozachj",
+    "title_pl": "Kilka słów o nawozachj",
+    "title_en": "Few words about fertilizers",
+    "descr": "<a href=\"https://www.eea.europa.eu/themes/sustainability-transitions/drivers-of-change/growth-without-economic-growth\"> link</a>",
+    "descr_pl": "<a href=\"https://www.eea.europa.eu/themes/sustainability-transitions/drivers-of-change/growth-without-economic-growth\"> link</a>",
+    "descr_en": "<a href=\"https://www.eea.europa.eu/themes/sustainability-transitions/drivers-of-change/growth-without-economic-growth\"> link</a>",
+    "elements_head": null,
+    "elements_head_pl": null,
+    "elements_head_en": null,
+    "makro_head": null,
+    "makro_head_pl": null,
+    "makro_head_en": null,
+    "makro_descr": null,
+    "makro_descr_pl": null,
+    "makro_descr_en": null,
+    "micro_head": null,
+    "micro_head_pl": null,
+    "micro_head_en": null,
+    "micro_descr": null,
+    "micro_descr_pl": null,
+    "micro_descr_en": null,
+    "fertilizers_head": null,
+    "fertilizers_head_pl": null,
+    "fertilizers_head_en": null,
+    "natural_fertilizers_head": null,
+    "natural_fertilizers_head_pl": null,
+    "natural_fertilizers_head_en": null,
+    "natural_fertilizers_descr": null,
+    "natural_fertilizers_descr_pl": null,
+    "natural_fertilizers_descr_en": null,
+    "artificial_fertilizers_head": null,
+    "artificial_fertilizers_head_pl": null,
+    "artificial_fertilizers_head_en": null,
+    "artificial_fertilizers_descr": null,
+    "artificial_fertilizers_descr_pl": null,
+    "artificial_fertilizers_descr_en": null
+  }
+},
+{
+  "model": "strona.basicelement",
+  "pk": 1,
+  "fields": {
+    "name": "Azot",
+    "name_pl": "Azot",
+    "name_en": "Nitrogen",
+    "latin_name": "nitrogenium",
+    "symbol": "N",
+    "image": "",
+    "image_source": null,
+    "is_trace_element": false,
+    "descr": "Opis roli azotu we współczesnym nawożeniu - zwłaszcza tym ekologicznym.",
+    "descr_pl": "Opis roli azotu we współczesnym nawożeniu - zwłaszcza tym ekologicznym.",
+    "descr_en": ""
+  }
+},
+{
+  "model": "strona.basicelement",
+  "pk": 2,
+  "fields": {
+    "name": "Fosfor",
+    "name_pl": "Fosfor",
+    "name_en": "Phosphorus",
+    "latin_name": "phosphorus",
+    "symbol": "P",
+    "image": "",
+    "image_source": null,
+    "is_trace_element": false,
+    "descr": "Opis...",
+    "descr_pl": "Opis...",
+    "descr_en": ""
+  }
+},
+{
+  "model": "strona.basicelement",
+  "pk": 3,
+  "fields": {
+    "name": "Potas",
+    "name_pl": "Potas",
+    "name_en": "Potassium",
+    "latin_name": "kalium",
+    "symbol": "K",
+    "image": "",
+    "image_source": null,
+    "is_trace_element": false,
+    "descr": "Opis..",
+    "descr_pl": "Opis..",
+    "descr_en": ""
+  }
+},
+{
+  "model": "strona.basicelement",
+  "pk": 4,
+  "fields": {
+    "name": "Selen",
+    "name_pl": "Selen",
+    "name_en": "Selenium",
+    "latin_name": "selenium",
+    "symbol": "Se",
+    "image": "",
+    "image_source": null,
+    "is_trace_element": true,
+    "descr": "opis... śladowy",
+    "descr_pl": "opis... śladowy",
+    "descr_en": ""
+  }
+},
+{
+  "model": "strona.basicelement",
+  "pk": 5,
+  "fields": {
+    "name": "Kobalt",
+    "name_pl": "Kobalt",
+    "name_en": "Cobalt",
+    "latin_name": "cobaltum",
+    "symbol": "Co",
+    "image": "",
+    "image_source": null,
+    "is_trace_element": true,
+    "descr": "Opis... śladowy",
+    "descr_pl": "Opis... śladowy",
+    "descr_en": ""
   }
 }
 ]
