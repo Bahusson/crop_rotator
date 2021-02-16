@@ -87,6 +87,9 @@ class CropTag(models.Model):
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
+    crop_relationships = models.ManyToManyField(
+        "TagsInteraction", related_name="known_tags_interactions", blank=True
+    )
 
     class Meta:
         ordering = ["name"]
@@ -141,7 +144,7 @@ class Crop(models.Model):
     cooldown_min_override = models.IntegerField(blank=True, null=True)
     cooldown_max_override = models.IntegerField(blank=True, null=True)
     crop_relationships = models.ManyToManyField(
-        "CropInteraction", related_name="known_crop_interactions", blank=True
+        "CropsInteraction", related_name="known_crops_interactions", blank=True
     )
     is_demanding = models.BooleanField(default=False)
     # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
@@ -205,6 +208,13 @@ class CropInteraction(models.Model):
         blank=True,
         null=True,
     )
+    about_tag = models.ForeignKey(
+        "CropTag",
+        related_name="tag_interaction_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
     info_source = models.ForeignKey(
         "CropDataSource",
         related_name="info_source_set",
@@ -222,6 +232,13 @@ class CropInteraction(models.Model):
     def __str__(self):
         return self.title
 
+class CropsInteraction(CropInteraction):
+    class Meta:
+        ordering = ["title"]
+
+    def __str__(self):
+            return self.title
+
 
 class FamilyInteraction(CropInteraction):
     class Meta:
@@ -230,6 +247,13 @@ class FamilyInteraction(CropInteraction):
     def __str__(self):
         return self.title
 
+
+class TagsInteraction(CropInteraction):
+    class Meta:
+        ordering = ["title"]
+
+    def __str__(self):
+            return self.title
 
 # Element płodozmianu.
 class RotationStep(models.Model):

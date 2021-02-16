@@ -333,7 +333,8 @@
     "descr": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
     "descr_pl": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
     "descr_en": "This species is particularly popular among pollinators.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -346,7 +347,8 @@
     "descr": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
     "descr_pl": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
     "descr_en": "This species supresses nearby weeds - probably is a weed itself.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -359,7 +361,8 @@
     "descr": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
     "descr_pl": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
     "descr_en": "This species has special characteristics which make it a valuable cover crop.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -372,7 +375,8 @@
     "descr": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
     "descr_pl": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
     "descr_en": "This plant has unique properties that enable it to fight off pathogens, hance improving the well-being of surrounding plants.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -385,7 +389,8 @@
     "descr": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
     "descr_pl": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
     "descr_en": "Caution! This plant produces chenicals that in large quantities may be harmful to livestock.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -398,7 +403,8 @@
     "descr": "Ta roślina dobrze znosi okresowe niedobory wody.",
     "descr_pl": "Ta roślina dobrze znosi okresowe niedobory wody.",
     "descr_en": "This plant can manage temporary droughts.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -411,7 +417,8 @@
     "descr": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
     "descr_pl": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
     "descr_en": "This plant can stand temporary flooding.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -424,7 +431,8 @@
     "descr": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
     "descr_pl": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
     "descr_en": "This plants root system is so strong it literally pierces through compacted soil!",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -579,7 +587,7 @@
     "seed_norm_min": 5,
     "seed_norm_max": 8,
     "crop_relationships": [
-      13
+      24
     ],
     "tags": [
       5,
@@ -689,16 +697,16 @@
   "fields": {
     "name": "Owies Siewny",
     "name_pl": "Owies Siewny",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Avena sativa",
-    "descr_pl": "Avena sativa",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Oat",
+    "latin_name": "Avena sativa",
+    "descr": "Międzyplon na jesienny zbiór, od wczesnego do późnego.",
+    "descr_pl": "Międzyplon na jesienny zbiór, od wczesnego do późnego.",
+    "descr_en": "Early to late autumn harvest cover crop.",
+    "image": "images/Owies.jpg",
+    "image_source": 9,
+    "pubdate": "2021-02-16T08:46:54Z",
     "family": 15,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
@@ -707,8 +715,13 @@
     "takes_mix_level": 4,
     "seed_norm_min": 70,
     "seed_norm_max": 100,
-    "crop_relationships": [],
+    "crop_relationships": [
+      22,
+      23
+    ],
     "tags": [
+      12,
+      5,
       11
     ]
   }
@@ -717,16 +730,16 @@
   "model": "rotator.crop",
   "pk": 11,
   "fields": {
-    "name": "Owies szorstki",
-    "name_pl": "Owies szorstki",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Avena strigosa",
-    "descr_pl": "Avena strigosa",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name": "Owies Szorstki",
+    "name_pl": "Owies Szorstki",
+    "name_en": "Black Oat",
+    "latin_name": "Avena Strigosa",
+    "descr": "Międzyplon uniwersalny. Rośnie na każdej glebie i w każdych warunkach!",
+    "descr_pl": "Międzyplon uniwersalny. Rośnie na każdej glebie i w każdych warunkach!",
+    "descr_en": "This plan is an universal cover crop. It grows on any soil, under any conditions!",
+    "image": "images/Owies_Szorstki.jpg",
+    "image_source": 10,
+    "pubdate": "2021-02-16T09:55:22Z",
     "family": 15,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -734,12 +747,15 @@
     "is_demanding": false,
     "is_deep_roots": true,
     "is_leaves_mess": true,
-    "takes_mix_level": 0,
+    "takes_mix_level": 4,
     "seed_norm_min": 35,
     "seed_norm_max": 50,
     "crop_relationships": [],
     "tags": [
-      11
+      12,
+      5,
+      11,
+      14
     ]
   }
 },
@@ -749,16 +765,16 @@
   "fields": {
     "name": "Żyto zwyczajne",
     "name_pl": "Żyto zwyczajne",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Secale cereale",
-    "descr_pl": "Secale cereale",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Rye",
+    "latin_name": "Secale cereale",
+    "descr": "Międzyplon ozimy",
+    "descr_pl": "Międzyplon ozimy",
+    "descr_en": "Perennial cover crop",
+    "image": "images/Żyto.jpg",
+    "image_source": 9,
+    "pubdate": "2021-02-16T11:01:02Z",
     "family": 11,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
@@ -767,37 +783,9 @@
     "takes_mix_level": 5,
     "seed_norm_min": 70,
     "seed_norm_max": 100,
-    "crop_relationships": [],
-    "tags": [
-      5
-    ]
-  }
-},
-{
-  "model": "rotator.crop",
-  "pk": 13,
-  "fields": {
-    "name": "Żyto krzyca",
-    "name_pl": "Żyto krzyca",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Secale multicaule, ż. świętojańskie, ż. pastwene",
-    "descr_pl": "Secale multicaule, ż. świętojańskie, ż. pastwene",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
-    "family": 11,
-    "culture_override": 0,
-    "cooldown_min_override": null,
-    "cooldown_max_override": null,
-    "is_demanding": false,
-    "is_deep_roots": true,
-    "is_leaves_mess": true,
-    "takes_mix_level": 5,
-    "seed_norm_min": 25,
-    "seed_norm_max": 30,
-    "crop_relationships": [],
+    "crop_relationships": [
+      26
+    ],
     "tags": [
       5
     ]
@@ -1194,7 +1182,7 @@
     "seed_norm_min": 6,
     "seed_norm_max": 10,
     "crop_relationships": [
-      12
+      20
     ],
     "tags": [
       2
@@ -1367,7 +1355,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 60,
     "seed_norm_max": 80,
-    "crop_relationships": [],
+    "crop_relationships": [
+      21
+    ],
     "tags": []
   }
 },
@@ -1395,7 +1385,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 40,
     "seed_norm_max": 50,
-    "crop_relationships": [],
+    "crop_relationships": [
+      25
+    ],
     "tags": []
   }
 },
@@ -1423,7 +1415,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 35,
     "seed_norm_max": 45,
-    "crop_relationships": [],
+    "crop_relationships": [
+      25
+    ],
     "tags": []
   }
 },
@@ -1451,7 +1445,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 40,
     "seed_norm_max": 50,
-    "crop_relationships": [],
+    "crop_relationships": [
+      25
+    ],
     "tags": []
   }
 },
@@ -1905,44 +1901,162 @@
     "is_positive": true,
     "about_crop": 1,
     "about_family": null,
+    "about_tag": null,
     "info_source": 2,
     "type_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 12,
-  "fields": {
-    "title": "Facelia + Gorczyca biała  (W)",
-    "is_positive": true,
-    "about_crop": 1,
-    "about_family": null,
-    "info_source": 2,
-    "type_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 13,
-  "fields": {
-    "title": "Rzodkiew Japońska + Kukurydza (N)",
-    "is_positive": true,
-    "about_crop": 18,
-    "about_family": null,
-    "info_source": 6,
-    "type_of_interaction": 2
   }
 },
 {
   "model": "rotator.cropinteraction",
   "pk": 14,
   "fields": {
-    "title": "Strączkowe + Lnianka siewna",
+    "title": "Strączkowe + Lnianka siewna (W)",
     "is_positive": true,
     "about_crop": 9,
     "about_family": null,
-    "info_source": null,
+    "about_tag": null,
+    "info_source": 9,
     "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 20,
+  "fields": {
+    "title": "Facelia + Gorczyca biała  (W)",
+    "is_positive": true,
+    "about_crop": 1,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 2,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 21,
+  "fields": {
+    "title": "Groch ++ Żyto (W)",
+    "is_positive": true,
+    "about_crop": 12,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 12,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 22,
+  "fields": {
+    "title": "Owies Siewny - - Jęczmień (N)",
+    "is_positive": false,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 10,
+    "type_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 23,
+  "fields": {
+    "title": "Owies Siewny - - Kapustowate (A)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 2,
+    "about_tag": null,
+    "info_source": 10,
+    "type_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 24,
+  "fields": {
+    "title": "Rzodkiew Japońska + Kukurydza (N)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 6,
+    "type_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 25,
+  "fields": {
+    "title": "Wyka ++ Żyto (W)",
+    "is_positive": true,
+    "about_crop": 12,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 12,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 26,
+  "fields": {
+    "title": "Żyto ++ bobowate (w)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": 4,
+    "about_tag": null,
+    "info_source": 12,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 20,
+  "fields": {
+    "cropinteraction_ptr": 20
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 21,
+  "fields": {
+    "cropinteraction_ptr": 21
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 22,
+  "fields": {
+    "cropinteraction_ptr": 22
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 23,
+  "fields": {
+    "cropinteraction_ptr": 23
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 24,
+  "fields": {
+    "cropinteraction_ptr": 24
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 25,
+  "fields": {
+    "cropinteraction_ptr": 25
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 26,
+  "fields": {
+    "cropinteraction_ptr": 26
   }
 },
 {
@@ -2571,6 +2685,65 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 10,
+  "fields": {
+    "title": "Owies Siewny - MwP",
+    "descr": "Owies jest rośliną silnie konkurującą względem chwastów. W rodzinie wiechlinowatych jest rośliną fitosanitarną, tj. nie przenosi chorób na rośliny następcze. Dzięki rozbudowanemu systemowi korzeniowemu poprawia strukturę gleby, choć trzeba mieć na uwadze, że zużywa również dużo wody. Wytwarza dużo biomasy i jest mało wrażliwy na ślimaki.\r\nNależy go unikać przed wysiewem jęczmienia jarego. Jest znany z właściwości allelopatycznych hamujących wzrost roślin dwuliściennych - w tym kapustowatych.",
+    "descr_pl": "Owies jest rośliną silnie konkurującą względem chwastów. W rodzinie wiechlinowatych jest rośliną fitosanitarną, tj. nie przenosi chorób na rośliny następcze. Dzięki rozbudowanemu systemowi korzeniowemu poprawia strukturę gleby, choć trzeba mieć na uwadze, że zużywa również dużo wody. Wytwarza dużo biomasy i jest mało wrażliwy na ślimaki.\r\nNależy go unikać przed wysiewem jęczmienia jarego. Jest znany z właściwości allelopatycznych hamujących wzrost roślin dwuliściennych - w tym kapustowatych.",
+    "descr_en": "Oat is strongly competitive against weeds. In poaceae family it is considered phytosanitary, meaning it does not pass pathogens to following crops. Thanks to its vast root system oat enhances soil structure, although one must bear in mind its high water intake. As a result oat produces considerable amounts of biomas. It is also resistant to slugs.\r\nOne should avoid sowing oat right before barley. Oat is also known for it’s negaitve allelopatic influence on some of dicotyledons, notably Brassicae.",
+    "from_crop": 10,
+    "at_data_string": 1,
+    "pages_from": 170,
+    "pages_to": 172,
+    "at_tag": [
+      12,
+      5,
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 11,
+  "fields": {
+    "title": "Owies szorstki - MwP",
+    "descr": "Owies szorstki to idealna roślina zarówno na paszę jak i do biogazowni. Nie zużywa dużych ilości wody ani składników pokarmowych, za to wiąże w sobie dużo węgla, produkując duże ilości biomasy (4-5 ton suchej masy na hektar). Jest konkurencyjny względem chwastów i mało wrażliwy na choroby.",
+    "descr_pl": "Owies szorstki to idealna roślina zarówno na paszę jak i do biogazowni. Nie zużywa dużych ilości wody ani składników pokarmowych, za to wiąże w sobie dużo węgla, produkując duże ilości biomasy (4-5 ton suchej masy na hektar). Jest konkurencyjny względem chwastów i mało wrażliwy na choroby.",
+    "descr_en": "Black oat is perfect both as animal feed and for usage in biogas plants. It uses little watter and nutrients, at the same time binding lots of carbon to produce copious amounts of biomass (around 4-5 tons per ha).  It is competitive against weeds and generally resistant to pathogens.",
+    "from_crop": 11,
+    "at_data_string": 1,
+    "pages_from": 173,
+    "pages_to": 175,
+    "at_tag": [
+      12,
+      5,
+      11,
+      14
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 12,
+  "fields": {
+    "title": "Żyto zwyczajne - MwP",
+    "descr": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
+    "descr_pl": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
+    "descr_en": "Rye is cheap and easy to cultivate in polish climate. It grows well on weak, light, sandy and dry soils. Widthstands cold tempertatures well. It quickly produces much biomass. Because of that it is often planted used direct drilling technique with late-ripening maize and soy. In ecological agriculture it’s also sown with fabaceae, and field vegetables (like cucumber, pumpkin and tomato), as it provides them with thick mulch layer. Rye shows allelopatic properties and efficiently supresses weeds. It attracts slugs. As it is especially prone to attacks by Ergot (Cleviceps purpurea), one needs to be carefull about including Rye in rotation plan containing other cereals.\r\n\r\nNote: Plant used as animal feed equivalent to secale cereale is secale multicaule.",
+    "from_crop": 12,
+    "at_data_string": 1,
+    "pages_from": 176,
+    "pages_to": 177,
+    "at_tag": [
+      12,
+      5,
+      11,
+      14
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
   "pk": 1,
   "fields": {
@@ -2639,6 +2812,24 @@
   "fields": {
     "title": "Bilder ur Nordens Flora",
     "part1": "A. M. Lindman 1901-1905 Bilder ur Nordens Flora",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 9,
+  "fields": {
+    "title": "Flora von Deutschland, Österreich und der Schweiz",
+    "part1": "Prof. Dr. Otto Wilhelm Thomé 1885 Flora von Deutschland, Österreich und der Schweiz",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 10,
+  "fields": {
+    "title": "Flora Batava of Afbeelding en Beschrijving van Nederlandsche Gevassen",
+    "part1": "Jan Kops 1881 Flora Batava of Afbeelding en Beschrijving van Nederlandsche Gevassen, XVI. Deel.",
     "link": null
   }
 },

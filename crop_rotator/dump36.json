@@ -129,7 +129,7 @@
     "latin_name": "Astracae",
     "culture": 3,
     "cooldown_min": 4,
-    "cooldown_max": null,
+    "cooldown_max": 4,
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
@@ -225,17 +225,19 @@
   "fields": {
     "name": "Strączkowe",
     "name_pl": "Strączkowe",
-    "name_en": "Fabaceae",
+    "name_en": "Legumes",
     "latin_name": "Fabaceae",
     "culture": 1,
     "cooldown_min": 3,
-    "cooldown_max": null,
+    "cooldown_max": 3,
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": true,
     "is_family_slave": false,
     "family_master": null,
-    "family_relationships": [],
+    "family_relationships": [
+      14
+    ],
     "family_slaves": []
   }
 },
@@ -500,7 +502,7 @@
     "descr_pl": "Międzyplon jary od wczesnego do późnego.",
     "descr_en": "also: Abissynian Mustard, late to early cover crop.",
     "image": "images/Kapusta_Abisyńska.jpg",
-    "image_source": 5,
+    "image_source": 7,
     "pubdate": "2021-02-13T09:56:10Z",
     "family": 2,
     "culture_override": 0,
@@ -623,14 +625,14 @@
   "fields": {
     "name": "Rzepik",
     "name_pl": "Rzepik",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Brassica rapa ssp. oleifera",
-    "descr_pl": "Brassica rapa ssp. oleifera",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Field Mustard",
+    "latin_name": "Brassica rapa ssp. oleifera",
+    "descr": "Międzyplon jary lub ozimy od wczesnego do późnego.",
+    "descr_pl": "Międzyplon jary lub ozimy od wczesnego do późnego.",
+    "descr_en": "Annual or perennial, early to late cover crop.",
+    "image": "images/Rzepik.jpg",
+    "image_source": 6,
+    "pubdate": "2021-02-15T12:00:27Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -643,7 +645,9 @@
     "seed_norm_max": 10,
     "crop_relationships": [],
     "tags": [
-      2
+      2,
+      11,
+      15
     ]
   }
 },
@@ -653,14 +657,14 @@
   "fields": {
     "name": "Lnianka siewna",
     "name_pl": "Lnianka siewna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Camelina sativa",
-    "descr_pl": "Camelina sativa",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Camelina",
+    "latin_name": "Camelina sativa",
+    "descr": "Wczesny międzyplon jary",
+    "descr_pl": "Wczesny międzyplon jary",
+    "descr_en": "Early annual cover crop",
+    "image": "images/Lnianka_Siewna.jpg",
+    "image_source": 8,
+    "pubdate": "2021-02-15T12:55:29Z",
     "family": 2,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -672,7 +676,11 @@
     "seed_norm_min": 3,
     "seed_norm_max": 5,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      5,
+      2,
+      11
+    ]
   }
 },
 {
@@ -681,16 +689,16 @@
   "fields": {
     "name": "Owies Siewny",
     "name_pl": "Owies Siewny",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Avena sativa",
-    "descr_pl": "Avena sativa",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Oat",
+    "latin_name": "Avena sativa",
+    "descr": "Międzyplon na jesienny zbiór, od wczesnego do późnego.",
+    "descr_pl": "Międzyplon na jesienny zbiór, od wczesnego do późnego.",
+    "descr_en": "Early to late autumn harvest cover crop.",
+    "image": "images/Owies.jpg",
+    "image_source": 9,
+    "pubdate": "2021-02-16T08:46:54Z",
     "family": 15,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
@@ -699,8 +707,13 @@
     "takes_mix_level": 4,
     "seed_norm_min": 70,
     "seed_norm_max": 100,
-    "crop_relationships": [],
+    "crop_relationships": [
+      16,
+      15
+    ],
     "tags": [
+      12,
+      5,
       11
     ]
   }
@@ -709,16 +722,16 @@
   "model": "rotator.crop",
   "pk": 11,
   "fields": {
-    "name": "Owies szorstki",
-    "name_pl": "Owies szorstki",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Avena strigosa",
-    "descr_pl": "Avena strigosa",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name": "Owies Szorstki",
+    "name_pl": "Owies Szorstki",
+    "name_en": "Black Oat",
+    "latin_name": "Avena Strigosa",
+    "descr": "Międzyplon uniwersalny. Rośnie na każdej glebie i w każdych warunkach!",
+    "descr_pl": "Międzyplon uniwersalny. Rośnie na każdej glebie i w każdych warunkach!",
+    "descr_en": "This plan is an universal cover crop. It grows on any soil, under any conditions!",
+    "image": "images/Owies_Szorstki.jpg",
+    "image_source": 10,
+    "pubdate": "2021-02-16T09:55:22Z",
     "family": 15,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -726,12 +739,15 @@
     "is_demanding": false,
     "is_deep_roots": true,
     "is_leaves_mess": true,
-    "takes_mix_level": 0,
+    "takes_mix_level": 4,
     "seed_norm_min": 35,
     "seed_norm_max": 50,
     "crop_relationships": [],
     "tags": [
-      11
+      12,
+      5,
+      11,
+      14
     ]
   }
 },
@@ -741,16 +757,16 @@
   "fields": {
     "name": "Żyto zwyczajne",
     "name_pl": "Żyto zwyczajne",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Secale cereale",
-    "descr_pl": "Secale cereale",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Rye",
+    "latin_name": "Secale cereale",
+    "descr": "Międzyplon ozimy",
+    "descr_pl": "Międzyplon ozimy",
+    "descr_en": "Perennial cover crop",
+    "image": "images/Żyto.jpg",
+    "image_source": 9,
+    "pubdate": "2021-02-16T11:01:02Z",
     "family": 11,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
@@ -759,37 +775,9 @@
     "takes_mix_level": 5,
     "seed_norm_min": 70,
     "seed_norm_max": 100,
-    "crop_relationships": [],
-    "tags": [
-      5
-    ]
-  }
-},
-{
-  "model": "rotator.crop",
-  "pk": 13,
-  "fields": {
-    "name": "Żyto krzyca",
-    "name_pl": "Żyto krzyca",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Secale multicaule, ż. świętojańskie, ż. pastwene",
-    "descr_pl": "Secale multicaule, ż. świętojańskie, ż. pastwene",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
-    "family": 11,
-    "culture_override": 0,
-    "cooldown_min_override": null,
-    "cooldown_max_override": null,
-    "is_demanding": false,
-    "is_deep_roots": true,
-    "is_leaves_mess": true,
-    "takes_mix_level": 5,
-    "seed_norm_min": 25,
-    "seed_norm_max": 30,
-    "crop_relationships": [],
+    "crop_relationships": [
+      19
+    ],
     "tags": [
       5
     ]
@@ -1359,7 +1347,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 60,
     "seed_norm_max": 80,
-    "crop_relationships": [],
+    "crop_relationships": [
+      18
+    ],
     "tags": []
   }
 },
@@ -1387,7 +1377,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 40,
     "seed_norm_max": 50,
-    "crop_relationships": [],
+    "crop_relationships": [
+      17
+    ],
     "tags": []
   }
 },
@@ -1415,7 +1407,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 35,
     "seed_norm_max": 45,
-    "crop_relationships": [],
+    "crop_relationships": [
+      17
+    ],
     "tags": []
   }
 },
@@ -1443,7 +1437,9 @@
     "takes_mix_level": 0,
     "seed_norm_min": 40,
     "seed_norm_max": 50,
-    "crop_relationships": [],
+    "crop_relationships": [
+      17
+    ],
     "tags": []
   }
 },
@@ -1926,10 +1922,89 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 14,
+  "fields": {
+    "title": "Strączkowe + Lnianka siewna (W)",
+    "is_positive": true,
+    "about_crop": 9,
+    "about_family": null,
+    "info_source": 9,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 15,
+  "fields": {
+    "title": "Owies Siewny - - Kapustowate (A)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 2,
+    "info_source": 10,
+    "type_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 16,
+  "fields": {
+    "title": "Owies Siewny - - Jęczmień (N)",
+    "is_positive": false,
+    "about_crop": 16,
+    "about_family": null,
+    "info_source": 10,
+    "type_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 17,
+  "fields": {
+    "title": "Wyka ++ Żyto (W)",
+    "is_positive": true,
+    "about_crop": 12,
+    "about_family": null,
+    "info_source": 12,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 18,
+  "fields": {
+    "title": "Groch ++ Żyto (W)",
+    "is_positive": true,
+    "about_crop": 12,
+    "about_family": null,
+    "info_source": 12,
+    "type_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 19,
+  "fields": {
+    "title": "Żyto ++ bobowate (w)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": 4,
+    "info_source": 12,
+    "type_of_interaction": 0
+  }
+},
+{
   "model": "rotator.familyinteraction",
   "pk": 11,
   "fields": {
     "cropinteraction_ptr": 11
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 14,
+  "fields": {
+    "cropinteraction_ptr": 14
   }
 },
 {
@@ -2495,13 +2570,110 @@
     "descr": "Rzepak oleisty, oraz rzepak pastewny są dość łatwe w uprawie. Jako międzyplon często stosuje się je w mieszankach z innymi roślinami w płodozmianach, gdzie rzepak już nie występuje. Produces lots of quality biomass. Ze względu na luksusowe pobierania azotu działa tłumiąco na chwasty. Można go domieszać lub (co się czasami spotyka w praktyce) pozostawiać nieliczne samosiewy w roślinie następczej, aby zamiast niej przyciągał ślimaki.",
     "descr_pl": "Rzepak oleisty, oraz rzepak pastewny są dość łatwe w uprawie. Jako międzyplon często stosuje się je w mieszankach z innymi roślinami w płodozmianach, gdzie rzepak już nie występuje. Produces lots of quality biomass. Ze względu na luksusowe pobierania azotu działa tłumiąco na chwasty. Można go domieszać lub (co się czasami spotyka w praktyce) pozostawiać nieliczne samosiewy w roślinie następczej, aby zamiast niej przyciągał ślimaki.",
     "descr_en": "Canola is relatively easy to cultivate. As a cover crop it is often planted with other species in rotation plans where canola is not present already. It produces lots of quality biomass. Due to luxuriousy high nitrogen intake it supresses nearby weeds. It can be scarcely mixed with another crop (or in practice use the seeds self-seeded by canola from previous year) for attract slugs instead.",
-    "from_crop": null,
+    "from_crop": 6,
     "at_data_string": 1,
     "pages_from": 161,
     "pages_to": 162,
     "at_tag": [
       5,
       11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 8,
+  "fields": {
+    "title": "Rzepik - MwP",
+    "descr": "Rzepik jest rośliną hydrofilną, rosnącą w pobliżu wód. Lepiej od rzepachu znosi dłuższe przebywanie w stojącej wodzie. Podobnie jak rzodkiew japońska wiąże dużą ilość azotu i dobrze spulchnia glebę dla rośliny następczej. Zimnoodporny, stosowany na terenach górskich i w północno-wschodniej polsce zamiast rzepaku.",
+    "descr_pl": "Rzepik jest rośliną hydrofilną, rosnącą w pobliżu wód. Lepiej od rzepachu znosi dłuższe przebywanie w stojącej wodzie. Podobnie jak rzodkiew japońska wiąże dużą ilość azotu i dobrze spulchnia glebę dla rośliny następczej. Zimnoodporny, stosowany na terenach górskich i w północno-wschodniej polsce zamiast rzepaku.",
+    "descr_en": "Field mustard is hydrophilic, meaning it grows well near aquifiers. It can stand longer periods of standing water than its cousin canola. Alike japanese radish it uses much nitrogen and loosens soil for next crop. Resistant to cold, used on mountainous terrain and in north-eastern Poland in place of canola.",
+    "from_crop": 8,
+    "at_data_string": 1,
+    "pages_from": 165,
+    "pages_to": 166,
+    "at_tag": [
+      2,
+      11,
+      15
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 9,
+  "fields": {
+    "title": "Lnianka siewna MwP",
+    "descr": "Lnianka siewna to znana od tysiącleci roślina oleista udająca się nawet na słabych glebach. Mimo to produkuje wysokiej jakości olej ceniony w gastronomii. Wyjątkowo skutecznie tłumi rozwój chwastów. Cechuje ją szybki wzrost (90-100 dni). Bardzo dobrze współgra w uprawie współrzędnej ze strączkowymi. Jest rośliną miododajną przyciągającą wszystkie zapylacze.",
+    "descr_pl": "Lnianka siewna to znana od tysiącleci roślina oleista udająca się nawet na słabych glebach. Mimo to produkuje wysokiej jakości olej ceniony w gastronomii. Wyjątkowo skutecznie tłumi rozwój chwastów. Cechuje ją szybki wzrost (90-100 dni). Bardzo dobrze współgra w uprawie współrzędnej ze strączkowymi. Jest rośliną miododajną przyciągającą wszystkie zapylacze.",
+    "descr_en": "Camelina has been cultivated for thousands of years in regions with poor quality soils as an oilseed crop. It produces high quality oil priced in quisine and as biofuel additive. It is highly efficient in suppressing weeds. It grows fast (90-100 days) and especially well along legumes. As a nectar source it attracts all types of pollinators.",
+    "from_crop": 9,
+    "at_data_string": 1,
+    "pages_from": 167,
+    "pages_to": 168,
+    "at_tag": [
+      5,
+      2,
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 10,
+  "fields": {
+    "title": "Owies Siewny - MwP",
+    "descr": "Owies jest rośliną silnie konkurującą względem chwastów. W rodzinie wiechlinowatych jest rośliną fitosanitarną, tj. nie przenosi chorób na rośliny następcze. Dzięki rozbudowanemu systemowi korzeniowemu poprawia strukturę gleby, choć trzeba mieć na uwadze, że zużywa również dużo wody. Wytwarza dużo biomasy i jest mało wrażliwy na ślimaki.\r\nNależy go unikać przed wysiewem jęczmienia jarego. Jest znany z właściwości allelopatycznych hamujących wzrost roślin dwuliściennych - w tym kapustowatych.",
+    "descr_pl": "Owies jest rośliną silnie konkurującą względem chwastów. W rodzinie wiechlinowatych jest rośliną fitosanitarną, tj. nie przenosi chorób na rośliny następcze. Dzięki rozbudowanemu systemowi korzeniowemu poprawia strukturę gleby, choć trzeba mieć na uwadze, że zużywa również dużo wody. Wytwarza dużo biomasy i jest mało wrażliwy na ślimaki.\r\nNależy go unikać przed wysiewem jęczmienia jarego. Jest znany z właściwości allelopatycznych hamujących wzrost roślin dwuliściennych - w tym kapustowatych.",
+    "descr_en": "Oat is strongly competitive against weeds. In poaceae family it is considered phytosanitary, meaning it does not pass pathogens to following crops. Thanks to its vast root system oat enhances soil structure, although one must bear in mind its high water intake. As a result oat produces considerable amounts of biomas. It is also resistant to slugs.\r\nOne should avoid sowing oat right before barley. Oat is also known for it’s negaitve allelopatic influence on some of dicotyledons, notably Brassicae.",
+    "from_crop": 10,
+    "at_data_string": 1,
+    "pages_from": 170,
+    "pages_to": 172,
+    "at_tag": [
+      12,
+      5,
+      11
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 11,
+  "fields": {
+    "title": "Owies szorstki - MwP",
+    "descr": "Owies szorstki to idealna roślina zarówno na paszę jak i do biogazowni. Nie zużywa dużych ilości wody ani składników pokarmowych, za to wiąże w sobie dużo węgla, produkując duże ilości biomasy (4-5 ton suchej masy na hektar). Jest konkurencyjny względem chwastów i mało wrażliwy na choroby.",
+    "descr_pl": "Owies szorstki to idealna roślina zarówno na paszę jak i do biogazowni. Nie zużywa dużych ilości wody ani składników pokarmowych, za to wiąże w sobie dużo węgla, produkując duże ilości biomasy (4-5 ton suchej masy na hektar). Jest konkurencyjny względem chwastów i mało wrażliwy na choroby.",
+    "descr_en": "Black oat is perfect both as animal feed and for usage in biogas plants. It uses little watter and nutrients, at the same time binding lots of carbon to produce copious amounts of biomass (around 4-5 tons per ha).  It is competitive against weeds and generally resistant to pathogens.",
+    "from_crop": 11,
+    "at_data_string": 1,
+    "pages_from": 173,
+    "pages_to": 175,
+    "at_tag": [
+      12,
+      5,
+      11,
+      14
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 12,
+  "fields": {
+    "title": "Żyto zwyczajne - MwP",
+    "descr": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
+    "descr_pl": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
+    "descr_en": "Rye is cheap and easy to cultivate in polish climate. It grows well on weak, light, sandy and dry soils. Widthstands cold tempertatures well. It quickly produces much biomass. Because of that it is often planted used direct drilling technique with late-ripening maize and soy. In ecological agriculture it’s also sown with fabaceae, and field vegetables (like cucumber, pumpkin and tomato), as it provides them with thick mulch layer. Rye shows allelopatic properties and efficiently supresses weeds. It attracts slugs. As it is especially prone to attacks by Ergot (Cleviceps purpurea), one needs to be carefull about including Rye in rotation plan containing other cereals.\r\n\r\nNote: Plant used as animal feed equivalent to secale cereale is secale multicaule.",
+    "from_crop": 12,
+    "at_data_string": 1,
+    "pages_from": 176,
+    "pages_to": 177,
+    "at_tag": [
+      12,
+      5,
+      11,
+      14
     ]
   }
 },
@@ -2545,8 +2717,53 @@
   "model": "rotator.cropdatastring",
   "pk": 5,
   "fields": {
-    "title": "Wikipedia CC",
+    "title": "Wikipedia CC - Rzodkiew Japońska",
     "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Daikon.Japan.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 6,
+  "fields": {
+    "title": "Wikipedia CC - Rzepik",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_subsp._oleifera,_raapzaad_plant.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 7,
+  "fields": {
+    "title": "Wikipedia CC - Kapusta Abisyńska",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Habesha_gomen_in_Ethiopian_garden.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 8,
+  "fields": {
+    "title": "Bilder ur Nordens Flora",
+    "part1": "A. M. Lindman 1901-1905 Bilder ur Nordens Flora",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 9,
+  "fields": {
+    "title": "Flora von Deutschland, Österreich und der Schweiz",
+    "part1": "Prof. Dr. Otto Wilhelm Thomé 1885 Flora von Deutschland, Österreich und der Schweiz",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 10,
+  "fields": {
+    "title": "Flora Batava of Afbeelding en Beschrijving van Nederlandsche Gevassen",
+    "part1": "Jan Kops 1881 Flora Batava of Afbeelding en Beschrijving van Nederlandsche Gevassen, XVI. Deel.",
     "link": null
   }
 },
