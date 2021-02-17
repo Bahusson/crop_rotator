@@ -162,6 +162,7 @@ class BasicElement(models.Model):
     def summary(self):
         return self.descr[:150]
 
+
 # klasa opisująca poszczególne nawozy - many-to-many do każdego zawartego w nim elementu?
 class Fertilizer(models.Model):
     name = models.CharField(max_length=50)
@@ -183,6 +184,7 @@ class Fertilizer(models.Model):
 
     def summary(self):
         return self.descr[:150]
+
 
 # Fizyczne źródła danych dot. nawozów np. z książek.
 class FertilizerDataSource(models.Model):

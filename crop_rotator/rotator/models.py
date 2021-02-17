@@ -183,6 +183,8 @@ class CropMix(models.Model):
         return self.name
 
 
+# Podstawowa klasa interakcji - niewidoczna w adminie -
+# od której dla wygody wyciągam pomniejsze poniżej.
 class CropInteraction(models.Model):
     CO_CROP = 0
     ALLELOPATIC = 1
