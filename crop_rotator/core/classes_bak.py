@@ -298,38 +298,10 @@ def checkifnull(x, y):
     else:
         return x
 
-class PlannerRelationship(object):
-    def __init__(self, *args, **kwargs):
-        self.top_tier = kwargs['top_tier']
-        self.a = kwargs['a']
-        self.b = kwargs['b']
-        self.ifdict = {
-            "crop_to_crop": self.a[4].crop_relationships.filter(about_crop__id=self.b[4].id),
-            "crop_to_family": self.a[4].crop_relationships.filter(about_family__id=self.b[2].id),
-            "family_to_crop": self.a[4].family.family_relationships.filter(about_crop__id=self.b[4].id),
-            "family_to_family": self.a[4].family.family_relationships.filter(about_family__id=self.b[2].id),
-            }
-
-    def finishing(self, **kwargs):
-        interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
-        self.given_list = kwargs['given_list']
-        if (
-            self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
-            or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
-            ):
-            level_off(self.top_tier, self.a, self.b)
-            self.given_list.append(self.a + self.b + [self.i.is_positive])
-            return self.given_list
-
-    def relationship(self, **kwargs):
-        if self.ifdict[kwargs['relationship']].exists():
-            for self.i in self.ifdict[kwargs['relationship']]:
-                self.finishing(given_list=kwargs['given_list'])
-                return self.given_list
-
 
 class CropPlanner(object):
     def __init__(self, *args, **kwargs):
+        interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
@@ -376,11 +348,46 @@ class CropPlanner(object):
                     err_tab_list.append(b[3][0])
                     err_crop_list.append(a + b)
                     err_crop_list.append(b + a)
-                pr = PlannerRelationship(top_tier=self.top_tier, a=a, b=b)
-                pr.relationship(given_list=crop_interaction_list, relationship="crop_to_crop")
-                pr.relationship(given_list=family_interaction_list, relationship="crop_to_family")
-                pr.relationship(given_list=crop_interaction_list_f, relationship="family_to_crop")
-                pr.relationship(given_list=family_interaction_list_f, relationship="family_to_family")
+                if a[4].crop_relationships.filter(about_crop__id=b[4].id).exists():
+                    for i in a[4].crop_relationships.filter(about_crop__id=b[4].id):
+                        if (
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
+                        ):
+                            level_off(self.top_tier, a, b)
+                            crop_interaction_list.append(a + b + [i.is_positive])
+                if a[4].crop_relationships.filter(about_family__id=b[2].id).exists():
+                    for i in a[4].crop_relationships.filter(about_family__id=b[2].id):
+                        if (
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
+                        ):
+                            level_off(self.top_tier, a, b)
+                            family_interaction_list.append(a + b + [i.is_positive])
+                if a[4].family.family_relationships.filter(about_crop__id=b[4].id).exists():
+                    for i in a[4].family.family_relationships.filter(
+                        about_crop__id=b[4].id
+                    ):
+                        if (
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
+                        ):
+                            level_off(self.top_tier, a, b)
+                            crop_interaction_list_f.append(a + b + [i.is_positive])
+                if (
+                    a[4]
+                    .family.family_relationships.filter(about_family__id=b[2].id)
+                    .exists()
+                ):
+                    for i in a[4].family.family_relationships.filter(
+                        about_family__id=b[2].id
+                    ):
+                        if (
+                            a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][0]
+                            or a[3][1] == b[3][1] - interactiondict[i.type_of_interaction][1]
+                        ):
+                            level_off(self.top_tier, a, b)
+                            family_interaction_list_f.append(a + b + [i.is_positive])
         fabs = []
         tabs = []
         self.interactions = []
