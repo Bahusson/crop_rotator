@@ -306,9 +306,11 @@ class PlannerRelationship(object):
         self.ifdict = {
             "crop_to_crop": self.a[4].crop_relationships.filter(about_crop__id=self.b[4].id),
             "crop_to_family": self.a[4].crop_relationships.filter(about_family__id=self.b[2].id),
+#            "crop_to_tag": [self.b[4].tags.all(), self.a[4].crop_relationships.filter(about_tag_id=tag.id)],
             "family_to_crop": self.a[4].family.family_relationships.filter(about_crop__id=self.b[4].id),
             "family_to_family": self.a[4].family.family_relationships.filter(about_family__id=self.b[2].id),
-            }
+        #    "family_to_tag": self.a[4].family.family_relationships.filter(about_family__id=self.b[2].id),
+        }
 
     def finishing(self, **kwargs):
         interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
@@ -326,6 +328,13 @@ class PlannerRelationship(object):
             for self.i in self.ifdict[kwargs['relationship']]:
                 self.finishing(given_list=kwargs['given_list'])
                 return self.given_list
+
+    def tag_relationship(self, **kwargs):
+        for tag in self.b[4].tags.all():
+            if self.a[4].crop_relationships.filter(about_tag_id=tag.id).exists():
+                for self.i in self.a[4].crop_relationships.filter(about_tag_id=tag.id):
+                    self.finishing(given_list=kwargs['given_list'])
+                    return self.given_list
 
 
 class CropPlanner(object):
@@ -364,6 +373,7 @@ class CropPlanner(object):
         family_interaction_list = []
         crop_interaction_list_f = []
         family_interaction_list_f = []
+        tag_interaction_list = []
         for item in cooldown_list:
             if item[0] > len_listed_pe_rs:
                 error_len_crops.append(item[1])
@@ -379,18 +389,21 @@ class CropPlanner(object):
                 pr = PlannerRelationship(top_tier=self.top_tier, a=a, b=b)
                 pr.relationship(given_list=crop_interaction_list, relationship="crop_to_crop")
                 pr.relationship(given_list=family_interaction_list, relationship="crop_to_family")
+                pr.tag_relationship(given_list=tag_interaction_list, relationship="crop_to_tag")
                 pr.relationship(given_list=crop_interaction_list_f, relationship="family_to_crop")
                 pr.relationship(given_list=family_interaction_list_f, relationship="family_to_family")
         fabs = []
         tabs = []
         self.interactions = []
         self.interactions_f = []
+        self.interactions_t = []
         self.f_interactions = []
         self.f_interactions_f = []
         remove_repeating(fabs, fabacae)
         remove_repeating(tabs, err_tab_list)
         remove_repeating(self.interactions, crop_interaction_list)
         remove_repeating(self.interactions_f, family_interaction_list)
+        remove_repeating(self.interactions_t, tag_interaction_list)
         remove_repeating(self.f_interactions, crop_interaction_list_f)
         remove_repeating(self.f_interactions_f, family_interaction_list_f)
         fabs_percent = float(len(fabs)) / float(self.top_tier * 2)
@@ -409,6 +422,7 @@ class CropPlanner(object):
         self.context = {
             "interactions": self.interactions,
             "interactions_f": self.interactions_f,
+            "interactions_t": self.interactions_t,
             "f_interactions": self.f_interactions,
             "f_interactions_f": self.f_interactions_f,
             "f_error": self.fabs_error,
