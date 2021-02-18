@@ -85,9 +85,8 @@ def list_appending_short(items, letter, vars):
         vars[0].append(
             [
                 i.family.cooldown_min,
-                i.id,
-                None,
-                #i.family,
+                i.id,                
+                i.family,
                 [vars[1].order, vars[1].order * 2 - subst[letter]],
                 i,
             ]
