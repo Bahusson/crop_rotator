@@ -34,6 +34,10 @@
     {% include 'strona/plan_parts/deep_properties.html' %}
   {% endif %}
 
+  {% if f_interactions_t %}
+    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=f_interactions_t as complexity %}
+    {% include 'strona/plan_parts/deep_properties.html' %}
+  {% endif %}
 
   <p><b><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></b><button class="show_properties2" value="2">Info</button></p>
   <div class="hidden_properties">
