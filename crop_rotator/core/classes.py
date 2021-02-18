@@ -305,11 +305,12 @@ class PlannerRelationship(object):
         self.b = kwargs['b']
         self.ifdict = {
             "crop_to_crop": self.a[4].crop_relationships.filter(about_crop__id=self.b[4].id),
-            "crop_to_family": self.a[4].crop_relationships.filter(about_family__id=self.b[2].id),
+            "crop_to_family": self.a[4].crop_relationships.filter(about_family__id=self.b[4].family.id),
             "crop_to_tag": [self.b[4].tags.all(), self.a[4].crop_relationships],
             "family_to_crop": self.a[4].family.family_relationships.filter(about_crop__id=self.b[4].id),
-            "family_to_family": self.a[4].family.family_relationships.filter(about_family__id=self.b[2].id),
+            "family_to_family": self.a[4].family.family_relationships.filter(about_family__id=self.b[4].family.id),
             "family_to_tag": [self.b[4].tags.all(), self.a[4].family.family_relationships],
+            "tag_to_crop": self.a[4].crop_relationships.filter(about_crop__id=self.b[4].id),
         }
 
     def finishing(self, **kwargs):
@@ -375,6 +376,7 @@ class CropPlanner(object):
         crop_interaction_list_f = []
         family_interaction_list_f = []
         tag_interaction_list_f = []
+        crop_interaction_list_t = []
         for item in cooldown_list:
             if item[0] > len_listed_pe_rs:
                 error_len_crops.append(item[1])
@@ -394,6 +396,7 @@ class CropPlanner(object):
                 pr.relationship(given_list=crop_interaction_list_f, relationship="family_to_crop")
                 pr.relationship(given_list=family_interaction_list_f, relationship="family_to_family")
                 pr.tag_relationship(given_list=tag_interaction_list_f, relationship="family_to_tag")
+                pr.relationship(given_list=crop_interaction_list_t, relationship="tag_to_crop")
 
         fabs = []
         tabs = []
