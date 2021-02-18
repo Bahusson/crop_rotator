@@ -46,6 +46,11 @@
     {% include 'strona/plan_parts/deep_properties.html' %}
   {% endif %}
 
+  {% if t_interactions_f %}
+    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=t_interactions_f as complexity %}
+    {% include 'strona/plan_parts/deep_properties.html' %}
+  {% endif %}
+
   <p><b><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></b><button class="show_properties2" value="2">Info</button></p>
   <div class="hidden_properties">
     <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{{ crop.family }}</a></p>

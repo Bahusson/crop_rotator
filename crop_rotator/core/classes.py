@@ -312,8 +312,6 @@ class PlannerRelationship(object):
             # tag_relationships:
             "crop_to_tag": [self.b[4].tags.all(), self.a[4].crop_relationships],
             "family_to_tag": [self.b[4].tags.all(), self.a[4].family.family_relationships],
-            # reverse tag relationships:
-#            "tag_to_crop": [self.a[4].tags.all(), self.b[4].tags
         }
 
     def finishing(self, **kwargs):
@@ -342,24 +340,17 @@ class PlannerRelationship(object):
 
     def reverse_tag_relationship(self, **kwargs):
         for tag in self.a[4].tags.all(): #
-            if self.b[4] in tag.crop_relationships.all().about_crop:
-                #if tag2.about_crop == self.b[4]:
-    #        if self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id).exists():
-    #            for self.i in self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id):
-                    for self.i in tag2.about_crop:
-                        self.finishing(given_list=kwargs['given_list'])
-                        return self.given_list
+            for self.i in tag.crop_relationships.all():
+                self.tag_dict = {
+                    "tag_to_crop": [self.i.about_crop, self.b[4]],
+                    "tag_to_family": [self.i.about_family, self.b[4].family],
+                }
+                if self.tag_dict[kwargs['relationship']][0] == self.tag_dict[kwargs['relationship']][1]:
+                    self.finishing(given_list=kwargs['given_list'])
+                    return self.given_list
 
-    def reverse_tag_relationship_bak(self, **kwargs):
-        for tag in self.a[4].tags.all(): #
-            for tag2 in tag.crop_relationships.all():
-                if tag2.about_crop == self.b[4]:
-    #        if self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id).exists():
-    #            for self.i in self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id):
-                    for self.i in tag2.about_crop:
-                        self.finishing(given_list=kwargs['given_list'])
-                        return self.given_list
-
+    # Nie zrobiłem taga do tagu, bo to będzie cholernie zasobożerne i na razie nie znalazłem zastosowania...
+    # Jak znajdę to zrobię i wprowadzę. W ogóle to powinien być jakiś przełącznik na to wszystko czy coś... :]
     def tag_to_tag_relationship(self, **kwargs):
         for tag in self.a[4].tags.all():
             if self.b[4].tags.filter(about_tag__id=tag.tag_ralationship.id).exists():
@@ -405,6 +396,7 @@ class CropPlanner(object):
         family_interaction_list_f = []
         tag_interaction_list_f = []
         crop_interaction_list_t = []
+        family_interaction_list_t = []
         for item in cooldown_list:
             if item[0] > len_listed_pe_rs:
                 error_len_crops.append(item[1])
@@ -425,7 +417,7 @@ class CropPlanner(object):
                 pr.tag_relationship(given_list=tag_interaction_list, relationship="crop_to_tag")
                 pr.tag_relationship(given_list=tag_interaction_list_f, relationship="family_to_tag")
                 pr.reverse_tag_relationship(given_list=crop_interaction_list_t, relationship="tag_to_crop")
-
+                pr.reverse_tag_relationship(given_list=family_interaction_list_t, relationship="tag_to_family")
         fabs = []
         tabs = []
         self.interactions = []
@@ -435,6 +427,7 @@ class CropPlanner(object):
         self.interactions_t = []
         self.f_interactions_t = []
         self.t_interactions = []
+        self.t_interactions_f = []
         remove_repeating(fabs, fabacae)
         remove_repeating(tabs, err_tab_list)
         remove_repeating(self.interactions, crop_interaction_list)
@@ -444,7 +437,7 @@ class CropPlanner(object):
         remove_repeating(self.interactions_t, tag_interaction_list)
         remove_repeating(self.f_interactions_t, tag_interaction_list_f)
         remove_repeating(self.t_interactions, crop_interaction_list_t)
-
+        remove_repeating(self.t_interactions_f, family_interaction_list_t)
         fabs_percent = float(len(fabs)) / float(self.top_tier * 2)
         fabs_rounded = round(fabs_percent, 2)
         self.fabs_error = False
@@ -457,6 +450,7 @@ class CropPlanner(object):
             "e_crops": err_crop_list,
             "e_tabs": tabs,
         }
+        
     def basic_context(self, **kwargs):
         self.context = {
             "interactions": self.interactions,
@@ -466,6 +460,7 @@ class CropPlanner(object):
             "interactions_t": self.interactions_t,
             "f_interactions_t": self.f_interactions_t,
             "t_interactions": self.t_interactions,
+            "t_interactions_f": self.t_interactions_f,
             "f_error": self.fabs_error,
             "efcs": self.error_family_crops,
             "cr_len_warning": self.clw,
