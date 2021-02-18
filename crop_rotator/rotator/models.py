@@ -194,6 +194,14 @@ class CropInteraction(models.Model):
         (ALLELOPATIC, "Allelopatyczne"),
         (NEXT_CROP, "Następcze"),
     )
+    N_A = 0
+    ANNUAL = 1
+    PERENNIAL = 2
+    CROP_TYPE = (
+        (N_A, "Nie Dotyczy"),
+        (ANNUAL, "Jare"),
+        (PERENNIAL, "Ozime"),
+    )
     title = models.CharField(max_length=150)  # Tytuł i od razu opis relacji
     is_positive = models.BooleanField(default=True)  # Typ oddziaływania
     about_crop = models.ForeignKey(
@@ -226,6 +234,9 @@ class CropInteraction(models.Model):
     )
     type_of_interaction = models.PositiveSmallIntegerField(
         choices=INTERACTION_TYPE, default=0
+    )
+    season_of_interaction = models.PositiveSmallIntegerField(
+        choices=CROP_TYPE, default=0
     )
 
     class Meta:
