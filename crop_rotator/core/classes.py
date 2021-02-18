@@ -313,17 +313,24 @@ class PlannerRelationship(object):
             "crop_to_tag": [self.b[4].tags.all(), self.a[4].crop_relationships],
             "family_to_tag": [self.b[4].tags.all(), self.a[4].family.family_relationships],
         }
-
+        self.seasondict = {
+            0: None,
+            1: True,
+            2: False,
+        }
     def finishing(self, **kwargs):
         interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
         self.given_list = kwargs['given_list']
-        if (
-            self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
-            or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
-            ):
-            level_off(self.top_tier, self.a, self.b)
-            self.given_list.append(self.a + self.b + [self.i.is_positive])
-            return self.given_list
+        season = self.seasondict[self.i.season_of_interaction]
+        is_odd = self.b[3][1] % 2 != 0
+        if season is is_odd or season is None:
+            if (
+                self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
+                or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
+                ):
+                level_off(self.top_tier, self.a, self.b)
+                self.given_list.append(self.a + self.b + [self.i.is_positive])
+                return self.given_list
 
     def relationship(self, **kwargs):
         if self.ifdict[kwargs['relationship']].exists():
@@ -450,7 +457,7 @@ class CropPlanner(object):
             "e_crops": err_crop_list,
             "e_tabs": tabs,
         }
-        
+
     def basic_context(self, **kwargs):
         self.context = {
             "interactions": self.interactions,
