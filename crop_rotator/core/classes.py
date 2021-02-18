@@ -341,11 +341,24 @@ class PlannerRelationship(object):
                     return self.given_list
 
     def reverse_tag_relationship(self, **kwargs):
-        for tag in self.a[4].tags.all():
-            if self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id).exists():
-                for self.i in self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id):
-                    self.finishing(given_list=kwargs['given_list'])
-                    return self.given_list
+        for tag in self.a[4].tags.all(): #
+            if self.b[4] in tag.crop_relationships.all().about_crop:
+                #if tag2.about_crop == self.b[4]:
+    #        if self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id).exists():
+    #            for self.i in self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id):
+                    for self.i in tag2.about_crop:
+                        self.finishing(given_list=kwargs['given_list'])
+                        return self.given_list
+
+    def reverse_tag_relationship_bak(self, **kwargs):
+        for tag in self.a[4].tags.all(): #
+            for tag2 in tag.crop_relationships.all():
+                if tag2.about_crop == self.b[4]:
+    #        if self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id).exists():
+    #            for self.i in self.a[4].tags.filter(crop_relationships__about_crop__id=self.b[4].id):
+                    for self.i in tag2.about_crop:
+                        self.finishing(given_list=kwargs['given_list'])
+                        return self.given_list
 
     def tag_to_tag_relationship(self, **kwargs):
         for tag in self.a[4].tags.all():
