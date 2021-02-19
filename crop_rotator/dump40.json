@@ -333,7 +333,8 @@
     "descr": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
     "descr_pl": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
     "descr_en": "This species is particularly popular among pollinators.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -346,7 +347,8 @@
     "descr": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
     "descr_pl": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
     "descr_en": "This species supresses nearby weeds - probably is a weed itself.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -359,7 +361,8 @@
     "descr": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
     "descr_pl": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
     "descr_en": "This species has special characteristics which make it a valuable cover crop.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -372,7 +375,8 @@
     "descr": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
     "descr_pl": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
     "descr_en": "This plant has unique properties that enable it to fight off pathogens, hance improving the well-being of surrounding plants.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -385,7 +389,8 @@
     "descr": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
     "descr_pl": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
     "descr_en": "Caution! This plant produces chenicals that in large quantities may be harmful to livestock.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -398,7 +403,8 @@
     "descr": "Ta roślina dobrze znosi okresowe niedobory wody.",
     "descr_pl": "Ta roślina dobrze znosi okresowe niedobory wody.",
     "descr_en": "This plant can manage temporary droughts.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -411,7 +417,8 @@
     "descr": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
     "descr_pl": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
     "descr_en": "This plant can stand temporary flooding.",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -424,7 +431,36 @@
     "descr": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
     "descr_pl": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
     "descr_en": "This plants root system is so strong it literally pierces through compacted soil!",
-    "image": ""
+    "image": "",
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 17,
+  "fields": {
+    "name": "Okopowe",
+    "name_pl": "Okopowe",
+    "name_en": "Root Crop",
+    "descr": "Rośliny okopowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
+    "descr_pl": "Rośliny okopowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
+    "descr_en": "Root crops have been highlighted here due to special interactions with other crops.",
+    "image": "",
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 18,
+  "fields": {
+    "name": "Warzywo Polowe",
+    "name_pl": "Warzywo Polowe",
+    "name_en": "Field Vegetable",
+    "descr": "Warzywa polowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
+    "descr_pl": "Warzywa polowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
+    "descr_en": "Field vegetables have been highlighted here due to special interactions with other crops.",
+    "image": "",
+    "crop_relationships": []
   }
 },
 {
@@ -579,7 +615,7 @@
     "seed_norm_min": 5,
     "seed_norm_max": 8,
     "crop_relationships": [
-      13
+      24
     ],
     "tags": [
       5,
@@ -708,8 +744,8 @@
     "seed_norm_min": 70,
     "seed_norm_max": 100,
     "crop_relationships": [
-      16,
-      15
+      22,
+      23
     ],
     "tags": [
       12,
@@ -766,7 +802,7 @@
     "image_source": 9,
     "pubdate": "2021-02-16T11:01:02Z",
     "family": 11,
-    "culture_override": 0,
+    "culture_override": 1,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
@@ -775,37 +811,10 @@
     "takes_mix_level": 5,
     "seed_norm_min": 70,
     "seed_norm_max": 100,
-    "crop_relationships": [],
-    "tags": [
-      5
-    ]
-  }
-},
-{
-  "model": "rotator.crop",
-  "pk": 13,
-  "fields": {
-    "name": "Żyto krzyca",
-    "name_pl": "Żyto krzyca",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Secale multicaule, ż. świętojańskie, ż. pastwene",
-    "descr_pl": "Secale multicaule, ż. świętojańskie, ż. pastwene",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
-    "family": 11,
-    "culture_override": 0,
-    "cooldown_min_override": null,
-    "cooldown_max_override": null,
-    "is_demanding": false,
-    "is_deep_roots": true,
-    "is_leaves_mess": true,
-    "takes_mix_level": 5,
-    "seed_norm_min": 25,
-    "seed_norm_max": 30,
-    "crop_relationships": [],
+    "crop_relationships": [
+      28,
+      26
+    ],
     "tags": [
       5
     ]
@@ -1202,7 +1211,7 @@
     "seed_norm_min": 6,
     "seed_norm_max": 10,
     "crop_relationships": [
-      12
+      20
     ],
     "tags": [
       2
@@ -1292,7 +1301,10 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      17,
+      18
+    ]
   }
 },
 {
@@ -1320,7 +1332,10 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      17,
+      18
+    ]
   }
 },
 {
@@ -1348,7 +1363,10 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      17,
+      18
+    ]
   }
 },
 {
@@ -1376,7 +1394,7 @@
     "seed_norm_min": 60,
     "seed_norm_max": 80,
     "crop_relationships": [
-      18
+      21
     ],
     "tags": []
   }
@@ -1406,7 +1424,7 @@
     "seed_norm_min": 40,
     "seed_norm_max": 50,
     "crop_relationships": [
-      17
+      25
     ],
     "tags": []
   }
@@ -1436,7 +1454,7 @@
     "seed_norm_min": 35,
     "seed_norm_max": 45,
     "crop_relationships": [
-      17
+      25
     ],
     "tags": []
   }
@@ -1466,7 +1484,7 @@
     "seed_norm_min": 40,
     "seed_norm_max": 50,
     "crop_relationships": [
-      17
+      25
     ],
     "tags": []
   }
@@ -1921,32 +1939,10 @@
     "is_positive": true,
     "about_crop": 1,
     "about_family": null,
+    "about_tag": null,
     "info_source": 2,
-    "type_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 12,
-  "fields": {
-    "title": "Facelia + Gorczyca biała  (W)",
-    "is_positive": true,
-    "about_crop": 1,
-    "about_family": null,
-    "info_source": 2,
-    "type_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 13,
-  "fields": {
-    "title": "Rzodkiew Japońska + Kukurydza (N)",
-    "is_positive": true,
-    "about_crop": 18,
-    "about_family": null,
-    "info_source": 6,
-    "type_of_interaction": 2
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
   }
 },
 {
@@ -1957,56 +1953,178 @@
     "is_positive": true,
     "about_crop": 9,
     "about_family": null,
+    "about_tag": null,
     "info_source": 9,
-    "type_of_interaction": 0
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
   }
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 15,
+  "pk": 20,
   "fields": {
-    "title": "Owies Siewny - - Kapustowate (A)",
-    "is_positive": false,
-    "about_crop": null,
-    "about_family": 2,
-    "info_source": 10,
-    "type_of_interaction": 1
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 16,
-  "fields": {
-    "title": "Owies Siewny - - Jęczmień (N)",
-    "is_positive": false,
-    "about_crop": 16,
-    "about_family": null,
-    "info_source": 10,
-    "type_of_interaction": 2
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 17,
-  "fields": {
-    "title": "Wyka ++ Żyto (W)",
+    "title": "Facelia + Gorczyca biała  (W)",
     "is_positive": true,
-    "about_crop": 12,
+    "about_crop": 1,
     "about_family": null,
-    "info_source": 12,
-    "type_of_interaction": 0
+    "about_tag": null,
+    "info_source": 2,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
   }
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 18,
+  "pk": 21,
   "fields": {
     "title": "Groch ++ Żyto (W)",
     "is_positive": true,
     "about_crop": 12,
     "about_family": null,
+    "about_tag": null,
     "info_source": 12,
-    "type_of_interaction": 0
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 22,
+  "fields": {
+    "title": "Owies Siewny - - Jęczmień (N) (J)",
+    "is_positive": false,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 10,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 23,
+  "fields": {
+    "title": "Owies Siewny - - Kapustowate (A)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 2,
+    "about_tag": null,
+    "info_source": 10,
+    "type_of_interaction": 1,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 24,
+  "fields": {
+    "title": "Rzodkiew Japońska + Kukurydza (N)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 6,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 25,
+  "fields": {
+    "title": "Wyka ++ Żyto (W)",
+    "is_positive": true,
+    "about_crop": 12,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 12,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 26,
+  "fields": {
+    "title": "Żyto ++ bobowate (w)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": 4,
+    "about_tag": null,
+    "info_source": 12,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 28,
+  "fields": {
+    "title": "Żyto ++ Warzywa Polowe (w)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 18,
+    "info_source": 12,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 20,
+  "fields": {
+    "cropinteraction_ptr": 20
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 21,
+  "fields": {
+    "cropinteraction_ptr": 21
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 22,
+  "fields": {
+    "cropinteraction_ptr": 22
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 23,
+  "fields": {
+    "cropinteraction_ptr": 23
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 24,
+  "fields": {
+    "cropinteraction_ptr": 24
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 25,
+  "fields": {
+    "cropinteraction_ptr": 25
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 28,
+  "fields": {
+    "cropinteraction_ptr": 28
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 26,
+  "fields": {
+    "cropinteraction_ptr": 26
   }
 },
 {
@@ -2036,12 +2154,11 @@
     "add_manure_early": true,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 2,
+    "order": 5,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      32,
-      33
+      32
     ],
     "late_crop": [
       29
@@ -2061,16 +2178,14 @@
     "add_manure_early": true,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 4,
+    "order": 2,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      48,
-      23
+      48
     ],
     "late_crop": [
-      23,
-      14
+      10
     ]
   }
 },
@@ -2091,7 +2206,7 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      14
+      12
     ],
     "late_crop": [
       30
@@ -2115,12 +2230,10 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      35,
-      18
+      16
     ],
     "late_crop": [
-      14,
-      26
+      33
     ]
   }
 },
@@ -2138,13 +2251,13 @@
     "add_manure_late": false,
     "from_plan": 2,
     "order": 6,
-    "is_late_crop_destroy": false,
+    "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      2
+      38
     ],
     "late_crop": [
-      6
+      22
     ]
   }
 },
@@ -2161,7 +2274,7 @@
     "add_manure_early": false,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 5,
+    "order": 4,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2189,10 +2302,10 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      33
+      28
     ],
     "late_crop": [
-      48
+      10
     ]
   }
 },
@@ -2215,7 +2328,9 @@
     "early_crop": [
       30
     ],
-    "late_crop": []
+    "late_crop": [
+      30
+    ]
   }
 },
 {
@@ -2235,9 +2350,12 @@
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      29
+      16,
+      10
     ],
-    "late_crop": []
+    "late_crop": [
+      16
+    ]
   }
 },
 {
@@ -2257,7 +2375,8 @@
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      32
+      32,
+      22
     ],
     "late_crop": []
   }
@@ -2402,7 +2521,10 @@
     "order": 2,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
-    "early_crop": [],
+    "early_crop": [
+      1,
+      43
+    ],
     "late_crop": []
   }
 },
@@ -2452,21 +2574,65 @@
 },
 {
   "model": "rotator.rotationstep",
-  "pk": 45,
+  "pk": 46,
   "fields": {
-    "title": "s",
-    "title_pl": "s",
+    "title": "hrthht",
+    "title_pl": "hrthht",
     "title_en": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
     "add_manure_late": false,
-    "from_plan": 2,
-    "order": 7,
+    "from_plan": 4,
+    "order": 3,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 47,
+  "fields": {
+    "title": "thrthr",
+    "title_pl": "thrthr",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": 4,
+    "order": 4,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 48,
+  "fields": {
+    "title": "bhmgh",
+    "title_pl": "bhmgh",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_late": false,
+    "from_plan": 3,
+    "order": 8,
+    "is_late_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      32,
+      48,
+      33
+    ],
     "late_crop": []
   }
 },
@@ -2678,9 +2844,9 @@
   "pk": 12,
   "fields": {
     "title": "Żyto zwyczajne - MwP",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
+    "descr": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
+    "descr_pl": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
+    "descr_en": "Rye is cheap and easy to cultivate in polish climate. It grows well on weak, light, sandy and dry soils. Widthstands cold tempertatures well. It quickly produces much biomass. Because of that it is often planted used direct drilling technique with late-ripening maize and soy. In ecological agriculture it’s also sown with fabaceae, and field vegetables (like cucumber, pumpkin and tomato), as it provides them with thick mulch layer. Rye shows allelopatic properties and efficiently supresses weeds. It attracts slugs. As it is especially prone to attacks by Ergot (Cleviceps purpurea), one needs to be carefull about including Rye in rotation plan containing other cereals.\r\n\r\nNote: Plant used as animal feed equivalent to secale cereale is secale multicaule.",
     "from_crop": 12,
     "at_data_string": 1,
     "pages_from": 176,
