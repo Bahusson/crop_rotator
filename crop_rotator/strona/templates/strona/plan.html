@@ -105,13 +105,6 @@
                 {% endif %}
               {% endif %}
 
-
-              {% error_tab step_no=step.order as is_tab_error %}
-              {% if is_tab_error %}
-                <h5>$Ten krok zawiera błędy!!!</h5>
-              {% endif %}
-
-
               {% if step.descr %}
                 <p>{{ step.descr }}</p>
               {% endif %}
