@@ -130,7 +130,7 @@ class Crop(models.Model):
     descr = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
     image_source = models.ForeignKey(
-        "CropDataString", on_delete=models.SET_NULL,
+        "CropImageString", on_delete=models.SET_NULL,
         related_name="set_image_cds", blank=True, null=True
         )
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
@@ -321,7 +321,7 @@ class CropDataSource(models.Model):
         "CropTag", related_name="crop_source_tag_set", blank=True
     )
     at_data_string = models.ForeignKey(
-        "CropDataString",
+        "CropBookString",
         related_name="crop_data_string_set",
         on_delete=models.SET_NULL,
         blank=True,
