@@ -115,20 +115,24 @@
               {% if step.descr %}
                 <p>{{ step.descr }}</p>
               {% endif %}
-
-              {% if step.early_crop %}
-                <h2>{{ translatables.early_crop }}:</h2>
-                {% for crop in step.early_crop.all %}
-                  {% include 'strona/plan_parts/plan_step.html' %}
-                {% endfor %}
-              {% endif %}
-
-              {% if step.late_crop %}
-                <h2>{{ translatables.late_crop }}:</h2>
-                {% for crop in step.late_crop.all %}
-                  {% include 'strona/plan_parts/plan_step.html' %}
-                {% endfor %}
-              {% endif %}
+              <div class="row">
+                <div class="col-md-6">
+                {% if step.early_crop %}
+                  <h2>{{ translatables.early_crop }}:</h2>
+                  {% for crop in step.early_crop.all %}
+                    {% include 'strona/plan_parts/plan_step.html' %}
+                  {% endfor %}
+                {% endif %}
+                </div>
+                <div class="col-md-6">
+                {% if step.late_crop %}
+                  <h2>{{ translatables.late_crop }}:</h2>
+                  {% for crop in step.late_crop.all %}
+                    {% include 'strona/plan_parts/plan_step.html' %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+              </div>
               <hr/>
             {% endfor %}
 
