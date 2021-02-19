@@ -345,8 +345,12 @@ class PlannerRelationship(object):
                     self.finishing(given_list=kwargs['given_list'])
                     return self.given_list
 
+    # Wszystko co jest .all() jest zasobożerne.
+    # Dawaj .exist() jeśli się da, bo to tylko jedno zapytanie zamiast łażenia po pętli.
+    # A jak już dajesz 2xall, to szykuj się, że będzie mulić do kwadratu...
+    # Do optymalizacji - jeśli to w ogóle możliwe - patrz: odłożone katy na GLO['interakcje'].
     def reverse_tag_relationship(self, **kwargs):
-        for tag in self.a[4].tags.all(): #
+        for tag in self.a[4].tags.all():
             for self.i in tag.crop_relationships.all():
                 self.tag_dict = {
                     "tag_to_crop": [self.i.about_crop, self.b[4]],
@@ -356,12 +360,16 @@ class PlannerRelationship(object):
                     self.finishing(given_list=kwargs['given_list'])
                     return self.given_list
 
-    # Nie zrobiłem taga do tagu, bo to będzie cholernie zasobożerne i na razie nie znalazłem zastosowania...
+    # Nie testowałem taga do tagu (zatem pewnie nie działa :P), bo to będzie potencjalnie nieracjonalnie zasobożerne i na razie nie znalazłem zastosowania...
     # Jak znajdę to zrobię i wprowadzę. W ogóle to powinien być jakiś przełącznik na to wszystko czy coś... :]
     def tag_to_tag_relationship(self, **kwargs):
         for tag in self.a[4].tags.all():
-            if self.b[4].tags.filter(about_tag__id=tag.tag_ralationship.id).exists():
-                pass
+            for tag2 in tag.crop_relationships.all():
+                for tag3 in self.b[4].tags.all():
+                    for self.i in tag3.crop_ralationships.all():
+                        if self.i.about_tag == tag2.about_tag:
+                            self.finishing(given_list=kwargs['given_list'])
+                            return self.given_list
 
 
 class CropPlanner(object):
