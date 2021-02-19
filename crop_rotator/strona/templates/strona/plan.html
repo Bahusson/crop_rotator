@@ -79,18 +79,26 @@
                     <a href="{% url 'step' step.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.editme }}</button></a>
                 {% endif %}
               </h1>
+              {% if step.descr %}
+                <p>{{ step.descr }}</p>
+              {% endif %}
               {% if user_editable %}
-
-              <p class="master0">{{ translatables.switch_text }}:
-              <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">{{ translatables.switch_places }}</button></p>
-              <p class="slave0" value="test_slave0">{{ translatables.switch_with }}: <select class="selectables" name="step_selection">
-                <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
-                {% for step2 in steps %}
-                  {% if step2 != step %}
-                    <option name="{{ step2.id }}" value ="{{ step2.order }}">{{ step2.title }}</option>
-                  {% endif %}
-                {% endfor %}
-              </select></p>
+              <div class="row">
+                <div class="col-md-9">
+                  <p class="slave0" value="test_slave0">{{ translatables.switch_text }}: <select class="selectables" name="step_selection">
+                    <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
+                    {% for step2 in steps %}
+                      {% if step2 != step %}
+                        <option name="{{ step2.id }}" value ="{{ step2.order }}">{{ step2.title }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select></p>
+                </div>
+                <div class="col-md-3">
+                  <p class="master0">
+                  <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">{{ translatables.switch_places }}</button></p>
+                </div>
+              </div>
               <br>
                 {% if step.order == top_tier %}
                 <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve">{{ translatables.step_remove }}</button></p>
@@ -105,9 +113,7 @@
                 {% endif %}
               {% endif %}
 
-              {% if step.descr %}
-                <p>{{ step.descr }}</p>
-              {% endif %}
+
               <div class="row">
                 <div class="col-md-6">
                 {% if step.early_crop %}
