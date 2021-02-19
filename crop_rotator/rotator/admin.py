@@ -13,6 +13,9 @@ from .models import (
     CropsInteraction,
     FamilyInteraction,
     TagsInteraction,
+    CropBookString,
+    CropImageString,
+
 )
 
 admin.site.register(RotationPlan)
@@ -26,3 +29,5 @@ admin.site.register(CropDataString)
 admin.site.register(CropsInteraction)
 admin.site.register(FamilyInteraction)
 admin.site.register(TagsInteraction)
+admin.site.register(CropBookString)
+admin.site.register(CropImageString)
