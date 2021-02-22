@@ -175,9 +175,7 @@
     "is_mandatory_crop": false,
     "is_family_slave": false,
     "family_master": null,
-    "family_relationships": [
-      30
-    ],
+    "family_relationships": [],
     "family_slaves": []
   }
 },
@@ -448,10 +446,7 @@
     "descr_pl": "Rośliny okopowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
     "descr_en": "Root crops have been highlighted here due to special interactions with other crops.",
     "image": "",
-    "crop_relationships": [
-      31,
-      32
-    ]
+    "crop_relationships": []
   }
 },
 {
@@ -480,7 +475,7 @@
     "descr_pl": "Roślina Jednoroczna. Późny międzyplon jary.",
     "descr_en": "Annual plant. Late annual cover crop.",
     "image": "images/gorczyca_biała2_eCClo7Z.jpg",
-    "image_source": 4,
+    "image_source": 17,
     "pubdate": "2021-02-09T10:53:56Z",
     "family": 2,
     "culture_override": 0,
@@ -511,7 +506,7 @@
     "descr_pl": "in. \"Kapusta sitowata\", Międzyplon jary - od wczesnego do późnego.",
     "descr_en": "also: \"leaf mustard\", Late to early annual cover crop",
     "image": "images/gorczyca_sarepska2_l4jJD0x.jpg",
-    "image_source": 4,
+    "image_source": 17,
     "pubdate": "2021-02-10T12:49:12Z",
     "family": 2,
     "culture_override": 0,
@@ -543,7 +538,7 @@
     "descr_pl": "Międzyplon jary od wczesnego do późnego.",
     "descr_en": "also: Abissynian Mustard, late to early cover crop.",
     "image": "images/Kapusta_Abisyńska.jpg",
-    "image_source": 7,
+    "image_source": 18,
     "pubdate": "2021-02-13T09:56:10Z",
     "family": 2,
     "culture_override": 0,
@@ -607,7 +602,7 @@
     "descr_pl": "Międzyplon jary od wczesnego do późnego.",
     "descr_en": "Early to late annual cover crop.",
     "image": "images/Rzodkiew_Japońska.jpg",
-    "image_source": 5,
+    "image_source": 20,
     "pubdate": "2021-02-15T10:31:13Z",
     "family": 2,
     "culture_override": 1,
@@ -640,7 +635,7 @@
     "descr_pl": "Międzyplon jary lub ozimy od wczesnego do późnego.",
     "descr_en": "Annual or perennial, early to late cover crop.",
     "image": "images/Rzepak.jpg",
-    "image_source": 4,
+    "image_source": 17,
     "pubdate": "2021-02-15T11:02:39Z",
     "family": 2,
     "culture_override": 0,
@@ -672,7 +667,7 @@
     "descr_pl": "Międzyplon jary lub ozimy od wczesnego do późnego.",
     "descr_en": "Annual or perennial, early to late cover crop.",
     "image": "images/Rzepik.jpg",
-    "image_source": 6,
+    "image_source": 19,
     "pubdate": "2021-02-15T12:00:27Z",
     "family": 2,
     "culture_override": 0,
@@ -704,7 +699,7 @@
     "descr_pl": "Wczesny międzyplon jary",
     "descr_en": "Early annual cover crop",
     "image": "images/Lnianka_Siewna.jpg",
-    "image_source": 8,
+    "image_source": 14,
     "pubdate": "2021-02-15T12:55:29Z",
     "family": 2,
     "culture_override": 0,
@@ -736,7 +731,7 @@
     "descr_pl": "Międzyplon na jesienny zbiór, od wczesnego do późnego.",
     "descr_en": "Early to late autumn harvest cover crop.",
     "image": "images/Owies.jpg",
-    "image_source": 9,
+    "image_source": 15,
     "pubdate": "2021-02-16T08:46:54Z",
     "family": 15,
     "culture_override": 1,
@@ -771,7 +766,7 @@
     "descr_pl": "Międzyplon uniwersalny. Rośnie na każdej glebie i w każdych warunkach!",
     "descr_en": "This plan is an universal cover crop. It grows on any soil, under any conditions!",
     "image": "images/Owies_Szorstki.jpg",
-    "image_source": 10,
+    "image_source": 16,
     "pubdate": "2021-02-16T09:55:22Z",
     "family": 15,
     "culture_override": 0,
@@ -804,7 +799,7 @@
     "descr_pl": "Międzyplon ozimy",
     "descr_en": "Perennial cover crop",
     "image": "images/Żyto.jpg",
-    "image_source": 9,
+    "image_source": 15,
     "pubdate": "2021-02-16T11:01:02Z",
     "family": 11,
     "culture_override": 1,
@@ -887,14 +882,14 @@
   "fields": {
     "name": "Pszenżyto",
     "name_pl": "Pszenżyto",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Triticale",
-    "descr_pl": "Triticale",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Triticale",
+    "latin_name": "Triticale",
+    "descr": "Międzyplon ozimy",
+    "descr_pl": "Międzyplon ozimy",
+    "descr_en": "Perennial cover crop",
+    "image": "images/pszenżyto.jpg",
+    "image_source": 21,
+    "pubdate": "2021-02-22T12:50:32Z",
     "family": 11,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -905,8 +900,14 @@
     "takes_mix_level": 4,
     "seed_norm_min": 80,
     "seed_norm_max": 120,
-    "crop_relationships": [],
-    "tags": []
+    "crop_relationships": [
+      35,
+      33,
+      34
+    ],
+    "tags": [
+      11
+    ]
   }
 },
 {
@@ -2066,7 +2067,7 @@
   "model": "rotator.cropinteraction",
   "pk": 28,
   "fields": {
-    "title": "Żyto ++ Warzywa Polowe",
+    "title": "Żyto ++ Warzywa Polowe (w)",
     "is_positive": true,
     "about_crop": null,
     "about_family": null,
@@ -2078,58 +2079,44 @@
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 29,
+  "pk": 33,
   "fields": {
-    "title": "żyto++ziemniak (test)",
+    "title": "pszenżyto + kukurydza (N) (J) (Mix)",
     "is_positive": true,
-    "about_crop": 33,
+    "about_crop": 18,
     "about_family": null,
     "about_tag": null,
-    "info_source": null,
-    "type_of_interaction": 0,
-    "season_of_interaction": 0
+    "info_source": 13,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
   }
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 30,
+  "pk": 34,
   "fields": {
-    "title": "Lnoiwate -- Okopowe (test)",
-    "is_positive": false,
-    "about_crop": null,
+    "title": "pszenżyto + słonecznik (N) (J) (Mix)",
+    "is_positive": true,
+    "about_crop": 22,
     "about_family": null,
-    "about_tag": 17,
+    "about_tag": null,
+    "info_source": 13,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 35,
+  "fields": {
+    "title": "pszenżyto + burak (N) (W) (Mix)",
+    "is_positive": true,
+    "about_crop": 32,
+    "about_family": null,
+    "about_tag": null,
     "info_source": null,
     "type_of_interaction": 2,
-    "season_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 31,
-  "fields": {
-    "title": "Okopowe + koniczyna czerwona (test)",
-    "is_positive": true,
-    "about_crop": 48,
-    "about_family": null,
-    "about_tag": null,
-    "info_source": null,
-    "type_of_interaction": 0,
-    "season_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 32,
-  "fields": {
-    "title": "Okopowe -- astrowate (test)",
-    "is_positive": false,
-    "about_crop": null,
-    "about_family": 5,
-    "about_tag": null,
-    "info_source": null,
-    "type_of_interaction": 0,
-    "season_of_interaction": 0
+    "season_of_interaction": 1
   }
 },
 {
@@ -2176,6 +2163,27 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 35,
+  "fields": {
+    "cropinteraction_ptr": 35
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 33,
+  "fields": {
+    "cropinteraction_ptr": 33
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 34,
+  "fields": {
+    "cropinteraction_ptr": 34
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 28,
   "fields": {
     "cropinteraction_ptr": 28
@@ -2189,13 +2197,6 @@
   }
 },
 {
-  "model": "rotator.cropsinteraction",
-  "pk": 29,
-  "fields": {
-    "cropinteraction_ptr": 29
-  }
-},
-{
   "model": "rotator.familyinteraction",
   "pk": 11,
   "fields": {
@@ -2204,30 +2205,9 @@
 },
 {
   "model": "rotator.familyinteraction",
-  "pk": 30,
-  "fields": {
-    "cropinteraction_ptr": 30
-  }
-},
-{
-  "model": "rotator.familyinteraction",
   "pk": 14,
   "fields": {
     "cropinteraction_ptr": 14
-  }
-},
-{
-  "model": "rotator.tagsinteraction",
-  "pk": 31,
-  "fields": {
-    "cropinteraction_ptr": 31
-  }
-},
-{
-  "model": "rotator.tagsinteraction",
-  "pk": 32,
-  "fields": {
-    "cropinteraction_ptr": 32
   }
 },
 {
@@ -2243,12 +2223,11 @@
     "add_manure_early": true,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 2,
+    "order": 5,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      32,
-      33
+      32
     ],
     "late_crop": [
       29
@@ -2268,16 +2247,14 @@
     "add_manure_early": true,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 4,
+    "order": 2,
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      48,
-      23
+      48
     ],
     "late_crop": [
-      23,
-      14
+      10
     ]
   }
 },
@@ -2298,7 +2275,7 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      14
+      12
     ],
     "late_crop": [
       30
@@ -2322,12 +2299,10 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      35,
-      18
+      16
     ],
     "late_crop": [
-      14,
-      26
+      33
     ]
   }
 },
@@ -2345,13 +2320,13 @@
     "add_manure_late": false,
     "from_plan": 2,
     "order": 6,
-    "is_late_crop_destroy": false,
+    "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      2
+      38
     ],
     "late_crop": [
-      6
+      22
     ]
   }
 },
@@ -2368,7 +2343,7 @@
     "add_manure_early": false,
     "add_manure_late": false,
     "from_plan": 2,
-    "order": 5,
+    "order": 4,
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
@@ -2396,11 +2371,10 @@
     "is_late_crop_destroy": true,
     "is_early_crop_destroy": false,
     "early_crop": [
-      33,
-      12
+      28
     ],
     "late_crop": [
-      48
+      10
     ]
   }
 },
@@ -2445,10 +2419,12 @@
     "is_late_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      29,
-      1
+      16,
+      10
     ],
-    "late_crop": []
+    "late_crop": [
+      16
+    ]
   }
 },
 {
@@ -2667,26 +2643,6 @@
 },
 {
   "model": "rotator.rotationstep",
-  "pk": 45,
-  "fields": {
-    "title": "s",
-    "title_pl": "s",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 7,
-    "is_late_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
   "pk": 46,
   "fields": {
     "title": "hrthht",
@@ -2758,7 +2714,7 @@
     "descr_pl": "\"Roślina rosnąca dobrze na słabych glebach, wektor \"fusarium\", a więc słaby przedplon dla pszenicy. Ze względu na małe zdolności konkurencyjne warto ją uprawiać z koniczyną aleksandryjską. Nadaje się na paszę. Jest rośliną o średnio-niskim pokroju. Dobrze znosi suszę w początkowych stadiach rozwoju.\",",
     "descr_en": null,
     "from_crop": 26,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 193,
     "pages_to": 194,
     "at_tag": []
@@ -2773,7 +2729,7 @@
     "descr_pl": "Roślina dobrze znosi późny wysiew, bo daje sobie radę ze słabym nasłonecznieniem. Szybko okrywa glebę i daje dużo biomasy w krótkim czasie (30-45 dni od siewu do zbioru). Jest rośliną miododajną przyciągającą wszystkie zapylacze. Dobrze rośnie szczególnie z bobowatymi i facelią.",
     "descr_en": "This plant doesn't mind late sowing, because it can handle poor insolation. It covers the ground quickly and provides a lot of biomass in short period of time (30-45 days from sowing to harvest). As a nectar source it attracts all nearby pollinators. Grows well along fabacae and phacelia.",
     "from_crop": 1,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 149,
     "pages_to": null,
     "at_tag": [
@@ -2791,7 +2747,7 @@
     "descr_pl": "Zakłada się, że posiada właściwości biofumigacyjne, gdyż zmniejsza ilość szkodliwych nicieni w glebie. Ma wysoką zdolność wiązania składników pokarmowych, czym zdobyła sobie uznanie jako roślina fotosanitarna przy rekultywacji terenów skażonych przemysłowo i przenawożonych. Bardzo dobrze wykorzystuje m.in. azot.",
     "descr_en": "It is assumed that this plant has biofumigation properties due to its positive influence on reducing the amount of harmful nematodes in soil. Its ability to intake high amounts of nutrients is recognized in phytosanitary usage in recultivation of post-industrial and overfertilized landscape. It manages nitrogen among other elements well.",
     "from_crop": 2,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 152,
     "pages_to": 153,
     "at_tag": [
@@ -2810,7 +2766,7 @@
     "descr_pl": "Roślina produkująca dużo biomasy, łatwa w niszczeniu, o przedłużonym okresie wegetacji (150 dni). Rośnie na słabych i luźnych glebaci. Jest zatem świetnym kandydatem na międzyplon. Może być również używana jako warzywo liściaste i oleiste. Posiada głęboki system korzeniowy. Należy zachować szczególną ostrożność przy stosowaniu tego gatunku jako paszy dla zwierząt!",
     "descr_en": "This species produces large amounts of biomass, is easy to destroy and has long vegetation period (150 days). Grows on weak and loose soils. It's therefore great candidate for a cover crop. It can also be used as leaf vegetable and oil source. It produces deep roots. Please be extra  cautious while using this plant as livestock feed!",
     "from_crop": 3,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 154,
     "pages_to": 155,
     "at_tag": [
@@ -2828,7 +2784,7 @@
     "descr_pl": "Nadaje się do uprawy na wszelkich glebach i w każdych warunkach. Silny korzeń palowy przebija podeszwę płużną. Produkuje dużo biomasy, jest odporna na ślimaki i suszę. Dodatkowo jest rośliną miododajną. Łatwa do niszczenia i wrażliwa na mróz - dobry gatunek na międzyplon.",
     "descr_en": "Well suited for any type of soil in any circumstances. Powerful stem root pierces through compacted soil with ease. Produces lots of biomass and is resistant to slugs and drought. Also it is a nectar source. It's easy to destroy mechanically and by frost witch makes it a great cover crop.",
     "from_crop": 4,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 156,
     "pages_to": 157,
     "at_tag": [
@@ -2848,7 +2804,7 @@
     "descr_pl": "Ta odmiana rzodkwi skutecznie tłumi chwasty wiążąc cały dostępny w glebie azot i nie pozostawiając go innym roślinom. Ze względu na częściowo wystający z ziemi korzeń jest łatwa w niszczeniu mechanicznym. Nie drewnieje i zniszczona łatwo oddaje wszystkie zgromadzone składniki odżywcze roślinie następczej. Jest wymagająca względem wilgoci, ciepła i przestrzeni. Dobrze spulchnia glebę. Szczególnie polecana na przedplon kukurydzy w uprawie strip-till.",
     "descr_en": "This radish species is particularily efficient at suppressing weeds by depriving them of nitrogen. Due to its root being partially exposed it is easily destroyed mechanically. It won't lignify and if destroyed it will easily return accumulated nutrients to be used by following crop. It is demanding in terms of warmth, humidity and space. It loosens the soil well. Good forecrop to corn.",
     "from_crop": 5,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 158,
     "pages_to": 160,
     "at_tag": [
@@ -2866,7 +2822,7 @@
     "descr_pl": "Rzepak oleisty, oraz rzepak pastewny są dość łatwe w uprawie. Jako międzyplon często stosuje się je w mieszankach z innymi roślinami w płodozmianach, gdzie rzepak już nie występuje. Produces lots of quality biomass. Ze względu na luksusowe pobierania azotu działa tłumiąco na chwasty. Można go domieszać lub (co się czasami spotyka w praktyce) pozostawiać nieliczne samosiewy w roślinie następczej, aby zamiast niej przyciągał ślimaki.",
     "descr_en": "Canola is relatively easy to cultivate. As a cover crop it is often planted with other species in rotation plans where canola is not present already. It produces lots of quality biomass. Due to luxuriousy high nitrogen intake it supresses nearby weeds. It can be scarcely mixed with another crop (or in practice use the seeds self-seeded by canola from previous year) for attract slugs instead.",
     "from_crop": 6,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 161,
     "pages_to": 162,
     "at_tag": [
@@ -2884,7 +2840,7 @@
     "descr_pl": "Rzepik jest rośliną hydrofilną, rosnącą w pobliżu wód. Lepiej od rzepachu znosi dłuższe przebywanie w stojącej wodzie. Podobnie jak rzodkiew japońska wiąże dużą ilość azotu i dobrze spulchnia glebę dla rośliny następczej. Zimnoodporny, stosowany na terenach górskich i w północno-wschodniej polsce zamiast rzepaku.",
     "descr_en": "Field mustard is hydrophilic, meaning it grows well near aquifiers. It can stand longer periods of standing water than its cousin canola. Alike japanese radish it uses much nitrogen and loosens soil for next crop. Resistant to cold, used on mountainous terrain and in north-eastern Poland in place of canola.",
     "from_crop": 8,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 165,
     "pages_to": 166,
     "at_tag": [
@@ -2903,7 +2859,7 @@
     "descr_pl": "Lnianka siewna to znana od tysiącleci roślina oleista udająca się nawet na słabych glebach. Mimo to produkuje wysokiej jakości olej ceniony w gastronomii. Wyjątkowo skutecznie tłumi rozwój chwastów. Cechuje ją szybki wzrost (90-100 dni). Bardzo dobrze współgra w uprawie współrzędnej ze strączkowymi. Jest rośliną miododajną przyciągającą wszystkie zapylacze.",
     "descr_en": "Camelina has been cultivated for thousands of years in regions with poor quality soils as an oilseed crop. It produces high quality oil priced in quisine and as biofuel additive. It is highly efficient in suppressing weeds. It grows fast (90-100 days) and especially well along legumes. As a nectar source it attracts all types of pollinators.",
     "from_crop": 9,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 167,
     "pages_to": 168,
     "at_tag": [
@@ -2922,7 +2878,7 @@
     "descr_pl": "Owies jest rośliną silnie konkurującą względem chwastów. W rodzinie wiechlinowatych jest rośliną fitosanitarną, tj. nie przenosi chorób na rośliny następcze. Dzięki rozbudowanemu systemowi korzeniowemu poprawia strukturę gleby, choć trzeba mieć na uwadze, że zużywa również dużo wody. Wytwarza dużo biomasy i jest mało wrażliwy na ślimaki.\r\nNależy go unikać przed wysiewem jęczmienia jarego. Jest znany z właściwości allelopatycznych hamujących wzrost roślin dwuliściennych - w tym kapustowatych.",
     "descr_en": "Oat is strongly competitive against weeds. In poaceae family it is considered phytosanitary, meaning it does not pass pathogens to following crops. Thanks to its vast root system oat enhances soil structure, although one must bear in mind its high water intake. As a result oat produces considerable amounts of biomas. It is also resistant to slugs.\r\nOne should avoid sowing oat right before barley. Oat is also known for it’s negaitve allelopatic influence on some of dicotyledons, notably Brassicae.",
     "from_crop": 10,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 170,
     "pages_to": 172,
     "at_tag": [
@@ -2941,7 +2897,7 @@
     "descr_pl": "Owies szorstki to idealna roślina zarówno na paszę jak i do biogazowni. Nie zużywa dużych ilości wody ani składników pokarmowych, za to wiąże w sobie dużo węgla, produkując duże ilości biomasy (4-5 ton suchej masy na hektar). Jest konkurencyjny względem chwastów i mało wrażliwy na choroby.",
     "descr_en": "Black oat is perfect both as animal feed and for usage in biogas plants. It uses little watter and nutrients, at the same time binding lots of carbon to produce copious amounts of biomass (around 4-5 tons per ha).  It is competitive against weeds and generally resistant to pathogens.",
     "from_crop": 11,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 173,
     "pages_to": 175,
     "at_tag": [
@@ -2961,7 +2917,7 @@
     "descr_pl": "Żyto zwyczajne jest w polskim klimacie łatwe i tanie w uprawie.  Dobrze rośnie na słabych, lekkich, piaszczystych i suchych glebach. Dobrze znosi zimno. Szybko wytwarza dużą ilość biomasy. W związku z tym bywa wysiewana metodą siewu bezpośredniego pod późno dojrzewającą kukurydzę i soję, a w rolnictwie ekologicznym także bobowate, oraz warzywa polowe (np. ogórek, dynia i pomidor), gdyż zapewnia im gęstą warstwę mulczową. Skutecznie zwalcza i zagłusza chwasty - ma właściwości allelopatyczne. Przyciąga ślimaki. Jako, że jest szczególnie narażone na sporysz (Cleviceps purpurea), trzeba zachować szczególną ostrożność jeśli żyto pojawia się w płodozmianie zbożowym.\r\n\r\nUwaga: Odpowiednikiem pastewnym żyta zwyczajnego o zbliżonych właściwościach jest tzw. \"żyto krzyca\" (secale multicaule).",
     "descr_en": "Rye is cheap and easy to cultivate in polish climate. It grows well on weak, light, sandy and dry soils. Widthstands cold tempertatures well. It quickly produces much biomass. Because of that it is often planted used direct drilling technique with late-ripening maize and soy. In ecological agriculture it’s also sown with fabaceae, and field vegetables (like cucumber, pumpkin and tomato), as it provides them with thick mulch layer. Rye shows allelopatic properties and efficiently supresses weeds. It attracts slugs. As it is especially prone to attacks by Ergot (Cleviceps purpurea), one needs to be carefull about including Rye in rotation plan containing other cereals.\r\n\r\nNote: Plant used as animal feed equivalent to secale cereale is secale multicaule.",
     "from_crop": 12,
-    "at_data_string": 1,
+    "at_data_string": 11,
     "pages_from": 176,
     "pages_to": 177,
     "at_tag": [
@@ -2973,8 +2929,25 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 13,
+  "fields": {
+    "title": "Przenżyto - MwP",
+    "descr": "Przenżyto jest mieszańcem żyta i pszenicy. Wykazuje od żyta mniejsze zdolności konkurencyjne i większą podatność na choroby i szkodniki. Zużywa jednak mniej azotu niż pszenica i rośnie na gorszych glebach. Dobrze nadaje się na roślinę pastewną. Dobrze penetruje glebę, co w mieszance międzyplonowej czyni go dobrym przedplonem dla takich roślin jarych jak kukurydza, słonecznik, czy burak.",
+    "descr_pl": "Przenżyto jest mieszańcem żyta i pszenicy. Wykazuje od żyta mniejsze zdolności konkurencyjne i większą podatność na choroby i szkodniki. Zużywa jednak mniej azotu niż pszenica i rośnie na gorszych glebach. Dobrze nadaje się na roślinę pastewną. Dobrze penetruje glebę, co w mieszance międzyplonowej czyni go dobrym przedplonem dla takich roślin jarych jak kukurydza, słonecznik, czy burak.",
+    "descr_en": "Triticale is a hybrid of rye and wheat. Its' competitive tendencies are weaker than that of rye and at the same time it is more prone to pathogens. Triticale uses however less nitrogen than wheat and grows on weaker soils. It is good for animal feed. Triticale loosens soil, which in cover crop mix makes for a good forecrop before annual plants like maize, sunflower, or beet.",
+    "from_crop": 17,
+    "at_data_string": 11,
+    "pages_from": 180,
+    "pages_to": 181,
+    "at_tag": [
+      11
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
-  "pk": 1,
+  "pk": 11,
   "fields": {
     "title": "Międzyplony w Praktyce",
     "part1": "Thomas F., Matthieu A. 2019. Międzyplony w praktyce",
@@ -2983,16 +2956,7 @@
 },
 {
   "model": "rotator.cropdatastring",
-  "pk": 2,
-  "fields": {
-    "title": "Zasady układania płodozmianu",
-    "part1": "Bliski z., Pikosz M. 2020. ZASADY UKŁADANIA PŁODOZMIANU",
-    "link": null
-  }
-},
-{
-  "model": "rotator.cropdatastring",
-  "pk": 3,
+  "pk": 12,
   "fields": {
     "title": "ROLNICTWO VI",
     "part1": "Grzebisz W. i in. 2020 ROLNICTWO VI",
@@ -3001,43 +2965,16 @@
 },
 {
   "model": "rotator.cropdatastring",
-  "pk": 4,
+  "pk": 13,
   "fields": {
-    "title": "Köhler's Medizinal-Pflanzen",
-    "part1": "Franz Eugen Köhler 1897 Köhler's Medizinal-Pflanzen",
+    "title": "Zasady układania płodozmianu",
+    "part1": "Bliski z., Pikosz M. 2020. ZASADY UKŁADANIA PŁODOZMIANU",
     "link": null
   }
 },
 {
   "model": "rotator.cropdatastring",
-  "pk": 5,
-  "fields": {
-    "title": "Wikipedia CC - Rzodkiew Japońska",
-    "part1": "Wikipedia, (creative commons)",
-    "link": "https://commons.wikimedia.org/wiki/File:Daikon.Japan.jpg"
-  }
-},
-{
-  "model": "rotator.cropdatastring",
-  "pk": 6,
-  "fields": {
-    "title": "Wikipedia CC - Rzepik",
-    "part1": "Wikipedia, (creative commons)",
-    "link": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_subsp._oleifera,_raapzaad_plant.jpg"
-  }
-},
-{
-  "model": "rotator.cropdatastring",
-  "pk": 7,
-  "fields": {
-    "title": "Wikipedia CC - Kapusta Abisyńska",
-    "part1": "Wikipedia, (creative commons)",
-    "link": "https://commons.wikimedia.org/wiki/File:Habesha_gomen_in_Ethiopian_garden.jpg"
-  }
-},
-{
-  "model": "rotator.cropdatastring",
-  "pk": 8,
+  "pk": 14,
   "fields": {
     "title": "Bilder ur Nordens Flora",
     "part1": "A. M. Lindman 1901-1905 Bilder ur Nordens Flora",
@@ -3046,7 +2983,7 @@
 },
 {
   "model": "rotator.cropdatastring",
-  "pk": 9,
+  "pk": 15,
   "fields": {
     "title": "Flora von Deutschland, Österreich und der Schweiz",
     "part1": "Prof. Dr. Otto Wilhelm Thomé 1885 Flora von Deutschland, Österreich und der Schweiz",
@@ -3055,11 +2992,133 @@
 },
 {
   "model": "rotator.cropdatastring",
-  "pk": 10,
+  "pk": 16,
   "fields": {
     "title": "Flora Batava of Afbeelding en Beschrijving van Nederlandsche Gevassen",
     "part1": "Jan Kops 1881 Flora Batava of Afbeelding en Beschrijving van Nederlandsche Gevassen, XVI. Deel.",
     "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 17,
+  "fields": {
+    "title": "Köhler's Medizinal-Pflanzen",
+    "part1": "Franz Eugen Köhler 1897 Köhler's Medizinal-Pflanzen",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 18,
+  "fields": {
+    "title": "Wikipedia CC - Kapusta Abisyńska",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Habesha_gomen_in_Ethiopian_garden.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 19,
+  "fields": {
+    "title": "Wikipedia CC - Rzepik",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Brassica_rapa_subsp._oleifera,_raapzaad_plant.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 20,
+  "fields": {
+    "title": "Wikipedia CC - Rzodkiew Japońska",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Daikon.Japan.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 21,
+  "fields": {
+    "title": "Wikipedia CC - Pszenżyto",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Triticale.jpg"
+  }
+},
+{
+  "model": "rotator.cropbookstring",
+  "pk": 11,
+  "fields": {
+    "cropdatastring_ptr": 11
+  }
+},
+{
+  "model": "rotator.cropbookstring",
+  "pk": 12,
+  "fields": {
+    "cropdatastring_ptr": 12
+  }
+},
+{
+  "model": "rotator.cropbookstring",
+  "pk": 13,
+  "fields": {
+    "cropdatastring_ptr": 13
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 14,
+  "fields": {
+    "cropdatastring_ptr": 14
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 16,
+  "fields": {
+    "cropdatastring_ptr": 16
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 15,
+  "fields": {
+    "cropdatastring_ptr": 15
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 17,
+  "fields": {
+    "cropdatastring_ptr": 17
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 18,
+  "fields": {
+    "cropdatastring_ptr": 18
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 21,
+  "fields": {
+    "cropdatastring_ptr": 21
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 19,
+  "fields": {
+    "cropdatastring_ptr": 19
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 20,
+  "fields": {
+    "cropdatastring_ptr": 20
   }
 },
 {
