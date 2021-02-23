@@ -166,6 +166,20 @@ class Crop(models.Model):
     def __str__(self):
         return self.name
 
+# TODO: Wsiewki i miksy. Gotowe klasy do odhaszowania jak znajdzie się czas. :)
+# Klasa dla wsiewek. Jeśli zachowują się wtedy inaczej niż normalnie.
+#class InCrop(Crop):
+#    is_slave_to = models.ForeignKey(
+#        "Crop", on_delete=models.CASCADE, related_name="set_master_crop_in",
+#        blank=True, null=True
+#        )
+
+# Klasa dla miksów. Jesli zachowują się wtedy inaczej niż normalnie.
+#class MixedCrop(Crop):
+#    is_slave_to = models.ForeignKey(
+#        "Crop", on_delete=models.CASCADE, related_name="set_master_crop_mix",
+#        blank=True, null=True
+#        )
 
 # Mieszanka na miedzyplon
 class CropMix(models.Model):

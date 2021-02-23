@@ -348,7 +348,7 @@ class PlannerRelationship(object):
     # Wszystko co jest .all() jest zasobożerne.
     # Dawaj .exist() jeśli się da, bo to tylko jedno zapytanie zamiast łażenia po pętli.
     # A jak już dajesz 2xall, to szykuj się, że będzie mulić do kwadratu...
-    # Do optymalizacji - jeśli to w ogóle możliwe - patrz: odłożone katy na GLO['interakcje'].
+    # Do optymalizacji - jeśli to w ogóle możliwe - patrz: odłożone karty na GLO['interakcje'].
     def reverse_tag_relationship(self, **kwargs):
         for tag in self.a[4].tags.all():
             for self.i in tag.crop_relationships.all():
