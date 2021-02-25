@@ -104,8 +104,8 @@
 
     <!-- START Bootstrap-Cookie-Alert -->
     <div class="alert text-center cookiealert" role="alert">
-        <b>Lubisz ciasteczka?</b> &#x1F36A; Ten serwis wykorzystuje pliki cookies. Korzystanie z witryny oznacza zgodę na ich zapis lub odczyt wg ustawień przeglądarki.
-        <a href="" target="_blank">Dowiedz się więcej</a>
+        <b>$Lubisz ciasteczka?</b> &#x1F36A; $Ten serwis wykorzystuje pliki cookies. Korzystanie z witryny oznacza zgodę na ich zapis lub odczyt wg ustawień przeglądarki.
+        <a href="" target="_blank">$Dowiedz się więcej</a>
         <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">Zgadzam się!</button>
     </div>
     <!-- END Bootstrap-Cookie-Alert -->
@@ -127,6 +127,7 @@
                     <p><i class="fa fa-phone mr-3"></i>...</p>-->
                     {% if user.is_authenticated %}
                     <p><i class="fa fa-envelope mr-3"></i>jakub.kozdrowicz@gmail.com</p>
+                    {% if user.is_staff %}<p><a href="{% url 'admin:index' %}">Panel admina</a>{% endif %}
                     {% endif %}
                 </div>
             </div>
