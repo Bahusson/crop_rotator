@@ -49,7 +49,6 @@
              </p></form>
             {% endif %}
             {% endif %}
-            {% if user.is_authenticated %}<button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">$Ewaluacja</a></button>*$ Analizuje plan pod kątem błędów i kolizji.{% else %} Zaloguj się, żeby analizować plany.{% endif %}
 
             {% if cr_len_warning %}
               <h4>{{ translatables.error_len }}</h4>
@@ -84,8 +83,8 @@
                 <p>{{ step.descr }}</p>
               {% endif %}
               {% if user_editable %}
-              <div class="row">
-                <div class="col-md-9">
+              <div class="row master0" value="1782">
+                <div class="col-md-9" value="254">
                   <p class="slave0" value="test_slave0">{{ translatables.switch_text }}: <select class="selectables" name="step_selection">
                     <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
                     {% for step2 in steps %}
@@ -96,7 +95,7 @@
                   </select></p>
                 </div>
                 <div class="col-md-3">
-                  <p class="master0">
+                  <p>
                   <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">{{ translatables.switch_places }}</button></p>
                 </div>
               </div>

@@ -145,13 +145,10 @@ def plan_evaluated(request, plan_id):
     if "receiver_step" in request.POST:
         sender_step_id = pe_stp.by_id(
          G404=G404, id=request.POST.get('sender_step'))
-        flare(sender_step_id, name="STEP_ID")
         try:
             receiver_step_id = pe_stp.by_id(
             G404=G404, id=request.POST.get('receiver_step'))
-            flare(receiver_step_id, name="RECEIVER_ID")
         except:
-            flare("EXCEPTED!!!")
             return redirect('plan', plan_id)
         sender_step_order = sender_step_id.order
         form2 = StepMoveForm(request.POST, instance=sender_step_id)
@@ -218,13 +215,11 @@ def plan(request, plan_id):
     if "receiver_step" in request.POST:
         sender_step_id = pe_stp.by_id(
          G404=G404, id=request.POST.get('sender_step'))
-        flare(sender_step_id, name="STEP_ID")
+        get_receiver = request.POST.get('receiver_step')
         try:
             receiver_step_id = pe_stp.by_id(
             G404=G404, id=request.POST.get('receiver_step'))
-            flare(receiver_step_id, name="RECEIVER_ID")
         except:
-            flare("EXCEPTED!!!")
             return redirect(request.META.get('HTTP_REFERER'))
         sender_step_order = sender_step_id.order
         form2 = StepMoveForm(request.POST, instance=sender_step_id)
