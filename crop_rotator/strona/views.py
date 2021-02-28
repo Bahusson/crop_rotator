@@ -16,7 +16,12 @@ from rotator.models import (
     CropDataSource as CDS,
 )
 from crop_rotator.settings import LANGUAGES as L
-from core.classes import PageElement as pe, PageLoad, CropPlanner
+from core.classes import (
+    PageElement as pe,
+    PageLoad,
+    CropPlanner,
+    DummyCropPlanner,
+)
 from core.snippets import (
     booleanate as bot,
     flare,
@@ -93,9 +98,9 @@ def allplans(request):
     template = "strona/allplans.html"
     return render(request, template, context_lazy)
 
-
-# Widok pojedynczego płodozmianu dla Edytora - no_cache
-def plan(request, plan_id):
+#TODO: Z dwóch poniższych możesz zrobić widoki na klasie, bo są zbliżone.
+# Widok planu po ewaluacji na życzenie.
+def plan_evaluated(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
@@ -113,13 +118,83 @@ def plan(request, plan_id):
         "form2": form2,
         "translatables": translatables,
     }
-    cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
+    cp = CropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
     plans_context = cp.basic_context(context=context)
     # Dodaj następny krok do planu
     if "next_step" in request.POST:
         form = NextRotationStepForm(request.POST)
         if form.is_valid():
             form.save(pe_rp_id, cp.top_tier)
+            return redirect('plan', plan_id)
+    # Usuń cały plan.
+    if "delete_plan" in request.POST:
+        pe_rp_id.delete()
+        return redirect('my_plans')
+    # Opublikuj plan.
+    if "publish_plan" in request.POST:
+        form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
+        if form.is_valid():
+            form.save(True)
+            return redirect('plan', plan_id)
+    # Wycofaj plan z pubilkacji.
+    if "unpublish_plan" in request.POST:
+        form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
+        if form.is_valid():
+            form.save(False)
+            return redirect('plan', plan_id)
+    if "receiver_step" in request.POST:
+        sender_step_id = pe_stp.by_id(
+         G404=G404, id=request.POST.get('sender_step'))
+        try:
+            receiver_step_id = pe_stp.by_id(
+            G404=G404, id=request.POST.get('receiver_step'))
+        except:
+            return redirect('plan', plan_id)
+        sender_step_order = sender_step_id.order
+        form2 = StepMoveForm(request.POST, instance=sender_step_id)
+        form3 = StepMoveForm(request.POST, instance=receiver_step_id)
+        if form2.is_valid() and form3.is_valid():
+            form2.save()
+            form3.save(order=sender_step_order)
+            return redirect('plan', plan_id)
+    if "delete_step" in request.POST:
+        last_step = pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
+        last_step.delete()
+        return redirect('plan', plan_id)
+
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=plans_context)
+    template = "strona/plan.html"
+    return render(request, template, context_lazy)
+
+
+# Widok pojedynczego płodozmianu dla Edytora - no_cache
+def plan(request, plan_id):
+    pe_rp = pe(RotationPlan)
+    pe_stp = pe(RotationStep)
+    translatables = pe(RotatorEditorPageNames).baseattrs
+    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    pe_rs = RotationStep.objects.filter(from_plan=plan_id)
+    user_editable = False
+    if check_ownership(request, User, pe_rp_id):
+        user_editable = True
+    else:
+        return redirect("lurk_plan", plan_id)
+    form = NextRotationStepForm()
+    form2 = StepMoveForm()
+    context = {
+        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
+        "form": form,
+        "form2": form2,
+        "translatables": translatables,
+    }
+    dcp = DummyCropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
+    plans_context = dcp.basic_context(context=context)
+    # Dodaj następny krok do planu
+    if "next_step" in request.POST:
+        form = NextRotationStepForm(request.POST)
+        if form.is_valid():
+            form.save(pe_rp_id, dcp.top_tier)
             return redirect(request.META.get('HTTP_REFERER'))
     # Usuń cały plan.
     if "delete_plan" in request.POST:
@@ -174,8 +249,8 @@ def lurk_plan(request, plan_id):
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "translatables": translatables,
     }
-    cp = CropPlanner(pe_rp_id, RotationStep, plan_id=plan_id)
-    plans_context = cp.basic_context(context=context)
+    dcp = DummyCropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
+    plans_context = dcp.basic_context(context=context)
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=plans_context)
     template = "strona/plan.html"
@@ -324,13 +399,14 @@ def plan_edit(request, plan_id):
 def step(request, step_id):
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
+    plan_id = pe_stp_id.from_plan.id
     translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_stp_id.from_plan):
         if "save_step_changes" in request.POST:
             form = StepEditionForm(request.POST, instance=pe_stp_id)
             if form.is_valid():
                 form.save()
-                return redirect(request.META.get('HTTP_REFERER'))
+                return redirect('plan', plan_id)
         form = StepEditionForm(instance=pe_stp_id)
         context = {
          "form": form,

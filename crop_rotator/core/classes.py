@@ -372,6 +372,37 @@ class PlannerRelationship(object):
                             return self.given_list
 
 
+class DummyCropPlanner(object):
+    def __init__(self, *args, **kwargs):
+        plan_id = kwargs['plan_id']
+        self.pe_rp_id = args[0]
+        self.pe_rs = args[1].objects.filter(from_plan=plan_id)
+        err_crop_list = []
+        tabs = []
+        self.error_family_crops = {
+            "e_crops": err_crop_list,
+            "e_tabs": tabs,
+        }
+        listed_pe_rs = list(self.pe_rs)
+        top_tier_list = []
+        for item in listed_pe_rs:
+            top_tier_list.append(item.order)
+        top_tier_list.sort()
+        self.top_tier = top_tier_list[-1]
+
+    def basic_context(self, **kwargs):
+        self.context = {
+            "efcs": self.error_family_crops,
+            "plan": self.pe_rp_id,
+            "steps": self.pe_rs,
+            "top_tier": self.top_tier,
+        }
+        self.context.update(kwargs['context'])
+        return self.context
+
+    def top_tier(self):
+        return self.top_tier
+
 class CropPlanner(object):
     def __init__(self, *args, **kwargs):
         plan_id = kwargs['plan_id']
@@ -415,7 +446,7 @@ class CropPlanner(object):
         for item in cooldown_list:
             if item[0] > len_listed_pe_rs:
                 error_len_crops.append(item[1])
-                self.clw = Crop.objects.filter(id__in=error_len_crops)
+                self.clw = args[2].objects.filter(id__in=error_len_crops)
         if not self.clw:
             for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
                 if a[2] == b[2] and a[3][0] - b[3][0] < a[0] and a[3][0] - b[3][0] > 0:
@@ -465,6 +496,7 @@ class CropPlanner(object):
             "e_crops": err_crop_list,
             "e_tabs": tabs,
         }
+        flare(self.error_family_crops)
 
     def basic_context(self, **kwargs):
         self.context = {
