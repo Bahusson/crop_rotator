@@ -53,7 +53,7 @@
 
   <p><b><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a></b><button class="show_properties2" value="2">Info</button></p>
   <div class="hidden_properties">
-    <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{{ crop.family }}</a></p>
+    <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{% if crop.family.is_family_slave %} {{ crop.family.family_master }} {% else %}{{ crop.family }}{% endif %}</a></p>
     {% if crop.descr %}
      <p>{{ translatables.notes }}: {{ crop.descr }}
     {% endif %}
