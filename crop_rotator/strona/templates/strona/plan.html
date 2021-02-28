@@ -48,8 +48,8 @@
                {{ translatables.publish }}</button>{{ translatables.publish_text }} *{{ translatables.publish_onhover }}
              </p></form>
             {% endif %}
-            <button class="button btn btn-light btn-sm"><a href="">$Ewaluacja</a></button>*$ Analizuje plan pod kątem błędów i kolizji.
             {% endif %}
+            {% if user.is_authenticated %}<button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">$Ewaluacja</a></button>*$ Analizuje plan pod kątem błędów i kolizji.{% else %} Zaloguj się, żeby analizować plany.{% endif %}
 
             {% if cr_len_warning %}
               <h4>{{ translatables.error_len }}</h4>
