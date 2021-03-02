@@ -100,6 +100,7 @@ def allplans(request):
 
 #TODO: Z dwóch poniższych możesz zrobić widoki na klasie, bo są zbliżone.
 # Widok planu po ewaluacji na życzenie.
+@cache_page(60)
 def plan_evaluated(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
