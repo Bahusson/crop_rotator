@@ -78,16 +78,17 @@ def flare(debugged_content, **kwargs):
 # Skraca powtarzający się kawałek kodu na widokach.
 def list_appending_short(items, letter, vars):
     subst = {
-        "a": 1,
-        "b": 0,
+        "a": 2,
+        "b": 1,
+        "c": 0,
     }
     for i in items[0]:
         vars[0].append(
             [
                 i.family.cooldown_min,
-                i.id,                
+                i.id,
                 i.family,
-                [vars[1].order, vars[1].order * 2 - subst[letter]],
+                [vars[1].order, vars[1].order * 3 - subst[letter]],
                 i,
             ]
         )
@@ -95,6 +96,14 @@ def list_appending_short(items, letter, vars):
         if i.family.is_mandatory_crop:
             vars[2].append(str(vars[1].order) + letter)
 
+
+def list_appending_long(a,b,c, vars):
+    if len(a) > 0:
+        list_appending_short(a, "a", vars)
+    if len(b) > 0:
+        list_appending_short(b, "b", vars)
+    if len(c) > 0:
+        list_appending_short(c, "c", vars)
 
 # Skraca usuwanie niepoprawnego numeru cropstepu.
 def level_off(top_tier, a, b):

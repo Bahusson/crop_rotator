@@ -1,7 +1,8 @@
 from .snippets import (
     remove_repeating,
     flare,
-    list_appending_short,
+#    list_appending_short,
+    list_appending_long,
     level_off,
     )
 import itertools
@@ -409,22 +410,29 @@ class CropPlanner(object):
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
         listed_pe_rs = list(self.pe_rs)
+        flare(listed_pe_rs)
         len_listed_pe_rs = len(listed_pe_rs)
         cooldown_list = []
         fabacae = []
         top_tier_list = []
         self.fertilized = True
+        index = 0
         for item in listed_pe_rs:
             i1 = (list(item.early_crop.all()), item.order)
-            i2 = (list(item.late_crop.all()), item.order)
-            i3 = item.order
-            if item.add_manure_early or item.add_manure_late:
+            flare(i1)
+            i2 = (list(item.middle_crop.all()), item.order)
+            i3 = (list(item.late_crop.all()), item.order)
+            i4 = item.order
+            if item.add_manure_early or item.add_manure_late or item.add_manure_middle:
                 self.fertilized = False
-            top_tier_list.append(i3)
-            vars = [cooldown_list, item, fabacae]
-            list_appending_short(i1, "a", vars)
-            list_appending_short(i2, "b", vars)
+            top_tier_list.append(i4)
+            vars = [cooldown_list, item, fabacae, index]
+    #        list_appending_short(i1, "a", vars)
+    #        list_appending_short(i2, "b", vars)
+    #        list_appending_short(i3, "c", vars)
+            list_appending_long(i1,i2,i3,vars)
         cooldown_list.sort()
+        #flare(cooldown_list)
         top_tier_list.sort()
         self.clw = False
         error_len_crops = []
@@ -496,7 +504,6 @@ class CropPlanner(object):
             "e_crops": err_crop_list,
             "e_tabs": tabs,
         }
-        flare(self.error_family_crops)
 
     def basic_context(self, **kwargs):
         self.context = {
