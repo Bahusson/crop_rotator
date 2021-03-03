@@ -83,8 +83,10 @@ class RotatorEditorPageNames(models.Model):
     title = models.CharField(max_length=200) # Tytuł
     descr = models.CharField(max_length=200) # opis
     early_crop = models.CharField(max_length=200) # Wczesny Plon
+    middle_crop = models.CharField(max_length=200, blank=True, null=True) # Śródplon
     late_crop = models.CharField(max_length=200) # late_crop
     destroy_early_crop = models.CharField(max_length=200) # Zniszcz wczesny plon na zielony nawóz
+    destroy_middle_crop = models.CharField(max_length=200, blank=True, null=True) # Zniszcz śródplon na zielony nawóz
     destroy_late_crop = models.CharField(max_length=200) # Zniszcz późny plon na zielony nawóz
     add_fertilizer = models.CharField(max_length=200) # Dodaj nawóz
     add_fertilizer_onhover = models.CharField(max_length=800) # Wyjaśnienie co program rozumie przez nawóz w onhover nad ikonką "Info"
