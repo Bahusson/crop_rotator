@@ -287,6 +287,7 @@ class RotationStep(models.Model):
     title = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
     add_manure_early = models.BooleanField(default=False)
+    add_manure_middle = models.BooleanField(default=False)
     add_manure_late = models.BooleanField(default=False)
     from_plan = models.ForeignKey(
         "RotationPlan",
@@ -300,11 +301,18 @@ class RotationStep(models.Model):
     early_crop = models.ManyToManyField(
         "Crop", related_name="crop_early_set", blank=True
     )
+    middle_crop = models.ManyToManyField(
+        "Crop", related_name="crop_middle_set", blank=True
+    )
     # Z listy: plon główny
     late_crop = models.ManyToManyField("Crop", related_name="crop_late_set", blank=True)
     # Międzyplon typu "poplon"
     is_late_crop_destroy = models.BooleanField(default=False)
     # Czy plon późny zostanie zniszczony na zielony nawóz?
+    # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
+    # Istotne dla monitorowania przez program kultury gleby
+    is_middle_crop_destroy = models.BooleanField(default=False)
+    # Czy śróplon zostanie zniszczony na zielony nawóz?
     # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
     # Istotne dla monitorowania przez program kultury gleby
     is_early_crop_destroy = models.BooleanField(default=False)
