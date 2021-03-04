@@ -322,7 +322,6 @@ class PlannerRelationship(object):
         interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
         self.given_list = kwargs['given_list']
         season = self.seasondict[self.i.season_of_interaction]
-#        is_odd = self.b[3][2] % 2 != 0
         if season is "Annual" or season is None:
             if (
                 self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]

@@ -87,7 +87,7 @@
     "latin_name": "Brassicaceae",
     "culture": 2,
     "cooldown_min": 4,
-    "cooldown_max": null,
+    "cooldown_max": 4,
     "is_manurable": true,
     "culture_manured": 3,
     "is_mandatory_crop": false,
@@ -117,7 +117,9 @@
       11,
       46
     ],
-    "family_slaves": []
+    "family_slaves": [
+      10
+    ]
   }
 },
 {
@@ -150,7 +152,7 @@
     "latin_name": "Boraginaceae",
     "culture": 3,
     "cooldown_min": 4,
-    "cooldown_max": null,
+    "cooldown_max": 4,
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": false,
@@ -190,7 +192,7 @@
     "latin_name": "Amaranthaceae",
     "culture": 2,
     "cooldown_min": 4,
-    "cooldown_max": null,
+    "cooldown_max": 4,
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": true,
@@ -234,8 +236,8 @@
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": true,
-    "is_family_slave": false,
-    "family_master": null,
+    "is_family_slave": true,
+    "family_master": 4,
     "family_relationships": [
       11,
       46,
@@ -275,8 +277,8 @@
     "name_en": "Polygonaceae",
     "latin_name": "Polygonaceae",
     "culture": 3,
-    "cooldown_min": null,
-    "cooldown_max": null,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
     "is_manurable": false,
     "culture_manured": 0,
     "is_mandatory_crop": false,
@@ -296,7 +298,7 @@
     "latin_name": "Apiaceae",
     "culture": 2,
     "cooldown_min": 4,
-    "cooldown_max": null,
+    "cooldown_max": 4,
     "is_manurable": true,
     "culture_manured": 1,
     "is_mandatory_crop": false,
@@ -322,6 +324,26 @@
     "is_mandatory_crop": false,
     "is_family_slave": true,
     "family_master": 11,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 16,
+  "fields": {
+    "name": "Kozłkowate",
+    "name_pl": "Kozłkowate",
+    "name_en": "Valerian",
+    "latin_name": "Valerianaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
     "family_relationships": [],
     "family_slaves": []
   }
@@ -494,6 +516,20 @@
     "descr": "Ta roślina skorzysta na rozwoju jeśli zapewnimy jej podporę",
     "descr_pl": "Ta roślina skorzysta na rozwoju jeśli zapewnimy jej podporę",
     "descr_en": "This plants development will be more beneficial if we provide it with support",
+    "image": "",
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 21,
+  "fields": {
+    "name": "Koniczyna",
+    "name_pl": "Koniczyna",
+    "name_en": "Clover",
+    "descr": "Ten gatunek jest uważany za koniczynę dla celów interakcji",
+    "descr_pl": "Ten gatunek jest uważany za koniczynę dla celów interakcji",
+    "descr_en": "This species is considered a clover for the purposes of interactions",
     "image": "",
     "crop_relationships": []
   }
@@ -1111,6 +1147,7 @@
       36
     ],
     "tags": [
+      21,
       2
     ]
   }
@@ -1329,14 +1366,14 @@
   "fields": {
     "name": "Gryka siewna",
     "name_pl": "Gryka siewna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Fagopyrum esculentum",
-    "descr_pl": "Fagopyrum esculentum",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Buckwheat",
+    "latin_name": "Fagopyrum esculentum",
+    "descr": "Wczesny międzyplon ścierniskowy",
+    "descr_pl": "Wczesny międzyplon ścierniskowy",
+    "descr_en": "Early stubble cover crop",
+    "image": "images/Gryka_siwena.jpg",
+    "image_source": 15,
+    "pubdate": "2021-02-26T13:37:39Z",
     "family": 13,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1347,9 +1384,17 @@
     "takes_mix_level": 0,
     "seed_norm_min": 40,
     "seed_norm_max": 60,
-    "crop_relationships": [],
+    "crop_relationships": [
+      58,
+      59,
+      57,
+      60
+    ],
     "tags": [
-      2
+      5,
+      2,
+      11,
+      14
     ]
   }
 },
@@ -1409,10 +1454,7 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [],
-    "tags": [
-      17,
-      18
-    ]
+    "tags": []
   }
 },
 {
@@ -1452,14 +1494,14 @@
   "fields": {
     "name": "Groch siewny pastewny",
     "name_pl": "Groch siewny pastewny",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Pisum sativum, sensu lato, peluszka",
-    "descr_pl": "Pisum sativum, sensu lato, peluszka",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Field Pea",
+    "latin_name": "Pisum sativum, sensu lato",
+    "descr": "in. \"peluszka\", międzyplon uniwersalny.",
+    "descr_pl": "in. \"peluszka\", międzyplon uniwersalny.",
+    "descr_en": "also. \"dun pea\", universal cover crop.",
+    "image": "images/Groch_siewny_pastewny.jpg",
+    "image_source": 29,
+    "pubdate": "2021-03-01T15:46:49Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1471,9 +1513,12 @@
     "seed_norm_min": 60,
     "seed_norm_max": 80,
     "crop_relationships": [
+      62,
       21
     ],
     "tags": [
+      11,
+      14,
       20
     ]
   }
@@ -1484,14 +1529,14 @@
   "fields": {
     "name": "Wyka siewna",
     "name_pl": "Wyka siewna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Vicia sativa. wyka jara",
-    "descr_pl": "Vicia sativa. wyka jara",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "Common vetch",
+    "latin_name": "Vicia sativa",
+    "descr": "Międzyplon ścierniskowy ozimy",
+    "descr_pl": "Międzyplon ścierniskowy ozimy",
+    "descr_en": "Perennial stubble cover crop",
+    "image": "images/Wyka_siewna.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-01T16:28:17Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1506,6 +1551,8 @@
       25
     ],
     "tags": [
+      5,
+      11,
       20
     ]
   }
@@ -1516,14 +1563,14 @@
   "fields": {
     "name": "Wyka kosmata",
     "name_pl": "Wyka kosmata",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Vicia villosa, wyka ozima",
-    "descr_pl": "Vicia villosa, wyka ozima",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name_en": "hairy vetch",
+    "latin_name": "Vicia villosa",
+    "descr": "Międzyplon ścierniskowy ozimy",
+    "descr_pl": "Międzyplon ścierniskowy ozimy",
+    "descr_en": "Perennial stubble cover crop",
+    "image": "images/Wyka_kosmata.jpg",
+    "image_source": 30,
+    "pubdate": "2021-03-02T14:28:10Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1538,38 +1585,9 @@
       25
     ],
     "tags": [
-      20
-    ]
-  }
-},
-{
-  "model": "rotator.crop",
-  "pk": 38,
-  "fields": {
-    "name": "Wyka bengalska",
-    "name_pl": "Wyka bengalska",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Vicia benghalensis",
-    "descr_pl": "Vicia benghalensis",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
-    "family": 10,
-    "culture_override": 0,
-    "cooldown_min_override": null,
-    "cooldown_max_override": null,
-    "is_demanding": false,
-    "is_deep_roots": false,
-    "is_leaves_mess": false,
-    "takes_mix_level": 0,
-    "seed_norm_min": 40,
-    "seed_norm_max": 50,
-    "crop_relationships": [
-      25
-    ],
-    "tags": [
+      5,
+      2,
+      14,
       20
     ]
   }
@@ -1578,16 +1596,16 @@
   "model": "rotator.crop",
   "pk": 39,
   "fields": {
-    "name": "Soczewica jadalna / czarna",
-    "name_pl": "Soczewica jadalna / czarna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Lens culinaris & Lens nigricans",
-    "descr_pl": "Lens culinaris & Lens nigricans",
-    "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "name": "Soczewica jadalna",
+    "name_pl": "Soczewica jadalna",
+    "name_en": "Lens",
+    "latin_name": "Lens culinaris",
+    "descr": "Międzyplon ścierniskowy",
+    "descr_pl": "Międzyplon ścierniskowy",
+    "descr_en": "Stubble cover crop",
+    "image": "images/soczewica.jpg",
+    "image_source": 31,
+    "pubdate": "2021-03-02T17:12:24Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1598,8 +1616,13 @@
     "takes_mix_level": 1,
     "seed_norm_min": 25,
     "seed_norm_max": 35,
-    "crop_relationships": [],
-    "tags": []
+    "crop_relationships": [
+      65
+    ],
+    "tags": [
+      5,
+      11
+    ]
   }
 },
 {
@@ -1609,7 +1632,7 @@
     "name": "Bobik",
     "name_pl": "Bobik",
     "name_en": null,
-    "latin_name": null,
+    "latin_name": "Vicia faba ssp. minor",
     "descr": "Vicia faba",
     "descr_pl": "Vicia faba",
     "descr_en": null,
@@ -1714,6 +1737,7 @@
       37
     ],
     "tags": [
+      21,
       2
     ]
   }
@@ -1743,7 +1767,9 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      21
+    ]
   }
 },
 {
@@ -1772,6 +1798,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
+      21,
       2
     ]
   }
@@ -1802,6 +1829,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
+      21,
       5
     ]
   }
@@ -1832,6 +1860,7 @@
     "seed_norm_max": 10,
     "crop_relationships": [],
     "tags": [
+      21,
       2
     ]
   }
@@ -1862,6 +1891,7 @@
     "seed_norm_max": 15,
     "crop_relationships": [],
     "tags": [
+      21,
       5
     ]
   }
@@ -2075,6 +2105,69 @@
     "crop_relationships": [],
     "tags": [
       20
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 56,
+  "fields": {
+    "name": "Groch siewny",
+    "name_pl": "Groch siewny",
+    "name_en": null,
+    "latin_name": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": null,
+    "pubdate": null,
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [
+      21
+    ],
+    "tags": [
+      20
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 57,
+  "fields": {
+    "name": "Wyka Bób",
+    "name_pl": "Wyka Bób",
+    "name_en": null,
+    "latin_name": "Vicia faba",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": null,
+    "pubdate": "2021-03-03T14:56:38Z",
+    "family": 10,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      20,
+      18
     ]
   }
 },
@@ -2406,7 +2499,7 @@
   "fields": {
     "title": "Len + Bobowate (W)",
     "is_positive": true,
-    "about_crop": 30,
+    "about_crop": null,
     "about_family": 4,
     "about_tag": null,
     "info_source": 21,
@@ -2443,6 +2536,118 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 57,
+  "fields": {
+    "title": "Gryka siewna + koniczna (W) (J)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 21,
+    "info_source": 22,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 58,
+  "fields": {
+    "title": "Gryka siewna + Lucerna (W) (J)",
+    "is_positive": true,
+    "about_crop": 49,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 22,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 59,
+  "fields": {
+    "title": "Gryka siewna + Rzepak (W)",
+    "is_positive": true,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 22,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 60,
+  "fields": {
+    "title": "Gryka siewna + słonecznik (W)",
+    "is_positive": true,
+    "about_crop": 22,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 22,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 62,
+  "fields": {
+    "title": "Groch + Zboża (W)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 19,
+    "info_source": 23,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 63,
+  "fields": {
+    "title": "Wyka kosmata + kukurydza",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 25,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 64,
+  "fields": {
+    "title": "Wyka kosmata + rośliny warzywne",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 18,
+    "info_source": 25,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 65,
+  "fields": {
+    "title": "Soczewica ++ Rzepak (W) (O)",
+    "is_positive": true,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 0,
+    "season_of_interaction": 2
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 20,
   "fields": {
@@ -2451,9 +2656,44 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 62,
+  "fields": {
+    "cropinteraction_ptr": 62
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 21,
   "fields": {
     "cropinteraction_ptr": 21
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 58,
+  "fields": {
+    "cropinteraction_ptr": 58
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 59,
+  "fields": {
+    "cropinteraction_ptr": 59
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 57,
+  "fields": {
+    "cropinteraction_ptr": 57
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 60,
+  "fields": {
+    "cropinteraction_ptr": 60
   }
 },
 {
@@ -2528,6 +2768,13 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 65,
+  "fields": {
+    "cropinteraction_ptr": 65
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 43,
   "fields": {
     "cropinteraction_ptr": 43
@@ -2545,6 +2792,20 @@
   "pk": 25,
   "fields": {
     "cropinteraction_ptr": 25
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 63,
+  "fields": {
+    "cropinteraction_ptr": 63
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 64,
+  "fields": {
+    "cropinteraction_ptr": 64
   }
 },
 {
@@ -2635,14 +2896,17 @@
     "descr_pl": "Testowy opis",
     "descr_en": "Test description",
     "add_manure_early": true,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 2,
     "order": 5,
     "is_late_crop_destroy": true,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       32
     ],
+    "middle_crop": [],
     "late_crop": [
       29
     ]
@@ -2659,14 +2923,17 @@
     "descr_pl": "Opis testowy",
     "descr_en": null,
     "add_manure_early": true,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 2,
     "order": 2,
     "is_late_crop_destroy": true,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       48
     ],
+    "middle_crop": [],
     "late_crop": [
       10
     ]
@@ -2683,14 +2950,17 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 2,
     "order": 1,
     "is_late_crop_destroy": true,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       12
     ],
+    "middle_crop": [],
     "late_crop": [
       30
     ]
@@ -2707,14 +2977,17 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 2,
     "order": 3,
     "is_late_crop_destroy": true,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       16
     ],
+    "middle_crop": [],
     "late_crop": [
       33
     ]
@@ -2731,14 +3004,15 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 2,
     "order": 6,
     "is_late_crop_destroy": true,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
-    "early_crop": [
-      38
-    ],
+    "early_crop": [],
+    "middle_crop": [],
     "late_crop": [
       22
     ]
@@ -2755,14 +3029,17 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 2,
     "order": 4,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       6
     ],
+    "middle_crop": [],
     "late_crop": [
       34
     ]
@@ -2779,16 +3056,20 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
     "order": 2,
     "is_late_crop_destroy": true,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      28
+      31,
+      48
     ],
+    "middle_crop": [],
     "late_crop": [
-      10
+      47
     ]
   }
 },
@@ -2803,14 +3084,18 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
-    "order": 1,
+    "order": 6,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
+      18,
       30
     ],
+    "middle_crop": [],
     "late_crop": [
       30
     ]
@@ -2827,17 +3112,19 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
-    "order": 3,
+    "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      16,
-      10
+      32
     ],
+    "middle_crop": [],
     "late_crop": [
-      16
+      31
     ]
   }
 },
@@ -2847,21 +3134,25 @@
   "fields": {
     "title": "dr",
     "title_pl": "dr",
-    "title_en": null,
+    "title_en": "dr",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
     "order": 4,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      32,
-      22
+      10
     ],
-    "late_crop": []
+    "middle_crop": [],
+    "late_crop": [
+      6
+    ]
   }
 },
 {
@@ -2870,18 +3161,23 @@
   "fields": {
     "title": "1",
     "title_pl": "1",
-    "title_en": null,
+    "title_en": "1",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
     "order": 5,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       5
+    ],
+    "middle_crop": [
+      28
     ],
     "late_crop": [
       18
@@ -2899,12 +3195,15 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 4,
     "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -2919,12 +3218,15 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": null,
     "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -2939,12 +3241,15 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": null,
     "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -2959,12 +3264,15 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": null,
     "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -2979,12 +3287,15 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": null,
     "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -2999,15 +3310,18 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 4,
     "order": 2,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       1,
       43
     ],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -3022,15 +3336,18 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
-    "order": 6,
+    "order": 3,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
-    "late_crop": [
-      5
-    ]
+    "middle_crop": [
+      50
+    ],
+    "late_crop": []
   }
 },
 {
@@ -3044,15 +3361,20 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
     "order": 7,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
       18
     ],
-    "late_crop": []
+    "middle_crop": [],
+    "late_crop": [
+      35
+    ]
   }
 },
 {
@@ -3066,56 +3388,65 @@
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 4,
     "order": 3,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [],
+    "middle_crop": [],
     "late_crop": []
   }
 },
 {
   "model": "rotator.rotationstep",
-  "pk": 47,
+  "pk": 50,
   "fields": {
-    "title": "thrthr",
-    "title_pl": "thrthr",
-    "title_en": null,
+    "title": "hhh",
+    "title_pl": null,
+    "title_en": "hhh",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
-    "from_plan": 4,
-    "order": 4,
+    "from_plan": 8,
+    "order": 1,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
-    "early_crop": [],
+    "early_crop": [
+      55
+    ],
+    "middle_crop": [],
     "late_crop": []
   }
 },
 {
   "model": "rotator.rotationstep",
-  "pk": 48,
+  "pk": 53,
   "fields": {
-    "title": "bhmgh",
-    "title_pl": "bhmgh",
+    "title": "yrtyy",
+    "title_pl": "yrtyy",
     "title_en": null,
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
     "add_manure_early": false,
+    "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
     "order": 8,
     "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
     "early_crop": [
-      32,
-      48,
-      33
+      32
     ],
+    "middle_crop": [],
     "late_crop": []
   }
 },
@@ -3521,6 +3852,102 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 22,
+  "fields": {
+    "title": "Gryka siewna - MwP",
+    "descr": "Gryka siewna dobrze rośnie na kwaśnych, ubogich glebach z niedoborem azotu. Doskonale tłumi chwasty. Dobrze oprawia się z wczesnymi uprawami koniczyny, lucerny, oraz wraz z rzepakiem i słonecznikiem. Jest dobrym przedplonem dla zbóż. Gryka jest również rośliną miododajną.",
+    "descr_pl": "Gryka siewna dobrze rośnie na kwaśnych, ubogich glebach z niedoborem azotu. Doskonale tłumi chwasty. Dobrze oprawia się z wczesnymi uprawami koniczyny, lucerny, oraz wraz z rzepakiem i słonecznikiem. Jest dobrym przedplonem dla zbóż. Gryka jest również rośliną miododajną.",
+    "descr_en": "Buckwheat grows well on acidic, poor, nitrogen deficient soils. It excells at supressing weeds. Buckwheat grows well along early clovers, burclover, or even along canola or sunflower. It is a good pre-crop to cereals. Buckwheat is also a nectar source.",
+    "from_crop": 31,
+    "at_data_string": 11,
+    "pages_from": 208,
+    "pages_to": 209,
+    "at_tag": [
+      5,
+      2,
+      11,
+      14
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 23,
+  "fields": {
+    "title": "Groch siewny pastewny - MwP",
+    "descr": "Groch siewny pastewny dobrze rośnie na wszystkich glebach i jest tolerancyjny na suszę. Jest łatwy w uprawie i wydajny, szczególnie w połączeniu ze zbożami, lub inną rośliną podporową. Jest dobrą rośliną paszową produkującą duże ilości biomasy. Jest dość odporny na choroby. Ogólnie jest to jeden z najkorzystniejszych międzyplonów jakie można wybrać.",
+    "descr_pl": "Groch siewny pastewny dobrze rośnie na wszystkich glebach i jest tolerancyjny na suszę. Jest łatwy w uprawie i wydajny, szczególnie w połączeniu ze zbożami, lub inną rośliną podporową. Jest dobrą rośliną paszową produkującą duże ilości biomasy. Jest dość odporny na choroby. Ogólnie jest to jeden z najkorzystniejszych międzyplonów jakie można wybrać.",
+    "descr_en": "Field pea grows well on any soil and is drought-tolerant. It it easy to cultivate and efficient, especially together with cereals or other support plant. It is good as animal feed and it produces lots of biomass. Field pea is rather resistant to disease. Generally it is one of the best cover crops one might choose.",
+    "from_crop": 35,
+    "at_data_string": 11,
+    "pages_from": 213,
+    "pages_to": 215,
+    "at_tag": [
+      11,
+      14,
+      20
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 24,
+  "fields": {
+    "title": "Wyka siewna - MwP",
+    "descr": "Wyka siewna świetnie nadaje się na roślinę pastewną. Produkuje dużo gęstej biomasy, dzięki czemu zagłusza chwasty. Jako roślina pnąca najlepiej radzi sobie w mieszance z odpowiednią rośliną podporową.",
+    "descr_pl": "Wyka siewna świetnie nadaje się na roślinę pastewną. Produkuje dużo gęstej biomasy, dzięki czemu zagłusza chwasty. Jako roślina pnąca najlepiej radzi sobie w mieszance z odpowiednią rośliną podporową.",
+    "descr_en": "Common wench is well suited for animal feed. It produces lots of biomass, thanks to which it supresses weeds. As a vine-type plant it grows best accompanied by support plants.",
+    "from_crop": 36,
+    "at_data_string": 11,
+    "pages_from": 216,
+    "pages_to": 218,
+    "at_tag": [
+      5,
+      11,
+      20
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 25,
+  "fields": {
+    "title": "Wyka kosmata - MwP",
+    "descr": "Wyka kosmata jest gatunkiam bardziej wytrzymałym i konkurencyjnym od wyki siewnej. Daje sobie radę na glebach żyznych i ubogich, jest odporna na suszę i mróz. Efektywnie penetruje glebę dzięki palowemu systemowi korzeniowemu. Pokrywa glebę tak idealnie, że może zastąpić folię biodegradowalną w uprawie kukurydzy, lub warzyw polowych.",
+    "descr_pl": "Wyka kosmata jest gatunkiam bardziej wytrzymałym i konkurencyjnym od wyki siewnej. Daje sobie radę na glebach żyznych i ubogich, jest odporna na suszę i mróz. Efektywnie penetruje glebę dzięki palowemu systemowi korzeniowemu. Pokrywa glebę tak idealnie, że może zastąpić folię biodegradowalną w uprawie kukurydzy, lub warzyw polowych.",
+    "descr_en": "Hairy vetch is sturdier than common vetch. It grows well on rich and poor soils, and is resistant to cold and drought. It effectively penetrates the soil with its taproot.  It covers the soil so completly it can be used instead of biodegradable foil in corn and field vegetables farming.",
+    "from_crop": 37,
+    "at_data_string": 11,
+    "pages_from": 219,
+    "pages_to": 221,
+    "at_tag": [
+      5,
+      11,
+      14,
+      20
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 26,
+  "fields": {
+    "title": "Soczewica - MwP",
+    "descr": "Soczewica jadalna jest szybko rosnącą rośliną, konkurencyjną względem roślin w dolnym piętrze łanu, dzięki czemu skutecznie tłumi chwasty. Posiada delikatny korzeń palowy co pozwala jej na dobrą penetrację gleby. Szczególnie polecana na wysiew współrzędnie z rzepakiem ozimym, który chroni przed chwastami i po wymarznięciu przez zimę dostarcza na wiosnę związanego przez siebie azotu i innych uwolnionych składników.",
+    "descr_pl": "Soczewica jadalna jest szybko rosnącą rośliną, konkurencyjną względem roślin w dolnym piętrze łanu, dzięki czemu skutecznie tłumi chwasty. Posiada delikatny korzeń palowy co pozwala jej na dobrą penetrację gleby. Szczególnie polecana na wysiew współrzędnie z rzepakiem ozimym, który chroni przed chwastami i po wymarznięciu przez zimę dostarcza na wiosnę związanego przez siebie azotu i innych uwolnionych składników.",
+    "descr_en": "Lens is fast growing plant, competitive against plants taking low levels of the mix, which makes it competitive against weeds. It has delicate taproot which allows it to reach deeply into soil. Lens is especially effective together with perennial canola, which it protects from weeds, and after having frozen-over through winter it releases accumulated nitrogen and other nutrients in spring.",
+    "from_crop": 39,
+    "at_data_string": 11,
+    "pages_from": 224,
+    "pages_to": 226,
+    "at_tag": [
+      5,
+      11
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
   "pk": 11,
   "fields": {
@@ -3683,6 +4110,42 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 29,
+  "fields": {
+    "title": "Wikipedia CC - Groch siewny pasewny",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=194097"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 30,
+  "fields": {
+    "title": "Wikipedia CC - Wyka kosmata",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Vicia.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 31,
+  "fields": {
+    "title": "Deutschlands Flora in Abbildungen",
+    "part1": "Johann Georg Sturm 1796 Deutschlands Flora in Abbildungen",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 32,
+  "fields": {
+    "title": "Uprawa współrzędna i płodozmian",
+    "part1": "Sartorius G. 1993. Uprawa Współrzędna i Płodozmian",
+    "link": null
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 11,
   "fields": {
@@ -3698,6 +4161,13 @@
 },
 {
   "model": "rotator.cropbookstring",
+  "pk": 32,
+  "fields": {
+    "cropdatastring_ptr": 32
+  }
+},
+{
+  "model": "rotator.cropbookstring",
   "pk": 13,
   "fields": {
     "cropdatastring_ptr": 13
@@ -3708,6 +4178,13 @@
   "pk": 14,
   "fields": {
     "cropdatastring_ptr": 14
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 31,
+  "fields": {
+    "cropdatastring_ptr": 31
   }
 },
 {
@@ -3743,6 +4220,13 @@
   "pk": 28,
   "fields": {
     "cropdatastring_ptr": 28
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 29,
+  "fields": {
+    "cropdatastring_ptr": 29
   }
 },
 {
@@ -3792,6 +4276,13 @@
   "pk": 26,
   "fields": {
     "cropdatastring_ptr": 26
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 30,
+  "fields": {
+    "cropdatastring_ptr": 30
   }
 },
 {
@@ -3963,12 +4454,18 @@
     "early_crop": "Wczesny plon",
     "early_crop_pl": "Wczesny plon",
     "early_crop_en": "Early crop",
+    "middle_crop": "Śródplon",
+    "middle_crop_pl": "Śródplon",
+    "middle_crop_en": "Middle crop",
     "late_crop": "Późny plon",
     "late_crop_pl": "Późny plon",
     "late_crop_en": "Late crop",
     "destroy_early_crop": "Zniszcz wczesny plon na zielony nawóz",
     "destroy_early_crop_pl": "Zniszcz wczesny plon na zielony nawóz",
     "destroy_early_crop_en": "Destroy early crop to make green fertilizer",
+    "destroy_middle_crop": "Zniszcz śródplon na zielony nawóz",
+    "destroy_middle_crop_pl": "Zniszcz śródplon na zielony nawóz",
+    "destroy_middle_crop_en": "Destroy middle crop to make green fertilizer",
     "destroy_late_crop": "Zniszcz późny plon na zielony nawóz",
     "destroy_late_crop_pl": "Zniszcz późny plon na zielony nawóz",
     "destroy_late_crop_en": "Destroy late crop to make green fertilizer",
@@ -4005,12 +4502,12 @@
     "option_select": "Wybierz opcję",
     "option_select_pl": "Wybierz opcję",
     "option_select_en": "Select option",
-    "in_this_plan": "W tym planie znajduje się",
-    "in_this_plan_pl": "W tym planie znajduje się",
-    "in_this_plan_en": "In this plan there is",
-    "fabs_and": "bobowatych (w tym strączkowych)",
-    "fabs_and_pl": "bobowatych (w tym strączkowych)",
-    "fabs_and_en": "of fabacae family",
+    "in_this_plan": "Zdaje się, że w Twoim planie znajduje się nie więcej niż",
+    "in_this_plan_pl": "Zdaje się, że w Twoim planie znajduje się nie więcej niż",
+    "in_this_plan_en": "It appears that in your plan there is no more than",
+    "fabs_and": "roślin z rodziny bobowatych",
+    "fabs_and_pl": "roślin z rodziny bobowatych",
+    "fabs_and_en": "plants of fabacae family",
     "should_be_fabs": "Powinno ich być między 25% a 33%",
     "should_be_fabs_pl": "Powinno ich być między 25% a 33%",
     "should_be_fabs_en": "Ratio should be between 25% and 33%",
