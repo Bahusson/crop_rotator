@@ -76,33 +76,32 @@ def flare(debugged_content, **kwargs):
 
 
 # Skraca powtarzający się kawałek kodu na widokach.
-def list_appending_short(items, vars):
+def list_appending_short(items, vars, season):
     for i in items:
         vars[0].append(
             [
                 i.family.cooldown_min,
                 i.id,
                 i.family,
-                [vars[1].order, vars[3]],
+                [vars[1].order, vars[3], season],
                 i,
             ]
         )
         # Policz bobowate i strączkowe (tzw. mandatory crops):
         if i.family.is_mandatory_crop:
             vars[2].append(str(vars[1].order))
-        flare(vars[3])
 
 def list_appending_long(a,b,c, vars):
     if len(a) > 0:
         vars[3] += 1
-        list_appending_short(a, vars)
+        list_appending_short(a, vars, "Annual")
     if len(b) > 0:
         vars[3] += 1
-        list_appending_short(b, vars)
+        list_appending_short(b, vars, None)
     if len(c) > 0:
         vars[3] += 1
-        list_appending_short(c, vars)
-        return vars[3]
+        list_appending_short(c, vars, "Perennial")
+    return vars[3]
 
 # Skraca usuwanie niepoprawnego numeru cropstepu.
 def level_off(top_tier, a, b):
