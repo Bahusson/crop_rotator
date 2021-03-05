@@ -409,6 +409,26 @@
   }
 },
 {
+  "model": "rotator.cropfamily",
+  "pk": 21,
+  "fields": {
+    "name": "Przewiertniowate",
+    "name_pl": "Przewiertniowate",
+    "name_en": "Caprifoliaceae",
+    "latin_name": "honeysuckle",
+    "culture": 3,
+    "cooldown_min": null,
+    "cooldown_max": null,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
   "model": "rotator.croptag",
   "pk": 2,
   "fields": {
@@ -2142,16 +2162,16 @@
   "model": "rotator.crop",
   "pk": 55,
   "fields": {
-    "name": "Fasola",
-    "name_pl": "Fasola",
-    "name_en": null,
-    "latin_name": null,
+    "name": "Fasola zwykła - Tyczna",
+    "name_pl": "Fasola zwykła - Tyczna",
+    "name_en": "Common beak - pole",
+    "latin_name": "Phaseolus vulgaris",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Fasola_Zwykła_5A6fxxJ.jpg",
+    "image_source": 34,
+    "pubdate": "2021-03-05T08:32:52Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2164,7 +2184,8 @@
     "seed_norm_max": null,
     "crop_relationships": [],
     "tags": [
-      20
+      20,
+      18
     ]
   }
 },
@@ -2172,16 +2193,16 @@
   "model": "rotator.crop",
   "pk": 56,
   "fields": {
-    "name": "Groch siewny",
-    "name_pl": "Groch siewny",
-    "name_en": null,
-    "latin_name": null,
+    "name": "Groch",
+    "name_pl": "Groch",
+    "name_en": "Pea",
+    "latin_name": "Pisum",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Groch_zwyczajny.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-05T08:50:11Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2193,10 +2214,12 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [
+      62,
       21
     ],
     "tags": [
-      20
+      20,
+      18
     ]
   }
 },
@@ -2227,6 +2250,186 @@
     "crop_relationships": [],
     "tags": [
       20,
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 58,
+  "fields": {
+    "name": "Karczoch",
+    "name_pl": "Karczoch",
+    "name_en": "Cynara",
+    "latin_name": "Cynara",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": 33,
+    "pubdate": "2021-03-05T08:17:03Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 59,
+  "fields": {
+    "name": "Fasola Zwykła - Karłowa",
+    "name_pl": "Fasola Zwykła - Karłowa",
+    "name_en": "Common bean - dwarf",
+    "latin_name": "Phaseolus vulgaris",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Fasola_Zwykła.jpg",
+    "image_source": 34,
+    "pubdate": "2021-03-05T08:31:40Z",
+    "family": 4,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 60,
+  "fields": {
+    "name": "Kapusta Chińska",
+    "name_pl": "Kapusta Chińska",
+    "name_en": "Pak-choy",
+    "latin_name": "Brassica rapa L. subsp. chinensis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kapusta_chińska.jpg",
+    "image_source": 35,
+    "pubdate": "2021-03-05T08:38:44Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 61,
+  "fields": {
+    "name": "Cykoria endywia",
+    "name_pl": "Cykoria endywia",
+    "name_en": "Endive",
+    "latin_name": "Cichorium endivia",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Cykoria_Endywia.jpg",
+    "image_source": 36,
+    "pubdate": "2021-03-05T08:45:21Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 62,
+  "fields": {
+    "name": "Roszpunka",
+    "name_pl": "Roszpunka",
+    "name_en": "corn salad",
+    "latin_name": "Valerianella",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Roszpunka.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-05T08:56:24Z",
+    "family": 21,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 63,
+  "fields": {
+    "name": "Ogórek",
+    "name_pl": "Ogórek",
+    "name_en": "Cucumber",
+    "latin_name": "Cucumis sativus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": 37,
+    "pubdate": "2021-03-05T08:58:54Z",
+    "family": 18,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
       18
     ]
   }
@@ -4206,6 +4409,51 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 33,
+  "fields": {
+    "title": "Wikipedia CC - Karczoch",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=7346946"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 34,
+  "fields": {
+    "title": "Wikipedia CC - Fasola Zwykła",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=265128"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 35,
+  "fields": {
+    "title": "Wikipedia CC - Kapusta Chińska",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=2259020"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 36,
+  "fields": {
+    "title": "Wikipedia CC - Cykoria Endywia",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:Andijvie_bloei.jpg"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 37,
+  "fields": {
+    "title": "Wikipedia CC - Ogórek",
+    "part1": "Wikipedia, (creative commons)",
+    "link": "https://commons.wikimedia.org/wiki/File:ARS_cucumber.jpg"
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 11,
   "fields": {
@@ -4277,9 +4525,23 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 36,
+  "fields": {
+    "cropdatastring_ptr": 36
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 28,
   "fields": {
     "cropdatastring_ptr": 28
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 34,
+  "fields": {
+    "cropdatastring_ptr": 34
   }
 },
 {
@@ -4294,6 +4556,27 @@
   "pk": 18,
   "fields": {
     "cropdatastring_ptr": 18
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 35,
+  "fields": {
+    "cropdatastring_ptr": 35
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 33,
+  "fields": {
+    "cropdatastring_ptr": 33
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 37,
+  "fields": {
+    "cropdatastring_ptr": 37
   }
 },
 {
