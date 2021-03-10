@@ -548,20 +548,6 @@
 },
 {
   "model": "rotator.croptag",
-  "pk": 16,
-  "fields": {
-    "name": "Głębosz",
-    "name_pl": "Głębosz",
-    "name_en": "Sobsoiler",
-    "descr": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
-    "descr_pl": "Ta roślina posiada system korzeniowy zdolny do przebicia się przez podeszwę płużną!",
-    "descr_en": "This plants root system is so strong it literally pierces through compacted soil!",
-    "image": "",
-    "crop_relationships": []
-  }
-},
-{
-  "model": "rotator.croptag",
   "pk": 17,
   "fields": {
     "name": "Okopowe",
@@ -756,7 +742,6 @@
       44
     ],
     "tags": [
-      16,
       2,
       11,
       14
@@ -1564,16 +1549,16 @@
   "model": "rotator.crop",
   "pk": 34,
   "fields": {
-    "name": "Marchew",
-    "name_pl": "Marchew",
-    "name_en": null,
-    "latin_name": null,
+    "name": "Marchew Zwyczajna",
+    "name_pl": "Marchew Zwyczajna",
+    "name_en": "Carrot",
+    "latin_name": "Daucus carota",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Marchew.jpg",
+    "image_source": 14,
+    "pubdate": "2021-03-10T16:17:39Z",
     "family": 14,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2485,6 +2470,214 @@
     "tags": [
       18
     ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 65,
+  "fields": {
+    "name": "Fenkuł Włoski",
+    "name_pl": "Fenkuł Włoski",
+    "name_en": "Fennel",
+    "latin_name": "Foeniculum vulgare",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Fenkuł_Włoski.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-10T15:25:51Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 66,
+  "fields": {
+    "name": "Kultywary Kapusty",
+    "name_pl": "Kultywary Kapusty",
+    "name_en": "Cabbage Cultivars",
+    "latin_name": "Brassica oleracea",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kapusty_Warzywne_2.jpg",
+    "image_source": 39,
+    "pubdate": "2021-03-10T15:36:44Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 67,
+  "fields": {
+    "name": "Kalarepa",
+    "name_pl": "Kalarepa",
+    "name_en": "Kohlrabi",
+    "latin_name": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kalarepa.jpg",
+    "image_source": 40,
+    "pubdate": "2021-03-10T15:47:57Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 68,
+  "fields": {
+    "name": "Sałata Siewna",
+    "name_pl": "Sałata Siewna",
+    "name_en": "Lettuce",
+    "latin_name": "Lactuca sativa",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Sałata_Siewna.JPG",
+    "image_source": 41,
+    "pubdate": "2021-03-10T15:51:06Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 69,
+  "fields": {
+    "name": "Rzepa",
+    "name_pl": "Rzepa",
+    "name_en": "Turnip",
+    "latin_name": "Brassica rapa subsp. rapa",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rzepa.jpg",
+    "image_source": 42,
+    "pubdate": "2021-03-10T16:05:49Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 70,
+  "fields": {
+    "name": "Burak Liściowy",
+    "name_pl": "Burak Liściowy",
+    "name_en": "Chard",
+    "latin_name": "Beta vulgaris L. subsp. vulgaris",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Burak_Liściowy.jpg",
+    "image_source": 43,
+    "pubdate": "2021-03-10T16:16:05Z",
+    "family": 8,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 71,
+  "fields": {
+    "name": "Trętwian czterorożny",
+    "name_pl": "Trętwian czterorożny",
+    "name_en": null,
+    "latin_name": "Tetragonia tetragonioides",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": null,
+    "pubdate": null,
+    "family": null,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": []
   }
 },
 {
@@ -3419,33 +3612,6 @@
 },
 {
   "model": "rotator.rotationstep",
-  "pk": 13,
-  "fields": {
-    "title": "kompleks pszenny",
-    "title_pl": "kompleks pszenny",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      32
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      31
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
   "pk": 16,
   "fields": {
     "title": "dr",
@@ -3755,7 +3921,7 @@
     "add_manure_middle": false,
     "add_manure_late": false,
     "from_plan": 3,
-    "order": 8,
+    "order": 1,
     "is_late_crop_destroy": false,
     "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
@@ -3763,7 +3929,36 @@
       32
     ],
     "middle_crop": [],
-    "late_crop": []
+    "late_crop": [
+      50
+    ]
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 54,
+  "fields": {
+    "title": "Wika",
+    "title_pl": "Wika",
+    "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_middle": false,
+    "add_manure_late": false,
+    "from_plan": 3,
+    "order": 8,
+    "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [
+      61
+    ],
+    "middle_crop": [],
+    "late_crop": [
+      32
+    ]
   }
 },
 {
@@ -3852,7 +4047,6 @@
     "pages_from": 156,
     "pages_to": 157,
     "at_tag": [
-      16,
       2,
       11,
       14
@@ -4264,6 +4458,23 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 27,
+  "fields": {
+    "title": "Kultywary Kapusty - UWiP",
+    "descr": "Z wyjątkiem Kalarepy.",
+    "descr_pl": "Z wyjątkiem Kalarepy.",
+    "descr_en": "Without Kohlrabi.",
+    "from_crop": 66,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
   "pk": 11,
   "fields": {
@@ -4507,6 +4718,51 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 39,
+  "fields": {
+    "title": "Wikipedia CC - Kapusta Warzywna",
+    "part1": "Autorstwa Coyau / Wikimedia Commons, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=31366674"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 40,
+  "fields": {
+    "title": "Wikipedia CC - Kalarepa",
+    "part1": "Autorstwa thebittenword.com - originally posted to Flickr as Clagett Farm CSA 2008 Week 4, CC BY 2.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=4734875"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 41,
+  "fields": {
+    "title": "Wikipedia CC - Sałata Siewna",
+    "part1": "Selena von Eichendorf., GFDL",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=8785364"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 42,
+  "fields": {
+    "title": "Wikipedia CC - Rzepa",
+    "part1": "Autorstwa Peter Presslein - Praca własna, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=369650"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 43,
+  "fields": {
+    "title": "Wikipedia CC - Burak Liściowy",
+    "part1": "CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=225922"
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 11,
   "fields": {
@@ -4578,6 +4834,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 43,
+  "fields": {
+    "cropdatastring_ptr": 43
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 28,
   "fields": {
     "cropdatastring_ptr": 28
@@ -4599,6 +4862,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 40,
+  "fields": {
+    "cropdatastring_ptr": 40
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 18,
   "fields": {
     "cropdatastring_ptr": 18
@@ -4609,6 +4879,13 @@
   "pk": 35,
   "fields": {
     "cropdatastring_ptr": 35
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 39,
+  "fields": {
+    "cropdatastring_ptr": 39
   }
 },
 {
@@ -4641,6 +4918,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 42,
+  "fields": {
+    "cropdatastring_ptr": 42
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 19,
   "fields": {
     "cropdatastring_ptr": 19
@@ -4651,6 +4935,13 @@
   "pk": 20,
   "fields": {
     "cropdatastring_ptr": 20
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 41,
+  "fields": {
+    "cropdatastring_ptr": 41
   }
 },
 {
