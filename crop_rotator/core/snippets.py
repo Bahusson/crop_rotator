@@ -156,3 +156,39 @@ def slice_list_3(list):
     master_len_1 = round(master_len/3)
     master_len_2 = master_len_1*2
     return (master_len_1,master_len_2)
+
+
+def summarize_plans(plans_list, step_class):
+    summarized_list = []
+    for plan in plans_list:
+        pe_rs = step_class.objects.filter(from_plan=plan.id)
+        listed_pe_rs = list(pe_rs)
+        steps_total = len(listed_pe_rs)
+        crop_total = 0
+        tag_list = []
+        for step in listed_pe_rs:
+            for crop in step.early_crop.all():
+                crop_total += 1
+                for tag in crop.tags.all():
+                    if tag.is_featured:
+                        tag_list.append(tag)
+            for crop in step.middle_crop.all():
+                crop_total += 1
+                for tag in crop.tags.all():
+                    if tag.is_featured:
+                        tag_list.append(tag)
+            for crop in step.late_crop.all():
+                crop_total += 1
+                for tag in crop.tags.all():
+                    if tag.is_featured:
+                        tag_list.append(tag)
+        tag_list2 = []
+        remove_repeating(tag_list2, tag_list)
+        tag_list3 = []
+        for item in tag_list2:
+            num = tag_list.count(item)
+            mychunk = (item, str(round(num/crop_total*100, 1)) + "%")
+            tag_list3.append(mychunk)
+        tag_list3.sort(key = sortSecond, reverse=True)
+        summarized_list.append((plan, tag_list3, steps_total, crop_total))
+    return summarized_list
