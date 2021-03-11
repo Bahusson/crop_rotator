@@ -53,6 +53,8 @@ def home(request):
     pe_rp_published = pe_rp.filter(published=True)
     pe_rp_shuffled = list(pe_rp_published)
     shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
+    pe_rp_shuffled = pe_rp_shuffled[:4]
+    
     context = {
         "rotation_plans": pe_rp_shuffled,
     }

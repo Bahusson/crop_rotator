@@ -90,6 +90,7 @@ class CropTag(models.Model):
     crop_relationships = models.ManyToManyField(
         "TagsInteraction", related_name="known_tags_interactions", blank=True
     )
+    is_featured = models.BooleanField(default=False)  # Czy widoczny na głównej?
 
     class Meta:
         ordering = ["name"]
