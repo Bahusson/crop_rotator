@@ -54,7 +54,18 @@ def home(request):
     pe_rp_shuffled = list(pe_rp_published)
     shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
     pe_rp_shuffled = pe_rp_shuffled[:4]
-    
+    for plan in pe_rp_shuffled:
+        pe_rs = RotationStep.objects.filter(from_plan=plan.id)
+        listed_pe_rs = list(pe_rs)
+        crop_total = 0
+        for step in listed_pe_rs:
+            for crop in step.early_crop.all():
+                crop_total += 1
+            for crop in step.middle_crop.all():
+                crop_total += 1
+            for crop in step.late_crop.all():
+                crop_total += 1
+        print(str(plan.title) + " " + str(crop_total))
     context = {
         "rotation_plans": pe_rp_shuffled,
     }
