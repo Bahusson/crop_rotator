@@ -18,6 +18,8 @@
     <div class="col">
         <div class="desc ">
             <h4 class="head-news"><a href="{% url 'lurk_plan' plan.0.id %}">{{ plan.0.title }}</a></h4>
+            <p>$Kroków: {{ plan.2 }}</p>
+            <p>$Roślin: {{ plan.3 }}</p>
             {% for item in plan.1 %}
             <p>{{ item.0.name }} - {{ item.1 }}</p>
             {% endfor %}
@@ -35,6 +37,8 @@
       <div class="col">
           <div class="desc">
               <h4 class="head-news"><a href="{% url 'lurk_plan' rotation_plans.3.0.id %}">{{ rotation_plans.3.0.title }}</a></h4>
+              <p>$Kroków: {{ rotation_plans.3.2 }}</p>
+              <p>$Roślin: {{ rotation_plans.3.3 }}</p>
               {% for item in rotation_plans.3.1 %}
               <p>{{ item.0.name }} - {{ item.1 }}</p>
               {% endfor %}

@@ -59,6 +59,7 @@ def home(request):
     for plan in pe_rp_shuffled:
         pe_rs = RotationStep.objects.filter(from_plan=plan.id)
         listed_pe_rs = list(pe_rs)
+        steps_total = len(listed_pe_rs)
         crop_total = 0
         tag_list = []
         for step in listed_pe_rs:
@@ -85,7 +86,7 @@ def home(request):
             mychunk = (item, str(round(num/crop_total*100, 1)) + "%")
             tag_list3.append(mychunk)
         tag_list3.sort(key = sortSecond, reverse=True)
-        pe_rp_shuffled_taglisted.append((plan, tag_list3))
+        pe_rp_shuffled_taglisted.append((plan, tag_list3, steps_total, crop_total))
     context = {
         "rotation_plans": pe_rp_shuffled_taglisted,
     }
