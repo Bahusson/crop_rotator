@@ -32,6 +32,7 @@ from core.snippets import (
     check_slaves,
     check_ownership,
     slice_list_3,
+    sortSecond,
 )
 from django.contrib.auth.decorators import login_required
 from rotator.forms import (
@@ -54,20 +55,39 @@ def home(request):
     pe_rp_shuffled = list(pe_rp_published)
     shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
     pe_rp_shuffled = pe_rp_shuffled[:4]
+    pe_rp_shuffled_taglisted = []
     for plan in pe_rp_shuffled:
         pe_rs = RotationStep.objects.filter(from_plan=plan.id)
         listed_pe_rs = list(pe_rs)
         crop_total = 0
+        tag_list = []
         for step in listed_pe_rs:
             for crop in step.early_crop.all():
                 crop_total += 1
+                for tag in crop.tags.all():
+                    if tag.is_featured:
+                        tag_list.append(tag)
             for crop in step.middle_crop.all():
                 crop_total += 1
+                for tag in crop.tags.all():
+                    if tag.is_featured:
+                        tag_list.append(tag)
             for crop in step.late_crop.all():
                 crop_total += 1
-        print(str(plan.title) + " " + str(crop_total))
+                for tag in crop.tags.all():
+                    if tag.is_featured:
+                        tag_list.append(tag)
+        tag_list2 = []
+        remove_repeating(tag_list2, tag_list)
+        tag_list3 = []
+        for item in tag_list2:
+            num = tag_list.count(item)
+            mychunk = (item, str(round(num/crop_total*100, 1)) + "%")
+            tag_list3.append(mychunk)
+        tag_list3.sort(key = sortSecond, reverse=True)
+        pe_rp_shuffled_taglisted.append((plan, tag_list3))
     context = {
-        "rotation_plans": pe_rp_shuffled,
+        "rotation_plans": pe_rp_shuffled_taglisted,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)

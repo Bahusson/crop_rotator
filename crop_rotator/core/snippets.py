@@ -39,6 +39,8 @@ def gen_login():
     fulllogin = L1 + L2 + L3 + L4 + L5 + L6 + L7 + L8 + L9
     return fulllogin
 
+def sortSecond(val):
+    return val[1]
 
 # Wyciąga nazwy wszystkich atrybutów modelu
 # i zamyka je w tupli do użycia w translatorze.

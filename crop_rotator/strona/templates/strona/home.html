@@ -16,10 +16,11 @@
 {% if plan %}
 <div class="col-md-3 shdwn">
     <div class="col">
-        <a href="{% url 'lurk_plan' plan.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>
         <div class="desc ">
-            <h4 class="head-news"><a href="{% url 'lurk_plan' plan.id %}">{{ plan.title }}</a></h4>
-            <p>{{ plan.summary }}</p>
+            <h4 class="head-news"><a href="{% url 'lurk_plan' plan.0.id %}">{{ plan.0.title }}</a></h4>
+            {% for item in plan.1 %}
+            <p>{{ item.0.name }} - {{ item.1 }}</p>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -32,10 +33,11 @@
 <!--- DODATKOWY BLOG -->
   <div class="col-md-3 shdwn extrablog">
       <div class="col">
-           <a href="{% url 'lurk_plan' rotation_plans.3.id %}"><img class="imgshdw float-left img-fluid" src="{{ skin.planimagedefault.url }}" /></a>
           <div class="desc">
-              <h4 class="head-news"><a href="{% url 'lurk_plan' rotation_plans.3.id %}">{{ rotation_plans.3.title }}</a></h4>
-              <p>{{ rotation_plans.3.summary }}</p>
+              <h4 class="head-news"><a href="{% url 'lurk_plan' rotation_plans.3.0.id %}">{{ rotation_plans.3.0.title }}</a></h4>
+              {% for item in rotation_plans.3.1 %}
+              <p>{{ item.0.name }} - {{ item.1 }}</p>
+              {% endfor %}
           </div>
       </div>
   </div>
