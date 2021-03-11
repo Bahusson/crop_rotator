@@ -1,11 +1,12 @@
 {% if plan %}
 <div class="row">
 <div class="col-10">
-  <p>{{ plan.title }}</p>
+  <p><b>{{ plan.0.title }}</b></p>
+  {% include "strona/plan_parts/plan_summary.html" %}
   <br />
 </div>
 <div class="col-2">
-  <button class="button btn btn-light btn-sm"><a href="{% url 'plan_edit' plan.id %}">{{ translatables.editme }}</a></button>
+  <button class="button btn btn-light btn-sm"><a href="{% url 'plan_edit' plan.0.id %}">{{ translatables.editme }}</a></button>
 </div>
 </div>
 {% endif %}

@@ -1,0 +1,5 @@
+<p>{{ items.of_steps }}: {{ plan.2 }}</p>
+<p>{{ items.of_plants }}: {{ plan.3 }}</p>
+{% for item in plan.1 %}
+<p>{{ item.0.name }} - {{ item.1 }}</p>
+{% endfor %}

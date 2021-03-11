@@ -17,6 +17,8 @@ class PageNames(models.Model):
     my_plans = models.CharField(max_length=200, blank=True, null=True) # Spis roślin
     all_plans = models.CharField(max_length=200, blank=True, null=True) # Wszystkie plany
     see_more = models.CharField(max_length=200, blank=True, null=True) # Czytaj dalej
+    of_steps = models.CharField(max_length=200, blank=True, null=True) # Kroków
+    of_plants = models.CharField(max_length=200, blank=True, null=True) # Czytaj dalej
 
     class Meta:
         verbose_name_plural = 'Page Names'

@@ -31,6 +31,7 @@ from core.snippets import (
     repack,
     check_slaves,
     check_ownership,
+    slice_list_3,
     summarize_plans,
 )
 from django.contrib.auth.decorators import login_required
@@ -92,8 +93,9 @@ def fertilize(request):
 def allplans(request):
     pe_rp = pe(RotationPlan).allelements
     pe_rp_published = pe_rp.filter(published=True)
+    plans_list = summarize_plans(pe_rp_published, RotationStep)
     context = {
-        "rotation_plans": pe_rp_published,
+        "rotation_plans": plans_list,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
@@ -342,6 +344,7 @@ def my_plans(request):
     userdata = User.objects.get(
      id=request.user.id)
     pe_upl = pe(RotationPlan).allelements.filter(owner=userdata)
+    plans_list = summarize_plans(pe_upl, RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
     user_limit_reached = False
     if len(list(pe_upl)) > 11:
@@ -356,7 +359,7 @@ def my_plans(request):
         form = RotationPlanForm()
         context = {
          "form": form,
-         "user_plans": pe_upl,
+         "user_plans": plans_list,
          "user_limit": user_limit_reached,
          "translatables": translatables,
 
