@@ -17,35 +17,19 @@
       <h2>{{ items.my_plans }}</h2>
       <div class="row">
         <div class="col-md-4 shdwn">
-        {% with  master_slice1=ml1|stringformat:"s" %}
-        {% with  msl=":"|add:master_slice1 %}
-        {% for plan in user_plans|slice:msl %}
-        {% include 'strona/user_plan_parts/plan_entry.html' %}
-        {% endfor %}
-        {% endwith %}
-        {% endwith %}
+          {% for plan in user_plans|slice:":4" %}
+          {% include 'strona/user_plan_parts/plan_entry.html' %}
+          {% endfor %}
         </div>
         <div class="col-md-4 shdwn">
-        {% with  master_slice1=ml1|stringformat:"s" %}
-        {% with  middleman=master_slice1|add:":" %}
-        {% with  master_slice2=ml2|stringformat:"s" %}
-        {% with  msl=middleman|add:master_slice2 %}
-        {% for plan in user_plans|slice:msl %}
-        {% include 'strona/user_plan_parts/plan_entry.html' %}
-        {% endfor %}
-        {% endwith %}
-        {% endwith %}
-        {% endwith %}
-        {% endwith %}
+          {% for plan in user_plans|slice:"4:8" %}
+          {% include 'strona/user_plan_parts/plan_entry.html' %}
+          {% endfor %}
         </div>
         <div class="col-md-4 shdwn">
-        {% with  master_slice2=ml2|stringformat:"s" %}
-        {% with  msl=master_slice2|add:":" %}
-        {% for plan in user_plans|slice:msl %}
-        {% include 'strona/user_plan_parts/plan_entry.html' %}
-        {% endfor %}
-        {% endwith %}
-        {% endwith %}
+          {% for plan in user_plans|slice:"8:12" %}
+          {% include 'strona/user_plan_parts/plan_entry.html' %}
+          {% endfor %}
         </div>
       </div><!-- /.row -->
       <div class="container kol">

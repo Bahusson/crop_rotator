@@ -347,7 +347,7 @@ def my_plans(request):
     plans_list = summarize_plans(pe_upl, RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
     user_limit_reached = False
-    if len(list(pe_upl)) > 11:
+    if len(list(pe_upl)) > 99:
         user_limit_reached = True
 
     if request.method == 'POST':
@@ -357,6 +357,7 @@ def my_plans(request):
             return redirect('my_plans') # Przekierowuj później na stronę planu
     else:
         form = RotationPlanForm()
+        sl3 = slice_list_3(plans_list)
         context = {
          "form": form,
          "user_plans": plans_list,
