@@ -19,7 +19,7 @@ def rotator_admin(request):
         form = RotatorAdminPanelForm(request.POST, instance=pe_rap)
         if form.is_valid():
             form.save()
-            return redirect('rotator_admin') # Przekierowuj później na stronę planu
+            return redirect('rotator_admin')
     else:
         form = RotatorAdminPanelForm(instance=pe_rap)
         context = {
