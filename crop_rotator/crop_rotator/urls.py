@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('', include('strona.urls')),
+    path('core/', include('core.urls')),
     path('strona/', include('strona.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('rekruter/', include('rekruter.urls')),

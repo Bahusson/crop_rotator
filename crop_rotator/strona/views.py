@@ -104,7 +104,7 @@ def allplans(request):
 
 #TODO: Z dwóch poniższych możesz zrobić widoki na klasie, bo są zbliżone.
 # Widok planu po ewaluacji na życzenie.
-#@cache_page(60)
+@cache_page(60)
 def plan_evaluated(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
@@ -244,7 +244,7 @@ def plan(request, plan_id):
     return render(request, template, context_lazy)
 
 
-# Widok pojedynczego płodozmianu dla lurkera - longcache 24h - Popraw czas w produkcji
+# Widok pojedynczego płodozmianu dla lurkera
 @cache_page(60 * 15)
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
