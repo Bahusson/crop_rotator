@@ -48,7 +48,6 @@ from rotator.models import Crop
 from operator import attrgetter
 from random import shuffle
 
-
 # Widok strony domowej.
 def home(request):
     pe_rp = pe(RotationPlan).allelements
@@ -105,7 +104,8 @@ def allplans(request):
 
 #TODO: Z dwóch poniższych możesz zrobić widoki na klasie, bo są zbliżone.
 # Widok planu po ewaluacji na życzenie.
-@cache_page(60)
+edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
+@cache_page(edit_delay_sec)
 def plan_evaluated(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
@@ -248,7 +248,8 @@ def plan(request, plan_id):
 
 
 # Widok pojedynczego płodozmianu dla lurkera
-@cache_page(60 * 15)
+lurk_delay_min = pe(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
+@cache_page(60 * lurk_delay_min)
 def lurk_plan(request, plan_id):
     pe_rp = pe(RotationPlan)
     pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
