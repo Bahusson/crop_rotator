@@ -11,8 +11,8 @@
 <div class="news jumbotron">
 <div class="row">
 
-{% for plan in rotation_plans|slice:":3" %}
-<!-- Iterator aktualności 1-3 -->
+{% for plan in rotation_plans%}
+<!-- Iterator aktualności -->
 {% if plan %}
 <div class="col-md-3 shdwn">
     <div class="col">
@@ -25,24 +25,8 @@
 <!--text-->
 {% endif %}
 {% endfor %}
-<!-- Koniec iteratora aktualności 1-3 -->
+<!-- Koniec iteratora aktualności -->
 
-{% if rotation_plans.3 %}
-<!--- DODATKOWY BLOG -->
-  <div class="col-md-3 shdwn extrablog">
-      <div class="col">
-          <div class="desc">
-              <h4 class="head-news"><a href="{% url 'lurk_plan' rotation_plans.3.0.id %}">{{ rotation_plans.3.0.title }}</a></h4>
-              <p>{{ items.of_steps }}: {{ rotation_plans.3.2 }}</p>
-              <p>{{ items.of_plants }}: {{ rotation_plans.3.3 }}</p>
-              {% for item in rotation_plans.3.1 %}
-              <p>{{ item.0.name }} - {{ item.1 }}</p>
-              {% endfor %}
-          </div>
-      </div>
-  </div>
-{% endif %}
-<!-- Koniec dodatkowego bloga -->
 </div>
 <!-- BUTTON -->
 
