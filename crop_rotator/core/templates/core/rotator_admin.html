@@ -24,7 +24,7 @@
             <form name="CR_AdminForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
              {% csrf_token %}
               <p>$ Maksymalna ilość kroków w planie zmianowania: {{ form.max_steps }}</p>
-              <p>$ Maksymalna ilość planów zmianowani na użytkownika: {{ form.max_user_plans }}</p>
+              <p>$ Maksymalna ilość planów zmianowania na użytkownika: {{ form.max_user_plans }}</p>
               <p>$ Czas cachowania (w minutach) planów widzianych "z zewnątrz" ('lurk_plan'): {{ form.lurk_plan_cooldown }}</p>
               <p>$ Czas cachowania (w sekundach) planu po ewaluacji (przeciwdziała bezmyślnemu klikaniu) : {{ form.evaluated_plan_cooldown }}</p>
               <p><button class="btn btn-link-3 btn-light" name="save_changes" type="submit">$Zapisz zmiany</button></p>

@@ -34,6 +34,7 @@ from core.snippets import (
     slice_list_3,
     summarize_plans,
 )
+from core.models import RotatorAdminPanel
 from django.contrib.auth.decorators import login_required
 from rotator.forms import (
     RotationPlanForm,
@@ -175,6 +176,7 @@ def plan_evaluated(request, plan_id):
 
 # Widok pojedynczego płodozmianu dla Edytora - no_cache
 def plan(request, plan_id):
+    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
@@ -191,6 +193,7 @@ def plan(request, plan_id):
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "form": form,
         "form2": form2,
+        "admin_max_steps": admin_max_steps,
         "translatables": translatables,
     }
     dcp = DummyCropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
@@ -341,13 +344,14 @@ def family(request, family_id):
 # Widok pozwala userowi stworzyć zupełnie nowy plan.
 @login_required
 def my_plans(request):
+    admin_max_plans = pe(RotatorAdminPanel).baseattrs.max_user_plans
     userdata = User.objects.get(
      id=request.user.id)
     pe_upl = pe(RotationPlan).allelements.filter(owner=userdata)
     plans_list = summarize_plans(pe_upl, RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
     user_limit_reached = False
-    if len(list(pe_upl)) > 99:
+    if len(list(pe_upl)) > admin_max_plans-1:
         user_limit_reached = True
 
     if request.method == 'POST':

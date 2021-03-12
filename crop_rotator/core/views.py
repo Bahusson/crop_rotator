@@ -8,8 +8,8 @@ from .classes import (
     PageElement as pe,
     PageLoad,
 )
-from . models import RotatorAdminPanel
-from . forms import RotatorAdminPanelForm
+from .models import RotatorAdminPanel
+from .forms import RotatorAdminPanelForm
 from django.contrib.admin.views.decorators import staff_member_required
 
 # Widok uproszczonego admina.
