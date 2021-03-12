@@ -6,6 +6,10 @@ from .snippets import flare
 
 
 class RotatorAdminPanelForm(forms.ModelForm):
+    #max_steps = forms.IntegerField()
+    #max_user_plans = forms.IntegerField()
+    #lurk_plan_cooldown = forms.IntegerField()
+    #evaluated_plan_cooldown = forms.IntegerField()
     class Meta:
         model = RotatorAdminPanel
         fields = (

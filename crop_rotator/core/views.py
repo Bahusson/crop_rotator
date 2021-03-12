@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from crop_rotator.settings import LANGUAGES as L
 from strona.models import (
     PageSkin as S,
     PageNames as P,
@@ -23,9 +24,8 @@ def rotator_admin(request):
     else:
         form = RotatorAdminPanelForm(instance=pe_rap)
         context = {
-            "admin_items": pe_rap,
+            "form": form,
         }
-        form = Rotator
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
         template = "core/rotator_admin.html"

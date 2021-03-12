@@ -128,7 +128,6 @@
                     {% if user.is_authenticated %}
                     <p><i class="fa fa-envelope mr-3"></i>jakub.kozdrowicz@gmail.com</p>
                     {% if user.is_staff %}<p><a href="{% url 'admin:index' %}">Panel admina</a>{% endif %}
-                    {% endif %}
                     {% if user.is_staff %}<p><a href="{% url 'rotator_admin' %}">Uproszczony Panel admina CR</a>{% endif %}
                     {% endif %}
                 </div>
