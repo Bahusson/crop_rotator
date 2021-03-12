@@ -16,12 +16,12 @@ from django.contrib.admin.views.decorators import staff_member_required
 def rotator_admin(request):
     pe_rap = pe(RotatorAdminPanel).baseattrs
     if request.method == 'POST':
-        form = RotatorAdminPanelForm(request.POST)
+        form = RotatorAdminPanelForm(request.POST, instance=pe_rap)
         if form.is_valid():
-            form.save(pe_rap)
+            form.save()
             return redirect('rotator_admin') # Przekierowuj później na stronę planu
     else:
-        form = RotatorAdminPanelForm()
+        form = RotatorAdminPanelForm(instance=pe_rap)
         context = {
             "admin_items": pe_rap,
         }
