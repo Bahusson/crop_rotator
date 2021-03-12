@@ -361,6 +361,8 @@ def my_plans(request):
         context = {
          "form": form,
          "user_plans": plans_list,
+         "ml1": sl3[0],
+         "ml2": sl3[1],
          "user_limit": user_limit_reached,
          "translatables": translatables,
 
