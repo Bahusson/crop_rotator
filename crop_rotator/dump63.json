@@ -489,6 +489,26 @@
   }
 },
 {
+  "model": "rotator.cropfamily",
+  "pk": 25,
+  "fields": {
+    "name": "Nasturcjowate",
+    "name_pl": "Nasturcjowate",
+    "name_en": "Nasturtiums",
+    "latin_name": "Tropaeolaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
   "model": "rotator.croptag",
   "pk": 2,
   "fields": {
@@ -697,6 +717,21 @@
     "descr": "Ta roślina nadaje się szczególnie dobrze do pozyskiwania z niej oleju",
     "descr_pl": "Ta roślina nadaje się szczególnie dobrze do pozyskiwania z niej oleju",
     "descr_en": "This plant can be used especially well as an oil source",
+    "image": "",
+    "is_featured": true,
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 24,
+  "fields": {
+    "name": "Zioło",
+    "name_pl": "Zioło",
+    "name_en": "Herb",
+    "descr": "Ta roślina ma pewne szczególne właściwości pozażywieniowe i jest uznawana za zioło.",
+    "descr_pl": "Ta roślina ma pewne szczególne właściwości pozażywieniowe i jest uznawana za zioło.",
+    "descr_en": "This plant has special  non-nutritional properties and is considered a herb.",
     "image": "",
     "is_featured": true,
     "crop_relationships": []
@@ -3177,7 +3212,397 @@
     "seed_norm_max": null,
     "crop_relationships": [],
     "tags": [
-      18
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 86,
+  "fields": {
+    "name": "Koper Ogrodowy",
+    "name_pl": "Koper Ogrodowy",
+    "name_en": "Dill",
+    "latin_name": "Anethum graveolens",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Koper_Ogrodowy.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T13:32:58Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 87,
+  "fields": {
+    "name": "Bylica pospolita",
+    "name_pl": "Bylica pospolita",
+    "name_en": "common mugwort",
+    "latin_name": "Artemisia vulgaris",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Bylica_Pospolita.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T13:34:47Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 88,
+  "fields": {
+    "name": "Cząber ogrodowy",
+    "name_pl": "Cząber ogrodowy",
+    "name_en": "Summer savory",
+    "latin_name": "Satureja hortensis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Cząber.jpg",
+    "image_source": 31,
+    "pubdate": "2021-03-14T13:37:05Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 89,
+  "fields": {
+    "name": "Ogórecznik lekarski",
+    "name_pl": "Ogórecznik lekarski",
+    "name_en": "Borage",
+    "latin_name": "Borago officinalis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Ogórecznik_lekarski.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T13:49:24Z",
+    "family": 6,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 90,
+  "fields": {
+    "name": "Bylica draganek",
+    "name_pl": "Bylica draganek",
+    "name_en": "Tarragon",
+    "latin_name": "Artemisia dracunculus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Bylica_draganek.jpg",
+    "image_source": 55,
+    "pubdate": "2021-03-14T13:56:01Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 91,
+  "fields": {
+    "name": "Rumianek pospolity",
+    "name_pl": "Rumianek pospolity",
+    "name_en": "Chamomile",
+    "latin_name": "Matricaria chamomilla",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rumianek.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T14:03:22Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 92,
+  "fields": {
+    "name": "Nasturcja większa",
+    "name_pl": "Nasturcja większa",
+    "name_en": "Garden nasturtium",
+    "latin_name": "Tropaeolum majus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Nasturcja_większa.jpg",
+    "image_source": 56,
+    "pubdate": "2021-03-14T14:08:09Z",
+    "family": 25,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 93,
+  "fields": {
+    "name": "Trybuła ogrodowa",
+    "name_pl": "Trybuła ogrodowa",
+    "name_en": "Chervil",
+    "latin_name": "Anthriscus cerefolium",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Trybuła_ogrodowa.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T14:16:27Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 94,
+  "fields": {
+    "name": "Czosnek pospolity",
+    "name_pl": "Czosnek pospolity",
+    "name_en": "Garlic",
+    "latin_name": "Allium sativum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Czosnek_pospolity.jpg",
+    "image_source": 57,
+    "pubdate": "2021-03-14T14:20:45Z",
+    "family": 23,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 95,
+  "fields": {
+    "name": "Kolendra",
+    "name_pl": "Kolendra",
+    "name_en": "coriander",
+    "latin_name": "Coriandrum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kolendra.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T14:21:44Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 96,
+  "fields": {
+    "name": "Rzeżucha",
+    "name_pl": "Rzeżucha",
+    "name_en": "Cardamine",
+    "latin_name": "Cardamine",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rzeżucha.jpg",
+    "image_source": 58,
+    "pubdate": "2021-03-14T14:25:11Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 97,
+  "fields": {
+    "name": "Kminek zwyczajny",
+    "name_pl": "Kminek zwyczajny",
+    "name_en": "Caraway",
+    "latin_name": "Carum carvi",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kminek.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T14:27:30Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 98,
+  "fields": {
+    "name": "Lebiodka majeranek",
+    "name_pl": "Lebiodka majeranek",
+    "name_en": "Marjoram",
+    "latin_name": "Origanum majorana",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": 59,
+    "pubdate": "2021-03-14T14:30:43Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
     ]
   }
 },
@@ -5442,6 +5867,51 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 55,
+  "fields": {
+    "title": "Wikipedia CC - Bylica draganek",
+    "part1": "I, KENPEI, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=2528916"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 56,
+  "fields": {
+    "title": "Gottorfer Codex",
+    "part1": "Hans-Simon Holtzbecker, 1649-1659, Gottorfer Codex",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 57,
+  "fields": {
+    "title": "Medical Botany",
+    "part1": "William Woodville, 1793, \"Medical botany“",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 58,
+  "fields": {
+    "title": "Wikipedia CC - Rzeżucha",
+    "part1": "Atriplexmedia - Praca własna, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=19317618"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 59,
+  "fields": {
+    "title": "Wikipedia CC - Lebiodka majeranek",
+    "part1": "H. Zell - Own work, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=10763816"
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 11,
   "fields": {
@@ -5506,6 +5976,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 56,
+  "fields": {
+    "cropdatastring_ptr": 56
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 27,
   "fields": {
     "cropdatastring_ptr": 27
@@ -5520,6 +5997,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 57,
+  "fields": {
+    "cropdatastring_ptr": 57
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 43,
   "fields": {
     "cropdatastring_ptr": 43
@@ -5530,6 +6014,13 @@
   "pk": 48,
   "fields": {
     "cropdatastring_ptr": 48
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 55,
+  "fields": {
+    "cropdatastring_ptr": 55
   }
 },
 {
@@ -5611,6 +6102,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 59,
+  "fields": {
+    "cropdatastring_ptr": 59
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 37,
   "fields": {
     "cropdatastring_ptr": 37
@@ -5663,6 +6161,13 @@
   "pk": 19,
   "fields": {
     "cropdatastring_ptr": 19
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 58,
+  "fields": {
+    "cropdatastring_ptr": 58
   }
 },
 {
