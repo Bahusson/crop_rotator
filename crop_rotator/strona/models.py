@@ -61,6 +61,17 @@ class AboutPageNames(models.Model):
     gitter = models.CharField(max_length=200)  # Adres gittera
     github = models.CharField(max_length=200)  # Adres github
     login_to_see = models.CharField(max_length=200)  # zaloguj się by przeglądać
+    curr_prog_includes = models.CharField(max_length=40, blank=True, null=True)  # Obecnie program zawiera bazę
+    over = models.CharField(max_length=30, blank=True, null=True)  # Ponad
+    plants = models.CharField(max_length=30, blank=True, null=True)  # roślin_uprawnych
+    coming_from = models.CharField(max_length=30, blank=True, null=True)  # pochodzących z
+    families = models.CharField(max_length=30, blank=True, null=True)  # rodzin
+    marked_by = models.CharField(max_length=30, blank=True, null=True)  # oznaczonych według
+    categories = models.CharField(max_length=30, blank=True, null=True)  # kategorii
+    and_over = models.CharField(max_length=30, blank=True, null=True)  # i ponad
+    unique_interactions = models.CharField(max_length=30, blank=True, null=True)  # unikalnych interakcji
+    described_by = models.CharField(max_length=30, blank=True, null=True)  # opisanych na podstawie
+    sources = models.CharField(max_length=30, blank=True, null=True)  # źródeł
 
     class Meta:
         verbose_name_plural = 'About Page Names'
