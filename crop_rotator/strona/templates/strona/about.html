@@ -18,11 +18,11 @@
        <div class="row featurette">
         <div class="col-md-4">
           <p>{{ about_us.curr_prog_includes }}:</p>
-          <p>{{ about_us.over }} xxx {{ about_us.plants }}</p>
-          <p>{{ about_us.coming_from }} xxx {{ about_us.families }}</p>
-          <p>{{ about_us.marked_by }} xxx {{ about_us.categories }}</p>
-          <p>{{ about_us.and_over }} xxx {{ about_us.unique_interactions }}</p>
-          <p>{{ about_us.described_by }} xxx {{ about_us.sources }}</p>
+          <p>{{ about_us.over }} <b>{{ num_crops }}</b> {{ about_us.plants }}</p>
+          <p>{{ about_us.coming_from }} <b>{{ num_families }}</b> {{ about_us.families }}</p>
+          <p>{{ about_us.marked_by }} <b>{{ num_categories }}</b> {{ about_us.categories }}</p>
+          <p>{{ about_us.and_over }} <b>{{ num_interactions }}</b> {{ about_us.unique_interactions }}</p>
+          <p>{{ about_us.described_by }} <b>{{ num_sources }}</b> {{ about_us.sources }}</p>
         </div>
         <div class="col-md-8">
         <p class="lead text-muted">{{ about_us.about_project|linebreaksbr }}</p>

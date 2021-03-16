@@ -50,8 +50,7 @@ from random import shuffle
 
 # Widok strony domowej.
 def home(request):
-    pe_rp = pe(RotationPlan).allelements
-    pe_rp_published = pe_rp.filter(published=True)
+    pe_rp_published = RotationPlan.objects.filter(published=True)
     pe_rp_shuffled = list(pe_rp_published)
     shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
     pe_rp_shuffled = pe_rp_shuffled[:4]
@@ -68,8 +67,21 @@ def home(request):
 # Widok "O programie"
 def about(request):
     pe_apn = pe(AboutPageNames).baseattrs
+    # policz rodziny niebędące "slaves"
+    crf = CropFamily.objects.filter(is_family_slave=False)
+    num_families = len(crf)
+    # policz wszystkie rośliny uprawne
+    pe_c = pe(Crop).allelements
+    num_crops = len(pe_c)
+    # policz wszystkie kategorie
+
     context = {
         "about_us": pe_apn,
+        "num_families": num_families,
+        "num_crops": num_crops,
+        #"num_categories": num_categories,
+        #"num_interactions": num_interactions,
+        #"num_sources": num_sources,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
@@ -91,8 +103,7 @@ def fertilize(request):
 
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
-    pe_rp = pe(RotationPlan).allelements
-    pe_rp_published = pe_rp.filter(published=True)
+    pe_rp_published = RotationPlan.objects.filter(published=True)
     plans_list = summarize_plans(pe_rp_published, RotationStep)
     context = {
         "rotation_plans": plans_list,
@@ -290,16 +301,10 @@ def crop(request, crop_id):
 
 # Spis wszystkich rodzin, bez "nibyrodzin" (typu owies u wiechlinowatych).
 def all_plant_families(request):
-    pe_f = pe(CropFamily).allelements
-    pe_f_master_list = []
-    for item in pe_f:
-        if item.is_family_slave:
-            pass
-        else:
-            pe_f_master_list.append(item)
-    sl3 = slice_list_3(pe_f_master_list)
+    crf = CropFamily.objects.filter(is_family_slave=False)
+    sl3 = slice_list_3(crf)
     context = {
-        "families": pe_f_master_list,
+        "families": crf,
         "ml1": sl3[0],
         "ml2": sl3[1],
     }
