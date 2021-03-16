@@ -14,6 +14,9 @@ from rotator.models import (
     Crop,
     CropFamily,
     CropDataSource as CDS,
+    CropTag,
+    CropInteraction,
+    CropBookString,
 )
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (
@@ -74,14 +77,21 @@ def about(request):
     pe_c = pe(Crop).allelements
     num_crops = len(pe_c)
     # policz wszystkie kategorie
-
+    pe_ctag = pe(CropTag).allelements
+    num_categories = len(pe_ctag)
+    # policz wszystkie interakcje
+    pe_interact = pe(CropInteraction).allelements
+    num_interactions = len(pe_interact)
+    # policz wszystkie źródła
+    pe_sources = pe(CropBookString).allelements
+    num_sources = len(pe_sources)
     context = {
         "about_us": pe_apn,
         "num_families": num_families,
         "num_crops": num_crops,
-        #"num_categories": num_categories,
-        #"num_interactions": num_interactions,
-        #"num_sources": num_sources,
+        "num_categories": num_categories,
+        "num_interactions": num_interactions,
+        "num_sources": num_sources,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
