@@ -34,10 +34,11 @@
             {% endfor %}
             <p>{{ translatables.sources }}:</p>
               {% for source in sources %}
-                <p>({{ forloop.counter }}){{ source.at_data_string.part1 }}
+                <p>({{ forloop.counter }}){{ source.at_data_string.part1 }}{% if source.pages_from %}
                   {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}
                   {% else %} p.{{ source.pages_from }}.
-                  {% endif %} </p>
+                  {% endif %}
+                {% endif %}</p>
               {% endfor %}
             <br />
           </div>
