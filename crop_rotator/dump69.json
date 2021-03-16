@@ -48,7 +48,7 @@
     "owner": 1,
     "pubdate": "2021-01-19T11:37:48.782Z",
     "soil_type": 0,
-    "published": false
+    "published": true
   }
 },
 {
@@ -61,7 +61,7 @@
     "owner": 1,
     "pubdate": "2021-01-19T12:09:41.935Z",
     "soil_type": 0,
-    "published": false
+    "published": true
   }
 },
 {
@@ -74,7 +74,7 @@
     "owner": 1,
     "pubdate": "2021-01-19T12:10:21.442Z",
     "soil_type": 0,
-    "published": false
+    "published": true
   }
 },
 {
@@ -449,6 +449,106 @@
   }
 },
 {
+  "model": "rotator.cropfamily",
+  "pk": 23,
+  "fields": {
+    "name": "Amarylkowate",
+    "name_pl": "Amarylkowate",
+    "name_en": "Amaryllidaceae",
+    "latin_name": "Amaryllidaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 24,
+  "fields": {
+    "name": "Jasnotowate",
+    "name_pl": "Jasnotowate",
+    "name_en": "Lamiaceae",
+    "latin_name": "Lamiaceae Lindl., Labiatae Juss.",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 25,
+  "fields": {
+    "name": "Nasturcjowate",
+    "name_pl": "Nasturcjowate",
+    "name_en": "Nasturtiums",
+    "latin_name": "Tropaeolaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 26,
+  "fields": {
+    "name": "Portulakowate",
+    "name_pl": "Portulakowate",
+    "name_en": "Purslane",
+    "latin_name": "Portulacaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
+  "model": "rotator.cropfamily",
+  "pk": 27,
+  "fields": {
+    "name": "Pryszczyrnicowate",
+    "name_pl": "Pryszczyrnicowate",
+    "name_en": "Fig-marigold",
+    "latin_name": "Aizoaceae",
+    "culture": 3,
+    "cooldown_min": 4,
+    "cooldown_max": 4,
+    "is_manurable": false,
+    "culture_manured": 0,
+    "is_mandatory_crop": false,
+    "is_family_slave": false,
+    "family_master": null,
+    "family_relationships": [],
+    "family_slaves": []
+  }
+},
+{
   "model": "rotator.croptag",
   "pk": 2,
   "fields": {
@@ -459,6 +559,7 @@
     "descr_pl": "Tą roślinę ze szczególnym upodobaniem będą odwiedzać zapylacze.",
     "descr_en": "This species is particularly popular among pollinators.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -473,6 +574,7 @@
     "descr_pl": "Ten gatunek ma zdolność tłumienia chwastów w swoim otoczeniu - prawdopodobnie sam też jest chwastem.",
     "descr_en": "This species supresses nearby weeds - probably is a weed itself.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -487,6 +589,7 @@
     "descr_pl": "Ta roślina posiada specjalne właściwości, które czynią z niej idealny międzyplon!",
     "descr_en": "This species has special characteristics which make it a valuable cover crop.",
     "image": "",
+    "is_featured": false,
     "crop_relationships": []
   }
 },
@@ -501,6 +604,7 @@
     "descr_pl": "Ta roślina posiada specjalne właściwości pozwalące jej zwalczać różnego rodzaju patogeny i poprawiać tym samym dobrostan innych okolicznych roślin.",
     "descr_en": "This plant has unique properties that enable it to fight off pathogens, hance improving the well-being of surrounding plants.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -515,6 +619,7 @@
     "descr_pl": "Uwaga! Ta roślina zawiera związki chemiczne, które mogą niekorzystnie wpływać na zwierzęta hodowlane!",
     "descr_en": "Caution! This plant produces chenicals that in large quantities may be harmful to livestock.",
     "image": "",
+    "is_featured": false,
     "crop_relationships": []
   }
 },
@@ -529,6 +634,7 @@
     "descr_pl": "Ta roślina dobrze znosi okresowe niedobory wody.",
     "descr_en": "This plant can manage temporary droughts.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -543,6 +649,7 @@
     "descr_pl": "Ta roślina jest w stanie wytrzymać czasowe zalanie wodą.",
     "descr_en": "This plant can stand temporary flooding.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -557,6 +664,7 @@
     "descr_pl": "Rośliny okopowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
     "descr_en": "Root crops have been highlighted here due to special interactions with other crops.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -571,6 +679,7 @@
     "descr_pl": "Warzywa polowe zostały tu wyróżnione ze względu na specyficzne interakcje z innymi roślinami.",
     "descr_en": "Field vegetables have been highlighted here due to special interactions with other crops.",
     "image": "",
+    "is_featured": true,
     "crop_relationships": [
       41
     ]
@@ -587,6 +696,7 @@
     "descr_pl": "Ta roślina wykazuje cechy zbóż dla potrzeb wykazania interakcji",
     "descr_en": "This plant is a cereal for the purposes of showing interactions",
     "image": "",
+    "is_featured": true,
     "crop_relationships": [
       39
     ]
@@ -603,6 +713,7 @@
     "descr_pl": "Ta roślina skorzysta na rozwoju jeśli zapewnimy jej podporę",
     "descr_en": "This plants development will be more beneficial if we provide it with support",
     "image": "",
+    "is_featured": false,
     "crop_relationships": []
   }
 },
@@ -617,6 +728,52 @@
     "descr_pl": "Ten gatunek jest uważany za koniczynę dla celów interakcji",
     "descr_en": "This species is considered a clover for the purposes of interactions",
     "image": "",
+    "is_featured": false,
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 22,
+  "fields": {
+    "name": "Energetyczne",
+    "name_pl": "Energetyczne",
+    "name_en": "Energy crop",
+    "descr": "Ta roślina nadaje się szczególnie dobrze do celów energetycznych",
+    "descr_pl": "Ta roślina nadaje się szczególnie dobrze do celów energetycznych",
+    "descr_en": "This plant can be used especially well as an energy source",
+    "image": "",
+    "is_featured": true,
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 23,
+  "fields": {
+    "name": "Oleiste",
+    "name_pl": "Oleiste",
+    "name_en": "Oil plants",
+    "descr": "Ta roślina nadaje się szczególnie dobrze do pozyskiwania z niej oleju",
+    "descr_pl": "Ta roślina nadaje się szczególnie dobrze do pozyskiwania z niej oleju",
+    "descr_en": "This plant can be used especially well as an oil source",
+    "image": "",
+    "is_featured": true,
+    "crop_relationships": []
+  }
+},
+{
+  "model": "rotator.croptag",
+  "pk": 24,
+  "fields": {
+    "name": "Zioło",
+    "name_pl": "Zioło",
+    "name_en": "Herb",
+    "descr": "Ta roślina ma pewne szczególne właściwości pozażywieniowe i jest uznawana za zioło.",
+    "descr_pl": "Ta roślina ma pewne szczególne właściwości pozażywieniowe i jest uznawana za zioło.",
+    "descr_en": "This plant has special  non-nutritional properties and is considered a herb.",
+    "image": "",
+    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -1067,11 +1224,7 @@
     "takes_mix_level": 4,
     "seed_norm_min": 80,
     "seed_norm_max": 120,
-    "crop_relationships": [
-      35,
-      33,
-      34
-    ],
+    "crop_relationships": [],
     "tags": [
       11,
       19
@@ -1084,14 +1237,14 @@
   "fields": {
     "name": "Kukurydza",
     "name_pl": "Kukurydza",
-    "name_en": null,
-    "latin_name": null,
+    "name_en": "Maize",
+    "latin_name": "Zea mays",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Kukurydza.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-12T15:09:06Z",
     "family": 11,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1104,6 +1257,7 @@
     "seed_norm_max": null,
     "crop_relationships": [],
     "tags": [
+      18,
       19
     ]
   }
@@ -1538,7 +1692,24 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      157,
+      146,
+      152,
+      153,
+      156,
+      154,
+      160,
+      159,
+      148,
+      147,
+      151,
+      145,
+      149,
+      158,
+      155,
+      150
+    ],
     "tags": [
       17,
       18
@@ -1569,7 +1740,24 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      255,
+      251,
+      263,
+      252,
+      250,
+      254,
+      256,
+      257,
+      260,
+      253,
+      261,
+      259,
+      258,
+      264,
+      249,
+      262
+    ],
     "tags": [
       17,
       18
@@ -2222,8 +2410,28 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [
+      108,
+      99,
       62,
-      21
+      111,
+      115,
+      103,
+      105,
+      116,
+      104,
+      100,
+      107,
+      110,
+      106,
+      112,
+      101,
+      21,
+      98,
+      117,
+      113,
+      114,
+      109,
+      102
     ],
     "tags": [
       20,
@@ -2316,7 +2524,30 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      81,
+      86,
+      91,
+      73,
+      72,
+      78,
+      77,
+      90,
+      89,
+      85,
+      80,
+      84,
+      79,
+      87,
+      74,
+      88,
+      75,
+      71,
+      76,
+      70,
+      82,
+      83
+    ],
     "tags": [
       18
     ]
@@ -2346,7 +2577,10 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      92,
+      93
+    ],
     "tags": [
       18
     ]
@@ -2376,7 +2610,12 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      97,
+      94,
+      95,
+      96
+    ],
     "tags": [
       18
     ]
@@ -2406,7 +2645,16 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      123,
+      125,
+      124,
+      118,
+      120,
+      119,
+      121,
+      122
+    ],
     "tags": [
       18
     ]
@@ -2436,7 +2684,27 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      126,
+      138,
+      144,
+      127,
+      141,
+      131,
+      128,
+      133,
+      132,
+      143,
+      135,
+      142,
+      136,
+      134,
+      139,
+      129,
+      140,
+      137,
+      130
+    ],
     "tags": [
       18
     ]
@@ -2496,7 +2764,17 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      162,
+      169,
+      163,
+      165,
+      164,
+      168,
+      167,
+      161,
+      166
+    ],
     "tags": [
       18
     ]
@@ -2526,7 +2804,26 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      179,
+      182,
+      172,
+      185,
+      170,
+      173,
+      177,
+      180,
+      175,
+      186,
+      181,
+      174,
+      178,
+      183,
+      184,
+      187,
+      171,
+      176
+    ],
     "tags": [
       18
     ]
@@ -2556,7 +2853,30 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      197,
+      203,
+      209,
+      189,
+      188,
+      207,
+      193,
+      190,
+      198,
+      192,
+      200,
+      208,
+      202,
+      191,
+      201,
+      196,
+      205,
+      194,
+      206,
+      199,
+      204,
+      195
+    ],
     "tags": [
       18
     ]
@@ -2586,7 +2906,33 @@
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      222,
+      229,
+      236,
+      234,
+      233,
+      211,
+      231,
+      218,
+      213,
+      220,
+      212,
+      219,
+      210,
+      235,
+      223,
+      216,
+      225,
+      232,
+      226,
+      228,
+      221,
+      227,
+      217,
+      224,
+      230
+    ],
     "tags": [
       18
     ]
@@ -2658,15 +3004,1246 @@
   "fields": {
     "name": "Trętwian czterorożny",
     "name_pl": "Trętwian czterorożny",
-    "name_en": null,
+    "name_en": "New Zealand spinach",
     "latin_name": "Tetragonia tetragonioides",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
+    "image": "images/trętwian_czterorożny.jpg",
+    "image_source": 64,
+    "pubdate": "2021-03-15T15:30:02Z",
+    "family": 27,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [
+      265
+    ],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 72,
+  "fields": {
+    "name": "Papryka Roczna",
+    "name_pl": "Papryka Roczna",
+    "name_en": "Pepper",
+    "latin_name": "Capsicum annuum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Papryka_roczna.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-12T11:14:54Z",
+    "family": 9,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [
+      266,
+      267
+    ],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 73,
+  "fields": {
+    "name": "Pasternak",
+    "name_pl": "Pasternak",
+    "name_en": "Parsnip",
+    "latin_name": "Pastinaca sativa",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Pasternak.jpg",
+    "image_source": 31,
+    "pubdate": "2021-03-12T11:30:35Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 74,
+  "fields": {
+    "name": "Por",
+    "name_pl": "Por",
+    "name_en": "Leek",
+    "latin_name": "Allium ampeloprasum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Por.JPG",
+    "image_source": 45,
+    "pubdate": "2021-03-12T11:32:14Z",
+    "family": 23,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 75,
+  "fields": {
+    "name": "Rzodkiewka",
+    "name_pl": "Rzodkiewka",
+    "name_en": "Radish",
+    "latin_name": "Raphanus sativus var. sativus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rzodkiewka.jpg",
+    "image_source": 46,
+    "pubdate": "2021-03-12T11:37:11Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 76,
+  "fields": {
+    "name": "Rabarbar",
+    "name_pl": "Rabarbar",
+    "name_en": "Rhubarb",
+    "latin_name": "Rheum rhabarbarum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rabarbar2.jpg",
+    "image_source": 47,
+    "pubdate": "2021-03-12T11:41:55Z",
+    "family": 13,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 77,
+  "fields": {
+    "name": "Burak Ćwikłowy",
+    "name_pl": "Burak Ćwikłowy",
+    "name_en": "Beetroot",
+    "latin_name": "Beta vulgaris L. subsp. vulgaris",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Burak_Ćwikłowy.jpg",
+    "image_source": 48,
+    "pubdate": "2021-03-12T12:02:03Z",
+    "family": 8,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 78,
+  "fields": {
+    "name": "Wężymord czarny korzeń",
+    "name_pl": "Wężymord czarny korzeń",
+    "name_en": "Spanish salsify",
+    "latin_name": "Scorzonera hispanica",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Wężymord_czarny_korzeń.JPG",
+    "image_source": 49,
+    "pubdate": "2021-03-12T12:13:02Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 79,
+  "fields": {
+    "name": "Seler zwyczajny",
+    "name_pl": "Seler zwyczajny",
+    "name_en": "Celeriac",
+    "latin_name": "Apium graveolens",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Seler_Zwyczajny.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-12T14:33:04Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 80,
+  "fields": {
+    "name": "Szpinak warzywny",
+    "name_pl": "Szpinak warzywny",
+    "name_en": "Spinach",
+    "latin_name": "Spinacia oleracea",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Szpinak_Warzywny.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-12T14:40:18Z",
+    "family": 8,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 81,
+  "fields": {
+    "name": "Pomidor zwyczajny",
+    "name_pl": "Pomidor zwyczajny",
+    "name_en": "Tomato",
+    "latin_name": "Solanum lycopersicum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Pomidor.jpg",
+    "image_source": 50,
+    "pubdate": "2021-03-12T14:51:53Z",
+    "family": 9,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 82,
+  "fields": {
+    "name": "Cykoria sałatowa",
+    "name_pl": "Cykoria sałatowa",
+    "name_en": "Radicchio",
+    "latin_name": "Cichorium intybus L. var. foliosum Hegi",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Cykoria_sałatowa.jpg",
+    "image_source": 51,
+    "pubdate": "2021-03-12T14:54:02Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 83,
+  "fields": {
+    "name": "Cukinia",
+    "name_pl": "Cukinia",
+    "name_en": "Zucchini",
+    "latin_name": "Cucurbita pepo convar. giromontiina",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Cukinia.jpg",
+    "image_source": 52,
+    "pubdate": "2021-03-12T14:58:21Z",
+    "family": 18,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": true,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 84,
+  "fields": {
+    "name": "Cebula zwyczajna",
+    "name_pl": "Cebula zwyczajna",
+    "name_en": "Onion",
+    "latin_name": "Allium cepa",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Cebula_Zwyczajna.jpg",
+    "image_source": 53,
+    "pubdate": "2021-03-12T15:11:53Z",
+    "family": 23,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 85,
+  "fields": {
+    "name": "Bazylia",
+    "name_pl": "Bazylia",
+    "name_en": "Ocimum",
+    "latin_name": "Ocimum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Bazylia.jpg",
+    "image_source": 54,
+    "pubdate": "2021-03-12T15:27:03Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 86,
+  "fields": {
+    "name": "Koper Ogrodowy",
+    "name_pl": "Koper Ogrodowy",
+    "name_en": "Dill",
+    "latin_name": "Anethum graveolens",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Koper_Ogrodowy.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T13:32:58Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 87,
+  "fields": {
+    "name": "Bylica pospolita",
+    "name_pl": "Bylica pospolita",
+    "name_en": "common mugwort",
+    "latin_name": "Artemisia vulgaris",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Bylica_Pospolita.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T13:34:47Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 88,
+  "fields": {
+    "name": "Cząber ogrodowy",
+    "name_pl": "Cząber ogrodowy",
+    "name_en": "Summer savory",
+    "latin_name": "Satureja hortensis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Cząber.jpg",
+    "image_source": 31,
+    "pubdate": "2021-03-14T13:37:05Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 89,
+  "fields": {
+    "name": "Ogórecznik lekarski",
+    "name_pl": "Ogórecznik lekarski",
+    "name_en": "Borage",
+    "latin_name": "Borago officinalis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Ogórecznik_lekarski.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T13:49:24Z",
+    "family": 6,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 90,
+  "fields": {
+    "name": "Bylica draganek",
+    "name_pl": "Bylica draganek",
+    "name_en": "Tarragon",
+    "latin_name": "Artemisia dracunculus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Bylica_draganek.jpg",
+    "image_source": 55,
+    "pubdate": "2021-03-14T13:56:01Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 91,
+  "fields": {
+    "name": "Rumianek pospolity",
+    "name_pl": "Rumianek pospolity",
+    "name_en": "Chamomile",
+    "latin_name": "Matricaria chamomilla",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rumianek.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T14:03:22Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 92,
+  "fields": {
+    "name": "Nasturcja większa",
+    "name_pl": "Nasturcja większa",
+    "name_en": "Garden nasturtium",
+    "latin_name": "Tropaeolum majus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Nasturcja_większa.jpg",
+    "image_source": 56,
+    "pubdate": "2021-03-14T14:08:09Z",
+    "family": 25,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 93,
+  "fields": {
+    "name": "Trybuła ogrodowa",
+    "name_pl": "Trybuła ogrodowa",
+    "name_en": "Chervil",
+    "latin_name": "Anthriscus cerefolium",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Trybuła_ogrodowa.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T14:16:27Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 94,
+  "fields": {
+    "name": "Czosnek pospolity",
+    "name_pl": "Czosnek pospolity",
+    "name_en": "Garlic",
+    "latin_name": "Allium sativum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Czosnek_pospolity.jpg",
+    "image_source": 57,
+    "pubdate": "2021-03-14T14:20:45Z",
+    "family": 23,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 95,
+  "fields": {
+    "name": "Kolendra",
+    "name_pl": "Kolendra",
+    "name_en": "coriander",
+    "latin_name": "Coriandrum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kolendra.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T14:21:44Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 96,
+  "fields": {
+    "name": "Rzeżucha",
+    "name_pl": "Rzeżucha",
+    "name_en": "Cardamine",
+    "latin_name": "Cardamine",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rzeżucha.jpg",
+    "image_source": 58,
+    "pubdate": "2021-03-14T14:25:11Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 97,
+  "fields": {
+    "name": "Kminek zwyczajny",
+    "name_pl": "Kminek zwyczajny",
+    "name_en": "Caraway",
+    "latin_name": "Carum carvi",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Kminek.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T14:27:30Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 98,
+  "fields": {
+    "name": "Lebiodka majeranek",
+    "name_pl": "Lebiodka majeranek",
+    "name_en": "Marjoram",
+    "latin_name": "Origanum majorana",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
     "image": "",
-    "image_source": null,
-    "pubdate": null,
-    "family": null,
+    "image_source": 59,
+    "pubdate": "2021-03-14T14:30:43Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 99,
+  "fields": {
+    "name": "Chrzan pospolity",
+    "name_pl": "Chrzan pospolity",
+    "name_en": "Horseradish",
+    "latin_name": "Armoracia rusticana",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Chrzan_pospolity.jpg",
+    "image_source": 16,
+    "pubdate": "2021-03-14T15:20:05Z",
+    "family": 2,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 100,
+  "fields": {
+    "name": "Pietruszka zwyczajna",
+    "name_pl": "Pietruszka zwyczajna",
+    "name_en": "Parsley",
+    "latin_name": "Petroselinum crispum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Pietruszka_Zwyczajna.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:22:48Z",
+    "family": 14,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 101,
+  "fields": {
+    "name": "Mięta pieprzowa",
+    "name_pl": "Mięta pieprzowa",
+    "name_en": "Peppermint",
+    "latin_name": "Mentha × piperita",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Mięta_pieprzowa.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:24:53Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 102,
+  "fields": {
+    "name": "Portulaka pospolita",
+    "name_pl": "Portulaka pospolita",
+    "name_en": "Duckweed",
+    "latin_name": "Portulaca oleracea",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Portulaka_warzywna.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-14T15:28:14Z",
+    "family": 26,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 103,
+  "fields": {
+    "name": "Rozmaryn lekarski",
+    "name_pl": "Rozmaryn lekarski",
+    "name_en": "Rosemary",
+    "latin_name": "Rosmarinus officinalis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Rozmaryn.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:30:50Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 104,
+  "fields": {
+    "name": "Szałwia",
+    "name_pl": "Szałwia",
+    "name_en": "Salvia",
+    "latin_name": "Salvia",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Szałwia.jpg",
+    "image_source": 60,
+    "pubdate": "2021-03-14T15:32:44Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 105,
+  "fields": {
+    "name": "Czosnek szczypiorek",
+    "name_pl": "Czosnek szczypiorek",
+    "name_en": "Chives",
+    "latin_name": "Allium schoenoprasum",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Szczypiorek.jpg",
+    "image_source": 14,
+    "pubdate": "2021-03-14T15:35:16Z",
+    "family": 23,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 106,
+  "fields": {
+    "name": "Macierzanka tymianek",
+    "name_pl": "Macierzanka tymianek",
+    "name_en": "Common thyme",
+    "latin_name": "Thymus vulgaris",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Macierzanka_tymianek.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:39:56Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 107,
+  "fields": {
+    "name": "Bylica piołun",
+    "name_pl": "Bylica piołun",
+    "name_en": "Wormwood",
+    "latin_name": "Artemisia absinthium",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Bylica_piołun.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:41:20Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 108,
+  "fields": {
+    "name": "Melisa lekarska",
+    "name_pl": "Melisa lekarska",
+    "name_en": "Lemon balm",
+    "latin_name": "Melissa officinalis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Melisa_lekarska.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:42:39Z",
+    "family": 24,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 109,
+  "fields": {
+    "name": "Truskawka",
+    "name_pl": "Truskawka",
+    "name_en": "Strawberry",
+    "latin_name": "Fragaria × ananassa",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Truskawka.jpg",
+    "image_source": 61,
+    "pubdate": "2021-03-14T15:44:04Z",
+    "family": 20,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 110,
+  "fields": {
+    "name": "Malina właściwa",
+    "name_pl": "Malina właściwa",
+    "name_en": "Raspberry",
+    "latin_name": "Rubus idaeus",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Malina_właściwa.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:51:11Z",
+    "family": 20,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": []
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 111,
+  "fields": {
+    "name": "Nagietek lekarski",
+    "name_pl": "Nagietek lekarski",
+    "name_en": "Pot marigold",
+    "latin_name": "Calendula officinalis",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/NAgietek_lekarski.jpg",
+    "image_source": 17,
+    "pubdate": "2021-03-14T15:53:25Z",
+    "family": 5,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": null,
+    "seed_norm_max": null,
+    "crop_relationships": [],
+    "tags": [
+      24
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 112,
+  "fields": {
+    "name": "Aksamitka",
+    "name_pl": "Aksamitka",
+    "name_en": "Tagetes",
+    "latin_name": "Tagetes",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "",
+    "image_source": 54,
+    "pubdate": "2021-03-14T15:54:43Z",
+    "family": 5,
     "culture_override": 0,
     "cooldown_min_override": null,
     "cooldown_max_override": null,
@@ -2726,7 +4303,7 @@
   "model": "rotator.cropinteraction",
   "pk": 21,
   "fields": {
-    "title": "Groch ++ Żyto (W)",
+    "title": "groch ++ Żyto (W)",
     "is_positive": true,
     "about_crop": 12,
     "about_family": null,
@@ -2818,48 +4395,6 @@
     "info_source": 12,
     "type_of_interaction": 0,
     "season_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 33,
-  "fields": {
-    "title": "pszenżyto + kukurydza (N) (J) (Mix) TEST_MIX",
-    "is_positive": true,
-    "about_crop": 18,
-    "about_family": null,
-    "about_tag": null,
-    "info_source": 13,
-    "type_of_interaction": 2,
-    "season_of_interaction": 1
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 34,
-  "fields": {
-    "title": "pszenżyto + słonecznik (N) (J) (Mix) TEST_MIX",
-    "is_positive": true,
-    "about_crop": 22,
-    "about_family": null,
-    "about_tag": null,
-    "info_source": 13,
-    "type_of_interaction": 2,
-    "season_of_interaction": 1
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 35,
-  "fields": {
-    "title": "pszenżyto + burak (N) (W) (Mix) TEST_MIX",
-    "is_positive": true,
-    "about_crop": 32,
-    "about_family": null,
-    "about_tag": null,
-    "info_source": null,
-    "type_of_interaction": 2,
-    "season_of_interaction": 1
   }
 },
 {
@@ -3104,7 +4639,7 @@
   "model": "rotator.cropinteraction",
   "pk": 62,
   "fields": {
-    "title": "Groch + Zboża (W)",
+    "title": "groch + Zboża (W)",
     "is_positive": true,
     "about_crop": null,
     "about_family": null,
@@ -3157,6 +4692,2820 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 70,
+  "fields": {
+    "title": "Fasola K - Groch (W)",
+    "is_positive": false,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 71,
+  "fields": {
+    "title": "Fasola K + ogórek (W)",
+    "is_positive": true,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 72,
+  "fields": {
+    "title": "Fasola K + KApusta chińska (W)",
+    "is_positive": true,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 73,
+  "fields": {
+    "title": "Fasola K + Cykoria endywia (W)",
+    "is_positive": true,
+    "about_crop": 61,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 74,
+  "fields": {
+    "title": "Fasola K + Szparag (W)",
+    "is_positive": true,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 75,
+  "fields": {
+    "title": "Fasola K + Ziemniak (W)",
+    "is_positive": true,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 76,
+  "fields": {
+    "title": "Fasola K - Fenkuł Włoski (W)",
+    "is_positive": false,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 77,
+  "fields": {
+    "title": "Fasola K + Kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 78,
+  "fields": {
+    "title": "Fasola K + Kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 79,
+  "fields": {
+    "title": "Fasola K + Sałata (W)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 80,
+  "fields": {
+    "title": "Fasola K + Rzepa (W)",
+    "is_positive": true,
+    "about_crop": 69,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 81,
+  "fields": {
+    "title": "Fasola K + Burak liściowy (W)",
+    "is_positive": true,
+    "about_crop": 70,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 82,
+  "fields": {
+    "title": "Fasola K - Papryka (W)",
+    "is_positive": false,
+    "about_crop": 72,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 83,
+  "fields": {
+    "title": "Fasola K - Por (W)",
+    "is_positive": false,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 84,
+  "fields": {
+    "title": "Fasola K + Rzodkiewka (W)",
+    "is_positive": true,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 85,
+  "fields": {
+    "title": "Fasola K + Rabarbar (W)",
+    "is_positive": true,
+    "about_crop": 76,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 86,
+  "fields": {
+    "title": "Fasola K + Burak ćwikłowy (W)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 87,
+  "fields": {
+    "title": "Fasola K + Seler (W)",
+    "is_positive": true,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 88,
+  "fields": {
+    "title": "Fasola K + Szpinak (W)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 89,
+  "fields": {
+    "title": "Fasola K + Pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 90,
+  "fields": {
+    "title": "Fasola K + Kukurydza (W)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 91,
+  "fields": {
+    "title": "Fasola K + Cebula (W)",
+    "is_positive": true,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 92,
+  "fields": {
+    "title": "Kapusta Chińska - Kalarepa (W)",
+    "is_positive": false,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 30,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 93,
+  "fields": {
+    "title": "Kapusta Chińska - Rzodkiewka (W)",
+    "is_positive": false,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 30,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 94,
+  "fields": {
+    "title": "Cykoria endywia + Fenkuł włoski (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 31,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 95,
+  "fields": {
+    "title": "Cykoria endywia + Kapusty  (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 31,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 96,
+  "fields": {
+    "title": "Cykoria endywia + Por (W)",
+    "is_positive": true,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 31,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 97,
+  "fields": {
+    "title": "Cykoria endywia + Fasola tyczna (W)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 31,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 98,
+  "fields": {
+    "title": "groch - Fasola K (W)",
+    "is_positive": false,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 99,
+  "fields": {
+    "title": "groch + Kapusta Chińska (W)",
+    "is_positive": true,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 100,
+  "fields": {
+    "title": "groch + ogórek (W)",
+    "is_positive": true,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 101,
+  "fields": {
+    "title": "groch + szparag (W)",
+    "is_positive": true,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 102,
+  "fields": {
+    "title": "groch - ziemniak (W)",
+    "is_positive": false,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 103,
+  "fields": {
+    "title": "groch + fenkuł włoski (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 104,
+  "fields": {
+    "title": "groch + kultywary kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 105,
+  "fields": {
+    "title": "groch + kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 106,
+  "fields": {
+    "title": "groch + sałata (w)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 107,
+  "fields": {
+    "title": "groch + rzepa (W)",
+    "is_positive": true,
+    "about_crop": 69,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 108,
+  "fields": {
+    "title": "groch  + marchew (w)",
+    "is_positive": true,
+    "about_crop": 34,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 109,
+  "fields": {
+    "title": "groch - por (W)",
+    "is_positive": false,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 110,
+  "fields": {
+    "title": "groch + rzodkiewka (W)",
+    "is_positive": true,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 111,
+  "fields": {
+    "title": "groch + burak ćwikłowy (W)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 112,
+  "fields": {
+    "title": "groch + seler (W)",
+    "is_positive": true,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 113,
+  "fields": {
+    "title": "groch - fasola tyczna (W)",
+    "is_positive": false,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 114,
+  "fields": {
+    "title": "groch - pomidor (W)",
+    "is_positive": false,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 115,
+  "fields": {
+    "title": "groch + cukinia (W)",
+    "is_positive": true,
+    "about_crop": 83,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 116,
+  "fields": {
+    "title": "groch + kukurydza (W)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 117,
+  "fields": {
+    "title": "groch - cebula (W)",
+    "is_positive": false,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 32,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 118,
+  "fields": {
+    "title": "Roszponka + Fenkuł włoski (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 119,
+  "fields": {
+    "title": "Roszponka + Kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 120,
+  "fields": {
+    "title": "Roszponka + Kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 121,
+  "fields": {
+    "title": "Roszponka + Por (W)",
+    "is_positive": true,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 122,
+  "fields": {
+    "title": "Roszponka + Rabarbar (W)",
+    "is_positive": true,
+    "about_crop": 76,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 123,
+  "fields": {
+    "title": "Roszponka + Burak ćwikłowy (W)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 124,
+  "fields": {
+    "title": "Roszponka + Fasola T (W)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 125,
+  "fields": {
+    "title": "Roszponka + Cebula (W)",
+    "is_positive": true,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 33,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 126,
+  "fields": {
+    "title": "ogórek + Karczoch (W)",
+    "is_positive": true,
+    "about_crop": 58,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 127,
+  "fields": {
+    "title": "ogórek + fasola K (w)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 128,
+  "fields": {
+    "title": "ogórek + groch (W)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 129,
+  "fields": {
+    "title": "ogórek + szparag zielony (w)",
+    "is_positive": true,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 130,
+  "fields": {
+    "title": "ogórek - ziemniak (w)",
+    "is_positive": false,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 131,
+  "fields": {
+    "title": "ogórek + fenkuł włoski (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 132,
+  "fields": {
+    "title": "ogórek + kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 133,
+  "fields": {
+    "title": "ogórek + kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 134,
+  "fields": {
+    "title": "ogórek + sałata (W)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 135,
+  "fields": {
+    "title": "ogórek + papryka (W)",
+    "is_positive": true,
+    "about_crop": 72,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 136,
+  "fields": {
+    "title": "ogórek + por (W)",
+    "is_positive": true,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 137,
+  "fields": {
+    "title": "ogórek - rzodkiewka (W)",
+    "is_positive": false,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 138,
+  "fields": {
+    "title": "ogórek + burak ćwikłowy (W)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 139,
+  "fields": {
+    "title": "ogórek + seler (W)",
+    "is_positive": true,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 140,
+  "fields": {
+    "title": "ogórek + szpinak (W)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 141,
+  "fields": {
+    "title": "ogórek + fasola T (W)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 142,
+  "fields": {
+    "title": "ogórek + pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 143,
+  "fields": {
+    "title": "ogórek + kukurydza (W)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 144,
+  "fields": {
+    "title": "ogórek + cebula (W)",
+    "is_positive": true,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 34,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 145,
+  "fields": {
+    "title": "ziemniak - karczoch (W)",
+    "is_positive": false,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 146,
+  "fields": {
+    "title": "ziemniak + fasola karłowa (W)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 147,
+  "fields": {
+    "title": "ziemniak - kapusta chińska (W)",
+    "is_positive": false,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 148,
+  "fields": {
+    "title": "ziemniak - groch (W)",
+    "is_positive": false,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 149,
+  "fields": {
+    "title": "ziemniak - ogórek (W)",
+    "is_positive": false,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 150,
+  "fields": {
+    "title": "ziemniak - szparag (W)",
+    "is_positive": false,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 151,
+  "fields": {
+    "title": "ziemniak - kapusty (W)",
+    "is_positive": false,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 152,
+  "fields": {
+    "title": "ziemniak + kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 153,
+  "fields": {
+    "title": "ziemniak + pasternak (W)",
+    "is_positive": true,
+    "about_crop": 73,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 154,
+  "fields": {
+    "title": "ziemniak - burak ćwikłowy (W)",
+    "is_positive": false,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 155,
+  "fields": {
+    "title": "ziemniak - seler (w)",
+    "is_positive": false,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 156,
+  "fields": {
+    "title": "ziemniak + szpinak (W)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 157,
+  "fields": {
+    "title": "ziemniak + fasola T (w)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 158,
+  "fields": {
+    "title": "ziemniak - pomidor (W)",
+    "is_positive": false,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 159,
+  "fields": {
+    "title": "ziemniak - cukinia (w)",
+    "is_positive": false,
+    "about_crop": 83,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 160,
+  "fields": {
+    "title": "ziemniak - cebula (W)",
+    "is_positive": false,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 35,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 161,
+  "fields": {
+    "title": "fenkuł w - fasola k (W)",
+    "is_positive": false,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 162,
+  "fields": {
+    "title": "fenkuł w + cykoria endywia (W)",
+    "is_positive": true,
+    "about_crop": 61,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 163,
+  "fields": {
+    "title": "fenkuł w + groch (W)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 164,
+  "fields": {
+    "title": "fenkuł w + ogórek (W)",
+    "is_positive": true,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 165,
+  "fields": {
+    "title": "fenkuł w + kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 166,
+  "fields": {
+    "title": "fenkuł w - sałata (W)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 167,
+  "fields": {
+    "title": "fenkuł w - fasola T (W)",
+    "is_positive": false,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 168,
+  "fields": {
+    "title": "fenkuł w + pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 169,
+  "fields": {
+    "title": "fenkuł w + cykoria sałatowa (W)",
+    "is_positive": true,
+    "about_crop": 82,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 36,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 170,
+  "fields": {
+    "title": "kapusty + fasola k (W)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 171,
+  "fields": {
+    "title": "kapusty - kapusta chińska (W)",
+    "is_positive": true,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 172,
+  "fields": {
+    "title": "kapusty + cykoria endywia (W)",
+    "is_positive": true,
+    "about_crop": 61,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 173,
+  "fields": {
+    "title": "kapusty + groch (W)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 174,
+  "fields": {
+    "title": "kapusty + roszponka (w)",
+    "is_positive": true,
+    "about_crop": 62,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 175,
+  "fields": {
+    "title": "kapusty + ogórek (w)",
+    "is_positive": true,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 176,
+  "fields": {
+    "title": "kapusty - ziemniak (w)",
+    "is_positive": false,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 177,
+  "fields": {
+    "title": "kapusty + koper w (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 178,
+  "fields": {
+    "title": "kapusty + sałata (W)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 179,
+  "fields": {
+    "title": "kapusty + burak l (w)",
+    "is_positive": true,
+    "about_crop": 70,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 180,
+  "fields": {
+    "title": "kapusty + marchew (W)",
+    "is_positive": true,
+    "about_crop": 34,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 181,
+  "fields": {
+    "title": "kapusty + rabarbar (W)",
+    "is_positive": true,
+    "about_crop": 76,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 182,
+  "fields": {
+    "title": "kapusty + burak ćwikłowy (w)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 183,
+  "fields": {
+    "title": "kapusty + seler (W)",
+    "is_positive": true,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 184,
+  "fields": {
+    "title": "kapusty + szpinak (w)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 185,
+  "fields": {
+    "title": "kapusty + fasola T (w)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 186,
+  "fields": {
+    "title": "kapusty + pomidor (w)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 187,
+  "fields": {
+    "title": "kapusty - cebula (W)",
+    "is_positive": false,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 27,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 188,
+  "fields": {
+    "title": "kalarepa + fasola k (W)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 189,
+  "fields": {
+    "title": "kalarepa + cykoria endywia (W)",
+    "is_positive": true,
+    "about_crop": 61,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 190,
+  "fields": {
+    "title": "kalarepa + groch (W)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 191,
+  "fields": {
+    "title": "kalarepa + roszponka (w)",
+    "is_positive": true,
+    "about_crop": 62,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 192,
+  "fields": {
+    "title": "kalarepa + ogórek (W)",
+    "is_positive": true,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 193,
+  "fields": {
+    "title": "kalarepa + fenkuł w (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 194,
+  "fields": {
+    "title": "kalarepa + szparag (W)",
+    "is_positive": true,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 195,
+  "fields": {
+    "title": "kalarepa + ziemniak (W)",
+    "is_positive": true,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 196,
+  "fields": {
+    "title": "kalarepa + sałata (w)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 197,
+  "fields": {
+    "title": "kalarepa + burak liściowy (W)",
+    "is_positive": true,
+    "about_crop": 70,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 198,
+  "fields": {
+    "title": "kalarepa + marchew (W)",
+    "is_positive": true,
+    "about_crop": 34,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 199,
+  "fields": {
+    "title": "kalarepa + trętwian cz (W)",
+    "is_positive": true,
+    "about_crop": 71,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 200,
+  "fields": {
+    "title": "kalarepa + papryka (W)",
+    "is_positive": true,
+    "about_crop": 72,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 201,
+  "fields": {
+    "title": "kalarepa + rzodkiewka (W)",
+    "is_positive": true,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 202,
+  "fields": {
+    "title": "kalarepa + rabarbar (W)",
+    "is_positive": true,
+    "about_crop": 76,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 203,
+  "fields": {
+    "title": "kalarepa + burak ćwikłowy (W)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 204,
+  "fields": {
+    "title": "kalarepa + wężymord ck (W)",
+    "is_positive": true,
+    "about_crop": 78,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 205,
+  "fields": {
+    "title": "kalarepa + seler (W)",
+    "is_positive": true,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 206,
+  "fields": {
+    "title": "kalarepa + szpinak (w)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 207,
+  "fields": {
+    "title": "kalarepa + fasola t (W)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 208,
+  "fields": {
+    "title": "kalarepa + pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 209,
+  "fields": {
+    "title": "kalarepa + cebula (W)",
+    "is_positive": true,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 38,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 210,
+  "fields": {
+    "title": "sałata + karczoch",
+    "is_positive": true,
+    "about_crop": 58,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 211,
+  "fields": {
+    "title": "sałata + fasola K (W)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 212,
+  "fields": {
+    "title": "sałata + kapusta chińska (W)",
+    "is_positive": true,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 213,
+  "fields": {
+    "title": "sałata + groch (w)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 214,
+  "fields": {
+    "title": "Aksamitki - Bobowate (A)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 4,
+    "about_tag": null,
+    "info_source": 39,
+    "type_of_interaction": 1,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 215,
+  "fields": {
+    "title": "Aksamitki - Strączkowe (A)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": 10,
+    "about_tag": null,
+    "info_source": 39,
+    "type_of_interaction": 1,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 216,
+  "fields": {
+    "title": "sałata + ogórek (W)",
+    "is_positive": true,
+    "about_crop": 63,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 217,
+  "fields": {
+    "title": "sałata + szparag (W)",
+    "is_positive": true,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 218,
+  "fields": {
+    "title": "sałata + fenkuł w (W)",
+    "is_positive": true,
+    "about_crop": 65,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 219,
+  "fields": {
+    "title": "sałata + kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 220,
+  "fields": {
+    "title": "sałata + kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 221,
+  "fields": {
+    "title": "sałata + rzepa (W)",
+    "is_positive": true,
+    "about_crop": 69,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 222,
+  "fields": {
+    "title": "sałata + burak liściowy (W)",
+    "is_positive": true,
+    "about_crop": 70,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 223,
+  "fields": {
+    "title": "sałata + marchew (W)",
+    "is_positive": true,
+    "about_crop": 34,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 224,
+  "fields": {
+    "title": "sałata + trętwian (W)",
+    "is_positive": true,
+    "about_crop": 71,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 225,
+  "fields": {
+    "title": "sałata + pasternak (w)",
+    "is_positive": true,
+    "about_crop": 73,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 226,
+  "fields": {
+    "title": "sałata + por (W)",
+    "is_positive": true,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 227,
+  "fields": {
+    "title": "sałata + rzodkiewka (W)",
+    "is_positive": true,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 228,
+  "fields": {
+    "title": "sałata + rabarbar (W)",
+    "is_positive": true,
+    "about_crop": 76,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 229,
+  "fields": {
+    "title": "sałata + burak ćwikłowy (w)",
+    "is_positive": true,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 230,
+  "fields": {
+    "title": "sałata + wężymord (w)",
+    "is_positive": true,
+    "about_crop": 78,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 231,
+  "fields": {
+    "title": "sałata + fasola t (W)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 232,
+  "fields": {
+    "title": "sałata + pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 233,
+  "fields": {
+    "title": "sałata + cykoria sałatowa (W)",
+    "is_positive": true,
+    "about_crop": 82,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 234,
+  "fields": {
+    "title": "sałata + cukinia (W)",
+    "is_positive": true,
+    "about_crop": 83,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 235,
+  "fields": {
+    "title": "sałata + kukurydza (w)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 236,
+  "fields": {
+    "title": "sałata + cebula (W)",
+    "is_positive": true,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 37,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 237,
+  "fields": {
+    "title": "rzepa + fasola k (W)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 29,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 238,
+  "fields": {
+    "title": "rzepa + groch (W)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 40,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 239,
+  "fields": {
+    "title": "rzepa + sałata (W)",
+    "is_positive": true,
+    "about_crop": 68,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 40,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 240,
+  "fields": {
+    "title": "rzepa + burak liściowy (W)",
+    "is_positive": true,
+    "about_crop": 70,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 40,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 241,
+  "fields": {
+    "title": "rzepa + pasternak (W)",
+    "is_positive": true,
+    "about_crop": 73,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 40,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 242,
+  "fields": {
+    "title": "rzepa + szpinak (W)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 40,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 243,
+  "fields": {
+    "title": "rzepa + fasola t (w)",
+    "is_positive": true,
+    "about_crop": 55,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 40,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 244,
+  "fields": {
+    "title": "burak l + fasola k (W)",
+    "is_positive": true,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 41,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 245,
+  "fields": {
+    "title": "burak l + kapusty (W)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 41,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 246,
+  "fields": {
+    "title": "burak l + rzepa (W)",
+    "is_positive": true,
+    "about_crop": 69,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 41,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 247,
+  "fields": {
+    "title": "burak l + marchew (W)",
+    "is_positive": true,
+    "about_crop": 34,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 41,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 248,
+  "fields": {
+    "title": "burak l + rzodkiewka (W)",
+    "is_positive": true,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 41,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 249,
+  "fields": {
+    "title": "marchew - fasola k (w)",
+    "is_positive": false,
+    "about_crop": 59,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 250,
+  "fields": {
+    "title": "marchew + kapusta chińska (W)",
+    "is_positive": true,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 251,
+  "fields": {
+    "title": "marchew + cykoria endywia (W)",
+    "is_positive": true,
+    "about_crop": 61,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 252,
+  "fields": {
+    "title": "marchew + groch (W)",
+    "is_positive": true,
+    "about_crop": 56,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 253,
+  "fields": {
+    "title": "marchew + szparag (w)",
+    "is_positive": true,
+    "about_crop": 64,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 254,
+  "fields": {
+    "title": "marchew + kapusty (w)",
+    "is_positive": true,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 255,
+  "fields": {
+    "title": "marchew + burak liściowy (W)",
+    "is_positive": true,
+    "about_crop": 70,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 256,
+  "fields": {
+    "title": "marchew + por (w)",
+    "is_positive": true,
+    "about_crop": 74,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 257,
+  "fields": {
+    "title": "marchew + rzodkiewka (W)",
+    "is_positive": true,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 258,
+  "fields": {
+    "title": "marchew - burak ćwikłowy (W)",
+    "is_positive": false,
+    "about_crop": 77,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 259,
+  "fields": {
+    "title": "marchew + wężymord (W)",
+    "is_positive": true,
+    "about_crop": 78,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 260,
+  "fields": {
+    "title": "marchew + seler (W)",
+    "is_positive": true,
+    "about_crop": 79,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 261,
+  "fields": {
+    "title": "marchew + szpinak (W)",
+    "is_positive": true,
+    "about_crop": 80,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 262,
+  "fields": {
+    "title": "marchew - pomidor (W)",
+    "is_positive": false,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 263,
+  "fields": {
+    "title": "marchew + cykoria sałatowa (W)",
+    "is_positive": true,
+    "about_crop": 82,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 264,
+  "fields": {
+    "title": "marchew - cebula (W)",
+    "is_positive": false,
+    "about_crop": 84,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 42,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 265,
+  "fields": {
+    "title": "trętwian + pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 43,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 266,
+  "fields": {
+    "title": "papryka + kalarepa (W)",
+    "is_positive": true,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 44,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 267,
+  "fields": {
+    "title": "papryka + pomidor (W)",
+    "is_positive": true,
+    "about_crop": 81,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 44,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 214,
+  "fields": {
+    "cropinteraction_ptr": 214
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 215,
+  "fields": {
+    "cropinteraction_ptr": 215
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 97,
+  "fields": {
+    "cropinteraction_ptr": 97
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 94,
+  "fields": {
+    "cropinteraction_ptr": 94
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 95,
+  "fields": {
+    "cropinteraction_ptr": 95
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 96,
+  "fields": {
+    "cropinteraction_ptr": 96
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 20,
   "fields": {
@@ -3165,16 +7514,156 @@
 },
 {
   "model": "rotator.cropsinteraction",
-  "pk": 62,
+  "pk": 81,
   "fields": {
-    "cropinteraction_ptr": 62
+    "cropinteraction_ptr": 81
   }
 },
 {
   "model": "rotator.cropsinteraction",
-  "pk": 21,
+  "pk": 86,
   "fields": {
-    "cropinteraction_ptr": 21
+    "cropinteraction_ptr": 86
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 91,
+  "fields": {
+    "cropinteraction_ptr": 91
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 73,
+  "fields": {
+    "cropinteraction_ptr": 73
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 72,
+  "fields": {
+    "cropinteraction_ptr": 72
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 78,
+  "fields": {
+    "cropinteraction_ptr": 78
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 77,
+  "fields": {
+    "cropinteraction_ptr": 77
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 90,
+  "fields": {
+    "cropinteraction_ptr": 90
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 89,
+  "fields": {
+    "cropinteraction_ptr": 89
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 85,
+  "fields": {
+    "cropinteraction_ptr": 85
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 80,
+  "fields": {
+    "cropinteraction_ptr": 80
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 84,
+  "fields": {
+    "cropinteraction_ptr": 84
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 79,
+  "fields": {
+    "cropinteraction_ptr": 79
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 87,
+  "fields": {
+    "cropinteraction_ptr": 87
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 74,
+  "fields": {
+    "cropinteraction_ptr": 74
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 88,
+  "fields": {
+    "cropinteraction_ptr": 88
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 75,
+  "fields": {
+    "cropinteraction_ptr": 75
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 71,
+  "fields": {
+    "cropinteraction_ptr": 71
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 76,
+  "fields": {
+    "cropinteraction_ptr": 76
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 70,
+  "fields": {
+    "cropinteraction_ptr": 70
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 82,
+  "fields": {
+    "cropinteraction_ptr": 82
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 83,
+  "fields": {
+    "cropinteraction_ptr": 83
   }
 },
 {
@@ -3203,6 +7692,20 @@
   "pk": 60,
   "fields": {
     "cropinteraction_ptr": 60
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 92,
+  "fields": {
+    "cropinteraction_ptr": 92
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 93,
+  "fields": {
+    "cropinteraction_ptr": 93
   }
 },
 {
@@ -3263,6 +7766,62 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 123,
+  "fields": {
+    "cropinteraction_ptr": 123
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 125,
+  "fields": {
+    "cropinteraction_ptr": 125
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 124,
+  "fields": {
+    "cropinteraction_ptr": 124
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 118,
+  "fields": {
+    "cropinteraction_ptr": 118
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 120,
+  "fields": {
+    "cropinteraction_ptr": 120
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 119,
+  "fields": {
+    "cropinteraction_ptr": 119
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 121,
+  "fields": {
+    "cropinteraction_ptr": 121
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 122,
+  "fields": {
+    "cropinteraction_ptr": 122
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 24,
   "fields": {
     "cropinteraction_ptr": 24
@@ -3319,6 +7878,538 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 244,
+  "fields": {
+    "cropinteraction_ptr": 244
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 245,
+  "fields": {
+    "cropinteraction_ptr": 245
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 247,
+  "fields": {
+    "cropinteraction_ptr": 247
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 246,
+  "fields": {
+    "cropinteraction_ptr": 246
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 248,
+  "fields": {
+    "cropinteraction_ptr": 248
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 162,
+  "fields": {
+    "cropinteraction_ptr": 162
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 169,
+  "fields": {
+    "cropinteraction_ptr": 169
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 163,
+  "fields": {
+    "cropinteraction_ptr": 163
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 165,
+  "fields": {
+    "cropinteraction_ptr": 165
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 164,
+  "fields": {
+    "cropinteraction_ptr": 164
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 168,
+  "fields": {
+    "cropinteraction_ptr": 168
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 167,
+  "fields": {
+    "cropinteraction_ptr": 167
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 161,
+  "fields": {
+    "cropinteraction_ptr": 161
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 166,
+  "fields": {
+    "cropinteraction_ptr": 166
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 108,
+  "fields": {
+    "cropinteraction_ptr": 108
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 99,
+  "fields": {
+    "cropinteraction_ptr": 99
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 62,
+  "fields": {
+    "cropinteraction_ptr": 62
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 111,
+  "fields": {
+    "cropinteraction_ptr": 111
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 115,
+  "fields": {
+    "cropinteraction_ptr": 115
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 103,
+  "fields": {
+    "cropinteraction_ptr": 103
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 105,
+  "fields": {
+    "cropinteraction_ptr": 105
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 116,
+  "fields": {
+    "cropinteraction_ptr": 116
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 104,
+  "fields": {
+    "cropinteraction_ptr": 104
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 100,
+  "fields": {
+    "cropinteraction_ptr": 100
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 107,
+  "fields": {
+    "cropinteraction_ptr": 107
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 110,
+  "fields": {
+    "cropinteraction_ptr": 110
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 106,
+  "fields": {
+    "cropinteraction_ptr": 106
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 112,
+  "fields": {
+    "cropinteraction_ptr": 112
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 101,
+  "fields": {
+    "cropinteraction_ptr": 101
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 21,
+  "fields": {
+    "cropinteraction_ptr": 21
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 98,
+  "fields": {
+    "cropinteraction_ptr": 98
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 117,
+  "fields": {
+    "cropinteraction_ptr": 117
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 113,
+  "fields": {
+    "cropinteraction_ptr": 113
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 114,
+  "fields": {
+    "cropinteraction_ptr": 114
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 109,
+  "fields": {
+    "cropinteraction_ptr": 109
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 102,
+  "fields": {
+    "cropinteraction_ptr": 102
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 197,
+  "fields": {
+    "cropinteraction_ptr": 197
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 203,
+  "fields": {
+    "cropinteraction_ptr": 203
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 209,
+  "fields": {
+    "cropinteraction_ptr": 209
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 189,
+  "fields": {
+    "cropinteraction_ptr": 189
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 188,
+  "fields": {
+    "cropinteraction_ptr": 188
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 207,
+  "fields": {
+    "cropinteraction_ptr": 207
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 193,
+  "fields": {
+    "cropinteraction_ptr": 193
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 190,
+  "fields": {
+    "cropinteraction_ptr": 190
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 198,
+  "fields": {
+    "cropinteraction_ptr": 198
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 192,
+  "fields": {
+    "cropinteraction_ptr": 192
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 200,
+  "fields": {
+    "cropinteraction_ptr": 200
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 208,
+  "fields": {
+    "cropinteraction_ptr": 208
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 202,
+  "fields": {
+    "cropinteraction_ptr": 202
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 191,
+  "fields": {
+    "cropinteraction_ptr": 191
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 201,
+  "fields": {
+    "cropinteraction_ptr": 201
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 196,
+  "fields": {
+    "cropinteraction_ptr": 196
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 205,
+  "fields": {
+    "cropinteraction_ptr": 205
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 194,
+  "fields": {
+    "cropinteraction_ptr": 194
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 206,
+  "fields": {
+    "cropinteraction_ptr": 206
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 199,
+  "fields": {
+    "cropinteraction_ptr": 199
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 204,
+  "fields": {
+    "cropinteraction_ptr": 204
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 195,
+  "fields": {
+    "cropinteraction_ptr": 195
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 179,
+  "fields": {
+    "cropinteraction_ptr": 179
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 182,
+  "fields": {
+    "cropinteraction_ptr": 182
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 172,
+  "fields": {
+    "cropinteraction_ptr": 172
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 185,
+  "fields": {
+    "cropinteraction_ptr": 185
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 170,
+  "fields": {
+    "cropinteraction_ptr": 170
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 173,
+  "fields": {
+    "cropinteraction_ptr": 173
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 177,
+  "fields": {
+    "cropinteraction_ptr": 177
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 180,
+  "fields": {
+    "cropinteraction_ptr": 180
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 175,
+  "fields": {
+    "cropinteraction_ptr": 175
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 186,
+  "fields": {
+    "cropinteraction_ptr": 186
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 181,
+  "fields": {
+    "cropinteraction_ptr": 181
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 174,
+  "fields": {
+    "cropinteraction_ptr": 174
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 178,
+  "fields": {
+    "cropinteraction_ptr": 178
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 183,
+  "fields": {
+    "cropinteraction_ptr": 183
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 184,
+  "fields": {
+    "cropinteraction_ptr": 184
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 187,
+  "fields": {
+    "cropinteraction_ptr": 187
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 171,
+  "fields": {
+    "cropinteraction_ptr": 171
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 176,
+  "fields": {
+    "cropinteraction_ptr": 176
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 37,
   "fields": {
     "cropinteraction_ptr": 37
@@ -3326,23 +8417,604 @@
 },
 {
   "model": "rotator.cropsinteraction",
-  "pk": 35,
+  "pk": 255,
   "fields": {
-    "cropinteraction_ptr": 35
+    "cropinteraction_ptr": 255
   }
 },
 {
   "model": "rotator.cropsinteraction",
-  "pk": 33,
+  "pk": 251,
   "fields": {
-    "cropinteraction_ptr": 33
+    "cropinteraction_ptr": 251
   }
 },
 {
   "model": "rotator.cropsinteraction",
-  "pk": 34,
+  "pk": 263,
   "fields": {
-    "cropinteraction_ptr": 34
+    "cropinteraction_ptr": 263
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 252,
+  "fields": {
+    "cropinteraction_ptr": 252
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 250,
+  "fields": {
+    "cropinteraction_ptr": 250
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 254,
+  "fields": {
+    "cropinteraction_ptr": 254
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 256,
+  "fields": {
+    "cropinteraction_ptr": 256
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 257,
+  "fields": {
+    "cropinteraction_ptr": 257
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 260,
+  "fields": {
+    "cropinteraction_ptr": 260
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 253,
+  "fields": {
+    "cropinteraction_ptr": 253
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 261,
+  "fields": {
+    "cropinteraction_ptr": 261
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 259,
+  "fields": {
+    "cropinteraction_ptr": 259
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 258,
+  "fields": {
+    "cropinteraction_ptr": 258
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 264,
+  "fields": {
+    "cropinteraction_ptr": 264
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 249,
+  "fields": {
+    "cropinteraction_ptr": 249
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 262,
+  "fields": {
+    "cropinteraction_ptr": 262
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 126,
+  "fields": {
+    "cropinteraction_ptr": 126
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 138,
+  "fields": {
+    "cropinteraction_ptr": 138
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 144,
+  "fields": {
+    "cropinteraction_ptr": 144
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 127,
+  "fields": {
+    "cropinteraction_ptr": 127
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 141,
+  "fields": {
+    "cropinteraction_ptr": 141
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 131,
+  "fields": {
+    "cropinteraction_ptr": 131
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 128,
+  "fields": {
+    "cropinteraction_ptr": 128
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 133,
+  "fields": {
+    "cropinteraction_ptr": 133
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 132,
+  "fields": {
+    "cropinteraction_ptr": 132
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 143,
+  "fields": {
+    "cropinteraction_ptr": 143
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 135,
+  "fields": {
+    "cropinteraction_ptr": 135
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 142,
+  "fields": {
+    "cropinteraction_ptr": 142
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 136,
+  "fields": {
+    "cropinteraction_ptr": 136
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 134,
+  "fields": {
+    "cropinteraction_ptr": 134
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 139,
+  "fields": {
+    "cropinteraction_ptr": 139
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 129,
+  "fields": {
+    "cropinteraction_ptr": 129
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 140,
+  "fields": {
+    "cropinteraction_ptr": 140
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 137,
+  "fields": {
+    "cropinteraction_ptr": 137
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 130,
+  "fields": {
+    "cropinteraction_ptr": 130
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 266,
+  "fields": {
+    "cropinteraction_ptr": 266
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 267,
+  "fields": {
+    "cropinteraction_ptr": 267
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 240,
+  "fields": {
+    "cropinteraction_ptr": 240
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 237,
+  "fields": {
+    "cropinteraction_ptr": 237
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 243,
+  "fields": {
+    "cropinteraction_ptr": 243
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 238,
+  "fields": {
+    "cropinteraction_ptr": 238
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 241,
+  "fields": {
+    "cropinteraction_ptr": 241
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 239,
+  "fields": {
+    "cropinteraction_ptr": 239
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 242,
+  "fields": {
+    "cropinteraction_ptr": 242
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 222,
+  "fields": {
+    "cropinteraction_ptr": 222
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 229,
+  "fields": {
+    "cropinteraction_ptr": 229
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 236,
+  "fields": {
+    "cropinteraction_ptr": 236
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 234,
+  "fields": {
+    "cropinteraction_ptr": 234
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 233,
+  "fields": {
+    "cropinteraction_ptr": 233
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 211,
+  "fields": {
+    "cropinteraction_ptr": 211
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 231,
+  "fields": {
+    "cropinteraction_ptr": 231
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 218,
+  "fields": {
+    "cropinteraction_ptr": 218
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 213,
+  "fields": {
+    "cropinteraction_ptr": 213
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 220,
+  "fields": {
+    "cropinteraction_ptr": 220
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 212,
+  "fields": {
+    "cropinteraction_ptr": 212
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 219,
+  "fields": {
+    "cropinteraction_ptr": 219
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 210,
+  "fields": {
+    "cropinteraction_ptr": 210
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 235,
+  "fields": {
+    "cropinteraction_ptr": 235
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 223,
+  "fields": {
+    "cropinteraction_ptr": 223
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 216,
+  "fields": {
+    "cropinteraction_ptr": 216
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 225,
+  "fields": {
+    "cropinteraction_ptr": 225
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 232,
+  "fields": {
+    "cropinteraction_ptr": 232
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 226,
+  "fields": {
+    "cropinteraction_ptr": 226
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 228,
+  "fields": {
+    "cropinteraction_ptr": 228
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 221,
+  "fields": {
+    "cropinteraction_ptr": 221
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 227,
+  "fields": {
+    "cropinteraction_ptr": 227
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 217,
+  "fields": {
+    "cropinteraction_ptr": 217
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 224,
+  "fields": {
+    "cropinteraction_ptr": 224
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 230,
+  "fields": {
+    "cropinteraction_ptr": 230
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 265,
+  "fields": {
+    "cropinteraction_ptr": 265
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 157,
+  "fields": {
+    "cropinteraction_ptr": 157
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 146,
+  "fields": {
+    "cropinteraction_ptr": 146
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 152,
+  "fields": {
+    "cropinteraction_ptr": 152
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 153,
+  "fields": {
+    "cropinteraction_ptr": 153
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 156,
+  "fields": {
+    "cropinteraction_ptr": 156
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 154,
+  "fields": {
+    "cropinteraction_ptr": 154
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 160,
+  "fields": {
+    "cropinteraction_ptr": 160
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 159,
+  "fields": {
+    "cropinteraction_ptr": 159
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 148,
+  "fields": {
+    "cropinteraction_ptr": 148
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 147,
+  "fields": {
+    "cropinteraction_ptr": 147
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 151,
+  "fields": {
+    "cropinteraction_ptr": 151
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 145,
+  "fields": {
+    "cropinteraction_ptr": 145
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 149,
+  "fields": {
+    "cropinteraction_ptr": 149
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 158,
+  "fields": {
+    "cropinteraction_ptr": 158
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 155,
+  "fields": {
+    "cropinteraction_ptr": 155
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 150,
+  "fields": {
+    "cropinteraction_ptr": 150
   }
 },
 {
@@ -3936,11 +9608,57 @@
 },
 {
   "model": "rotator.rotationstep",
-  "pk": 54,
+  "pk": 55,
   "fields": {
-    "title": "Wika",
-    "title_pl": "Wika",
+    "title": "tuuui",
+    "title_pl": "tuuui",
     "title_en": null,
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_middle": false,
+    "add_manure_late": false,
+    "from_plan": 7,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "middle_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 56,
+  "fields": {
+    "title": "eue5",
+    "title_pl": "eue5",
+    "title_en": "eue5",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_middle": false,
+    "add_manure_late": false,
+    "from_plan": 5,
+    "order": 1,
+    "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "middle_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 57,
+  "fields": {
+    "title": "jdtyj",
+    "title_pl": null,
+    "title_en": "jdtyj",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
@@ -3952,13 +9670,55 @@
     "is_late_crop_destroy": false,
     "is_middle_crop_destroy": false,
     "is_early_crop_destroy": false,
-    "early_crop": [
-      61
-    ],
+    "early_crop": [],
     "middle_crop": [],
-    "late_crop": [
-      32
-    ]
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 58,
+  "fields": {
+    "title": "rtuyjurf",
+    "title_pl": null,
+    "title_en": "rtuyjurf",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_middle": false,
+    "add_manure_late": false,
+    "from_plan": 3,
+    "order": 9,
+    "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "middle_crop": [],
+    "late_crop": []
+  }
+},
+{
+  "model": "rotator.rotationstep",
+  "pk": 59,
+  "fields": {
+    "title": "tit7it",
+    "title_pl": null,
+    "title_en": "tit7it",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "add_manure_early": false,
+    "add_manure_middle": false,
+    "add_manure_late": false,
+    "from_plan": 3,
+    "order": 10,
+    "is_late_crop_destroy": false,
+    "is_middle_crop_destroy": false,
+    "is_early_crop_destroy": false,
+    "early_crop": [],
+    "middle_crop": [],
+    "late_crop": []
   }
 },
 {
@@ -4475,6 +10235,291 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 28,
+  "fields": {
+    "title": "Karczoch - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 58,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 29,
+  "fields": {
+    "title": "Fasola Karłowa - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 59,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 30,
+  "fields": {
+    "title": "Kapusta Chińska - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 60,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 31,
+  "fields": {
+    "title": "Cykoria Endywia - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 61,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 32,
+  "fields": {
+    "title": "Groch- UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 56,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 33,
+  "fields": {
+    "title": "Roszpunka - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 62,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 34,
+  "fields": {
+    "title": "Ogórek - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 63,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 35,
+  "fields": {
+    "title": "Ziemniak - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 33,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": []
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 36,
+  "fields": {
+    "title": "Fenkuł Włoski - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 65,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 37,
+  "fields": {
+    "title": "Sałata - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 68,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 38,
+  "fields": {
+    "title": "Kalarepa - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 67,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 39,
+  "fields": {
+    "title": "Aksamitki - BoT",
+    "descr": "Ze względu na antybakteryjne tiofeny wydzielane przez korzenie, Aksamitek nie należy sadzić w pobliżu roślin bobowatych.",
+    "descr_pl": "Ze względu na antybakteryjne tiofeny wydzielane przez korzenie, Aksamitek nie należy sadzić w pobliżu roślin bobowatych.",
+    "descr_en": "Due to antibacterial thiophenes exuded by the roots, Tagetes should not be planted near any legume crop",
+    "from_crop": 112,
+    "at_data_string": 63,
+    "pages_from": null,
+    "pages_to": null,
+    "at_tag": []
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 40,
+  "fields": {
+    "title": "Rzepa UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 69,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 41,
+  "fields": {
+    "title": "Burak Liściowy - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 70,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 42,
+  "fields": {
+    "title": "Marchew - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 34,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 43,
+  "fields": {
+    "title": "Trętwian czterorożny - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 71,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 44,
+  "fields": {
+    "title": "Papryka - UWiP",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "from_crop": 72,
+    "at_data_string": 32,
+    "pages_from": 48,
+    "pages_to": null,
+    "at_tag": [
+      18
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
   "pk": 11,
   "fields": {
@@ -4763,6 +10808,184 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 45,
+  "fields": {
+    "title": "Wikipedia CC - Por",
+    "part1": "Kowloonese, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=2647128"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 46,
+  "fields": {
+    "title": "Wikipedia CC - Rzodkiewka",
+    "part1": "Domena publiczna",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=98413"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 47,
+  "fields": {
+    "title": "Wikipedia CC - Rabarbar Kędzierzawy",
+    "part1": "Magnus, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=16883605"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 48,
+  "fields": {
+    "title": "Wikipedia CC - Burak Ćwikłowy",
+    "part1": "CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=139972"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 49,
+  "fields": {
+    "title": "Wikipedia CC - Wężymord czarny korzeń",
+    "part1": "H. Zell - Praca własna, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=11073063"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 50,
+  "fields": {
+    "title": "Wikipedia CC - Pomidor",
+    "part1": "David Besa z Sonoma, USA - Flickr, CC BY 2.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=690311"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 51,
+  "fields": {
+    "title": "Wikipedia CC - Cykoria Sałatowa",
+    "part1": "Goldlocki - of my own work, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=3136441"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 52,
+  "fields": {
+    "title": "Wikipedia CC - Cukinia",
+    "part1": "Rasbak - Praca własna, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=242316"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 53,
+  "fields": {
+    "title": "Wikipedia CC - Cebula",
+    "part1": "GFDL 1.2",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=662556"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 54,
+  "fields": {
+    "title": "Flora de Filipinas",
+    "part1": "Francisco Manuel Blanco (O.S.A.), 1880-1883, Flora de Filipinas [...] Gran edicion [...] [Atlas II]",
+    "link": "https://bibdigital.rjb.csic.es/records/item/9471-flora-de-filipinas-gran-edicion-atlas-ii?offset=10"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 55,
+  "fields": {
+    "title": "Wikipedia CC - Bylica draganek",
+    "part1": "I, KENPEI, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=2528916"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 56,
+  "fields": {
+    "title": "Gottorfer Codex",
+    "part1": "Hans-Simon Holtzbecker, 1649-1659, Gottorfer Codex",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 57,
+  "fields": {
+    "title": "Medical Botany",
+    "part1": "William Woodville, 1793, \"Medical botany“",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 58,
+  "fields": {
+    "title": "Wikipedia CC - Rzeżucha",
+    "part1": "Atriplexmedia - Praca własna, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=19317618"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 59,
+  "fields": {
+    "title": "Wikipedia CC - Lebiodka majeranek",
+    "part1": "H. Zell - Own work, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=10763816"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 60,
+  "fields": {
+    "title": "Atlas des plantes de France",
+    "part1": "Amédée Masclef, 1891, Atlas des plantes de France",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 61,
+  "fields": {
+    "title": "Wikipedia CC - Truskawka",
+    "part1": "Joanbanjo - Praca własna, CC BY-SA 4.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=34211486"
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 63,
+  "fields": {
+    "title": "Biosystematics of Tagetes",
+    "part1": "Soule, J. A. 1993. Biosystematics of Tagetes (Compositae). Ph.D. Dissertation, University of Texas.",
+    "link": null
+  }
+},
+{
+  "model": "rotator.cropdatastring",
+  "pk": 64,
+  "fields": {
+    "title": "Wikipedia CC - Trętwian czterorożny",
+    "part1": "Kurt Stüber [1] - caliban.mpiz-koeln.mpg.de/mavica/index.html part of www.biolib.de, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=6861"
+  }
+},
+{
+  "model": "rotator.cropbookstring",
+  "pk": 63,
+  "fields": {
+    "cropdatastring_ptr": 63
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 11,
   "fields": {
@@ -4792,6 +11015,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 60,
+  "fields": {
+    "cropdatastring_ptr": 60
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 14,
   "fields": {
     "cropdatastring_ptr": 14
@@ -4813,9 +11043,23 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 54,
+  "fields": {
+    "cropdatastring_ptr": 54
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 15,
   "fields": {
     "cropdatastring_ptr": 15
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 56,
+  "fields": {
+    "cropdatastring_ptr": 56
   }
 },
 {
@@ -4834,9 +11078,51 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 57,
+  "fields": {
+    "cropdatastring_ptr": 57
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 43,
   "fields": {
     "cropdatastring_ptr": 43
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 48,
+  "fields": {
+    "cropdatastring_ptr": 48
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 55,
+  "fields": {
+    "cropdatastring_ptr": 55
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 53,
+  "fields": {
+    "cropdatastring_ptr": 53
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 52,
+  "fields": {
+    "cropdatastring_ptr": 52
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 51,
+  "fields": {
+    "cropdatastring_ptr": 51
   }
 },
 {
@@ -4897,6 +11183,13 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 59,
+  "fields": {
+    "cropdatastring_ptr": 59
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 37,
   "fields": {
     "cropdatastring_ptr": 37
@@ -4904,9 +11197,30 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 50,
+  "fields": {
+    "cropdatastring_ptr": 50
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 45,
+  "fields": {
+    "cropdatastring_ptr": 45
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 21,
   "fields": {
     "cropdatastring_ptr": 21
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 47,
+  "fields": {
+    "cropdatastring_ptr": 47
   }
 },
 {
@@ -4932,9 +11246,23 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 58,
+  "fields": {
+    "cropdatastring_ptr": 58
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 20,
   "fields": {
     "cropdatastring_ptr": 20
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 46,
+  "fields": {
+    "cropdatastring_ptr": 46
   }
 },
 {
@@ -4960,9 +11288,30 @@
 },
 {
   "model": "rotator.cropimagestring",
+  "pk": 61,
+  "fields": {
+    "cropdatastring_ptr": 61
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 64,
+  "fields": {
+    "cropdatastring_ptr": 64
+  }
+},
+{
+  "model": "rotator.cropimagestring",
   "pk": 30,
   "fields": {
     "cropdatastring_ptr": 30
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 49,
+  "fields": {
+    "cropdatastring_ptr": 49
   }
 },
 {
@@ -5028,7 +11377,13 @@
     "all_plans_en": "All rotation plans",
     "see_more": "Zobacz więcej...",
     "see_more_pl": "Zobacz więcej...",
-    "see_more_en": "See more..."
+    "see_more_en": "See more...",
+    "of_steps": "Kroków",
+    "of_steps_pl": "Kroków",
+    "of_steps_en": "Steps",
+    "of_plants": "Roślin",
+    "of_plants_pl": "Roślin",
+    "of_plants_en": "Plants"
   }
 },
 {
@@ -5083,7 +11438,40 @@
     "github_en": "Project on Github",
     "login_to_see": "Zaloguj się aby zobaczyć więcej szczegółów",
     "login_to_see_pl": "Zaloguj się aby zobaczyć więcej szczegółów",
-    "login_to_see_en": "Login to see more details"
+    "login_to_see_en": "Login to see more details",
+    "curr_prog_includes": "Obecnie program zawiera bazę",
+    "curr_prog_includes_pl": "Obecnie program zawiera bazę",
+    "curr_prog_includes_en": "Currently program includes a base of",
+    "over": "Ponad",
+    "over_pl": "Ponad",
+    "over_en": "Over",
+    "plants": "roślin uprawnych",
+    "plants_pl": "roślin uprawnych",
+    "plants_en": "useful plants",
+    "coming_from": "wywodzących się z",
+    "coming_from_pl": "wywodzących się z",
+    "coming_from_en": "coming from",
+    "families": "rodzin",
+    "families_pl": "rodzin",
+    "families_en": "families",
+    "marked_by": "oznaczonych według",
+    "marked_by_pl": "oznaczonych według",
+    "marked_by_en": "marked by",
+    "categories": "kategorii",
+    "categories_pl": "kategorii",
+    "categories_en": "categories",
+    "and_over": "oraz ponad",
+    "and_over_pl": "oraz ponad",
+    "and_over_en": "and over",
+    "unique_interactions": "unikalnych interakcji",
+    "unique_interactions_pl": "unikalnych interakcji",
+    "unique_interactions_en": "unique interactions",
+    "described_by": "opisanych na podstawie",
+    "described_by_pl": "opisanych na podstawie",
+    "described_by_en": "described based on",
+    "sources": "źródeł",
+    "sources_pl": "źródeł",
+    "sources_en": "sources"
   }
 },
 {
@@ -5207,9 +11595,9 @@
     "remove_or_add": "Usuń je i wybierz coś innego, lub dodaj więcej kroków",
     "remove_or_add_pl": "Usuń je i wybierz coś innego, lub dodaj więcej kroków",
     "remove_or_add_en": "Remove them or add more steps to your rotation plan",
-    "plan_limit_reached": "Osiągnąłeś limit 12 planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
-    "plan_limit_reached_pl": "Osiągnąłeś limit 12 planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
-    "plan_limit_reached_en": "You have reached limit of 12 rotation plans per user.\r\nThis limit has been introduced to limit malicious bots activity across the site.\r\nIf you are not a bot we sincerely apologize for the inconvenience.\r\nConsider either removing the plans you no longer need or opening another anonymous account.",
+    "plan_limit_reached": "Osiągnąłeś limit planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
+    "plan_limit_reached_pl": "Osiągnąłeś limit planów zmianowania na użytkownika.\r\nLimit został nałożony w celu przeciwdziałania aktywności złośliwych botów.\r\nJeśli nie jesteś Botem, to bardzo Cię przepraszam za niedogodność.\r\nSkasuj już niepotrzebne plany, lub załóż swoje nowe anonimowe konto.",
+    "plan_limit_reached_en": "You have reached limit of  rotation plans per user.\r\nThis limit has been introduced to limit malicious bots activity across the site.\r\nIf you are not a bot we sincerely apologize for the inconvenience.\r\nConsider either removing the plans you no longer need or opening another anonymous account.",
     "family": "Rodzina",
     "family_pl": "Rodzina",
     "family_en": "Family",
