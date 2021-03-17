@@ -293,10 +293,22 @@ def crop(request, crop_id):
     pe_c = pe(Crop)
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
     # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
-    #for tag in 
+    crop_tags_from = []
     # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
+    crop_from = None
     # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
+    crop_family_from = None
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
+    crop_to = CropInteraction.objects.filter(about_crop=crop_id)
+    crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
+    crop_tags_to = []
+    for tag in pe_c_id.tags.all():
+        crop_tag_from = None
+        crop_tag_to = CropInteraction.objects.filter(about_tag=tag)
+        crop_tags_from.append(crop_tag_from)
+        crop_tags_to.append(crop_tag_to)
+
+
     # Zrób tak, żeby źródła się nie powtarzały.
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name
