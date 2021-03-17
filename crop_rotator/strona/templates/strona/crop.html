@@ -30,7 +30,7 @@
             <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{{ family }}</a></p>
             <p>{{ translatables.descr }}: {{ crop.descr|linebreaksbr }}</p>
             {% for source in sources %}
-              <p>{{ source.descr|linebreaksbr }}({{ forloop.counter }})</p>
+              {% if source.descr %}<p>{{ source.descr|linebreaksbr }}({{ forloop.counter }})</p>{% endif %}
             {% endfor %}
             <p>{{ translatables.sources }}:</p>
               {% for source in sources %}
