@@ -292,6 +292,12 @@ def lurk_plan(request, plan_id):
 def crop(request, crop_id):
     pe_c = pe(Crop)
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
+    # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
+    #for tag in 
+    # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
+    # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
+    # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
+    # Zrób tak, żeby źródła się nie powtarzały.
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name
     translatables = pe(RotatorEditorPageNames).baseattrs
