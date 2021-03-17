@@ -5,10 +5,14 @@
 <title>{{ crop.name }}</title>
 {% endblock %}
 
+{% block css %}
+
+{% endblock css %}
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
 {% block aside %}
 <!-- Null -->
 {% block body %}
+
 <br>
 <br>
 <br>
@@ -18,7 +22,6 @@
           <div class="container">
             <h1 class="text-center pt-3 ">{{ crop.name }}</h1>
             <h4 class="text-center pt-2">{{ crop.latin_name }}</h4>
-            <h4 class="pt-2">{{ crop.pubdate_short }}</h4>
             <hr />
             {% if crop.image %}<!--jeśli jest link to go wyświetl -->
                 <br/>
@@ -40,7 +43,48 @@
                   {% endif %}
                 {% endif %}</p>
               {% endfor %}
-            <br />
+            <hr />
+            <h4 class="pt-2">$Znane interakcje</h4>
+
+            {% if crop_from %}
+            <p><b>$Roślina oddziaływuje na inne:</b></p>
+            {% for interaction in crop_from %}
+              <p>{{ crop.name }}{% if interaction.is_positive %} $dobrze współgra z {% else %} $szkodzi {% endif %} {{ interaction.about_crop.name }} - <span class="myDIV">$Źródło (onhover)</span></p>
+              <p class="hide">{{ interaction.info_source.at_data_string.part1 }}{% if interaction.info_source.pages_from %}
+                {% if interaction.info_source.pages_to %}pp. {{ interaction.info_source.pages_from }}-{{ interaction.info_source.pages_to }}
+                {% else %} p.{{ interaction.info_source.pages_from }}.
+                {% endif %}
+              {% endif %}</p>
+            {% endfor %}
+            {% endif %}
+            {% if crop_to %}
+            <p><b>$Inne oddziaływują na roślinę:</b></p>
+            {% for interaction in crop_to %}
+              <p>{{ interaction.0.name }} {% if interaction.is_positive %} $dobrze współgra z {% else %} $szkodzi {% endif %} {{ crop.name }} - <span class="myDIV">$Źródło (onhover)</span></p>
+              <p class="hide">{{ interaction.1.info_source.at_data_string.part1 }}{% if interaction.1.info_source.pages_from %}
+                {% if interaction.1.info_source.pages_to %}pp. {{ interaction.1.info_source.pages_from }}-{{ interaction.1.info_source.pages_to }}
+                {% else %} p.{{ interaction.1.info_source.pages_from }}.
+                {% endif %}
+              {% endif %}</p>
+            {% endfor %}
+            {% endif %}
+            {% if crop_family_from %}
+            <p>$Rodzina rośliny oddziaływuje na inne</p>
+
+            {% endif %}
+            {% if crop_family_to %}
+            <p>$Inne oddziaływują na rodzinę rośliny</p>
+
+            {% endif %}
+            {% if crop_tag_from %}
+            <p>$Kategorie rośliny oddziaływują na inne</p>
+
+            {% endif %}
+            {% if crop_tag_to %}
+            <p>$Inne oddziaływują na kategorie rośliny</p>
+
+            {% endif %}
+
           </div>
         </div>
       </div><!-- /.row -->
@@ -55,5 +99,6 @@
     </div>
     </div>
     <!-- end of empty div -->
+
 {% endblock %}
 {% endblock aside %}

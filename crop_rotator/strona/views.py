@@ -299,7 +299,11 @@ def crop(request, crop_id):
     # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
     crop_family_from = pe_c_id.family.family_relationships.all()
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
-    crop_to = CropInteraction.objects.filter(about_crop=crop_id)
+    crop_to_0 = Crop.objects.filter(crop_relationships__about_crop=crop_id)
+    crop_to = []
+    for crop in crop_to_0:
+        for item in crop.crop_relationships.filter(about_crop=crop_id):
+            crop_to.append((crop, item))
     crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
     crop_tags_to = []
     for tag in pe_c_id.tags.all():
@@ -307,23 +311,24 @@ def crop(request, crop_id):
         crop_tag_to = CropInteraction.objects.filter(about_tag=tag)
         crop_tags_from.append(crop_tag_from)
         crop_tags_to.append(crop_tag_to)
-    flare(crop_from,name="cf")
-    flare(crop_to,name="ct")
-    flare(crop_family_from,name="cff")
-    flare(crop_family_to,name="cft")
-    flare(crop_tags_from,name="ctf")
-    flare(crop_tags_to,name="ctt")
     # Zrób tak, żeby źródła się nie powtarzały.
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name
     translatables = pe(RotatorEditorPageNames).baseattrs
     if pe_c_id.family.is_family_slave:
         master_family = pe_c_id.family.family_master.name
+    flare(crop_to)
     context = {
         "family": master_family,
         "crop": pe_c_id,
         "sources": pe_cds,
         "translatables": translatables,
+        "crop_from": crop_from,
+        "crop_to": crop_to,
+        "crop_family_from": crop_family_from,
+        "crop_family_to": crop_family_to,
+        "crop_tag_from": crop_tag_from,
+        "crop_tag_to": crop_tag_to,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
