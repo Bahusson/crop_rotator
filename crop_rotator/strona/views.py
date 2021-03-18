@@ -300,10 +300,19 @@ def crop(request, crop_id):
     crop_family_from = pe_c_id.family.family_relationships.all()
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
     crop_to_0 = Crop.objects.filter(crop_relationships__about_crop=crop_id)
+    family_to_0 = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
+    tag_to_0 = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
     crop_to = []
     for crop in crop_to_0:
         for item in crop.crop_relationships.filter(about_crop=crop_id):
             crop_to.append((crop, item))
+    for family in family_to_0:
+        for item in family.family_relationships.filter(about_crop=crop_id):
+            crop_to.append((family, item))
+    for tag in tag_to_0:
+        for item in tag.crop_relationships.filter(about_crop=crop_id):
+            crop_to.append((tag, item))
+
     crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
     crop_tags_to = []
     for tag in pe_c_id.tags.all():
@@ -327,8 +336,8 @@ def crop(request, crop_id):
         "crop_to": crop_to,
         "crop_family_from": crop_family_from,
         "crop_family_to": crop_family_to,
-        "crop_tag_from": crop_tag_from,
-        "crop_tag_to": crop_tag_to,
+        "crop_tags_from": crop_tags_from,
+        "crop_tags_to": crop_tags_to,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)

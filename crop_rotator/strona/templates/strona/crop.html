@@ -53,7 +53,20 @@
                 {% if interaction.about_crop %}{{ interaction.about_crop.name }}
                 {% elif interaction.about_family %} {{ interaction.about_family.name }}
                 {% else %} {{ interaction.about_tag.name }} {% endif %}
-                 -
+                 - $Typ oddziaływania:
+                 {% if interaction.type_of_interaction == 0 %}
+                  $Współrzędne
+                 {% elif interaction.type_of_interaction == 1 %}
+                  $Współrzędne i następcze lub allelopatyczne.
+                 {% else %}
+                  $Następcze
+                 {% endif %}
+                 {% if interaction.season_of_interaction == 1 %}
+                  $Jare/Wczesne
+                 {% elif interaction.season_of_interaction == 2 %}
+                  $Ozime/Późne
+                 {% endif %}
+
                 <button class="show_properties2" value="2">$Źródło</button></p>
                 <div class="hidden_properties">
                   <p>{{ interaction.info_source.at_data_string.part1 }}{% if interaction.info_source.pages_from %}
@@ -70,7 +83,21 @@
             {% if crop_to %}
             <p><b>$Inne oddziaływują na roślinę:</b></p>
             {% for interaction in crop_to %}
-              <p>{{ interaction.0.name }} {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %} {{ crop.name }} -
+              <p>{{ interaction.0.name }} {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %} {{ crop.name }}
+                - $Typ oddziaływania:
+                {% if interaction.1.type_of_interaction == 0 %}
+                 $Współrzędne
+                {% elif interaction.1.type_of_interaction == 1 %}
+                 $Współrzędne i następcze lub allelopatyczne.
+                {% else %}
+                 $Następcze
+                {% endif %}
+                {% if interaction.1.season_of_interaction == 1 %}
+                 $Jare/Wczesne
+                {% elif interaction.1.season_of_interaction == 2 %}
+                 $Ozime/Późne
+                {% endif %}
+
                 <button class="show_properties2" value="2">$Źródło</button></p>
                 <div class="hidden_properties">
               <p>{{ interaction.1.info_source.at_data_string.part1 }}{% if interaction.1.info_source.pages_from %}
@@ -89,11 +116,11 @@
             <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
 
             {% endif %}
-            {% if crop_tag_from %}
+            {% if crop_tags_from %}
             <p><b>$Kategorie rośliny oddziaływują na inne</b></p>
 
             {% endif %}
-            {% if crop_tag_to %}
+            {% if crop_tags_to %}
             <p><b>$Inne oddziaływują na kategorie rośliny</b></p>
 
             {% endif %}
