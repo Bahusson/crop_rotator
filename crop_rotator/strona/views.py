@@ -303,16 +303,14 @@ def crop(request, crop_id):
     # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
     crop_family_from = pe_c_id.family.family_relationships.all()
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
-    crop_to = []
     crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
     family_to_c = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
     tag_to_c = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
-    crop_to = list_crops_to(crop_to, pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
+    crop_to = list_crops_to(pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
     crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
     family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
     tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
-    crop_family_to = []
-    crop_family_to = list_crops_to(crop_family_to, c_family, crop_to_f, family_to_f, tag_to_f, "family")
+    crop_family_to = list_crops_to(c_family, crop_to_f, family_to_f, tag_to_f, "family")
     crop_tags_to = []
     for tag in pe_c_id.tags.all():
         for relationship in tag.crop_relationships.all():
@@ -320,7 +318,9 @@ def crop(request, crop_id):
         crop_to_t = Crop.objects.filter(crop_relationships__about_tag=tag.id)
         family_to_t = CropFamily.objects.filter(family_relationships__about_tag=tag.id)
         tag_to_t = CropTag.objects.filter(crop_relationships__about_tag=tag.id)
-        crop_tags_to = list_crops_to(crop_tags_to, tag, crop_to_t, family_to_t, tag_to_t, "tag")
+        crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
+        for item in crop_tags_to_0:
+            crop_tags_to.append(item)
     flare(crop_tags_to)
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name

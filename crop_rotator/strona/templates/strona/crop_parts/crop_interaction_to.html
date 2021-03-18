@@ -1,10 +1,9 @@
-
-
 <p><b>{% if interaction.0.get_cname == "Crop" %}<a href="{% url 'crop' interaction.0.id %}">
       {% elif interaction.0.get_cname == "CropFamily" %}<a href="{% url 'family' interaction.0.id %}">
       {% elif interaction.0.get_cname == "CropTag" %}<a href="{% url 'tag' interaction.0.id %}">{% endif %}
   {{ interaction.0.name }}</a></b> {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %}
-  {% if interaction.2 == "crop" %} {{ crop.name }} {% elif interaction.2 == "family" %} {% if crop.family.is_family_slave %}{{ crop.family.family_master.name }} {% else %}{{ crop.family.name }} {% endif %} {% else %} $$$unknown_tag {% endif %}
+  {% if interaction.2 == "crop" %} {{ crop.name }} {% elif interaction.2 == "family" %} {% if crop.family.is_family_slave %}{{ crop.family.family_master.name }}
+  {% else %}{{ crop.family.name }} {% endif %} {% else %} <a href="{% url 'tag' interaction.3.id %}"><b>{{ interaction.3.name }}</b></a> {% endif %}
   - $Typ oddziaływania:.
   {% if interaction.1.type_of_interaction == 0 %}
    $Współrzędne

@@ -193,7 +193,7 @@ def summarize_plans(plans_list, step_class):
         summarized_list.append((plan, tag_list3, steps_total, crop_total))
     return summarized_list
 
-def list_crops_to(list, myitem ,crops_query, family_query, tag_query, variant):
+def list_crops_to(myitem ,crops_query, family_query, tag_query, variant):
     list_appending = []
     item_id = myitem.id
     for crop in crops_query:
@@ -203,7 +203,7 @@ def list_crops_to(list, myitem ,crops_query, family_query, tag_query, variant):
         "tag": crop.crop_relationships.filter(about_tag=item_id),
         }
         for item in variantdict[variant]:
-            list_appending.append((crop, item, variant))
+            list_appending.append((crop, item, variant, myitem))
     for family in family_query:
         variantdict={
         "crop": family.family_relationships.filter(about_crop=item_id),
@@ -211,7 +211,7 @@ def list_crops_to(list, myitem ,crops_query, family_query, tag_query, variant):
         "tag": family.family_relationships.filter(about_tag=item_id),
         }
         for item in variantdict[variant]:
-            list_appending.append((family, item, variant))
+            list_appending.append((family, item, variant, myitem))
     for tag in tag_query:
         variantdict={
         "crop": tag.crop_relationships.filter(about_crop=item_id),
@@ -219,5 +219,5 @@ def list_crops_to(list, myitem ,crops_query, family_query, tag_query, variant):
         "tag": tag.crop_relationships.filter(about_tag=item_id),
         }
         for item in variantdict[variant]:
-            list_appending.append((tag, item, variant))
+            list_appending.append((tag, item, variant, myitem))
     return list_appending
