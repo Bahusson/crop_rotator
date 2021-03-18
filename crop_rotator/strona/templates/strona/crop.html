@@ -57,29 +57,7 @@
             {% if crop_to %}
             <p><b>$Inne oddziaływują na roślinę:</b></p>
             {% for interaction in crop_to %}
-              <p><b><a href="{% url 'crop' interaction.0.id %}">{{ interaction.0.name }}</a></b> {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %} {{ crop.name }}
-                - $Typ oddziaływania:
-                {% if interaction.1.type_of_interaction == 0 %}
-                 $Współrzędne
-                {% elif interaction.1.type_of_interaction == 1 %}
-                 $Współrzędne i następcze lub allelopatyczne.
-                {% else %}
-                 $Następcze
-                {% endif %}
-                {% if interaction.1.season_of_interaction == 1 %}
-                 $Jare/Wczesne
-                {% elif interaction.1.season_of_interaction == 2 %}
-                 $Ozime/Późne
-                {% endif %}
-
-                <button class="show_properties2" value="2">$Źródło</button></p>
-                <div class="hidden_properties">
-              <p>{{ interaction.1.info_source.at_data_string.part1 }}{% if interaction.1.info_source.pages_from %}
-                {% if interaction.1.info_source.pages_to %}pp. {{ interaction.1.info_source.pages_from }}-{{ interaction.1.info_source.pages_to }}
-                {% else %} p.{{ interaction.1.info_source.pages_from }}.
-                {% endif %}
-              {% endif %}</p>
-            </div>
+                {% include 'strona/crop_parts/crop_interaction_to.html' %}
             {% endfor %}
             {% endif %}
             {% if crop_family_from %}
@@ -91,7 +69,9 @@
             {% endif %}
             {% if crop_family_to %}
             <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
-
+            {% for interaction in crop__family_to %}
+                {% include 'strona/crop_parts/crop_interaction_to.html' %}
+            {% endfor %}
             {% endif %}
             {% if crop_tags_from %}
             <p><b>$Kategorie rośliny oddziaływują na inne</b></p>

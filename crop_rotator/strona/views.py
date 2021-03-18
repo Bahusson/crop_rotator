@@ -36,6 +36,7 @@ from core.snippets import (
     check_ownership,
     slice_list_3,
     summarize_plans,
+    list_crops_to,
 )
 from core.models import RotatorAdminPanel
 from django.contrib.auth.decorators import login_required
@@ -292,6 +293,7 @@ def lurk_plan(request, plan_id):
 def crop(request, crop_id):
     pe_c = pe(Crop)
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
+    family_id = pe_c_id.family.id
     # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
     crop_tags_from = []
     # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
@@ -299,19 +301,18 @@ def crop(request, crop_id):
     # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
     crop_family_from = pe_c_id.family.family_relationships.all()
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
-    crop_to_0 = Crop.objects.filter(crop_relationships__about_crop=crop_id)
-    family_to_0 = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
-    tag_to_0 = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
-    crop_to = []
-    for crop in crop_to_0:
-        for item in crop.crop_relationships.filter(about_crop=crop_id):
-            crop_to.append((crop, item))
-    for family in family_to_0:
-        for item in family.family_relationships.filter(about_crop=crop_id):
-            crop_to.append((family, item))
-    for tag in tag_to_0:
-        for item in tag.crop_relationships.filter(about_crop=crop_id):
-            crop_to.append((tag, item))
+    crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
+    family_to_c = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
+    tag_to_c = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
+    crop_to = list_crops_to(crop_id, crop_to_c, family_to_c, tag_to_c, "crop")
+    crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
+    flare(crop_to_f)
+    family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
+    tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
+    crop_family_to = list_crops_to(family_id, crop_to_f, family_to_f, tag_to_f, "family")
+
+
+
 
     crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
     crop_tags_to = []
@@ -326,7 +327,7 @@ def crop(request, crop_id):
     translatables = pe(RotatorEditorPageNames).baseattrs
     if pe_c_id.family.is_family_slave:
         master_family = pe_c_id.family.family_master.name
-    flare(crop_family_from)
+    flare(crop_family_to)
     context = {
         "family": master_family,
         "crop": pe_c_id,

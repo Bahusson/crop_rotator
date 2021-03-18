@@ -192,3 +192,31 @@ def summarize_plans(plans_list, step_class):
         tag_list3.sort(key = sortSecond, reverse=True)
         summarized_list.append((plan, tag_list3, steps_total, crop_total))
     return summarized_list
+
+def list_crops_to(item_id ,crops_query, family_query, tag_query, variant):
+    list_appending = []
+    for crop in crops_query:
+        variantdict={
+        "crop": crop.crop_relationships.filter(about_crop=item_id),
+        "family": crop.crop_relationships.filter(about_family=item_id),
+        "tag": crop.crop_relationships.filter(about_tag=item_id),
+        }
+        for item in variantdict[variant]:
+            list_appending.append((crop, item))
+    for family in family_query:
+        variantdict={
+        "crop": family.family_relationships.filter(about_crop=item_id),
+        "family": family.family_relationships.filter(about_family=item_id),
+        "tag": family.family_relationships.filter(about_tag=item_id),
+        }
+        for item in variantdict[variant]:
+            list_appending.append((family, item))
+    for tag in tag_query:
+        variantdict={
+        "crop": tag.crop_relationships.filter(about_crop=item_id),
+        "family": tag.crop_relationships.filter(about_family=item_id),
+        "tag": tag.crop_relationships.filter(about_tag=item_id),
+        }
+        for item in variantdict[variant]:
+            list_appending.append((tag, item))
+    return list_appending
