@@ -193,7 +193,7 @@ def summarize_plans(plans_list, step_class):
         summarized_list.append((plan, tag_list3, steps_total, crop_total))
     return summarized_list
 
-def list_crops_to(item_id ,crops_query, family_query, tag_query, variant):
+def list_crops_to(list, item_id ,crops_query, family_query, tag_query, variant):
     list_appending = []
     for crop in crops_query:
         variantdict={
