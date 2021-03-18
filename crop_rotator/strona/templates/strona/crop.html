@@ -69,7 +69,7 @@
             {% endif %}
             {% if crop_family_to %}
             <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
-            {% for interaction in crop__family_to %}
+            {% for interaction in crop_family_to %}
                 {% include 'strona/crop_parts/crop_interaction_to.html' %}
             {% endfor %}
             {% endif %}

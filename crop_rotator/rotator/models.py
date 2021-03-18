@@ -81,6 +81,10 @@ class CropFamily(models.Model):
     def __str__(self):
         return self.name
 
+    def get_cname(self):
+        class_name = "CropFamily"
+        return class_name
+
 
 # Rodzaj plonu ze względów praktycznych np. "okopowe" - taki dodatkowy tag.
 class CropTag(models.Model):
@@ -97,6 +101,10 @@ class CropTag(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_cname(self):
+        class_name = "CropTag"
+        return class_name
 
 
 # Nie dla usera - model plonu/poplonu/międzyplonu
@@ -166,6 +174,10 @@ class Crop(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_cname(self):
+        class_name = "Crop"
+        return class_name
 
 # TODO: Wsiewki i miksy. Gotowe klasy do odhaszowania jak znajdzie się czas. :)
 # Klasa dla wsiewek. Jeśli zachowują się wtedy inaczej niż normalnie.

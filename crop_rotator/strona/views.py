@@ -306,15 +306,11 @@ def crop(request, crop_id):
     tag_to_c = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
     crop_to = list_crops_to(crop_id, crop_to_c, family_to_c, tag_to_c, "crop")
     crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
-    flare(crop_to_f)
     family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
     tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
     crop_family_to = list_crops_to(family_id, crop_to_f, family_to_f, tag_to_f, "family")
 
-
-
-
-    crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
+    #crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
     crop_tags_to = []
     for tag in pe_c_id.tags.all():
         crop_tag_from = tag.crop_relationships.all()
