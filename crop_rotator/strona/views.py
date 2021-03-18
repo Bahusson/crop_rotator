@@ -313,17 +313,17 @@ def crop(request, crop_id):
     #crop_family_to = CropInteraction.objects.filter(about_family=pe_c_id.family)
     crop_tags_to = []
     for tag in pe_c_id.tags.all():
-        crop_tag_from = tag.crop_relationships.all()
+        for relationship in tag.crop_relationships.all():
+            crop_tags_from.append((tag,relationship))
         crop_tag_to = CropInteraction.objects.filter(about_tag=tag)
-        crop_tags_from.append(crop_tag_from)
-        crop_tags_to.append(crop_tag_to)
-    # Zrób tak, żeby źródła się nie powtarzały.
+        crop_tags_to.append((tag,crop_tag_to))
+
+    flare(crop_tags_from)
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name
     translatables = pe(RotatorEditorPageNames).baseattrs
     if pe_c_id.family.is_family_slave:
         master_family = pe_c_id.family.family_master.name
-    flare(crop_family_to)
     context = {
         "family": master_family,
         "crop": pe_c_id,

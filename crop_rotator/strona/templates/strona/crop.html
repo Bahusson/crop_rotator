@@ -63,7 +63,7 @@
             {% if crop_family_from %}
             <p><b>$Rodzina rośliny oddziaływuje na inne</b></p>
             {% for interaction in crop_family_from %}
-              <p>{% if crop.family.is_family_slave %}{{ crop.family.family_master.name }} {% else %}{{ crop.family.name }} {% endif %}
+              <p> {{ family.name }} <!--Zmień na nazwę rodziny taka jak jest w interakcji -->
                 {% include 'strona/crop_parts/crop_interaction_from.html' %}
             {% endfor %}
             {% endif %}
@@ -75,11 +75,19 @@
             {% endif %}
             {% if crop_tags_from %}
             <p><b>$Kategorie rośliny oddziaływują na inne</b></p>
-
+            {% for interaction in crop_tags_from %}
+            {% if interaction.1 %}
+                {% include 'strona/crop_parts/crop_interaction_from_tag.html' %}
+            {% endif %}
+            {% endfor %}
             {% endif %}
             {% if crop_tags_to %}
             <p><b>$Inne oddziaływują na kategorie rośliny</b></p>
-
+            {% for interaction in crop_tags_to %}
+            {% if interaction.1 %}
+                {% include 'strona/crop_parts/crop_interaction_to_tag.html' %}
+            {% endif %}
+            {% endfor %}
             {% endif %}
 
           </div>
