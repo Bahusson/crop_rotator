@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block css %}
-
+<link href="{% static 'assets/css/crop_properties.css' %}" rel="stylesheet">
 {% endblock css %}
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
 {% block aside %}
@@ -49,39 +49,52 @@
             {% if crop_from %}
             <p><b>$Roślina oddziaływuje na inne:</b></p>
             {% for interaction in crop_from %}
-              <p>{{ crop.name }}{% if interaction.is_positive %} $dobrze współgra z {% else %} $szkodzi {% endif %} {{ interaction.about_crop.name }} - <span class="myDIV">$Źródło (onhover)</span></p>
-              <p class="hide">{{ interaction.info_source.at_data_string.part1 }}{% if interaction.info_source.pages_from %}
-                {% if interaction.info_source.pages_to %}pp. {{ interaction.info_source.pages_from }}-{{ interaction.info_source.pages_to }}
-                {% else %} p.{{ interaction.info_source.pages_from }}.
-                {% endif %}
-              {% endif %}</p>
+              <p>{{ crop.name }}{% if interaction.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %}
+                {% if interaction.about_crop %}{{ interaction.about_crop.name }}
+                {% elif interaction.about_family %} {{ interaction.about_family.name }}
+                {% else %} {{ interaction.about_tag.name }} {% endif %}
+                 -
+                <button class="show_properties2" value="2">$Źródło</button></p>
+                <div class="hidden_properties">
+                  <p>{{ interaction.info_source.at_data_string.part1 }}{% if interaction.info_source.pages_from %}
+                    {% if interaction.info_source.pages_to %}pp. {{ interaction.info_source.pages_from }}-{{ interaction.info_source.pages_to }}
+                    {% else %} p.{{ interaction.info_source.pages_from }}.
+                    {% endif %}
+                  {% endif %}</p>
+                </div>
+
+
+
             {% endfor %}
             {% endif %}
             {% if crop_to %}
             <p><b>$Inne oddziaływują na roślinę:</b></p>
             {% for interaction in crop_to %}
-              <p>{{ interaction.0.name }} {% if interaction.is_positive %} $dobrze współgra z {% else %} $szkodzi {% endif %} {{ crop.name }} - <span class="myDIV">$Źródło (onhover)</span></p>
-              <p class="hide">{{ interaction.1.info_source.at_data_string.part1 }}{% if interaction.1.info_source.pages_from %}
+              <p>{{ interaction.0.name }} {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %} {{ crop.name }} -
+                <button class="show_properties2" value="2">$Źródło</button></p>
+                <div class="hidden_properties">
+              <p>{{ interaction.1.info_source.at_data_string.part1 }}{% if interaction.1.info_source.pages_from %}
                 {% if interaction.1.info_source.pages_to %}pp. {{ interaction.1.info_source.pages_from }}-{{ interaction.1.info_source.pages_to }}
                 {% else %} p.{{ interaction.1.info_source.pages_from }}.
                 {% endif %}
               {% endif %}</p>
+            </div>
             {% endfor %}
             {% endif %}
             {% if crop_family_from %}
-            <p>$Rodzina rośliny oddziaływuje na inne</p>
+            <p><b>$Rodzina rośliny oddziaływuje na inne</b></p>
 
             {% endif %}
             {% if crop_family_to %}
-            <p>$Inne oddziaływują na rodzinę rośliny</p>
+            <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
 
             {% endif %}
             {% if crop_tag_from %}
-            <p>$Kategorie rośliny oddziaływują na inne</p>
+            <p><b>$Kategorie rośliny oddziaływują na inne</b></p>
 
             {% endif %}
             {% if crop_tag_to %}
-            <p>$Inne oddziaływują na kategorie rośliny</p>
+            <p><b>$Inne oddziaływują na kategorie rośliny</b></p>
 
             {% endif %}
 
@@ -102,3 +115,13 @@
 
 {% endblock %}
 {% endblock aside %}
+
+{% block scripts %}
+<script>
+$(".show_properties2").click(function(event){
+    var button_triger = $(event.target);
+    var closest = button_triger.closest("p").nextAll(".hidden_properties").first();
+    $(closest).toggle();
+ });
+ </script>
+{% endblock scripts %}
