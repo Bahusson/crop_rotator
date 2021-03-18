@@ -326,7 +326,7 @@ def crop(request, crop_id):
     translatables = pe(RotatorEditorPageNames).baseattrs
     if pe_c_id.family.is_family_slave:
         master_family = pe_c_id.family.family_master.name
-    flare(crop_to)
+    flare(crop_family_from)
     context = {
         "family": master_family,
         "crop": pe_c_id,

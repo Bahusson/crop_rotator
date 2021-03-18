@@ -49,37 +49,11 @@
             {% if crop_from %}
             <p><b>$Roślina oddziaływuje na inne:</b></p>
             {% for interaction in crop_from %}
-              <p>{{ crop.name }}{% if interaction.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %}
-                {% if interaction.about_crop %}<a href="{% url 'crop' interaction.about_crop.id %}"><b>{{ interaction.about_crop.name }}</b></a>
-                {% elif interaction.about_family %}<a href="{% url 'family' interaction.about_family.id %}"><b>{{ interaction.about_family.name }}</b></a>
-                {% else %}<a href="{% url 'tag' interaction.about_tag.id %}"><b>{{ interaction.about_tag.name }}</b></a> {% endif %}
-                 - $Typ oddziaływania:
-                 {% if interaction.type_of_interaction == 0 %}
-                  $Współrzędne
-                 {% elif interaction.type_of_interaction == 1 %}
-                  $Współrzędne i następcze lub allelopatyczne.
-                 {% else %}
-                  $Następcze
-                 {% endif %}
-                 {% if interaction.season_of_interaction == 1 %}
-                  $Jare/Wczesne
-                 {% elif interaction.season_of_interaction == 2 %}
-                  $Ozime/Późne
-                 {% endif %}
-
-                <button class="show_properties2" value="2">$Źródło</button></p>
-                <div class="hidden_properties">
-                  <p>{{ interaction.info_source.at_data_string.part1 }}{% if interaction.info_source.pages_from %}
-                    {% if interaction.info_source.pages_to %}pp. {{ interaction.info_source.pages_from }}-{{ interaction.info_source.pages_to }}
-                    {% else %} p.{{ interaction.info_source.pages_from }}.
-                    {% endif %}
-                  {% endif %}</p>
-                </div>
-
-
-
+              <p>{{ crop.name }}
+                {% include 'strona/crop_parts/crop_interaction_from.html' %}
             {% endfor %}
             {% endif %}
+
             {% if crop_to %}
             <p><b>$Inne oddziaływują na roślinę:</b></p>
             {% for interaction in crop_to %}
@@ -110,7 +84,10 @@
             {% endif %}
             {% if crop_family_from %}
             <p><b>$Rodzina rośliny oddziaływuje na inne</b></p>
-
+            {% for interaction in crop_family_from %}
+              <p>{% if crop.family.is_family_slave %}{{ crop.family.family_master.name }} {% else %}{{ crop.family.name }} {% endif %}
+                {% include 'strona/crop_parts/crop_interaction_from.html' %}
+            {% endfor %}
             {% endif %}
             {% if crop_family_to %}
             <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
