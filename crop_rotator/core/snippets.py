@@ -202,7 +202,7 @@ def list_crops_to(item_id ,crops_query, family_query, tag_query, variant):
         "tag": crop.crop_relationships.filter(about_tag=item_id),
         }
         for item in variantdict[variant]:
-            list_appending.append((crop, item))
+            list_appending.append((crop, item, variant))
     for family in family_query:
         variantdict={
         "crop": family.family_relationships.filter(about_crop=item_id),
@@ -210,7 +210,7 @@ def list_crops_to(item_id ,crops_query, family_query, tag_query, variant):
         "tag": family.family_relationships.filter(about_tag=item_id),
         }
         for item in variantdict[variant]:
-            list_appending.append((family, item))
+            list_appending.append((family, item, variant))
     for tag in tag_query:
         variantdict={
         "crop": tag.crop_relationships.filter(about_crop=item_id),
@@ -218,5 +218,5 @@ def list_crops_to(item_id ,crops_query, family_query, tag_query, variant):
         "tag": tag.crop_relationships.filter(about_tag=item_id),
         }
         for item in variantdict[variant]:
-            list_appending.append((tag, item))
+            list_appending.append((tag, item, variant))
     return list_appending
