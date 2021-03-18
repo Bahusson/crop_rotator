@@ -2,13 +2,6 @@
 {% load xfilters %}
 
  <div>
-  {% if allelopatic %}
-    {% shallow_list step_no=step.order search_by=crop.id from_context=allelopatic as allelopaticity %}
-    {% if allelopaticity %}
-      <p>{{ translatables.allelopatic_conflict }}. {{ crop.name }} {{ translatables.harms }} {{ allelopaticity.name }}!</p>
-    {% endif %}
-  {% endif %}
-
   {% if interactions %}
     {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions as complexity %}
     {% include 'strona/plan_parts/deep_properties.html' %}
