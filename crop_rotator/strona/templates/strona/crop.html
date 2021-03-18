@@ -50,9 +50,9 @@
             <p><b>$Roślina oddziaływuje na inne:</b></p>
             {% for interaction in crop_from %}
               <p>{{ crop.name }}{% if interaction.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %}
-                {% if interaction.about_crop %}{{ interaction.about_crop.name }}
-                {% elif interaction.about_family %} {{ interaction.about_family.name }}
-                {% else %} {{ interaction.about_tag.name }} {% endif %}
+                {% if interaction.about_crop %}<a href="{% url 'crop' interaction.about_crop.id %}"><b>{{ interaction.about_crop.name }}</b></a>
+                {% elif interaction.about_family %}<a href="{% url 'family' interaction.about_family.id %}"><b>{{ interaction.about_family.name }}</b></a>
+                {% else %}<a href="{% url 'tag' interaction.about_tag.id %}"><b>{{ interaction.about_tag.name }}</b></a> {% endif %}
                  - $Typ oddziaływania:
                  {% if interaction.type_of_interaction == 0 %}
                   $Współrzędne
@@ -83,7 +83,7 @@
             {% if crop_to %}
             <p><b>$Inne oddziaływują na roślinę:</b></p>
             {% for interaction in crop_to %}
-              <p>{{ interaction.0.name }} {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %} {{ crop.name }}
+              <p><b><a href="{% url 'crop' interaction.0.id %}">{{ interaction.0.name }}</a></b> {% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %} {{ crop.name }}
                 - $Typ oddziaływania:
                 {% if interaction.1.type_of_interaction == 0 %}
                  $Współrzędne

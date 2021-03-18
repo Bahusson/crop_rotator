@@ -14,4 +14,6 @@ urlpatterns = [
     path("plan_edit/<int:plan_id>", views.plan_edit, name="plan_edit"),
     path("step/<int:step_id>", views.step, name="step"),
     path("plan_evaluated/<int:plan_id>/", views.plan_evaluated, name="plan_evaluated"),
+    path("tag/<int:tag_id>", views.tag, name="tag"),
+    path("all_tags", views.all_tags, name="all_tags"),
 ]

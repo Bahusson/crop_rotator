@@ -485,3 +485,19 @@ def step(request, step_id):
         return render(request, template, context_lazy)
     else:
         return redirect('home')
+
+
+# Spis wszystkich roślin posiadajacych dany tag - WIP
+def tag(request, tag_id):
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/tag.html"
+    return render(request, template, context_lazy)
+
+
+# spis wszystkich tagów - WIP
+def all_tags(request):
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/alltags.html"
+    return render(request, template, context_lazy)
