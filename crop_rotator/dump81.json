@@ -535,7 +535,9 @@
     "descr_en": "This species supresses nearby weeds - probably is a weed itself.",
     "image": "",
     "is_featured": true,
-    "crop_relationships": []
+    "crop_relationships": [
+      617
+    ]
   }
 },
 {
@@ -1216,6 +1218,7 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "crop_relationships": [
+      618,
       435,
       433,
       428,
@@ -1881,14 +1884,14 @@
   "fields": {
     "name": "Bobik",
     "name_pl": "Bobik",
-    "name_en": null,
+    "name_en": "Horse bean",
     "latin_name": "Vicia faba ssp. minor",
     "descr": "Vicia faba",
     "descr_pl": "Vicia faba",
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/wyka_bób_Jip1ryR.jpg",
+    "image_source": 15,
+    "pubdate": "2021-03-25T08:08:05Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1900,7 +1903,9 @@
     "seed_norm_min": 150,
     "seed_norm_max": 200,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      18
+    ]
   }
 },
 {
@@ -1909,14 +1914,14 @@
   "fields": {
     "name": "Lędźwian Siewny",
     "name_pl": "Lędźwian Siewny",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
-    "descr_pl": "Lathyrus Sativus, Zachować szczególną ostrożność przy żywieniu zwierząt. Nasiona zawierają neurotoksyny.",
+    "name_en": "Grass pea",
+    "latin_name": "Lathyrus Sativus",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Lędźwian_siewny.JPG",
+    "image_source": 66,
+    "pubdate": "2021-03-25T08:36:55Z",
     "family": 10,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1927,8 +1932,13 @@
     "takes_mix_level": 0,
     "seed_norm_min": 35,
     "seed_norm_max": 60,
-    "crop_relationships": [],
-    "tags": []
+    "crop_relationships": [
+      619
+    ],
+    "tags": [
+      11,
+      13
+    ]
   }
 },
 {
@@ -2439,13 +2449,13 @@
   "fields": {
     "name": "Wyka Bób",
     "name_pl": "Wyka Bób",
-    "name_en": null,
+    "name_en": "Broad bean",
     "latin_name": "Vicia faba",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
+    "image": "images/wyka_bób.jpg",
+    "image_source": 15,
     "pubdate": "2021-03-03T14:56:38Z",
     "family": 10,
     "culture_override": 0,
@@ -12603,6 +12613,48 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 617,
+  "fields": {
+    "title": "Konkurencyjne ++ Bobik",
+    "is_positive": true,
+    "about_crop": 40,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 90,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 618,
+  "fields": {
+    "title": "kukurydza + bobik (N) (O)",
+    "is_positive": true,
+    "about_crop": 40,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 90,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 619,
+  "fields": {
+    "title": "lędźwian + rzepak (W)",
+    "is_positive": true,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 91,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 613,
   "fields": {
@@ -14431,6 +14483,13 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 618,
+  "fields": {
+    "cropinteraction_ptr": 618
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 435,
   "fields": {
     "cropinteraction_ptr": 435
@@ -14483,6 +14542,13 @@
   "pk": 432,
   "fields": {
     "cropinteraction_ptr": 432
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 619,
+  "fields": {
+    "cropinteraction_ptr": 619
   }
 },
 {
@@ -16583,6 +16649,13 @@
   "pk": 14,
   "fields": {
     "cropinteraction_ptr": 14
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
+  "pk": 617,
+  "fields": {
+    "cropinteraction_ptr": 617
   }
 },
 {
@@ -18808,6 +18881,42 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 90,
+  "fields": {
+    "title": "Bobik - MwP",
+    "descr": "Bobik jest rośliną silnie korzeniącą się, wyposażoną w głęboki korzeń palowy. Spulchnia glebę i wzbogaca ją w azot, a jego wydzieliny korzeniowe korzystnie wpływają na organizmy glebowe. Z tego względu nadaje się nawet na późny jesienny poplon po kukurydzy na ziarno. Dobrze rośnie na gorszych glebach. Ze względu na małą konkurencyjność należy go łączyć z innymi roślinami dobrze tłumiącymi chwasty. Nadaje się na roślinę podporową dla innych międzyplonów.",
+    "descr_pl": "Bobik jest rośliną silnie korzeniącą się, wyposażoną w głęboki korzeń palowy. Spulchnia glebę i wzbogaca ją w azot, a jego wydzieliny korzeniowe korzystnie wpływają na organizmy glebowe. Z tego względu nadaje się nawet na późny jesienny poplon po kukurydzy na ziarno. Dobrze rośnie na gorszych glebach. Ze względu na małą konkurencyjność należy go łączyć z innymi roślinami dobrze tłumiącymi chwasty. Nadaje się na roślinę podporową dla innych międzyplonów.",
+    "descr_en": "Horse bean is a deeply rooted taproot plant. It loosens soil and enriches it with nitrogen, and its root excretions benefit soil organisms. Hence, it can be used even as a late aftercrop after corn sown for seed. It grows well on worse soils. Due to low competitiveness it should be joined with other plants that suppress weeds better. It works as a support plant for other cover crops.",
+    "from_crop": 40,
+    "at_data_string": 11,
+    "pages_from": 227,
+    "pages_to": 230,
+    "at_tag": [
+      11,
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 91,
+  "fields": {
+    "title": "Lędźwian Siewny - MwP",
+    "descr": "Lędźwian siewny dobrze znosi mało żyzne, suche i wapienne gleby. Wiąże azot w glebie. Dobrze sprawdza się w uprawie współrzędnej z rzepakiem. Posiada rozległy system korzeniowy, dzięki czemu dobrze przerasta i spulchnia glebę. Ze względu na potencjalnie trujace działanie nie może być używany do skarmiania zwierząt bez ograniczeń (zawiera neurotoksyny).",
+    "descr_pl": "Lędźwian siewny dobrze znosi mało żyzne, suche i wapienne gleby. Wiąże azot w glebie. Dobrze sprawdza się w uprawie współrzędnej z rzepakiem. Posiada rozległy system korzeniowy, dzięki czemu dobrze przerasta i spulchnia glebę. Ze względu na potencjalnie trujace działanie nie może być używany do skarmiania zwierząt bez ograniczeń (zawiera neurotoksyny).",
+    "descr_en": "Grass pea tolerates less fertile, dry, and calcareous soils. It fixes nitrogen in soil. Grows well together with canola. It has vast root system with which it loosens the soil. Due to its potentially neurotoxic seeds it cannot be used as animal feed.",
+    "from_crop": 41,
+    "at_data_string": 32,
+    "pages_from": 231,
+    "pages_to": 233,
+    "at_tag": [
+      11,
+      13
+    ]
+  }
+},
+{
   "model": "rotator.cropdatastring",
   "pk": 11,
   "fields": {
@@ -19276,6 +19385,15 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 66,
+  "fields": {
+    "title": "Wikipedia CC - Lędźwian Siewny",
+    "part1": "Arr4 - Own work, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=34784026"
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 63,
   "fields": {
@@ -19490,6 +19608,13 @@
   "pk": 59,
   "fields": {
     "cropdatastring_ptr": 59
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 66,
+  "fields": {
+    "cropdatastring_ptr": 66
   }
 },
 {
