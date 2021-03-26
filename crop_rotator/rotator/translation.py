@@ -6,7 +6,7 @@ from .models import (
     Crop,
     CropFamily,
     CropDataSource,
-    CropFamilySource,
+    CropDataFamilySource,
     CropTag,
  )
 from core.snippets import all_names
@@ -54,11 +54,11 @@ class CropDataSourceTranslate(TranslationOptions):
 translator.register(CropDataSource, CropDataSourceTranslate)
 
 
-class CropFamilySourceTranslate(TranslationOptions):
-    fields = ("descr",)
+class CropDataFamilySourceTranslate(TranslationOptions):
+    fields = ()
 
 
-translator.register(CropFamilySource, CropFamilySourceTranslate)
+translator.register(CropDataFamilySource, CropDataFamilySourceTranslate)
 
 
 class CropTagTranslate(TranslationOptions):

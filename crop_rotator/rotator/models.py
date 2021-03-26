@@ -371,32 +371,17 @@ class CropDataSource(models.Model):
     def __str__(self):
         return self.title
 
+
 # Fizyczne źródła danych dot. rodzin np. z książek.
-class CropFamilySource(models.Model):
-    title = models.CharField(max_length=150)
-    descr = models.TextField(blank=True, null=True)
+class CropDataFamilySource(CropDataSource):
     from_family = models.ForeignKey(
         "CropFamily",
-        related_name="crop_family_source_set",
+        related_name="crop_data_family_source_set",
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
-    at_data_string = models.ForeignKey(
-        "CropBookString",
-        related_name="crop_family_string_set",
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True,
-    )
-    pages_from = models.IntegerField(blank=True, null=True)
-    pages_to = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        ordering = ["-from_family", "title"]
-
-    def __str__(self):
-        return self.title
 
 # Część źródła danych w formia poszatkowanego stringa - reusable.
 class CropDataString(models.Model):
