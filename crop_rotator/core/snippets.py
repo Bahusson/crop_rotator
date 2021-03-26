@@ -187,7 +187,7 @@ def summarize_plans(plans_list, step_class):
         tag_list3 = []
         for item in tag_list2:
             num = tag_list.count(item)
-            mychunk = (item, str(round(num/crop_total*100, 1)) + "%")
+            mychunk = (item, round(num/crop_total*100))
             tag_list3.append(mychunk)
         tag_list3.sort(key = sortSecond, reverse=True)
         summarized_list.append((plan, tag_list3, steps_total, crop_total))

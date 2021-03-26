@@ -2000,7 +2000,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "crop_relationships": [
-      37
+      37,
+      621
     ],
     "tags": [
       21,
@@ -12676,6 +12677,20 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 621,
+  "fields": {
+    "title": "koniczyna aleksandryjska + zboża (N)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 19,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 613,
   "fields": {
@@ -14395,6 +14410,13 @@
   "pk": 37,
   "fields": {
     "cropinteraction_ptr": 37
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 621,
+  "fields": {
+    "cropinteraction_ptr": 621
   }
 },
 {
@@ -18967,9 +18989,9 @@
   "pk": 93,
   "fields": {
     "title": "Koniczyna aleksandryjska - MwP",
-    "descr": "W mieszankach z trawami daje paszę dobrej jakości. Bardzo dobrze nadaje się na śródplon (szybki wzrost). Nie jest podatna na choroby. Jest znakomitą rośliną miododajną.",
-    "descr_pl": "W mieszankach z trawami daje paszę dobrej jakości. Bardzo dobrze nadaje się na śródplon (szybki wzrost). Nie jest podatna na choroby. Jest znakomitą rośliną miododajną.",
-    "descr_en": "Together with grasses it makes for a great animal feed. It is a great middle crop (fast growth). It is not prone to disease. It is a great nectar source.",
+    "descr": "W mieszankach z trawami daje paszę dobrej jakości. Bardzo dobrze nadaje się na śródplon (szybki wzrost), zwłaszcza przed zbożami, oraz na przedplon dla roślin jarych (np. burak). Nie jest podatna na choroby. Jest znakomitą rośliną miododajną.",
+    "descr_pl": "W mieszankach z trawami daje paszę dobrej jakości. Bardzo dobrze nadaje się na śródplon (szybki wzrost), zwłaszcza przed zbożami, oraz na przedplon dla roślin jarych (np. burak). Nie jest podatna na choroby. Jest znakomitą rośliną miododajną.",
+    "descr_en": "Together with grasses it makes for a great animal feed. It is a great middle crop (fast growth), especially cereals, and as a forecrop before annual crops.. It is not prone to disease. It is a great nectar source.",
     "from_crop": 43,
     "at_data_string": 11,
     "pages_from": 236,

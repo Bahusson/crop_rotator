@@ -371,6 +371,7 @@ class PlannerRelationship(object):
                             return self.given_list
 
 
+# Klasa obchodzi błędy związane z używaniem wzornika CropPlanner tam gdzie nie potrzeba analizować treści.
 class DummyCropPlanner(object):
     def __init__(self, *args, **kwargs):
         plan_id = kwargs['plan_id']
@@ -402,6 +403,8 @@ class DummyCropPlanner(object):
     def top_tier(self):
         return self.top_tier
 
+
+# Klasa analizuje płodozmian pod kątem błędów i synergii.
 class CropPlanner(object):
     def __init__(self, *args, **kwargs):
         plan_id = kwargs['plan_id']
