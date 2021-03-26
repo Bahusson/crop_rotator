@@ -9,6 +9,7 @@ from .models import (
     RotationStep,
     CropTag,
     CropDataSource,
+    CropFamilySource,
     CropsInteraction,
     FamilyInteraction,
     TagsInteraction,
@@ -24,6 +25,7 @@ admin.site.register(CropMix)
 admin.site.register(RotationStep)
 admin.site.register(CropTag)
 admin.site.register(CropDataSource)
+admin.site.register(CropFamilySource)
 admin.site.register(CropsInteraction)
 admin.site.register(FamilyInteraction)
 admin.site.register(TagsInteraction)
