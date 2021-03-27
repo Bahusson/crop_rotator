@@ -31,7 +31,7 @@
             {% endif %}
             <br />
             <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{{ family }}</a></p>
-            <p>{{ translatables.descr }}: {{ crop.descr|linebreaksbr }}</p>
+            <p>{{ translatables.descr }}: {% if crop.descr %}{{ crop.descr|linebreaksbr }}{% endif %}</p>
             {% for source in sources %}
               {% if source.descr %}<p>{{ source.descr|linebreaksbr }}({{ forloop.counter }})</p>{% endif %}
             {% endfor %}
