@@ -26,10 +26,6 @@
                 <img class="img-fluid" src="{{ family.image.url }}" width=50% height=auto />
             {% endif %}
             <br />
-            <p>{{ translatables.descr }}: {{ family.descr|linebreaksbr }}</p>
-            {% for source in sources %}
-              <p>{{ source.descr }}({{ forloop.counter }})</p>
-            {% endfor %}
             <p>{{ translatables.species }}:</p>
               <div class="container">
                 <div class="row">
@@ -69,13 +65,18 @@
                   <br />
                   </div>
                 </div>
-            <p>{{ translatables.sources }}:</p>
-              {% for source in sources %}
-                <p>({{ forloop.counter }}) {{ source.at_data_string.part1 }}
-                  {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}
-                  {% else %} p.{{ source.pages_from }}.
-                  {% endif %} </p>
-              {% endfor %}
+                <p>{{ translatables.descr }}: {% if family.descr %}{{ family.descr|linebreaksbr }}{% endif %}</p>
+                {% for source in sources %}
+                  {% if source.descr %}<p>{{ source.descr|linebreaksbr }}({{ forloop.counter }})</p>{% endif %}
+                {% endfor %}
+                <p>{{ translatables.sources }}:</p>
+                  {% for source in sources %}
+                    <p>({{ forloop.counter }}){{ source.at_data_string.part1 }}{% if source.pages_from %}
+                      {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}
+                      {% else %} p.{{ source.pages_from }}.
+                      {% endif %}
+                    {% endif %}</p>
+                  {% endfor %}
             <br />
           </div>
         </div>

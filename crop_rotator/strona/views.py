@@ -321,7 +321,6 @@ def crop(request, crop_id):
         crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
         for item in crop_tags_to_0:
             crop_tags_to.append(item)
-    flare(crop_tags_to)
     pe_cds = CDS.objects.filter(from_crop=crop_id)
     master_family = pe_c_id.family.name
     translatables = pe(RotatorEditorPageNames).baseattrs
