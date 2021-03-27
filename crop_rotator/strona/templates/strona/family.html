@@ -5,6 +5,9 @@
 <title>{{ family.name }}</title>
 {% endblock %}
 
+{% block css %}
+<link href="{% static 'assets/css/crop_properties.css' %}" rel="stylesheet">
+{% endblock css %}
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
 {% block aside %}
 <!-- Null -->
@@ -77,6 +80,21 @@
                       {% endif %}
                     {% endif %}</p>
                   {% endfor %}
+                  <hr />
+                  <h4 class="pt-2">$Znane interakcje</h4>
+                  {% if crop_family_from %}
+                  <p><b>$Rodzina rośliny oddziaływuje na inne</b></p>
+                  {% for interaction in crop_family_from %}
+                    <p> {% if family.is_family_slave %}{{ family.family_master.name }} {% else %}{{ family.name }} {% endif %}
+                      {% include 'strona/crop_parts/crop_interaction_from.html' %}
+                  {% endfor %}
+                  {% endif %}
+                  {% if crop_family_to %}
+                  <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
+                  {% for interaction in crop_family_to %}
+                      {% include 'strona/crop_parts/family_interaction_to.html' %}
+                  {% endfor %}
+                  {% endif %}
             <br />
           </div>
         </div>
@@ -95,3 +113,13 @@
 
 {% endblock %}
 {% endblock aside %}
+
+{% block scripts %}
+<script>
+$(".show_properties2").click(function(event){
+    var button_triger = $(event.target);
+    var closest = button_triger.closest("p").nextAll(".hidden_properties").first();
+    $(closest).toggle();
+ });
+ </script>
+{% endblock scripts %}

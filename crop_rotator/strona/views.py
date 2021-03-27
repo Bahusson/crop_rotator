@@ -299,9 +299,9 @@ def crop(request, crop_id):
     crop_id = pe_c_id.id
     # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
     crop_tags_from = []
-    # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
-    crop_from = pe_c_id.crop_relationships.all()
     # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
+    crop_from = pe_c_id.crop_relationships.all()
+    # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
     crop_family_from = pe_c_id.family.family_relationships.all()
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
     crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
@@ -366,6 +366,13 @@ def family(request, family_id):
     pe_f_id = pe_f.by_id(G404=G404, id=family_id)
     pe_f_id_sub = False
     translatables = pe(RotatorEditorPageNames).baseattrs
+    # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
+    crop_family_from = pe_f_id.family_relationships.all()
+    # Dla każdego oddziaływania jakie jest na tę rodzinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
+    crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
+    family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
+    tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
+    crop_family_to = list_crops_to(pe_f_id, crop_to_f, family_to_f, tag_to_f, "family")
     if pe_f_id.is_family_slave:
         sub_id = pe_f_id.family_master.id
         pe_f_id_sub = pe_f.by_id(G404=G404, id=sub_id)
@@ -389,6 +396,8 @@ def family(request, family_id):
         "ml1": sl3[0],
         "ml2": sl3[1],
         "translatables": translatables,
+        "crop_family_from": crop_family_from,
+        "crop_family_to": crop_family_to,
     }
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
