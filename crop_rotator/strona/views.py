@@ -14,6 +14,7 @@ from rotator.models import (
     Crop,
     CropFamily,
     CropDataSource as CDS,
+    CropDataFamilySource as FDS,
     CropTag,
     CropInteraction,
     CropBookString,
@@ -380,8 +381,10 @@ def family(request, family_id):
             house.append(crop_object)
     house = sorted(house, key=attrgetter('name'))
     sl3 = slice_list_3(house)
+    pe_fds = FDS.objects.filter(from_family=family_id)
     context = {
         "family": family_slav_list[0],
+        "sources": pe_fds,
         "house": house,
         "ml1": sl3[0],
         "ml2": sl3[1],
