@@ -143,6 +143,9 @@ class RotatorEditorPageNames(models.Model):
     other_to_family = models.CharField(max_length=200, blank=True, null=True) # Inne oddziaływują na rodzinę
     category_to_other = models.CharField(max_length=200, blank=True, null=True) # Kategoria oddziaływuje na inne
     other_to_category = models.CharField(max_length=200, blank=True, null=True) # Inne oddziaływują na kategorię
+    annual = models.CharField(max_length=50, blank=True, null=True) # Jare
+    perennial = models.CharField(max_length=50, blank=True, null=True) # Ozime
+
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'

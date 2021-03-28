@@ -1,18 +1,18 @@
-- $Typ oddziaływania:.
+- {{ translatables.infl_type }}:
 {% if interaction.1.type_of_interaction == 0 %}
- $Współrzędne
+ {{ translatables.companion }}
 {% elif interaction.1.type_of_interaction == 1 %}
- $Współrzędne i następcze lub allelopatyczne.
+ {{ translatables.allelopatic }}
 {% else %}
- $Następcze
+ {{ translatables.following }}
 {% endif %}
 {% if interaction.1.season_of_interaction == 1 %}
- $Jare/Wczesne
+ {{ translatables.annual }}
 {% elif interaction.1.season_of_interaction == 2 %}
- $Ozime/Późne
+ {{ translatables.perennial }}
 {% endif %}
 
-<button class="show_properties2" value="2">$Źródło</button></p>
+<button class="show_properties2" value="2">{{ translatables.source_button }}</button></p>
 <div class="hidden_properties">
 <p>{{ interaction.1.info_source.at_data_string.part1 }}{% if interaction.1.info_source.pages_from %}
 {% if interaction.1.info_source.pages_to %}pp. {{ interaction.1.info_source.pages_from }}-{{ interaction.1.info_source.pages_to }}

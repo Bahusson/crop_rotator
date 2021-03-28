@@ -44,26 +44,25 @@
                 {% endif %}</p>
               {% endfor %}
             <hr />
-            <h4 class="pt-2">$Znane interakcje</h4>
+            <h4 class="pt-2">{{ translatables.known_interactions }}</h4>
 
             {% if crop_from %}
-            <p><b>$Roślina oddziaływuje na inne:</b></p>
+            <p><b>{{ translatables.plant_to_other }}:</b></p>
             {% for interaction in crop_from %}
               <p>{{ crop.name }}
                 {% include 'strona/crop_parts/crop_interaction_from.html' %}
                 {% include 'strona/crop_parts/interaction_button.html' %}
             {% endfor %}
             {% endif %}
-
             {% if crop_to %}
-            <p><b>$Inne oddziaływują na roślinę:</b></p>
+            <p><b>{{ translatables.other_to_plant }}:</b></p>
             {% for interaction in crop_to %}
               {% include 'strona/crop_parts/interaction_to.html' %}
               {% include 'strona/crop_parts/interaction_button.html' %}
             {% endfor %}
             {% endif %}
             {% if crop_family_from %}
-            <p><b>$Rodzina rośliny oddziaływuje na inne</b></p>
+            <p><b>{{ translatables.family_to_other }}:</b></p>
             {% for interaction in crop_family_from %}
               <p> {% if crop.family.is_family_slave %}{{ crop.family.family_master.name }} {% else %}{{ crop.family.name }} {% endif %}
                 {% include 'strona/crop_parts/crop_interaction_from.html' %}
@@ -71,14 +70,14 @@
             {% endfor %}
             {% endif %}
             {% if crop_family_to %}
-            <p><b>$Inne oddziaływują na rodzinę rośliny</b></p>
+            <p><b>{{ translatables.other_to_family }}:</b></p>
             {% for interaction in crop_family_to %}
               {% include 'strona/crop_parts/interaction_to.html' %}
               {% include 'strona/crop_parts/interaction_button.html' %}
             {% endfor %}
             {% endif %}
             {% if crop_tags_from %}
-            <p><b>$Kategorie rośliny oddziaływują na inne</b></p>
+            <p><b>{{ translatables.category_to_other }}:</b></p>
             {% for interaction in crop_tags_from %}
             {% if interaction.1 %}
                 {% include 'strona/crop_parts/interaction_from_tag.html' %}
@@ -87,7 +86,7 @@
             {% endfor %}
             {% endif %}
             {% if crop_tags_to %}
-            <p><b>$Inne oddziaływują na kategorie rośliny</b></p>
+            <p><b>{{ translatables.other_to_category }}:</b></p>
             {% for interaction in crop_tags_to %}
             {% if interaction.1 %}
               {% include 'strona/crop_parts/interaction_to.html' %}

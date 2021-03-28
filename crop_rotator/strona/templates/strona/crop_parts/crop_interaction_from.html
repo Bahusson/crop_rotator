@@ -1,4 +1,4 @@
-{% if interaction.1.is_positive %} $dobrze oddziaływuje na {% else %} $szkodzi {% endif %}
+{% if interaction.1.is_positive %} {{ translatables.well_cooperates }} {% else %} {{ translatables.harms }} {% endif %}
   {% if interaction.1.about_crop %}<a href="{% url 'crop' interaction.1.about_crop.id %}"><b>{{ interaction.1.about_crop.name }}</b></a>
   {% elif interaction.1.about_family %}<a href="{% url 'family' interaction.1.about_family.id %}"><b>{{ interaction.1.about_family.name }}</b></a>
   {% else %}<a href="{% url 'tag' interaction.1.about_tag.id %}"><b>{{ interaction.1.about_tag.name }}</b></a> {% endif %}
