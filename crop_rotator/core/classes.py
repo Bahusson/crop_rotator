@@ -50,7 +50,7 @@ class PageLoad(object):
         }
         return self.skinctx
 
-    # Funkcja tworzy za nas podstwwowy kontekst,
+    # Funkcja tworzy za nas podstawowy kontekst,
     # który rozszerza się o dany w funkcji.
     def lazy_context(self, **kwargs):
         self.context = {

@@ -38,6 +38,7 @@ from core.snippets import (
     slice_list_3,
     summarize_plans,
     list_crops_to,
+    none_ify,
 )
 from core.models import RotatorAdminPanel
 from django.contrib.auth.decorators import login_required
@@ -300,19 +301,9 @@ def crop(request, crop_id):
     # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
     crop_tags_from = []
     # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
-    # None jest dla uniwersalizacji wzorników.
-    crop_from2 = []
-    crop_from = pe_c_id.crop_relationships.all()
-    for crop in crop_from:
-        item = (None, crop)
-        crop_from2.append(item)
+    crop_from = none_ify(pe_c_id.crop_relationships.all())
     # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
-    # None jest dla uniwersalizacji wzorników.
-    crop_family_from2 = []
-    crop_family_from = pe_c_id.family.family_relationships.all()
-    for crop in crop_family_from:
-        item = (None, crop)
-        crop_family_from2.append(item)
+    crop_family_from = none_ify(pe_c_id.family.family_relationships.all())
     # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
     crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
     family_to_c = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
@@ -342,9 +333,9 @@ def crop(request, crop_id):
         "crop": pe_c_id,
         "sources": pe_cds,
         "translatables": translatables,
-        "crop_from": crop_from2,
+        "crop_from": crop_from,
         "crop_to": crop_to,
-        "crop_family_from": crop_family_from2,
+        "crop_family_from": crop_family_from,
         "crop_family_to": crop_family_to,
         "crop_tags_from": crop_tags_from,
         "crop_tags_to": crop_tags_to,
@@ -377,12 +368,7 @@ def family(request, family_id):
     pe_f_id_sub = False
     translatables = pe(RotatorEditorPageNames).baseattrs
     # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
-    # None jest dla uniwersalizacji wzorników.
-    crop_family_from2 = []
-    crop_family_from = pe_f_id.family_relationships.all()
-    for crop in crop_family_from:
-        item = (None, crop)
-        crop_family_from2.append(item)
+    crop_family_from = none_ify(pe_f_id.family_relationships.all())
     # Dla każdego oddziaływania jakie jest na tę rodzinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
     crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
     family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
@@ -411,7 +397,7 @@ def family(request, family_id):
         "ml1": sl3[0],
         "ml2": sl3[1],
         "translatables": translatables,
-        "crop_family_from": crop_family_from2,
+        "crop_family_from": crop_family_from,
         "crop_family_to": crop_family_to,
     }
     pl = PageLoad(P, L)

@@ -193,6 +193,7 @@ def summarize_plans(plans_list, step_class):
         summarized_list.append((plan, tag_list3, steps_total, crop_total))
     return summarized_list
 
+
 def list_crops_to(myitem ,crops_query, family_query, tag_query, variant):
     list_appending = []
     item_id = myitem.id
@@ -221,3 +222,13 @@ def list_crops_to(myitem ,crops_query, family_query, tag_query, variant):
         for item in variantdict[variant]:
             list_appending.append((tag, item, variant, myitem))
     return list_appending
+
+
+# Tworzy nową tuplę z "None" na pierwszyn miejscu.
+# Do standaryzacji wzorników.
+def none_ify(query):
+    mylist = []
+    for element in query:
+        item = (None, element)
+        mylist.append(item)
+    return mylist
