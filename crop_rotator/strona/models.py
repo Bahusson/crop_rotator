@@ -126,11 +126,23 @@ class RotatorEditorPageNames(models.Model):
     allelopatic_conflict = models.CharField(max_length=200, blank=True, null=True) # Konflikt na tle allelopatycznym
     harms = models.CharField(max_length=200, blank=True, null=True) # Szkodzi
     in_step = models.CharField(max_length=200, blank=True, null=True) # W kroku
-    well_cooperates = models.CharField(max_length=200, blank=True, null=True) # dobrze współgra z
+    well_cooperates = models.CharField(max_length=200, blank=True, null=True) # dobrze oddziaływuje na
     collides = models.CharField(max_length=200, blank=True, null=True) # Powoduje KOLIZJĘ z
     image_source = models.CharField(max_length=200, blank=True, null=True) # Źródło obrazka
     add_fertilizer_main = models.CharField(max_length=200, blank=True, null=True) # W tym planie brakuje nawozu z zewnątrz!
     add_fertilizer_onhover_main = models.CharField(max_length=300, blank=True, null=True) # Dowiedz się więcej o dodawaniu nawozów do płodozmianu.
+    infl_type = models.CharField(max_length=100, blank=True, null=True) # typ oddziaływania
+    companion = models.CharField(max_length=100, blank=True, null=True) # współrzędna
+    following = models.CharField(max_length=100, blank=True, null=True) # następcza
+    allelopatic = models.CharField(max_length=150, blank=True, null=True) # allelopatyczna, albo współrzędna i nastepcza
+    source_button = models.CharField(max_length=50, blank=True, null=True) # Źródło
+    known_interactions = models.CharField(max_length=200, blank=True, null=True) # Znane interakcje
+    plant_to_other = models.CharField(max_length=200, blank=True, null=True) # Roślina oddziaływuje na inne
+    other_to_plant = models.CharField(max_length=200, blank=True, null=True) # Inne oddziaływują na roślinę
+    family_to_other = models.CharField(max_length=200, blank=True, null=True) # Rodzina oddziaływuje na inne
+    other_to_family = models.CharField(max_length=200, blank=True, null=True) # Inne oddziaływują na rodzinę
+    category_to_other = models.CharField(max_length=200, blank=True, null=True) # Kategoria oddziaływuje na inne
+    other_to_category = models.CharField(max_length=200, blank=True, null=True) # Inne oddziaływują na kategorię
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
