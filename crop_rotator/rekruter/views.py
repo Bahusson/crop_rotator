@@ -7,8 +7,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import ExtendedCreationForm
 from core.snippets import gen_login, flare
 
-# TODO: Zrób tłumaczenia strony logowania/rejestracji.
-
 
 # Formularz rejestracji.
 def register(request):

@@ -1,80 +1,1198 @@
 [
 {
-  "model": "rotator.rotationplan",
-  "pk": 2,
+  "model": "auth.permission",
   "fields": {
-    "title": "Przykładowy płodozmian",
-    "title_pl": "Przykładowy płodozmian",
-    "title_en": "Exemplary rotation plan",
-    "owner": 1,
-    "pubdate": "2020-12-19T13:45:48Z",
-    "soil_type": 0,
-    "published": true
+    "name": "Can add crop",
+    "content_type": 1,
+    "codename": "add_crop"
   }
 },
 {
-  "model": "rotator.rotationplan",
-  "pk": 3,
+  "model": "auth.permission",
   "fields": {
-    "title": "Zbyt krótki płodozmian testowy",
-    "title_pl": "Zbyt krótki płodozmian testowy",
-    "title_en": "Too short crop rotatoion plan",
-    "owner": 1,
-    "pubdate": "2020-12-20T12:49:38Z",
-    "soil_type": 1,
-    "published": true
+    "name": "Can change crop",
+    "content_type": 1,
+    "codename": "change_crop"
   }
 },
 {
-  "model": "rotator.rotationplan",
-  "pk": 4,
+  "model": "auth.permission",
   "fields": {
-    "title": "nowy rtpln",
-    "title_pl": "nowy rtpln",
-    "title_en": null,
-    "owner": 1,
-    "pubdate": "2021-01-03T10:07:56Z",
-    "soil_type": 0,
-    "published": true
+    "name": "Can delete crop",
+    "content_type": 1,
+    "codename": "delete_crop"
   }
 },
 {
-  "model": "rotator.rotationplan",
-  "pk": 5,
+  "model": "auth.permission",
   "fields": {
-    "title": "Testowy Plan Usera",
-    "title_pl": "Testowy Plan Usera",
-    "title_en": null,
-    "owner": 1,
-    "pubdate": "2021-01-19T11:37:48.782Z",
-    "soil_type": 0,
-    "published": true
+    "name": "Can view crop",
+    "content_type": 1,
+    "codename": "view_crop"
   }
 },
 {
-  "model": "rotator.rotationplan",
-  "pk": 7,
+  "model": "auth.permission",
   "fields": {
-    "title": "Plan 2",
-    "title_pl": "Plan 2",
-    "title_en": null,
-    "owner": 1,
-    "pubdate": "2021-01-19T12:09:41.935Z",
-    "soil_type": 0,
-    "published": true
+    "name": "Can add crop family",
+    "content_type": 2,
+    "codename": "add_cropfamily"
   }
 },
 {
-  "model": "rotator.rotationplan",
-  "pk": 8,
+  "model": "auth.permission",
   "fields": {
-    "title": "Plan 3",
-    "title_pl": "Plan 3",
-    "title_en": null,
-    "owner": 1,
-    "pubdate": "2021-01-19T12:10:21.442Z",
-    "soil_type": 0,
-    "published": true
+    "name": "Can change crop family",
+    "content_type": 2,
+    "codename": "change_cropfamily"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop family",
+    "content_type": 2,
+    "codename": "delete_cropfamily"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop family",
+    "content_type": 2,
+    "codename": "view_cropfamily"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop mix",
+    "content_type": 3,
+    "codename": "add_cropmix"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop mix",
+    "content_type": 3,
+    "codename": "change_cropmix"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop mix",
+    "content_type": 3,
+    "codename": "delete_cropmix"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop mix",
+    "content_type": 3,
+    "codename": "view_cropmix"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add rotation plan",
+    "content_type": 4,
+    "codename": "add_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change rotation plan",
+    "content_type": 4,
+    "codename": "change_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete rotation plan",
+    "content_type": 4,
+    "codename": "delete_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view rotation plan",
+    "content_type": 4,
+    "codename": "view_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add rotation step",
+    "content_type": 5,
+    "codename": "add_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change rotation step",
+    "content_type": 5,
+    "codename": "change_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete rotation step",
+    "content_type": 5,
+    "codename": "delete_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view rotation step",
+    "content_type": 5,
+    "codename": "view_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop tag",
+    "content_type": 6,
+    "codename": "add_croptag"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop tag",
+    "content_type": 6,
+    "codename": "change_croptag"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop tag",
+    "content_type": 6,
+    "codename": "delete_croptag"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop tag",
+    "content_type": 6,
+    "codename": "view_croptag"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop data string",
+    "content_type": 7,
+    "codename": "add_cropdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop data string",
+    "content_type": 7,
+    "codename": "change_cropdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop data string",
+    "content_type": 7,
+    "codename": "delete_cropdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop data string",
+    "content_type": 7,
+    "codename": "view_cropdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop data source",
+    "content_type": 8,
+    "codename": "add_cropdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop data source",
+    "content_type": 8,
+    "codename": "change_cropdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop data source",
+    "content_type": 8,
+    "codename": "delete_cropdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop data source",
+    "content_type": 8,
+    "codename": "view_cropdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop interaction",
+    "content_type": 9,
+    "codename": "add_cropinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop interaction",
+    "content_type": 9,
+    "codename": "change_cropinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop interaction",
+    "content_type": 9,
+    "codename": "delete_cropinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop interaction",
+    "content_type": 9,
+    "codename": "view_cropinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add family interaction",
+    "content_type": 10,
+    "codename": "add_familyinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change family interaction",
+    "content_type": 10,
+    "codename": "change_familyinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete family interaction",
+    "content_type": 10,
+    "codename": "delete_familyinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view family interaction",
+    "content_type": 10,
+    "codename": "view_familyinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop images source",
+    "content_type": 11,
+    "codename": "add_cropimagessource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop images source",
+    "content_type": 11,
+    "codename": "change_cropimagessource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop images source",
+    "content_type": 11,
+    "codename": "delete_cropimagessource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop images source",
+    "content_type": 11,
+    "codename": "view_cropimagessource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add about page names",
+    "content_type": 12,
+    "codename": "add_aboutpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change about page names",
+    "content_type": 12,
+    "codename": "change_aboutpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete about page names",
+    "content_type": 12,
+    "codename": "delete_aboutpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view about page names",
+    "content_type": 12,
+    "codename": "view_aboutpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add page names",
+    "content_type": 13,
+    "codename": "add_pagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change page names",
+    "content_type": 13,
+    "codename": "change_pagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete page names",
+    "content_type": 13,
+    "codename": "delete_pagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view page names",
+    "content_type": 13,
+    "codename": "view_pagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add page skin",
+    "content_type": 14,
+    "codename": "add_pageskin"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change page skin",
+    "content_type": 14,
+    "codename": "change_pageskin"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete page skin",
+    "content_type": 14,
+    "codename": "delete_pageskin"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view page skin",
+    "content_type": 14,
+    "codename": "view_pageskin"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add reg names",
+    "content_type": 15,
+    "codename": "add_regnames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change reg names",
+    "content_type": 15,
+    "codename": "change_regnames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete reg names",
+    "content_type": 15,
+    "codename": "delete_regnames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view reg names",
+    "content_type": 15,
+    "codename": "view_regnames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add rotator editor page names",
+    "content_type": 16,
+    "codename": "add_rotatoreditorpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change rotator editor page names",
+    "content_type": 16,
+    "codename": "change_rotatoreditorpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete rotator editor page names",
+    "content_type": 16,
+    "codename": "delete_rotatoreditorpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view rotator editor page names",
+    "content_type": 16,
+    "codename": "view_rotatoreditorpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 17,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 17,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 17,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 17,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 18,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 18,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 18,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 18,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": 19,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": 19,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 19,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": 19,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": 20,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": 20,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 20,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": 20,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 21,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 21,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 21,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 21,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": 22,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": 22,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 22,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": 22,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add fertilizer page names",
+    "content_type": 23,
+    "codename": "add_fertilizerpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change fertilizer page names",
+    "content_type": 23,
+    "codename": "change_fertilizerpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete fertilizer page names",
+    "content_type": 23,
+    "codename": "delete_fertilizerpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view fertilizer page names",
+    "content_type": 23,
+    "codename": "view_fertilizerpagenames"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add basic element",
+    "content_type": 24,
+    "codename": "add_basicelement"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change basic element",
+    "content_type": 24,
+    "codename": "change_basicelement"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete basic element",
+    "content_type": 24,
+    "codename": "delete_basicelement"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view basic element",
+    "content_type": 24,
+    "codename": "view_basicelement"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add fertilizer",
+    "content_type": 25,
+    "codename": "add_fertilizer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change fertilizer",
+    "content_type": 25,
+    "codename": "change_fertilizer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete fertilizer",
+    "content_type": 25,
+    "codename": "delete_fertilizer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view fertilizer",
+    "content_type": 25,
+    "codename": "view_fertilizer"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add fertilizer data source",
+    "content_type": 26,
+    "codename": "add_fertilizerdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change fertilizer data source",
+    "content_type": 26,
+    "codename": "change_fertilizerdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete fertilizer data source",
+    "content_type": 26,
+    "codename": "delete_fertilizerdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view fertilizer data source",
+    "content_type": 26,
+    "codename": "view_fertilizerdatasource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add element data string",
+    "content_type": 27,
+    "codename": "add_elementdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change element data string",
+    "content_type": 27,
+    "codename": "change_elementdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete element data string",
+    "content_type": 27,
+    "codename": "delete_elementdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view element data string",
+    "content_type": 27,
+    "codename": "view_elementdatastring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crops interaction",
+    "content_type": 28,
+    "codename": "add_cropsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crops interaction",
+    "content_type": 28,
+    "codename": "change_cropsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crops interaction",
+    "content_type": 28,
+    "codename": "delete_cropsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crops interaction",
+    "content_type": 28,
+    "codename": "view_cropsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add tags interaction",
+    "content_type": 29,
+    "codename": "add_tagsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change tags interaction",
+    "content_type": 29,
+    "codename": "change_tagsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete tags interaction",
+    "content_type": 29,
+    "codename": "delete_tagsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view tags interaction",
+    "content_type": 29,
+    "codename": "view_tagsinteraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop book string",
+    "content_type": 30,
+    "codename": "add_cropbookstring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop book string",
+    "content_type": 30,
+    "codename": "change_cropbookstring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop book string",
+    "content_type": 30,
+    "codename": "delete_cropbookstring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop book string",
+    "content_type": 30,
+    "codename": "view_cropbookstring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop image string",
+    "content_type": 31,
+    "codename": "add_cropimagestring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop image string",
+    "content_type": 31,
+    "codename": "change_cropimagestring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop image string",
+    "content_type": 31,
+    "codename": "delete_cropimagestring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop image string",
+    "content_type": 31,
+    "codename": "view_cropimagestring"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add rotator admin panel",
+    "content_type": 32,
+    "codename": "add_rotatoradminpanel"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change rotator admin panel",
+    "content_type": 32,
+    "codename": "change_rotatoradminpanel"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete rotator admin panel",
+    "content_type": 32,
+    "codename": "delete_rotatoradminpanel"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view rotator admin panel",
+    "content_type": 32,
+    "codename": "view_rotatoradminpanel"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop family source",
+    "content_type": 33,
+    "codename": "add_cropfamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop family source",
+    "content_type": 33,
+    "codename": "change_cropfamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop family source",
+    "content_type": 33,
+    "codename": "delete_cropfamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop family source",
+    "content_type": 33,
+    "codename": "view_cropfamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add crop data family source",
+    "content_type": 34,
+    "codename": "add_cropdatafamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change crop data family source",
+    "content_type": 34,
+    "codename": "change_cropdatafamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete crop data family source",
+    "content_type": 34,
+    "codename": "delete_cropdatafamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view crop data family source",
+    "content_type": 34,
+    "codename": "view_cropdatafamilysource"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add rotation plan",
+    "content_type": 35,
+    "codename": "add_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change rotation plan",
+    "content_type": 35,
+    "codename": "change_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete rotation plan",
+    "content_type": 35,
+    "codename": "delete_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view rotation plan",
+    "content_type": 35,
+    "codename": "view_rotationplan"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add rotation step",
+    "content_type": 36,
+    "codename": "add_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change rotation step",
+    "content_type": 36,
+    "codename": "change_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete rotation step",
+    "content_type": 36,
+    "codename": "delete_rotationstep"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view rotation step",
+    "content_type": 36,
+    "codename": "view_rotationstep"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$216000$vxjeDoohvMZX$3MqjLFJeIlt9sp6A2UalaCYJrzljubPVQWAqfSuQHp0=",
+    "last_login": "2021-03-29T13:37:14.221Z",
+    "is_superuser": true,
+    "username": "marian",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-02-10T12:36:55.055Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$216000$bpf4xZENNp6x$8i0aXW6vf3Ej39S7pMuvXbLTpq3/hMRRhohFoMDhhtI=",
+    "last_login": "2021-03-12T09:08:02.346Z",
+    "is_superuser": false,
+    "username": "Comynupi347",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-03-12T09:08:02.148Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.rotatoradminpanel",
+  "pk": 1,
+  "fields": {
+    "max_steps": 9,
+    "max_user_plans": 99,
+    "lurk_plan_cooldown": 15,
+    "evaluated_plan_cooldown": 60
   }
 },
 {
@@ -17139,661 +18257,6 @@
   "pk": 39,
   "fields": {
     "cropinteraction_ptr": 39
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 5,
-  "fields": {
-    "title": "Kompleks ziemniaczany",
-    "title_pl": "Kompleks ziemniaczany",
-    "title_en": "Potato complex",
-    "descr": "Testowy opis",
-    "descr_pl": "Testowy opis",
-    "descr_en": "Test description",
-    "add_manure_early": true,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 5,
-    "is_late_crop_destroy": true,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      32
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      29
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 6,
-  "fields": {
-    "title": "kompleks pszenny",
-    "title_pl": "kompleks pszenny",
-    "title_en": "wheat complex",
-    "descr": "Opis testowy",
-    "descr_pl": "Opis testowy",
-    "descr_en": null,
-    "add_manure_early": true,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 2,
-    "is_late_crop_destroy": true,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      48
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      10
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 7,
-  "fields": {
-    "title": "Kompleks lniany",
-    "title_pl": "Kompleks lniany",
-    "title_en": "Linen complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 1,
-    "is_late_crop_destroy": true,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      12
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      30
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 8,
-  "fields": {
-    "title": "Kompleks kukurydziany",
-    "title_pl": "Kompleks kukurydziany",
-    "title_en": "Corn complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 3,
-    "is_late_crop_destroy": true,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      16
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      33
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 9,
-  "fields": {
-    "title": "Kompleks Rzepakowy",
-    "title_pl": "Kompleks Rzepakowy",
-    "title_en": "Canola complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 6,
-    "is_late_crop_destroy": true,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": [
-      22
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 10,
-  "fields": {
-    "title": "Kompleks marchwiowy",
-    "title_pl": "Kompleks marchwiowy",
-    "title_en": "Carrot complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 2,
-    "order": 4,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      6
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      34
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 11,
-  "fields": {
-    "title": "Kompleks żytni",
-    "title_pl": "Kompleks żytni",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 2,
-    "is_late_crop_destroy": true,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      31,
-      48
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      47
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 12,
-  "fields": {
-    "title": "Kompleks lniany",
-    "title_pl": "Kompleks lniany",
-    "title_en": "Linen complex",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 6,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      18,
-      30
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      30
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 16,
-  "fields": {
-    "title": "dr",
-    "title_pl": "dr",
-    "title_en": "dr",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 4,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      10
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      6
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 17,
-  "fields": {
-    "title": "1",
-    "title_pl": "1",
-    "title_en": "1",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 5,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      5
-    ],
-    "middle_crop": [
-      28
-    ],
-    "late_crop": [
-      18
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 18,
-  "fields": {
-    "title": "kompleks testowy",
-    "title_pl": "kompleks testowy",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 4,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 22,
-  "fields": {
-    "title": "TestTestTest step",
-    "title_pl": "TestTestTest step",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": null,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 23,
-  "fields": {
-    "title": "Testowy krok",
-    "title_pl": "Testowy krok",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": null,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 24,
-  "fields": {
-    "title": "TestTestTest",
-    "title_pl": "TestTestTest",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": null,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 25,
-  "fields": {
-    "title": "TestTestTest",
-    "title_pl": "TestTestTest",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": null,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 42,
-  "fields": {
-    "title": "tfjjrrtyjt",
-    "title_pl": "tfjjrrtyjt",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 4,
-    "order": 2,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      1,
-      43
-    ],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 43,
-  "fields": {
-    "title": "ryyjrt7yj",
-    "title_pl": "ryyjrt7yj",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 3,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [
-      50
-    ],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 44,
-  "fields": {
-    "title": "5y3e5y4e",
-    "title_pl": "5y3e5y4e",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 7,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      18
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      35
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 46,
-  "fields": {
-    "title": "hrthht",
-    "title_pl": "hrthht",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 4,
-    "order": 3,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 50,
-  "fields": {
-    "title": "hhh",
-    "title_pl": null,
-    "title_en": "hhh",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 8,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      55
-    ],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 53,
-  "fields": {
-    "title": "yrtyy",
-    "title_pl": "yrtyy",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [
-      32
-    ],
-    "middle_crop": [],
-    "late_crop": [
-      50
-    ]
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 55,
-  "fields": {
-    "title": "tuuui",
-    "title_pl": "tuuui",
-    "title_en": null,
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 7,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 56,
-  "fields": {
-    "title": "eue5",
-    "title_pl": "eue5",
-    "title_en": "eue5",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 5,
-    "order": 1,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 57,
-  "fields": {
-    "title": "jdtyj",
-    "title_pl": null,
-    "title_en": "jdtyj",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 8,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 58,
-  "fields": {
-    "title": "rtuyjurf",
-    "title_pl": null,
-    "title_en": "rtuyjurf",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 9,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
-  }
-},
-{
-  "model": "rotator.rotationstep",
-  "pk": 59,
-  "fields": {
-    "title": "tit7it",
-    "title_pl": null,
-    "title_en": "tit7it",
-    "descr": null,
-    "descr_pl": null,
-    "descr_en": null,
-    "add_manure_early": false,
-    "add_manure_middle": false,
-    "add_manure_late": false,
-    "from_plan": 3,
-    "order": 10,
-    "is_late_crop_destroy": false,
-    "is_middle_crop_destroy": false,
-    "is_early_crop_destroy": false,
-    "early_crop": [],
-    "middle_crop": [],
-    "late_crop": []
   }
 },
 {

@@ -1,5 +1,5 @@
 from django import forms
-from .models import RotationPlan, RotationStep
+from rekruter.models import RotationPlan, RotationStep
 from core.classes import checkifnull as cn
 from core.snippets import flare
 import datetime

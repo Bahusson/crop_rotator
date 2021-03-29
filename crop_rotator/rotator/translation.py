@@ -1,7 +1,5 @@
 from modeltranslation.translator import translator, TranslationOptions
 from .models import (
-    RotationPlan,
-    RotationStep,
     CropMix,
     Crop,
     CropFamily,
@@ -10,20 +8,6 @@ from .models import (
     CropTag,
  )
 from core.snippets import all_names
-
-
-class RotationPlanTranslate(TranslationOptions):
-    fields = ("title",)
-
-
-translator.register(RotationPlan, RotationPlanTranslate)
-
-
-class RotationStepTranslate(TranslationOptions):
-    fields = ("title", "descr",)
-
-
-translator.register(RotationStep, RotationStepTranslate)
 
 
 class CropMixTranslate(TranslationOptions):

@@ -8,9 +8,11 @@ from .models import (
     RotatorEditorPageNames,
 )
 from django.views.decorators.cache import cache_page
-from rotator.models import (
+from rekruter.models import (
     RotationPlan,
     RotationStep,
+)
+from rotator.models import (
     Crop,
     CropFamily,
     CropDataSource as CDS,
@@ -512,4 +514,11 @@ def all_tags(request):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
     template = "strona/alltags.html"
+    return render(request, template, context_lazy)
+
+# spis wszystkich roślin - WIP
+def all_crops(request):
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/allcrops.html"
     return render(request, template, context_lazy)
