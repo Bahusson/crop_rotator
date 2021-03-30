@@ -113,7 +113,7 @@ def plan_common_parts(request, cp, pe_rp_id, pe_stp, plan_id):
 edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
 @cache_page(edit_delay_sec)
 def plan_evaluated(request, plan_id):
-    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps
+    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
@@ -150,7 +150,7 @@ def plan_evaluated(request, plan_id):
 
 # Widok pojedynczego płodozmianu dla Edytora - no_cache
 def plan(request, plan_id):
-    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps
+    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
