@@ -57,7 +57,7 @@ def allplans(request):
     return render(request, template, context_lazy)
 
 # Wyjścia wspólne dla zawołań POST widoków "plan" i "plan_evaluated".
-def plan_common_parts(request, pe_rp_id, pe_stp, plan_id):
+def plan_common_parts(request, cp, pe_rp_id, pe_stp, plan_id):
     # Dodaj następny krok do planu
     if "next_step" in request.POST:
         form = NextRotationStepForm(request.POST)
@@ -92,7 +92,7 @@ def plan_common_parts(request, pe_rp_id, pe_stp, plan_id):
         sender_step_order = sender_step_id.order
         form1 = StepMoveForm(request.POST, instance=sender_step_id)
         form2 = StepMoveForm(request.POST, instance=receiver_step_id)
-        if form1.is_valid() and form3.is_valid():
+        if form1.is_valid() and form2.is_valid():
             form1.save()
             form2.save(order=sender_step_order)
             return redirect('plan', plan_id)
@@ -133,7 +133,7 @@ def plan_evaluated(request, plan_id):
     }
     cp = CropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
     plans_context = cp.basic_context(context=context)
-    plan_common_parts(request, pe_rp_id, pe_stp, plan_id)
+    plan_common_parts(request, cp, pe_rp_id, pe_stp, plan_id)
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=plans_context)
     template = "strona/plan.html"
@@ -166,7 +166,7 @@ def plan(request, plan_id):
     }
     dcp = DummyCropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
     plans_context = dcp.basic_context(context=context)
-    plan_common_parts(request, pe_rp_id, pe_stp, plan_id)
+    plan_common_parts(request, dcp, pe_rp_id, pe_stp, plan_id)
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=plans_context)
     template = "strona/plan.html"
