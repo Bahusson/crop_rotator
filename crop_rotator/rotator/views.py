@@ -44,7 +44,6 @@ from rotator.forms import (
 )
 from rotator.models import Crop
 
-# Create your views here.
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
     pe_rp_published = RotationPlan.objects.filter(published=True)
@@ -57,7 +56,7 @@ def allplans(request):
     template = "strona/allplans.html"
     return render(request, template, context_lazy)
 
-
+# Wyjścia wspólne dla zawołań POST widoków "plan" i "plan_evaluated".
 def plan_common_parts(request, pe_rp_id, pe_stp, plan_id):
     # Dodaj następny krok do planu
     if "next_step" in request.POST:
@@ -91,18 +90,23 @@ def plan_common_parts(request, pe_rp_id, pe_stp, plan_id):
         except:
             return redirect('plan', plan_id)
         sender_step_order = sender_step_id.order
-        form2 = StepMoveForm(request.POST, instance=sender_step_id)
-        form3 = StepMoveForm(request.POST, instance=receiver_step_id)
-        if form2.is_valid() and form3.is_valid():
-            form2.save()
-            form3.save(order=sender_step_order)
+        form1 = StepMoveForm(request.POST, instance=sender_step_id)
+        form2 = StepMoveForm(request.POST, instance=receiver_step_id)
+        if form1.is_valid() and form3.is_valid():
+            form1.save()
+            form2.save(order=sender_step_order)
             return redirect('plan', plan_id)
     # Usuń krok
     if "delete_step" in request.POST:
         last_step = pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
         last_step.delete()
         return redirect('plan', plan_id)
-
+    # Edytuj tytuł planu.
+    if "edit_plan_title" in request.POST:
+        form = RotationPlanForm(request.POST, instance=pe_rp_id)
+        if form.is_valid():
+            form.save()
+            return redirect('plan', plan_id)
 
 # Widok planu po ewaluacji na życzenie.
 edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
@@ -119,10 +123,12 @@ def plan_evaluated(request, plan_id):
         return redirect("lurk_plan", plan_id)
     form = NextRotationStepForm()
     form2 = StepMoveForm()
+    form3 = RotationPlanForm()
     context = {
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "form": form,
         "form2": form2,
+        "form3": form3,
         "translatables": translatables,
     }
     cp = CropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
@@ -149,10 +155,12 @@ def plan(request, plan_id):
         return redirect("lurk_plan", plan_id)
     form = NextRotationStepForm()
     form2 = StepMoveForm()
+    form3 = RotationPlanForm()
     context = {
         "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
         "form": form,
         "form2": form2,
+        "form3": form3,
         "admin_max_steps": admin_max_steps,
         "translatables": translatables,
     }

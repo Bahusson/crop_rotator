@@ -6,7 +6,7 @@ import datetime
 
 
 class RotationPlanForm(forms.ModelForm):
-    title = forms.CharField(max_length=150, required=False)
+    title = forms.CharField(max_length=150, required=True)
 
     class Meta:
         model = RotationPlan

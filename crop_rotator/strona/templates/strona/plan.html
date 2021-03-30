@@ -25,6 +25,11 @@
 
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             {% if user_editable %}
+            <form name="PlanTitleChangeForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+             {% csrf_token %}
+              <p>{{ translatables.title }}: {{ form3.title }}</p>
+              <p><button class="btn btn-link-3 btn-light" name="edit_plan_title" type="submit">{{ translatables.change }}</button></p>
+            </form>
             <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">{{ translatables.plan_remove }}</button></p>
             <div name="EventButtonHiddenDiv" class="toggle" style="display: none" value="0">
              <form name="EventDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
