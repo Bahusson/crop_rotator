@@ -145,6 +145,8 @@ class RotatorEditorPageNames(models.Model):
     other_to_category = models.CharField(max_length=200, blank=True, null=True) # Inne oddziaływują na kategorię
     annual = models.CharField(max_length=50, blank=True, null=True) # Jare
     perennial = models.CharField(max_length=50, blank=True, null=True) # Ozime
+    evaluate_button = models.CharField(max_length=50, blank=True, null=True) # Ewaluacja (button)
+    analysis_by_text = models.CharField(max_length=200, blank=True, null=True) # Analizuje plan pod kątem pozytywnych i negatywnych interakcji, oraz błędów.
 
 
     class Meta:

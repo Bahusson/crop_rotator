@@ -27,5 +27,5 @@ urlpatterns = [
     path('strona/', include('strona.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('rekruter/', include('rekruter.urls')),
-#    path('rotator/', include('rotator.urls')),
+    path('rotator/', include('rotator.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

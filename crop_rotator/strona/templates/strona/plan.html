@@ -22,6 +22,7 @@
         <div class="col-md-12 plan-main">
           <div class="container">
             <h1 class="text-center pt-3 ">{{ plan.title }}</h1>
+
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             {% if user_editable %}
             <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">{{ translatables.plan_remove }}</button></p>
@@ -48,7 +49,7 @@
                {{ translatables.publish }}</button>{{ translatables.publish_text }} *{{ translatables.publish_onhover }}
              </p></form>
             {% endif %}
-            {% if user.is_authenticated %}<button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">$Ewaluacja</a></button>*$ Analizuje plan pod kątem błędów i kolizji.{% else %} Zaloguj się, żeby analizować plany.{% endif %}
+            <button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">{{ translatables.evaluate_button }}</a></button>*{{ translatables.analysis_by_text }}.
             {% endif %}
 
             {% if cr_len_warning %}
