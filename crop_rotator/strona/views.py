@@ -37,6 +37,8 @@ from core.snippets import (
 from rotator.models import Crop
 from operator import attrgetter
 from random import shuffle
+from django.views import View
+
 
 # Widok strony domowej.
 def home(request):
@@ -98,7 +100,7 @@ def fertilize(request):
     return render(request, template, context_lazy)
 
 
-# Widok szczegółowy pojedynczego gatunku - W_I_P
+# Widok szczegółowy pojedynczego gatunku
 def crop(request, crop_id):
     pe_c = pe(Crop)
     pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
@@ -154,17 +156,34 @@ def crop(request, crop_id):
 
 
 # Spis wszystkich rodzin, bez "nibyrodzin" (typu owies u wiechlinowatych).
-def all_plant_families(request):
+class AllPlantFamilies(View):
     crf = CropFamily.objects.filter(is_family_slave=False)
-    sl3 = slice_list_3(crf)
-    context = {
-        "families": crf,
-        "ml1": sl3[0],
-        "ml2": sl3[1],
-    }
+
+    def get(self, request, *args, **kwargs):
+        sl3 = slice_list_3(self.crf)
+        context = {
+            "families": self.crf,
+            "ml1": sl3[0],
+            "ml2": sl3[1],
+        }
+        pl = PageLoad(P, L)
+        context_lazy = pl.lazy_context(skins=S, context=context)
+        template = "strona/all_plant_families.html"
+        return render(request, template, context_lazy)
+
+
+# spis wszystkich tagów - WIP
+def all_tags(request):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/all_plant_families.html"
+    template = "strona/alltags.html"
+    return render(request, template, context_lazy)
+
+# spis wszystkich roślin - WIP
+def all_crops(request):
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/allcrops.html"
     return render(request, template, context_lazy)
 
 
@@ -218,19 +237,4 @@ def tag(request, tag_id):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
     template = "strona/tag.html"
-    return render(request, template, context_lazy)
-
-
-# spis wszystkich tagów - WIP
-def all_tags(request):
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/alltags.html"
-    return render(request, template, context_lazy)
-
-# spis wszystkich roślin - WIP
-def all_crops(request):
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/allcrops.html"
     return render(request, template, context_lazy)

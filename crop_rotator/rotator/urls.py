@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from.views import Plan, PlanEvaluated, LurkPlan
+from .views import Plan, PlanEvaluated, LurkPlan
 
 
 urlpatterns = [
