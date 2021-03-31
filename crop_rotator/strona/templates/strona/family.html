@@ -97,6 +97,24 @@
                       {% include 'strona/crop_parts/interaction_button.html' %}
                   {% endfor %}
                   {% endif %}
+                  {% if crop_tags_from %}
+                  <p><b>{{ translatables.category_to_other }}:</b></p>
+                  {% for interaction in crop_tags_from %}
+                  {% if interaction.1 %}
+                      {% include 'strona/crop_parts/interaction_from_tag.html' %}
+                      {% include 'strona/crop_parts/interaction_button.html' %}
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                  {% if crop_tags_to %}
+                  <p><b>{{ translatables.other_to_category }}:</b></p>
+                  {% for interaction in crop_tags_to %}
+                  {% if interaction.1 %}
+                    {% include 'strona/crop_parts/interaction_to.html' %}
+                    {% include 'strona/crop_parts/interaction_button.html' %}
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
             <br />
           </div>
         </div>
