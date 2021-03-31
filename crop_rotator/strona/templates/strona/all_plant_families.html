@@ -18,6 +18,11 @@
         <div class="col-md-12 blog-main">
           <h1 class="text-center pt-3 ">{{ items.all_plants }}</h1>
         </div>
+        <div class="col-md-12 blog-main">
+        <button class="button btn btn-light btn-sm"><a href="{% url 'all_crops' %}">$Rośliny</a></button>
+        <button class="button btn btn-light btn-sm"><a href="{% url 'all_plant_families' %}">$Rodziny</a></button>
+        <button class="button btn btn-light btn-sm"><a href="{% url 'all_tags' %}">$Kategorie</a></button>
+      </div>
       </div>
       <div class="container">
         <div class="row">
@@ -27,7 +32,7 @@
               {% with  master_slice1=ml1|stringformat:"s" %}
               {% with  msl=":"|add:master_slice1 %}
               {% for family in families|slice:msl %}
-                <p><a href="{% url 'family' family.id %}">{{ family.name }}</a></p>
+                <p><a href="{% url redir family.id %}">{{ family.name }}</a></p>
               {% endfor %}
               {% endwith %}
               {% endwith %}
@@ -38,7 +43,7 @@
               {% with  master_slice2=ml2|stringformat:"s" %}
               {% with  msl=middleman|add:master_slice2 %}
               {% for family in families|slice:msl %}
-                <p><a href="{% url 'family' family.id %}">{{ family.name }}</a></p>
+                <p><a href="{% url redir family.id %}">{{ family.name }}</a></p>
               {% endfor %}
               {% endwith %}
               {% endwith %}
@@ -49,7 +54,7 @@
               {% with  master_slice2=ml2|stringformat:"s" %}
               {% with  msl=master_slice2|add:":" %}
               {% for family in families|slice:msl %}
-                <p><a href="{% url 'family' family.id %}">{{ family.name }}</a></p>
+                <p><a href="{% url redir family.id %}">{{ family.name }}</a></p>
               {% endfor %}
               {% endwith %}
               {% endwith %}

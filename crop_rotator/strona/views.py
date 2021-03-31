@@ -100,6 +100,37 @@ def fertilize(request):
     return render(request, template, context_lazy)
 
 
+# Spis wszystkich rodzin, bez "nibyrodzin" (typu owies u wiechlinowatych).
+class AllPlantFamilies(View):
+    crf = CropFamily.objects.filter(is_family_slave=False)
+    redirect_link = "family"
+
+    def get(self, request, *args, **kwargs):
+        sl3 = slice_list_3(self.crf)
+        context = {
+            "redir": self.redirect_link,
+            "families": self.crf,
+            "ml1": sl3[0],
+            "ml2": sl3[1],
+        }
+        pl = PageLoad(P, L)
+        template = "strona/all_plant_families.html"
+        context_lazy = pl.lazy_context(skins=S, context=context)
+        return render(request, template, context_lazy)
+
+
+# Spis wszystkich tagów.
+class AllTags(AllPlantFamilies):
+    redirect_link = "tag"
+    crf = CropTag.objects.all()
+
+
+# Spis wszystkich roślin.
+class AllCrops(AllPlantFamilies):
+    redirect_link = "crop"
+    crf = Crop.objects.all()
+
+
 # Widok szczegółowy pojedynczego gatunku
 def crop(request, crop_id):
     pe_c = pe(Crop)
@@ -152,38 +183,6 @@ def crop(request, crop_id):
     pl = PageLoad(P, L)
     context_lazy = pl.lazy_context(skins=S, context=context)
     template = "strona/crop.html"
-    return render(request, template, context_lazy)
-
-
-# Spis wszystkich rodzin, bez "nibyrodzin" (typu owies u wiechlinowatych).
-class AllPlantFamilies(View):
-    crf = CropFamily.objects.filter(is_family_slave=False)
-
-    def get(self, request, *args, **kwargs):
-        sl3 = slice_list_3(self.crf)
-        context = {
-            "families": self.crf,
-            "ml1": sl3[0],
-            "ml2": sl3[1],
-        }
-        pl = PageLoad(P, L)
-        context_lazy = pl.lazy_context(skins=S, context=context)
-        template = "strona/all_plant_families.html"
-        return render(request, template, context_lazy)
-
-
-# spis wszystkich tagów - WIP
-def all_tags(request):
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/alltags.html"
-    return render(request, template, context_lazy)
-
-# spis wszystkich roślin - WIP
-def all_crops(request):
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/allcrops.html"
     return render(request, template, context_lazy)
 
 
