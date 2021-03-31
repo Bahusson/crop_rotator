@@ -8,6 +8,7 @@ from strona.models import (
     RotatorEditorPageNames,
 )
 from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 from rekruter.models import (
     RotationPlan,
     RotationStep,
@@ -60,18 +61,18 @@ def allplans(request):
 
 
 # Widok źródłowy dla planów do edycji i ewaluacji.
-class PlanParts(View):
+class Plan(View):
     admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
     pe_rp = pe(RotationPlan)
     pe_stp = pe(RotationStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
-    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
     user_editable = False
 
     # Specjalna funkcja zastępująca __init_ ,
     # któremu nie można przesłać parametru request.
-    def dispatch(self, request, *args, **kwargs):
-        self.plan_id = kwargs["plan_id"]
+    def dispatch(self, request, plan_id, vcp, *args, **kwargs):
+        self.plan_id=plan_id
+        self.pe_rp_id = self.pe_rp.by_id(G404=G404, id=self.plan_id)
         if check_ownership(request, User, self.pe_rp_id):
             self.user_editable = True
         else:
@@ -87,9 +88,13 @@ class PlanParts(View):
             "admin_max_steps": self.admin_max_steps,
             "translatables": self.translatables,
         }
-        self.cp = VarCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
+        plannerdict = {
+            1: CropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id),
+            0: DummyCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id),
+        }
+        self.cp = plannerdict[vcp]
         self.plans_context = self.cp.basic_context(context=context)
-        return super(PlanParts, self).dispatch(request, *args, **kwargs)
+        return super(Plan, self).dispatch(request, *args, **kwargs)
 
 
     def post(self, request, *args, **kwargs):
@@ -98,7 +103,7 @@ class PlanParts(View):
             form = NextRotationStepForm(request.POST)
             if form.is_valid():
                 form.save(self.pe_rp_id, self.cp.top_tier)
-                return redirect('plan', self.plan_id)
+                return redirect('plan', self.plan_id, 0)
         # Usuń cały plan.
         if "delete_plan" in request.POST:
             self.pe_rp_id.delete()
@@ -108,13 +113,13 @@ class PlanParts(View):
             form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save(True)
-                return redirect('plan', self.plan_id )
+                return redirect('plan', self.plan_id, 0)
         # Wycofaj plan z pubilkacji.
         if "unpublish_plan" in request.POST:
             form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save(False)
-                return redirect('plan', self.plan_id)
+                return redirect('plan', self.plan_id, 0)
         # zamień kroki miejscami
         if "receiver_step" in request.POST:
             sender_step_id = self.pe_stp.by_id(
@@ -130,18 +135,18 @@ class PlanParts(View):
             if form1.is_valid() and form2.is_valid():
                 form1.save()
                 form2.save(order=sender_step_order)
-                return redirect('plan', self.plan_id)
+                return redirect('plan', self.plan_id, 0)
         # Usuń krok
         if "delete_step" in request.POST:
             last_step = self.pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
             last_step.delete()
-            return redirect('plan', self.plan_id)
+            return redirect('plan', self.plan_id, 0)
         # Edytuj tytuł planu.
         if "edit_plan_title" in request.POST:
             form = RotationPlanForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save()
-                return redirect('plan', self.plan_id)
+                return redirect('plan', self.plan_id, 0)
 
     def get(self, request, *args, **kwargs):
         pl = PageLoad(P, L)
@@ -149,9 +154,19 @@ class PlanParts(View):
         template = "strona/plan.html"
         return render(request, template, context_lazy)
 
-class Plan(PlanParts):
-    pass
 
+edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
+@method_decorator(cache_page(edit_delay_sec), name='dispatch')
+class PlanEvaluated(Plan):
+
+    def dispatch(self, request, plan_id, vcp, *args, **kwargs):
+        return super(PlanEvaluated, self).dispatch(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return super(PlanEvaluated, self).post(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        return super(PlanEvaluated, self).get(request, *args, **kwargs)
 
 # Części wspólne dla widoków "plan" i "plan_evaluated"
 def plan_common_parts(request, VarCropPlanner, plan_id):
@@ -183,7 +198,7 @@ def plan_common_parts(request, VarCropPlanner, plan_id):
         form = NextRotationStepForm(request.POST)
         if form.is_valid():
             form.save(pe_rp_id, cp.top_tier)
-            return ('plan', plan_id)
+            return ('plan', plan_id, 0)
     # Usuń cały plan.
     if "delete_plan" in request.POST:
         pe_rp_id.delete()
@@ -193,13 +208,13 @@ def plan_common_parts(request, VarCropPlanner, plan_id):
         form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
         if form.is_valid():
             form.save(True)
-            return ('plan', plan_id )
+            return ('plan', plan_id, 0)
     # Wycofaj plan z pubilkacji.
     if "unpublish_plan" in request.POST:
         form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
         if form.is_valid():
             form.save(False)
-            return ('plan', plan_id)
+            return ('plan', plan_id, 0)
     # zamień kroki miejscami
     if "receiver_step" in request.POST:
         sender_step_id = pe_stp.by_id(
@@ -208,25 +223,25 @@ def plan_common_parts(request, VarCropPlanner, plan_id):
             receiver_step_id = pe_stp.by_id(
             G404=G404, id=request.POST.get('receiver_step'))
         except:
-            return ('plan', plan_id)
+            return ('plan', plan_id, 0)
         sender_step_order = sender_step_id.order
         form1 = StepMoveForm(request.POST, instance=sender_step_id)
         form2 = StepMoveForm(request.POST, instance=receiver_step_id)
         if form1.is_valid() and form2.is_valid():
             form1.save()
             form2.save(order=sender_step_order)
-            return ('plan', plan_id)
+            return ('plan', plan_id, 0)
     # Usuń krok
     if "delete_step" in request.POST:
         last_step = pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
         last_step.delete()
-        return ('plan', plan_id)
+        return ('plan', plan_id, 0)
     # Edytuj tytuł planu.
     if "edit_plan_title" in request.POST:
         form = RotationPlanForm(request.POST, instance=pe_rp_id)
         if form.is_valid():
             form.save()
-            return ('plan', plan_id)
+            return ('plan', plan_id, 0)
     return (plans_context,None,None)
 
 
@@ -235,7 +250,7 @@ def plan_common_parts(request, VarCropPlanner, plan_id):
 # Ale na upartego można to policzyć i przepiąć na URL-ach i też będzie działać, tylko imho wolę bałagan tutaj niż w
 edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
 @cache_page(edit_delay_sec)
-def plan_evaluated(request, plan_id):
+def plan_evaluated2(request, plan_id):
     pcp = plan_common_parts(request, CropPlanner, plan_id)
     if len(pcp) == 2:
         return redirect(pcp[0],pcp[1])
@@ -330,13 +345,13 @@ def plan_edit(request, plan_id):
     translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_rp_id):
         if RotationStep.objects.filter(from_plan=plan_id).exists():
-            return redirect('plan', plan_id)
+            return redirect('plan', plan_id, 0)
         else:
             if request.method == 'POST':
                 form = FirstRotationStepForm(request.POST)
                 if form.is_valid():
                     form.save(pe_rp_id)
-                    return redirect('plan', plan_id) # Przekierowuj później na stronę planu
+                    return redirect('plan', plan_id, 0) # Przekierowuj później na stronę planu
             else:
                 form = FirstRotationStepForm()
                 context = {
