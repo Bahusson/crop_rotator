@@ -71,13 +71,14 @@ class Plan(View):
         pass
     translatables = pe(RotatorEditorPageNames).baseattrs
     user_editable = False
+    VarCropPlanner = DummyCropPlanner
 
     # Specjalna funkcja zastępująca __init_ ,
     # któremu nie można przesłać parametru request.
-    def dispatch(self, request, plan_id, vcp, *args, **kwargs):
+    def dispatch(self, request, plan_id, *args, **kwargs):
         self.plan_id=plan_id
         self.pe_rp_id = self.pe_rp.by_id(G404=G404, id=self.plan_id)  # Zignoruj ten błąd (c.d.n.)
-        #(c.d) - pojawia się raz po wyczyszczeniu całej bazy danych planów dla pierwszego dodanego kroku
+        #(c.d) - pojawia się raz po wyczyszczeniu całej bazy danych planów, dla pierwszego dodanego kroku
         # w pierwszym dodanym planie. Jest zupełnie niegroźny. Po prostu cofnij się i wejdź na stronę raz
         # jeszcze i już go więcej nie zobaczysz... Daruj, ale miałem za mało czasu, żeby to naprawić. ;]
         if check_ownership(request, User, self.pe_rp_id):
@@ -94,12 +95,8 @@ class Plan(View):
             "form3": form3,
             "admin_max_steps": self.admin_max_steps,
             "translatables": self.translatables,
-        }
-        plannerdict = {
-            1: CropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id),
-            0: DummyCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id),
-        }
-        self.cp = plannerdict[vcp]
+            }
+        self.cp = self.VarCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
         self.plans_context = self.cp.basic_context(context=context)
         return super(Plan, self).dispatch(request, *args, **kwargs)
 
@@ -109,7 +106,7 @@ class Plan(View):
             form = NextRotationStepForm(request.POST)
             if form.is_valid():
                 form.save(self.pe_rp_id, self.cp.top_tier)
-                return redirect('plan', self.plan_id, 0)
+                return redirect('plan', self.plan_id)
         # Usuń cały plan.
         if "delete_plan" in request.POST:
             self.pe_rp_id.delete()
@@ -119,13 +116,13 @@ class Plan(View):
             form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save(True)
-                return redirect('plan', self.plan_id, 0)
+                return redirect('plan', self.plan_id)
         # Wycofaj plan z pubilkacji.
         if "unpublish_plan" in request.POST:
             form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save(False)
-                return redirect('plan', self.plan_id, 0)
+                return redirect('plan', self.plan_id)
         # zamień kroki miejscami
         if "receiver_step" in request.POST:
             sender_step_id = self.pe_stp.by_id(
@@ -134,25 +131,25 @@ class Plan(View):
                 receiver_step_id = self.pe_stp.by_id(
                 G404=G404, id=request.POST.get('receiver_step'))
             except:
-                return redirect('plan', self.plan_id, 0)
+                return redirect('plan', self.plan_id)
             sender_step_order = sender_step_id.order
             form1 = StepMoveForm(request.POST, instance=sender_step_id)
             form2 = StepMoveForm(request.POST, instance=receiver_step_id)
             if form1.is_valid() and form2.is_valid():
                 form1.save()
                 form2.save(order=sender_step_order)
-                return redirect('plan', self.plan_id, 0)
+                return redirect('plan', self.plan_id)
         # Usuń krok
         if "delete_step" in request.POST:
             last_step = self.pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
             last_step.delete()
-            return redirect('plan', self.plan_id, 0)
+            return redirect('plan', self.plan_id)
         # Edytuj tytuł planu.
         if "edit_plan_title" in request.POST:
             form = RotationPlanForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save()
-                return redirect('plan', self.plan_id, 0)
+                return redirect('plan', self.plan_id)
 
     def get(self, request, *args, **kwargs):
         pl = PageLoad(P, L)
@@ -165,7 +162,8 @@ class Plan(View):
 edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
 @method_decorator(cache_page(edit_delay_sec), name='dispatch')
 class PlanEvaluated(Plan):
-    pass
+    VarCropPlanner = CropPlanner
+
 
 
 # Widok pojedynczego płodozmianu dla lurkera
@@ -238,13 +236,13 @@ def plan_edit(request, plan_id):
     translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_rp_id):
         if RotationStep.objects.filter(from_plan=plan_id).exists():
-            return redirect('plan', plan_id, 0)
+            return redirect('plan', plan_id)
         else:
             if request.method == 'POST':
                 form = FirstRotationStepForm(request.POST)
                 if form.is_valid():
                     form.save(pe_rp_id)
-                    return redirect('plan', plan_id, 0) # Przekierowuj później na stronę planu
+                    return redirect('plan', plan_id) # Przekierowuj później na stronę planu
             else:
                 form = FirstRotationStepForm()
                 context = {

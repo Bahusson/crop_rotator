@@ -54,7 +54,7 @@
                {{ translatables.publish }}</button>{{ translatables.publish_text }} *{{ translatables.publish_onhover }}
              </p></form>
             {% endif %}
-            <button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id 1 %}">{{ translatables.evaluate_button }}</a></button>*{{ translatables.analysis_by_text }}.
+            <button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">{{ translatables.evaluate_button }}</a></button>*{{ translatables.analysis_by_text }}.
             {% endif %}
 
             {% if cr_len_warning %}
