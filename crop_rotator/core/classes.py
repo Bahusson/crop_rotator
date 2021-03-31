@@ -180,14 +180,14 @@ class PlannerRelationship(object):
         }
         self.seasondict = {
             0: None,
-            1: "Annual",
-            2: "Perennial",
+            1: "Summer",
+            2: "Winter",
         }
     def finishing(self, **kwargs):
         interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
         self.given_list = kwargs['given_list']
         season = self.seasondict[self.i.season_of_interaction]
-        if season == "Annual" or season is None:
+        if season == "Summer" or season is None:
             if (
                 self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
                 or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]

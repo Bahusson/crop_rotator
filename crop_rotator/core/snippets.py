@@ -96,13 +96,13 @@ def list_appending_short(items, vars, season):
 def list_appending_long(a,b,c, vars):
     if len(a) > 0:
         vars[3] += 1
-        list_appending_short(a, vars, "Annual")
+        list_appending_short(a, vars, "Summer")
     if len(b) > 0:
         vars[3] += 1
         list_appending_short(b, vars, None)
     if len(c) > 0:
         vars[3] += 1
-        list_appending_short(c, vars, "Perennial")
+        list_appending_short(c, vars, "Winter")
     return vars[3]
 
 # Skraca usuwanie niepoprawnego numeru cropstepu.

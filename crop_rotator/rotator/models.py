@@ -108,6 +108,14 @@ class Crop(models.Model):
         (MIDDLE_TOP, "Średnie-Wyższe"),
         (TOP, "Wyższe"),
     )
+    ANNUAL = 0
+    BIENNIAL = 1
+    PERENNIAL = 2
+    PLANT_TYPE = (
+        (ANNUAL, "Roczna"),
+        (BIENNIAL, "Dwuletnia"),
+        (PERENNIAL, "Wieloletnia"),
+    )
     name = models.CharField(max_length=150)
     latin_name = models.CharField(max_length=150, blank=True, null=True)
     descr = models.CharField(max_length=500, blank=True, null=True)
@@ -142,6 +150,7 @@ class Crop(models.Model):
     # minimalna norma wysiewu w kg/ha
     seed_norm_max = models.IntegerField(blank=True, null=True)
     # maksymalna norma wysiewu w kg/ha
+    plant_type = models.PositiveSmallIntegerField(choices=PLANT_TYPE, default=0)
 
     class Meta:
         ordering = ["name"]
