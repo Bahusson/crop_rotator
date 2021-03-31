@@ -195,6 +195,9 @@ class InteractionPage(View):
             master_family = family_slav_list[0]
             pe_c_id = c_family
 
+        if self.is_tag:
+            pass
+
         if not self.is_family:
             crop_tags_from = []
             crop_tags_to = []
