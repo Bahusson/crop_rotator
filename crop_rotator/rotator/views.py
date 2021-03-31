@@ -96,7 +96,6 @@ class Plan(View):
         self.plans_context = self.cp.basic_context(context=context)
         return super(Plan, self).dispatch(request, *args, **kwargs)
 
-
     def post(self, request, *args, **kwargs):
         # Dodaj następny krok do planu
         if "next_step" in request.POST:
@@ -128,7 +127,7 @@ class Plan(View):
                 receiver_step_id = self.pe_stp.by_id(
                 G404=G404, id=request.POST.get('receiver_step'))
             except:
-                return redirect('plan', self.plan_id)
+                return redirect('plan', self.plan_id, 0)
             sender_step_order = sender_step_id.order
             form1 = StepMoveForm(request.POST, instance=sender_step_id)
             form2 = StepMoveForm(request.POST, instance=receiver_step_id)
@@ -155,124 +154,11 @@ class Plan(View):
         return render(request, template, context_lazy)
 
 
+# Subklasowany widok powyżej używany tylko do aktu ewaluacji planu. Ma wbudowane cache.
 edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
 @method_decorator(cache_page(edit_delay_sec), name='dispatch')
 class PlanEvaluated(Plan):
-
-    def dispatch(self, request, plan_id, vcp, *args, **kwargs):
-        return super(PlanEvaluated, self).dispatch(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-        return super(PlanEvaluated, self).post(request, *args, **kwargs)
-
-    def get(self, request, *args, **kwargs):
-        return super(PlanEvaluated, self).get(request, *args, **kwargs)
-
-# Części wspólne dla widoków "plan" i "plan_evaluated"
-def plan_common_parts(request, VarCropPlanner, plan_id):
-    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
-    pe_rp = pe(RotationPlan)
-    pe_stp = pe(RotationStep)
-    translatables = pe(RotatorEditorPageNames).baseattrs
-    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    user_editable = False
-    if check_ownership(request, User, pe_rp_id):
-        user_editable = True
-    else:
-        return ("lurk_plan", plan_id)
-    form = NextRotationStepForm()
-    form2 = StepMoveForm()
-    form3 = RotationPlanForm()
-    context = {
-        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
-        "form": form,
-        "form2": form2,
-        "form3": form3,
-        "admin_max_steps": admin_max_steps,
-        "translatables": translatables,
-    }
-    cp = VarCropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
-    plans_context = cp.basic_context(context=context)
-    # Dodaj następny krok do planu
-    if "next_step" in request.POST:
-        form = NextRotationStepForm(request.POST)
-        if form.is_valid():
-            form.save(pe_rp_id, cp.top_tier)
-            return ('plan', plan_id, 0)
-    # Usuń cały plan.
-    if "delete_plan" in request.POST:
-        pe_rp_id.delete()
-        return ('my_plans', )
-    # Opublikuj plan.
-    if "publish_plan" in request.POST:
-        form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
-        if form.is_valid():
-            form.save(True)
-            return ('plan', plan_id, 0)
-    # Wycofaj plan z pubilkacji.
-    if "unpublish_plan" in request.POST:
-        form = UserPlanPublicationForm(request.POST, instance=pe_rp_id)
-        if form.is_valid():
-            form.save(False)
-            return ('plan', plan_id, 0)
-    # zamień kroki miejscami
-    if "receiver_step" in request.POST:
-        sender_step_id = pe_stp.by_id(
-         G404=G404, id=request.POST.get('sender_step'))
-        try:
-            receiver_step_id = pe_stp.by_id(
-            G404=G404, id=request.POST.get('receiver_step'))
-        except:
-            return ('plan', plan_id, 0)
-        sender_step_order = sender_step_id.order
-        form1 = StepMoveForm(request.POST, instance=sender_step_id)
-        form2 = StepMoveForm(request.POST, instance=receiver_step_id)
-        if form1.is_valid() and form2.is_valid():
-            form1.save()
-            form2.save(order=sender_step_order)
-            return ('plan', plan_id, 0)
-    # Usuń krok
-    if "delete_step" in request.POST:
-        last_step = pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
-        last_step.delete()
-        return ('plan', plan_id, 0)
-    # Edytuj tytuł planu.
-    if "edit_plan_title" in request.POST:
-        form = RotationPlanForm(request.POST, instance=pe_rp_id)
-        if form.is_valid():
-            form.save()
-            return ('plan', plan_id, 0)
-    return (plans_context,None,None)
-
-
-# Widok planu po ewaluacji na życzenie.
-# Tak jest nieco wygodniej ze względu na zmienną z panelu admina poniżej, niż jakby rozszerzać CBV.
-# Ale na upartego można to policzyć i przepiąć na URL-ach i też będzie działać, tylko imho wolę bałagan tutaj niż w
-edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
-@cache_page(edit_delay_sec)
-def plan_evaluated2(request, plan_id):
-    pcp = plan_common_parts(request, CropPlanner, plan_id)
-    if len(pcp) == 2:
-        return redirect(pcp[0],pcp[1])
-    elif len(pcp) == 1 :
-        return redirect(pcp[0])
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=pcp[0])
-    template = "strona/plan.html"
-    return render(request, template, context_lazy)
-
-
-# Widok pojedynczego płodozmianu dla Edytora - no_cache
-def plan2(request, plan_id):
-    pcp = plan_common_parts(request, DummyCropPlanner, plan_id)
-    if len(pcp) == 2:
-        return redirect(pcp[0],pcp[1])
-    elif len(pcp) == 1 :
-        return redirect(pcp[0])
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=pcp[0])
-    template = "strona/plan.html"
-    return render(request, template, context_lazy)
+    pass
 
 
 # Widok pojedynczego płodozmianu dla lurkera
