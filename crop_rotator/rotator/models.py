@@ -312,6 +312,16 @@ class CropDataFamilySource(CropDataSource):
     )
 
 
+# Fizyczne źródła danych dot. rodzin np. z książek.
+class CropDataTagSource(CropDataSource):
+    from_tag = models.ForeignKey(
+        "CropTag",
+        related_name="crop_data_tag_source_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+
 # Część źródła danych w formia poszatkowanego stringa - reusable.
 class CropDataString(models.Model):
     title = models.CharField(max_length=150)
