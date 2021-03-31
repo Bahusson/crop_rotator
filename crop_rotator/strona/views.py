@@ -131,53 +131,86 @@ class AllCrops(AllPlantFamilies):
     crf = Crop.objects.all()
 
 
-# Bazowy widok strony podglądu interakcji.
+# Bazowy widok strony podglądu interakcji. Domyślnie wyświetla "Crop"
 class InteractionPage(View):
     is_family = False
     is_tag = False
-    pe_c = pe(Crop)
+    base_item = Crop
+    template = "strona/crop.html"
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, crop_id, *args, **kwargs):
+        myitem = pe(self.base_item)
+        house = []
+        sl3 = [None, None]
+        crop_family_from = None
+        crop_family_to = None
+        crop_tags_from = None
+        crop_tags_to = None
+        crop_from = None
+        crop_to = None
 
-        pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
-        c_family = pe_c_id.family
-        family_id = c_family.id
-        crop_id = pe_c_id.id
-        # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
-        crop_from = none_ify(pe_c_id.crop_relationships.all())
-        # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
+        if not self.is_family and not self.is_tag:
+            pe_c_id = myitem.by_id(G404=G404, id=crop_id)
+            c_family = pe_c_id.family
+            family_id = c_family.id
+            crop_id = pe_c_id.id
+            crop_from = none_ify(pe_c_id.crop_relationships.all())
+            crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
+            family_to_c = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
+            tag_to_c = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
+            crop_to = list_crops_to(pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
+            pe_cds = CDS.objects.filter(from_crop=crop_id)
+            master_family = pe_c_id.family.name
+            if pe_c_id.family.is_family_slave:
+                master_family = pe_c_id.family.family_master.name
 
-        crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
-        family_to_c = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
-        tag_to_c = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
-        crop_to = list_crops_to(pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
+        if self.is_family:
+            family_id = crop_id
+            c_family = myitem.by_id(G404=G404, id=family_id)
+            c_family_sub = False
+
+        if not self.is_tag:
+            crop_family_from = none_ify(c_family.family_relationships.all())
+            crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
+            family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
+            tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
+            crop_family_to = list_crops_to(c_family, crop_to_f, family_to_f, tag_to_f, "family")
+
+        if self.is_family:
+            if c_family.is_family_slave:
+                sub_id = c_family.family_master.id
+                c_family_sub = myitem.by_id(G404=G404, id=sub_id)
+            family_slav_list = check_slaves(
+                c_family,
+                c_family_sub,
+                c_family.is_family_slave,
+            )
+            for item in family_slav_list:
+                pe_c_all = Crop.objects.filter(family=item.id)
+                for crop_object in pe_c_all:
+                    house.append(crop_object)
+            house = sorted(house, key=attrgetter('name'))
+            sl3 = slice_list_3(house)
+            pe_cds = FDS.objects.filter(from_family=family_id)
+            master_family = family_slav_list[0]
+            pe_c_id = c_family
+
+        if not self.is_family:
+            crop_tags_from = []
+            crop_tags_to = []
+            for tag in pe_c_id.tags.all():
+                for relationship in tag.crop_relationships.all():
+                    crop_tags_from.append((tag,relationship))
+                crop_to_t = Crop.objects.filter(crop_relationships__about_tag=tag.id)
+                family_to_t = CropFamily.objects.filter(family_relationships__about_tag=tag.id)
+                tag_to_t = CropTag.objects.filter(crop_relationships__about_tag=tag.id)
+                crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
+                for item in crop_tags_to_0:
+                    crop_tags_to.append(item)
 
 
-        crop_family_from = none_ify(pe_c_id.family.family_relationships.all())
-        # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
-        crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
-        family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
-        tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
-        crop_family_to = list_crops_to(c_family, crop_to_f, family_to_f, tag_to_f, "family")
 
-
-        # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
-        crop_tags_from = []
-        crop_tags_to = []
-        for tag in pe_c_id.tags.all():
-            for relationship in tag.crop_relationships.all():
-                crop_tags_from.append((tag,relationship))
-            crop_to_t = Crop.objects.filter(crop_relationships__about_tag=tag.id)
-            family_to_t = CropFamily.objects.filter(family_relationships__about_tag=tag.id)
-            tag_to_t = CropTag.objects.filter(crop_relationships__about_tag=tag.id)
-            crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
-            for item in crop_tags_to_0:
-                crop_tags_to.append(item)
-        pe_cds = CDS.objects.filter(from_crop=crop_id)
-        master_family = pe_c_id.family.name
         translatables = pe(RotatorEditorPageNames).baseattrs
-        if pe_c_id.family.is_family_slave:
-            master_family = pe_c_id.family.family_master.name
         context = {
             "family": master_family,
             "crop": pe_c_id,
@@ -185,6 +218,9 @@ class InteractionPage(View):
             "translatables": translatables,
             "crop_from": crop_from,
             "crop_to": crop_to,
+            "house": house,
+            "ml1": sl3[0],
+            "ml2": sl3[1],
             "crop_family_from": crop_family_from,
             "crop_family_to": crop_family_to,
             "crop_tags_from": crop_tags_from,
@@ -192,121 +228,17 @@ class InteractionPage(View):
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
-        template = "strona/crop.html"
-        return render(request, template, context_lazy)
+        return render(request, self.template, context_lazy)
 
 
-# Widok szczegółowy pojedynczego gatunku
-def crop(request, crop_id):
-    pe_c = pe(Crop)
-    pe_c_id = pe_c.by_id(G404=G404, id=crop_id)
-    c_family = pe_c_id.family
-    family_id = c_family.id
-    crop_id = pe_c_id.id
-    # Dla każdego oddziaływania jakie ta roślina ma (z jej własnego many to many field) - wszystkie interakcje ze źródłami.
-    crop_from = none_ify(pe_c_id.crop_relationships.all())
-    # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
-
-    crop_to_c = Crop.objects.filter(crop_relationships__about_crop=crop_id)
-    family_to_c = CropFamily.objects.filter(family_relationships__about_crop=crop_id)
-    tag_to_c = CropTag.objects.filter(crop_relationships__about_crop=crop_id)
-    crop_to = list_crops_to(pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
-
-
-    crop_family_from = none_ify(pe_c_id.family.family_relationships.all())
-    # Dla każdego oddziaływania jakie jest na tę roślinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
-    crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
-    family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
-    tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
-    crop_family_to = list_crops_to(c_family, crop_to_f, family_to_f, tag_to_f, "family")
-
-
-    # Dla każdego tagu jaki posiada dana roślina wszystkie tag-interactions wraz ze źródłami.
-    crop_tags_from = []
-    crop_tags_to = []
-    for tag in pe_c_id.tags.all():
-        for relationship in tag.crop_relationships.all():
-            crop_tags_from.append((tag,relationship))
-        crop_to_t = Crop.objects.filter(crop_relationships__about_tag=tag.id)
-        family_to_t = CropFamily.objects.filter(family_relationships__about_tag=tag.id)
-        tag_to_t = CropTag.objects.filter(crop_relationships__about_tag=tag.id)
-        crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
-        for item in crop_tags_to_0:
-            crop_tags_to.append(item)
-    pe_cds = CDS.objects.filter(from_crop=crop_id)
-    master_family = pe_c_id.family.name
-    translatables = pe(RotatorEditorPageNames).baseattrs
-    if pe_c_id.family.is_family_slave:
-        master_family = pe_c_id.family.family_master.name
-
-
-
-    context = {
-        "family": master_family,
-        "crop": pe_c_id,
-        "sources": pe_cds,
-        "translatables": translatables,
-        "crop_from": crop_from,
-        "crop_to": crop_to,
-        "crop_family_from": crop_family_from,
-        "crop_family_to": crop_family_to,
-        "crop_tags_from": crop_tags_from,
-        "crop_tags_to": crop_tags_to,
-    }
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
-    template = "strona/crop.html"
-    return render(request, template, context_lazy)
-
-
-# Widok szczegółowy danej rodziny, oraz "nibyrodzin" (patrz: owies)
-def family(request, family_id):
-    pe_f = pe(CropFamily)
-    pe_f_id = pe_f.by_id(G404=G404, id=family_id)
-    pe_f_id_sub = False
-    translatables = pe(RotatorEditorPageNames).baseattrs
-    # Dla każdej interakcji rodzinnej jaką dana rodzina prezentuje to wszystkie interakcje wraz ze źródłami.
-    crop_family_from = none_ify(pe_f_id.family_relationships.all())
-    # Dla każdego oddziaływania jakie jest na tę rodzinę (ona występuje jako odnośnik w foreign field) - wszystkie takie interakcje ze źródłami.
-    crop_to_f = Crop.objects.filter(crop_relationships__about_family=family_id)
-    family_to_f = CropFamily.objects.filter(family_relationships__about_family=family_id)
-    tag_to_f = CropTag.objects.filter(crop_relationships__about_family=family_id)
-    crop_family_to = list_crops_to(pe_f_id, crop_to_f, family_to_f, tag_to_f, "family")
-    if pe_f_id.is_family_slave:
-        sub_id = pe_f_id.family_master.id
-        pe_f_id_sub = pe_f.by_id(G404=G404, id=sub_id)
-    family_slav_list = check_slaves(
-        pe_f_id,
-        pe_f_id_sub,
-        pe_f_id.is_family_slave,
-    )
-    house = []
-    for item in family_slav_list:
-        pe_c_all = Crop.objects.filter(family=item.id)
-        for crop_object in pe_c_all:
-            house.append(crop_object)
-    house = sorted(house, key=attrgetter('name'))
-    sl3 = slice_list_3(house)
-    pe_fds = FDS.objects.filter(from_family=family_id)
-    context = {
-        "family": family_slav_list[0],
-        "sources": pe_fds,
-        "house": house,
-        "ml1": sl3[0],
-        "ml2": sl3[1],
-        "translatables": translatables,
-        "crop_family_from": crop_family_from,
-        "crop_family_to": crop_family_to,
-    }
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
+# Widok podglądu interakcji dla danej rodziny.
+class InteractionFamily(InteractionPage):
+    is_family = True
+    base_item = CropFamily
     template = "strona/family.html"
-    return render(request, template, context_lazy)
 
-
-# Spis wszystkich roślin posiadajacych dany tag - WIP
-def tag(request, tag_id):
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=context)
+# Widok podglądu interakcji dla danego taga.
+class InteractionTag(InteractionPage):
+    is_tag = True
+    base_item = CropTag
     template = "strona/tag.html"
-    return render(request, template, context_lazy)
