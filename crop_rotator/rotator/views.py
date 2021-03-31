@@ -43,6 +43,8 @@ from rotator.forms import (
     StepEditionForm,
 )
 from rotator.models import Crop
+from django.views import View
+
 
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
@@ -55,6 +57,100 @@ def allplans(request):
     context_lazy = pl.lazy_context(skins=S, context=context)
     template = "strona/allplans.html"
     return render(request, template, context_lazy)
+
+
+# Widok źródłowy dla planów do edycji i ewaluacji.
+class PlanParts(View):
+    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
+    pe_rp = pe(RotationPlan)
+    pe_stp = pe(RotationStep)
+    translatables = pe(RotatorEditorPageNames).baseattrs
+    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
+    user_editable = False
+
+    # Specjalna funkcja zastępująca __init_ ,
+    # któremu nie można przesłać parametru request.
+    def dispatch(self, request, *args, **kwargs):
+        self.plan_id = kwargs["plan_id"]
+        if check_ownership(request, User, self.pe_rp_id):
+            self.user_editable = True
+        else:
+            return ("lurk_plan", self.plan_id)
+        form = NextRotationStepForm()
+        form2 = StepMoveForm()
+        form3 = RotationPlanForm()
+        context = {
+            "user_editable": self.user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
+            "form": form,
+            "form2": form2,
+            "form3": form3,
+            "admin_max_steps": self.admin_max_steps,
+            "translatables": self.translatables,
+        }
+        self.cp = VarCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
+        self.plans_context = self.cp.basic_context(context=context)
+        return super(PlanParts, self).dispatch(request, *args, **kwargs)
+
+
+    def post(self, request, *args, **kwargs):
+        # Dodaj następny krok do planu
+        if "next_step" in request.POST:
+            form = NextRotationStepForm(request.POST)
+            if form.is_valid():
+                form.save(self.pe_rp_id, self.cp.top_tier)
+                return redirect('plan', self.plan_id)
+        # Usuń cały plan.
+        if "delete_plan" in request.POST:
+            self.pe_rp_id.delete()
+            return redirect('my_plans', )
+        # Opublikuj plan.
+        if "publish_plan" in request.POST:
+            form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
+            if form.is_valid():
+                form.save(True)
+                return redirect('plan', self.plan_id )
+        # Wycofaj plan z pubilkacji.
+        if "unpublish_plan" in request.POST:
+            form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
+            if form.is_valid():
+                form.save(False)
+                return redirect('plan', self.plan_id)
+        # zamień kroki miejscami
+        if "receiver_step" in request.POST:
+            sender_step_id = self.pe_stp.by_id(
+             G404=G404, id=request.POST.get('sender_step'))
+            try:
+                receiver_step_id = self.pe_stp.by_id(
+                G404=G404, id=request.POST.get('receiver_step'))
+            except:
+                return redirect('plan', self.plan_id)
+            sender_step_order = sender_step_id.order
+            form1 = StepMoveForm(request.POST, instance=sender_step_id)
+            form2 = StepMoveForm(request.POST, instance=receiver_step_id)
+            if form1.is_valid() and form2.is_valid():
+                form1.save()
+                form2.save(order=sender_step_order)
+                return redirect('plan', self.plan_id)
+        # Usuń krok
+        if "delete_step" in request.POST:
+            last_step = self.pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
+            last_step.delete()
+            return redirect('plan', self.plan_id)
+        # Edytuj tytuł planu.
+        if "edit_plan_title" in request.POST:
+            form = RotationPlanForm(request.POST, instance=self.pe_rp_id)
+            if form.is_valid():
+                form.save()
+                return redirect('plan', self.plan_id)
+
+    def get(self, request, *args, **kwargs):
+        pl = PageLoad(P, L)
+        context_lazy = pl.lazy_context(skins=S, context=self.plans_context)
+        template = "strona/plan.html"
+        return render(request, template, context_lazy)
+
+class Plan(PlanParts):
+    pass
 
 
 # Części wspólne dla widoków "plan" i "plan_evaluated"
@@ -152,7 +248,7 @@ def plan_evaluated(request, plan_id):
 
 
 # Widok pojedynczego płodozmianu dla Edytora - no_cache
-def plan(request, plan_id):
+def plan2(request, plan_id):
     pcp = plan_common_parts(request, DummyCropPlanner, plan_id)
     if len(pcp) == 2:
         return redirect(pcp[0],pcp[1])
