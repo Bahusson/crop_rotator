@@ -70,7 +70,7 @@ class Plan(View):
     except:
         pass
     translatables = pe(RotatorEditorPageNames).baseattrs
-    user_editable = False
+    user_editable = True
     VarCropPlanner = DummyCropPlanner
 
     # Specjalna funkcja zastępująca __init_ ,
@@ -81,10 +81,9 @@ class Plan(View):
         #(c.d) - pojawia się raz po wyczyszczeniu całej bazy danych planów, dla pierwszego dodanego kroku
         # w pierwszym dodanym planie. Jest zupełnie niegroźny. Po prostu cofnij się i wejdź na stronę raz
         # jeszcze i już go więcej nie zobaczysz... Daruj, ale miałem za mało czasu, żeby to naprawić. ;]
-        if check_ownership(request, User, self.pe_rp_id):
-            self.user_editable = True
-        else:
-            return ("lurk_plan", self.plan_id)
+        if self.user_editable:
+            if not check_ownership(request, User, self.pe_rp_id):
+                return ("lurk_plan", self.plan_id)
         form = NextRotationStepForm()
         form2 = StepMoveForm()
         form3 = RotationPlanForm()
@@ -165,25 +164,11 @@ class PlanEvaluated(Plan):
     VarCropPlanner = CropPlanner
 
 
-
-# Widok pojedynczego płodozmianu dla lurkera
+# Subklasowany widok pojedynczego płodozmianu dla lurkera
 lurk_delay_min = pe(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
-@cache_page(60 * lurk_delay_min)
-def lurk_plan(request, plan_id):
-    pe_rp = pe(RotationPlan)
-    pe_rp_id = pe_rp.by_id(G404=G404, id=plan_id)
-    translatables = pe(RotatorEditorPageNames).baseattrs
+@method_decorator(cache_page(60 * lurk_delay_min), name='dispatch')
+class LurkPlan(Plan):
     user_editable = False
-    context = {
-        "user_editable": user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
-        "translatables": translatables,
-    }
-    dcp = DummyCropPlanner(pe_rp_id, RotationStep, Crop, plan_id=plan_id)
-    plans_context = dcp.basic_context(context=context)
-    pl = PageLoad(P, L)
-    context_lazy = pl.lazy_context(skins=S, context=plans_context)
-    template = "strona/plan.html"
-    return render(request, template, context_lazy)
 
 
 # Widok pozwala userowi stworzyć zupełnie nowy plan.
