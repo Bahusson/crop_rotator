@@ -135,6 +135,8 @@ def plan_common_parts(request, VarCropPlanner, plan_id):
 
 
 # Widok planu po ewaluacji na życzenie.
+# Tak jest nieco wygodniej ze względu na zmienną z panelu admina poniżej, niż jakby rozszerzać CBV.
+# Ale na upartego można to policzyć i przepiąć na URL-ach i też będzie działać, tylko imho wolę bałagan tutaj niż w
 edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
 @cache_page(edit_delay_sec)
 def plan_evaluated(request, plan_id):

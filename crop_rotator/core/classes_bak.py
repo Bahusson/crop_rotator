@@ -7,7 +7,6 @@ from .snippets import (
 import itertools
 import copy
 
-
 class PageLoad(object):
     """Zwraca tyle języków ile mamy zainstalowane
     w ustawieniach w zakładce LANGUAGES w formacie naprzemiennym
@@ -132,7 +131,6 @@ class PageElement(object):
         return mylist
 
 
-# Klasa ładuje stronę po dodaniu opcji typu panel admina.
 class PortalLoad(PageLoad):
     def __init__(self, *args):
         super().__init__(*args)
@@ -162,7 +160,144 @@ class PortalLoad(PageLoad):
         return self.context
 
 
-# Klasa liczy interakcje w crop plannerze - (klasa-slave)
+class PartyMaster(object):
+    # Podstawka zwraca wszystkie akcje kwaterunkowe
+    def __init__(self, *args):
+        H_Party = args[0]
+        py_tz = args[1]
+        dt = args[2]
+        self.all_parties = PageElement(H_Party)
+        tz_UTC = py_tz.timezone("Europe/Warsaw")
+        self.dt_now = dt.datetime.now(tz_UTC)
+        self.list_parties = self.all_parties.listed
+
+    # Zwraca wszystkie akcje bez względu na czas serwera (atrybuty)
+    def full_party(self, **kwargs):
+        full_parties = []
+        attrname = kwargs["attrname"]
+        x = 0
+        for item in self.list_parties:
+            full_parties.append(str(self.list_parties[x].__dict__[attrname]))
+            x = x + 1
+        return full_parties
+
+    # Zwraca tylko aktywne akcje względem czasu serwera (atrybuty)
+    def active_party(self, **kwargs):
+        active_parties = []
+        attrname = kwargs["attrname"]
+        x = 0
+        for item in self.list_parties:
+            if (
+                self.list_parties[x].__dict__["date_start"]
+                <= self.dt_now
+                <= self.list_parties[x].__dict__["date_end"]
+            ):
+                active_parties.append(str(self.list_parties[x].__dict__[attrname]))
+            x = x + 1
+        return active_parties
+
+    # Zwraca słownik z kqaterami przyporządkowanymi do ID
+    def dict_active_id_quarter(self):
+        active_quarters = []
+        active_ids = []
+        x = 0
+        for item in self.list_parties:
+            if (
+                self.list_parties[x].__dict__["date_start"]
+                <= self.dt_now
+                <= self.list_parties[x].__dict__["date_end"]
+            ):
+                active_quarters.append(str(self.list_parties[x].__dict__["quarter"]))
+                active_ids.append(str(self.list_parties[x].__dict__["id"]))
+            x = x + 1
+        active_parties = dict(zip(active_ids, active_quarters))
+        return active_parties
+
+    # Tylko nieaktywne akcje względem czasu serwera (atrybuty)
+    def past_party(self, **kwargs):
+        inactive_parties = []
+        attrname = kwargs["attrname"]
+        date_end = "date_end"
+        if "date_end" in kwargs:
+            date_end = kwargs["date_end"]
+        x = 0
+        for item in self.list_parties:
+            if self.list_parties[x].__dict__[date_end] < self.dt_now:
+                inactive_parties.append(str(self.list_parties[x].__dict__[attrname]))
+            x = x + 1
+        return inactive_parties
+
+    # Tylko zaplanowane akcje względem czasu serwera (atrybuty)
+    def future_party(self, **kwargs):
+        future_parties = []
+        date_start = "date_start"
+        attrname = kwargs["attrname"]
+        if "date_start" in kwargs:
+            date_start = kwargs["date_start"]
+        x = 0
+        for item in self.list_parties:
+            if self.list_parties[x].__dict__[date_start] > self.dt_now:
+                future_parties.append(str(self.list_parties[x].__dict__[attrname]))
+            x = x + 1
+        return future_parties
+
+
+class AllParties(object):
+    def __init__(self, request, *args, **kwargs):
+        HParty = args[0]
+        pytz = args[1]
+        datetime = args[2]
+        FormItems = args[3]
+        Hpi = args[4]
+        QuarterClassB = args[5]
+        view_filter = kwargs["view_filter"]
+        pm = PartyMaster(HParty, pytz, datetime)
+        all_parties = pm.all_parties
+        range = {
+            "1": pm.full_party(attrname="id"),
+            "2": pm.active_party(attrname="id"),
+            "3": pm.past_party(attrname="id"),
+            "4": pm.future_party(attrname="id"),
+        }
+        active_parties = []
+        for item in range[view_filter]:
+            obj = all_parties.elements.get(pk=item)
+            active_parties.append(obj)
+        pe_fi = PageElement(FormItems)
+        all_parties = PageElement(HParty)
+        hpi = PageElement(Hpi)
+        peqc = PageElement(QuarterClassB)
+        self.context = {
+            "formitem": pe_fi.baseattrs,
+            "parties": active_parties,
+            "p_item": hpi.baseattrs,
+            "setter": peqc.listed,
+            "view_filter": view_filter,
+        }
+
+
+class ActivePageItems(object):
+    def __init__(self, request, *args, **kwargs):
+        Item = args[0]
+        pytz = args[1]
+        datetime = args[2]
+        pm = PartyMaster(Item, pytz, datetime)
+        all_items = pm.all_parties
+        irange = pm.past_party(attrname="id", date_end="pubdate")
+        self.active_items = []
+        for item in irange:
+            obj = all_items.elements.get(pk=item)
+            self.active_items.append(obj)
+
+
+def checkifnull(x, y):
+    if x == "":
+        return y
+    elif x is None:
+        return y
+    else:
+        return x
+
 class PlannerRelationship(object):
     def __init__(self, *args, **kwargs):
         self.top_tier = kwargs['top_tier']
