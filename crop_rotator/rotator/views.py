@@ -254,7 +254,16 @@ def step(request, step_id):
             form = StepEditionForm(request.POST, instance=pe_stp_id)
             if form.is_valid():
                 form.save()
-                return redirect('plan', plan_id)
+                return redirect('step', step_id)
+        if "remove_element" in request.POST:
+            remove_key = request.POST.get('remove_key')
+            element_to_remove = request.POST.get('element_to_remove')
+            removedict = {
+                "early": pe_stp_id.early_crop.remove(element_to_remove),
+                "middle": pe_stp_id.middle_crop.remove(element_to_remove),
+                "late": pe_stp_id.late_crop.remove(element_to_remove)
+                }
+            return redirect('step', step_id)
         form = StepEditionForm(instance=pe_stp_id)
         context = {
          "form": form,
