@@ -252,6 +252,7 @@ def removedict(pe_stp_id, remove_key, element_to_remove):
 # Widok edycji pojedynczego kroku w planie zmianowania.
 @login_required
 def step(request, step_id):
+    croplist = Crop.objects.all()
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
     plan_id = pe_stp_id.from_plan.id
@@ -264,7 +265,7 @@ def step(request, step_id):
                 return redirect('step', step_id)
         # Usuwa po jednym elemencie z każdego kroku.
         # Nie lubię tego kodu, ale nie mam na razie pomysłu na inny.
-        if "remove_element" in request.POST:
+        if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
             remove_key = request.POST.get('remove_key')
             if request.POST.get('remove_key') == "early":
@@ -274,8 +275,22 @@ def step(request, step_id):
             elif request.POST.get('remove_key') == "late":
                 pe_stp_id.late_crop.remove(element_to_remove)
             return redirect('step', step_id)
+        if "add_element_button" in request.POST:
+        # Dodaje po jednym elemencie do każdego kroku.
+            element_to_add = request.POST.get('add_element')
+            add_key = request.POST.get('remove_key')
+            if request.POST.get('add_key') == "early":
+                pe_stp_id.early_crop.add(element_to_add)
+            elif request.POST.get('add_key') == "middle":
+                pe_stp_id.middle_crop.add(element_to_add)
+            elif request.POST.get('add_key') == "late":
+                pe_stp_id.late_crop.add(element_to_add)
+            return redirect('step', step_id)
+
+
         form = StepEditionForm(instance=pe_stp_id)
         context = {
+         "croplist": croplist,
          "form": form,
          "step": pe_stp_id,
          "translatables": translatables,
