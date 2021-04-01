@@ -241,6 +241,13 @@ def plan_edit(request, plan_id):
     else:
        return redirect('home')
 
+def removedict(pe_stp_id, remove_key, element_to_remove):
+    removedict = {
+        "early": pe_stp_id.early_crop.remove(element_to_remove),
+        "middle": pe_stp_id.middle_crop.remove(element_to_remove),
+        "late": pe_stp_id.late_crop.remove(element_to_remove)
+        }
+    return removedict[remove_key]
 
 # Widok edycji pojedynczego kroku w planie zmianowania.
 @login_required
@@ -255,14 +262,17 @@ def step(request, step_id):
             if form.is_valid():
                 form.save()
                 return redirect('step', step_id)
+        # Usuwa po jednym elemencie z każdego kroku.
+        # Nie lubię tego kodu, ale nie mam na razie pomysłu na inny.
         if "remove_element" in request.POST:
+            element_to_remove = request.POST.get('remove_element')
             remove_key = request.POST.get('remove_key')
-            element_to_remove = request.POST.get('element_to_remove')
-            removedict = {
-                "early": pe_stp_id.early_crop.remove(element_to_remove),
-                "middle": pe_stp_id.middle_crop.remove(element_to_remove),
-                "late": pe_stp_id.late_crop.remove(element_to_remove)
-                }
+            if request.POST.get('remove_key') == "early":
+                pe_stp_id.early_crop.remove(element_to_remove)
+            elif request.POST.get('remove_key') == "middle":
+                pe_stp_id.middle_crop.remove(element_to_remove)
+            elif request.POST.get('remove_key') == "late":
+                pe_stp_id.late_crop.remove(element_to_remove)
             return redirect('step', step_id)
         form = StepEditionForm(instance=pe_stp_id)
         context = {
