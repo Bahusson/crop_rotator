@@ -192,7 +192,7 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = {"default": ("en", "pl")}
 
 # Tutaj rejestruje się wszystkie trackery translacyjne translation.py
 MODELTRANSLATION_TRANSLATION_FILES = (
-    # "rotator.translation",
+   "rekruter.translation",
     "strona.translation",
 )
 
