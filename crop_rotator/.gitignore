@@ -109,5 +109,7 @@ venv.bak/
 media/
 
 local_settings.py
+local_settings2.py
+
 
 meetapdb
