@@ -19,6 +19,10 @@ class PageNames(models.Model):
     see_more = models.CharField(max_length=200, blank=True, null=True) # Czytaj dalej
     of_steps = models.CharField(max_length=200, blank=True, null=True) # Kroków
     of_plants = models.CharField(max_length=200, blank=True, null=True) # Czytaj dalej
+    by_crops = models.CharField(max_length=50, blank=True, null=True) # Rośliny (button)
+    by_families = models.CharField(max_length=50, blank=True, null=True) # Rodziny (button)
+    by_tags = models.CharField(max_length=50, blank=True, null=True) # Kategorie (button)
+
 
     class Meta:
         verbose_name_plural = 'Page Names'
@@ -147,7 +151,9 @@ class RotatorEditorPageNames(models.Model):
     perennial = models.CharField(max_length=50, blank=True, null=True) # Ozime
     evaluate_button = models.CharField(max_length=50, blank=True, null=True) # Ewaluacja (button)
     analysis_by_text = models.CharField(max_length=200, blank=True, null=True) # Analizuje plan pod kątem pozytywnych i negatywnych interakcji, oraz błędów.
-
+    remove_element = models.CharField(max_length=50, blank=True, null=True) # Usuń element (button)
+    add_element = models.CharField(max_length=50, blank=True, null=True) # Dodaj element (button)
+    return_to_plan = models.CharField(max_length=50, blank=True, null=True) # Powrót do planu (button)
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'

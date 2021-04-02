@@ -62,25 +62,16 @@ def allplans(request):
 
 # Widok źródłowy dla planów do edycji i ewaluacji.
 class Plan(View):
-    admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
-    # Jeśli kiedyś wywaliłoby całą bazę danych planów, to po to jest ten except.
-    try:
-        pe_rp = pe(RotationPlan)
-        pe_stp = pe(RotationStep)
-    except:
-        pass
-    translatables = pe(RotatorEditorPageNames).baseattrs
     user_editable = True
     VarCropPlanner = DummyCropPlanner
 
-    # Specjalna funkcja zastępująca __init_ ,
-    # któremu nie można przesłać parametru request.
     def dispatch(self, request, plan_id, *args, **kwargs):
+        admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
+        pe_rp = pe(RotationPlan)
+        self.pe_stp = pe(RotationStep)
+        translatables = pe(RotatorEditorPageNames).baseattrs
         self.plan_id=plan_id
-        self.pe_rp_id = self.pe_rp.by_id(G404=G404, id=self.plan_id)  # Zignoruj ten błąd (c.d.n.)
-        #(c.d) - pojawia się raz po wyczyszczeniu całej bazy danych planów, dla pierwszego dodanego kroku
-        # w pierwszym dodanym planie. Jest zupełnie niegroźny. Po prostu cofnij się i wejdź na stronę raz
-        # jeszcze i już go więcej nie zobaczysz... Daruj, ale miałem za mało czasu, żeby to naprawić. ;]
+        self.pe_rp_id = pe_rp.by_id(G404=G404, id=self.plan_id)
         if self.user_editable:
             if not check_ownership(request, User, self.pe_rp_id):
                 return ("lurk_plan", self.plan_id)
@@ -92,8 +83,8 @@ class Plan(View):
             "form": form,
             "form2": form2,
             "form3": form3,
-            "admin_max_steps": self.admin_max_steps,
-            "translatables": self.translatables,
+            "admin_max_steps": admin_max_steps,
+            "translatables": translatables,
             }
         self.cp = self.VarCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
         self.plans_context = self.cp.basic_context(context=context)

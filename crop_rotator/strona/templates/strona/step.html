@@ -29,7 +29,7 @@
               <div class="col-md-12 plan-main">
               <h4>{{ translatables.early_crop }}:</h4>
                 {% for crop in step.early_crop.all %}
-                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="early" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_permanent }}</button></p>
+                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="early" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
               {% endfor %}
               <div class="row master0" value="1782">
                 <div class="col-md-9" value="254">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-3">
                   <p>
-                    <button class="btn btn-link-3 btn-light" add_key="early"  name="add_element_button">$Dodaj element</button></p>
+                    <button class="btn btn-link-3 btn-light" add_key="early"  name="add_element_button">{{ translatables.add_element }}</button></p>
                 </div>
               </div>
               </div>
@@ -53,7 +53,7 @@
               <div class="col-md-12 plan-main">
                 <h4>{{ translatables.middle_crop }}:</h4>
                 {% for crop in step.middle_crop.all %}
-                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="middle" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_permanent }}</button></p>
+                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="middle" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
               {% endfor %}
               <div class="row master0" value="1782">
                 <div class="col-md-9" value="254">
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-3">
                   <p>
-                    <button class="btn btn-link-3 btn-light" add_key="middle"  name="add_element_button">$Dodaj element</button></p>
+                    <button class="btn btn-link-3 btn-light" add_key="middle"  name="add_element_button">{{ translatables.add_element }}</button></p>
                 </div>
               </div>
               </div>
@@ -77,7 +77,7 @@
               <div class="col-md-12 plan-main">
                 <h4>{{ translatables.late_crop }}:</h4>
                 {% for crop in step.late_crop.all %}
-                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="late" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_permanent }}</button></p>
+                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="late" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
               {% endfor %}
               <div class="row master0" value="1782">
                 <div class="col-md-9" value="254">
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-md-3">
                   <p>
-                    <button class="btn btn-link-3 btn-light" add_key="late"  name="add_element_button">$Dodaj element</button></p>
+                    <button class="btn btn-link-3 btn-light" add_key="late"  name="add_element_button">{{ translatables.add_element }}</button></p>
                 </div>
               </div>
               </div>
@@ -108,7 +108,7 @@
               <input type="hidden" id="remove_element" name="remove_element" value=""/>
               <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button></p>
             </form>
-            <p><a href="{% url 'plan' step.from_plan.id %}"><button class="btn btn-link-3 btn-light">$Wróć do planu</button></a></p>
+            <p><a href="{% url 'plan' step.from_plan.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.return_to_plan }}</button></a></p>
 
         </div>
         </div>

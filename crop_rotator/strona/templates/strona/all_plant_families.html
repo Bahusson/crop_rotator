@@ -16,12 +16,12 @@
     <main role="main">
       <div class="row">
         <div class="col-md-12 blog-main">
-          <h1 class="text-center pt-3 ">{{ items.all_plants }}</h1>
+          <h1 class="text-center pt-3 ">{{ items.all_plants }} - {% if redir == "crop" %}{{ items.by_crops }}{% elif redir == "family" %}{{ items.by_families }}{% else %}{{ items.by_tags }}{% endif %}</h1>
         </div>
         <div class="col-md-12 blog-main">
-        <button class="button btn btn-light btn-sm"><a href="{% url 'all_crops' %}">$Rośliny</a></button>
-        <button class="button btn btn-light btn-sm"><a href="{% url 'all_plant_families' %}">$Rodziny</a></button>
-        <button class="button btn btn-light btn-sm"><a href="{% url 'all_tags' %}">$Kategorie</a></button>
+        {% if not redir == "crop" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_crops' %}">{{ items.by_crops }}</a></button>{% endif %}
+        {% if not redir == "family" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_plant_families' %}">{{ items.by_families }}</a></button>{% endif %}
+        {% if not redir == "tag" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_tags' %}">{{ items.by_tags }}</a></button>{% endif %}
       </div>
       </div>
       <div class="container">
