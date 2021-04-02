@@ -143,7 +143,6 @@ class InteractionPage(View):
     def get(self, request, crop_id, *args, **kwargs):
         myitem = pe(self.base_item)
         house = []
-        sl3 = [None, None]
         crop_family_from = []
         crop_family_to = []
         crop_tags_from = []
@@ -217,10 +216,6 @@ class InteractionPage(View):
             for item in family_slav_list:
                 house.append(item)
 
-        # Family, Tag
-        if self.is_family or self.is_tag:
-            house = sorted(house, key=attrgetter('name'))
-            sl3 = slice_list_3(house)
 
         # Crop
         if not self.is_family and not self.is_tag:
@@ -233,7 +228,10 @@ class InteractionPage(View):
                 crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
                 for item in crop_tags_to_0:
                     crop_tags_to.append(item)
+                house.append(tag)
 
+        house = sorted(house, key=attrgetter('name'))
+        sl3 = slice_list_3(house)
         translatables = pe(RotatorEditorPageNames).baseattrs
         context = {
             "family": master_family,

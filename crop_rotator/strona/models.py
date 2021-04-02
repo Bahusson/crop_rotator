@@ -154,6 +154,7 @@ class RotatorEditorPageNames(models.Model):
     remove_element = models.CharField(max_length=50, blank=True, null=True) # Usuń element (button)
     add_element = models.CharField(max_length=50, blank=True, null=True) # Dodaj element (button)
     return_to_plan = models.CharField(max_length=50, blank=True, null=True) # Powrót do planu (button)
+    categories = models.CharField(max_length=50, blank=True, null=True) # Kategorie
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'

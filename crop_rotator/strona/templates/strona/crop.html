@@ -44,6 +44,46 @@
                 {% endif %}</p>
               {% endfor %}
             <hr />
+            <h4 class="pt-2">{{ translatables.categories }}</h4>
+            <div class="container">
+              <div class="row">
+                <hr />
+                <br />
+                    <div class="col-md-4 shdwn">
+                    {% with  master_slice1=ml1|stringformat:"s" %}
+                    {% with  msl=":"|add:master_slice1 %}
+                    {% for tag in house|slice:msl %}
+                      <p><a href="{% url 'tag' tag.id %}">{{ tag.name }}</a></p>
+                    {% endfor %}
+                    {% endwith %}
+                    {% endwith %}
+                    </div>
+                    <div class="col-md-4 shdwn">
+                    {% with  master_slice1=ml1|stringformat:"s" %}
+                    {% with  middleman=master_slice1|add:":" %}
+                    {% with  master_slice2=ml2|stringformat:"s" %}
+                    {% with  msl=middleman|add:master_slice2 %}
+                    {% for tag in house|slice:msl %}
+                      <p><a href="{% url 'tag' tag.id %}">{{ tag.name }}</a></p>
+                    {% endfor %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    {% endwith %}
+                    </div>
+                    <div class="col-md-4 shdwn">
+                    {% with  master_slice2=ml2|stringformat:"s" %}
+                    {% with  msl=master_slice2|add:":" %}
+                    {% for tag in house|slice:msl %}
+                      <p><a href="{% url 'tag' tag.id %}">{{ tag.name }}</a></p>
+                    {% endfor %}
+                    {% endwith %}
+                    {% endwith %}
+                    </div>
+                <br />
+                </div>
+              </div>
+            <hr />
             <h4 class="pt-2">{{ translatables.known_interactions }}</h4>
 
             {% if crop_from %}
