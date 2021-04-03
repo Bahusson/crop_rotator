@@ -68,7 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "login_required.middleware.LoginRequiredMiddleware",
+#    "login_required.middleware.LoginRequiredMiddleware",
 ]
 
 ROOT_URLCONF = "crop_rotator.urls"
