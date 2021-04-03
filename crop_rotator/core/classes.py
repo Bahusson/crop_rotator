@@ -394,4 +394,4 @@ try:
     lurk_delay_min = PageElement(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
 except:
     edit_delay_sec = 60
-    lurk_plan_min = 15
+    lurk_delay_min = 15
