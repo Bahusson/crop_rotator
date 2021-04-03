@@ -389,6 +389,9 @@ class CropPlanner(object):
 
     def top_tier(self):
         return self.top_tier
-
-edit_delay_sec = PageElement(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
-lurk_delay_min = PageElement(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
+try:
+    edit_delay_sec = PageElement(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
+    lurk_delay_min = PageElement(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
+except:
+    edit_delay_sec = 60
+    lurk_plan_min = 15
