@@ -22,6 +22,8 @@ from core.classes import (
     PageLoad,
     CropPlanner,
     DummyCropPlanner,
+    edit_delay_sec,
+    lurk_delay_min,
 )
 from core.snippets import (
     flare,
@@ -149,14 +151,12 @@ class Plan(View):
 
 
 # Subklasowany widok powyżej używany tylko do aktu ewaluacji planu. Ma wbudowane cache.
-edit_delay_sec = pe(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
 @method_decorator(cache_page(edit_delay_sec), name='dispatch')
 class PlanEvaluated(Plan):
     VarCropPlanner = CropPlanner
 
 
 # Subklasowany widok pojedynczego płodozmianu dla lurkera
-lurk_delay_min = pe(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
 @method_decorator(cache_page(60 * lurk_delay_min), name='dispatch')
 class LurkPlan(Plan):
     user_editable = False

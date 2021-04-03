@@ -1,6 +1,5 @@
 import random
 
-
 # Generator mnemotechnicznych loginów losowych do przekazywania innym userom,
 # bo nicki nie muszą być unikalne a jakoś trzeba się banować, polecać,
 # wyszukiwać itp.

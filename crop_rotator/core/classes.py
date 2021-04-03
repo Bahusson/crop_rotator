@@ -6,6 +6,7 @@ from .snippets import (
     )
 import itertools
 import copy
+from core.models import RotatorAdminPanel
 
 
 class PageLoad(object):
@@ -388,3 +389,6 @@ class CropPlanner(object):
 
     def top_tier(self):
         return self.top_tier
+
+edit_delay_sec = PageElement(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
+lurk_delay_min = PageElement(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
