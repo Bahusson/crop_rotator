@@ -8,6 +8,10 @@
 
 {% block css %}
 <link href="{% static 'assets/css/crop_properties.css' %}" rel="stylesheet">
+<style>.hidden {
+  display: none;
+}
+</style>
 {% endblock css %}
 
  <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
@@ -25,7 +29,7 @@
 
             <h4 class="pt-2">{{ plan.pubdate_short }}</h4>
             {% if user_editable %}
-            <form name="PlanTitleChangeForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+            <form name="PlanTitleChangeForm" method="post" class="form form-inline">
              {% csrf_token %}
               <p>{{ translatables.title }}: {{ form3.title }}</p>
               <p><button class="btn btn-link-3 btn-light" name="edit_plan_title" type="submit">{{ translatables.change }}</button></p>
@@ -41,20 +45,22 @@
             </div>
             <br />
             {% if plan.published %}
-            <form name="UnpublishUserPlanForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+            <form name="UnpublishUserPlanForm" method="post" class="form form-inline">
              {% csrf_token %}
              <p class="wnioski2">
                <button class="btn btn-link-3 btn-light" name="unpublish_plan" type="submit">{{ translatables.unpublish }}</button> -
                {{ translatables.unpublish_text }} *{{ translatables.unpublish_onhover }}.</p>
            </form>
             {% else %}
-            <form name="PublishUserPlanForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+            <form name="PublishUserPlanForm" method="post" class="form form-inline">
              {% csrf_token %}
              <p class="wnioski2"><button class="btn btn-link-3 btn-light" name="publish_plan" type="submit">
                {{ translatables.publish }}</button>{{ translatables.publish_text }} *{{ translatables.publish_onhover }}
              </p></form>
             {% endif %}
-            <button class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">{{ translatables.evaluate_button }}</a></button>*{{ translatables.analysis_by_text }}.
+            {% if eval_button_on %}
+            <button id="evalbutton" class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">{{ translatables.evaluate_button }}</a></button><button id="waitbutton" class="button btn btn-dark btn-sm hidden"><b>Obliczam...</b></button>*{{ translatables.analysis_by_text }}.
+            {% endif %}
             {% endif %}
 
             {% if cr_len_warning %}
@@ -205,6 +211,13 @@ $(".show_properties2").click(function(event){
     var closest = button_triger.closest("p").nextAll(".hidden_properties").first();
     $(closest).toggle();
  });
+ </script>
+ <script>
+ $("#evalbutton").click(function(event){
+     var button_triger = $(event.target);
+     $(button_triger).toggle();
+     $("#waitbutton").toggle();
+  });
  </script>
   <script src="/static/assets/js/event_remove_safelock.js"></script>
   <script src="/static/assets/js/swap_steps.js"></script>

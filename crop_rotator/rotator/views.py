@@ -65,6 +65,7 @@ def allplans(request):
 # Widok źródłowy dla planów do edycji i ewaluacji.
 class Plan(View):
     user_editable = True
+    eval_button_on = True
     VarCropPlanner = DummyCropPlanner
 
     def dispatch(self, request, plan_id, *args, **kwargs):
@@ -87,6 +88,7 @@ class Plan(View):
             "form3": form3,
             "admin_max_steps": admin_max_steps,
             "translatables": translatables,
+            "eval_button_on": self.eval_button_on,
             }
         self.cp = self.VarCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
         self.plans_context = self.cp.basic_context(context=context)
@@ -154,6 +156,7 @@ class Plan(View):
 @method_decorator(cache_page(edit_delay_sec), name='dispatch')
 class PlanEvaluated(Plan):
     VarCropPlanner = CropPlanner
+    eval_button_on = False
 
 
 # Subklasowany widok pojedynczego płodozmianu dla lurkera
