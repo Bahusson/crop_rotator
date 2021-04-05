@@ -88,13 +88,16 @@ def list_appending_short(items, vars, season, *args):
                 i,
             ]
         )
+
         # Policz bobowate i strączkowe (tzw. mandatory crops):
         if i.family.is_mandatory_crop:
             vars[2].append(str(vars[1].order))
-            if args[0] and len(args[0]) == 0:
-                pass
-                if args [1] and len(args[1]) == 0:
-                    pass
+            if args and len(args[0]) == 0:
+                flare("vars1")
+                vars[2].append(str(vars[1].order) + "a")
+                if args and len(args[1]) == 0:
+                    flare("vars2")
+                    vars[2].append(str(vars[1].order) + "b")
 
 def list_appending_long(a,b,c, vars):
     if len(a) > 0:
@@ -102,7 +105,7 @@ def list_appending_long(a,b,c, vars):
         list_appending_short(a, vars, "Summer", b, c)
     if len(b) > 0:
         vars[3] += 1
-        list_appending_short(b, vars, None, c)
+        list_appending_short(b, vars, None, c, [None])
     if len(c) > 0:
         vars[3] += 1
         list_appending_short(c, vars, "Winter")
