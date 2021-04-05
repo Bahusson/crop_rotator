@@ -271,11 +271,20 @@ def step(request, step_id):
             element_to_add = request.POST.get('add_element')
             add_key = request.POST.get('remove_key')
             if request.POST.get('add_key') == "early":
-                pe_stp_id.early_crop.add(element_to_add)
+                try:
+                    pe_stp_id.early_crop.add(element_to_add)
+                except :
+                    pass
             elif request.POST.get('add_key') == "middle":
-                pe_stp_id.middle_crop.add(element_to_add)
+                try:
+                    pe_stp_id.middle_crop.add(element_to_add)
+                except:
+                    pass
             elif request.POST.get('add_key') == "late":
-                pe_stp_id.late_crop.add(element_to_add)
+                try:
+                    pe_stp_id.late_crop.add(element_to_add)
+                except:
+                    pass
             return redirect('step', step_id)
 
 
