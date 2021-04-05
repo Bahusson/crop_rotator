@@ -355,6 +355,7 @@ class CropPlanner(object):
         remove_repeating(self.t_interactions_f, family_interaction_list_t)
         fabs_percent = float(len(fabs)) / float(self.top_tier * 2)
         fabs_rounded = round(fabs_percent, 2)
+        #flare(fabs_rounded)
         self.fabs_error = False
         if fabs_rounded >= 0.25 and fabs_rounded <= 0.33:
             pass
