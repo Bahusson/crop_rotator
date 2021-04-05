@@ -598,7 +598,8 @@
       630,
       628,
       39,
-      644
+      644,
+      648
     ]
   }
 },
@@ -2205,14 +2206,14 @@
   "fields": {
     "name": "Lucerna siewna",
     "name_pl": "Lucerna siewna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Medicago sativa",
-    "descr_pl": "Medicago sativa",
+    "name_en": "Alfalfa",
+    "latin_name": "Medicago sativa",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Lucerna_siewna.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-05T09:28:33Z",
     "family": 4,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2224,10 +2225,17 @@
     "seed_norm_min": 20,
     "seed_norm_max": 25,
     "plant_type": 2,
-    "crop_relationships": [],
+    "crop_relationships": [
+      651,
+      649,
+      650
+    ],
     "tags": [
       5,
-      2
+      2,
+      11,
+      14,
+      25
     ]
   }
 },
@@ -13206,6 +13214,62 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 648,
+  "fields": {
+    "title": "Zboże ozime + lucerna (n)(j)",
+    "is_positive": true,
+    "about_crop": 49,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 649,
+  "fields": {
+    "title": "lucerna + jęczmień (W)(j)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 650,
+  "fields": {
+    "title": "lucerna + słonecznik (W)(j)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 651,
+  "fields": {
+    "title": "lucerna + gryka (W)(J)",
+    "is_positive": true,
+    "about_crop": 31,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 613,
   "fields": {
@@ -15191,6 +15255,27 @@
   "pk": 432,
   "fields": {
     "cropinteraction_ptr": 432
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 651,
+  "fields": {
+    "cropinteraction_ptr": 651
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 649,
+  "fields": {
+    "cropinteraction_ptr": 649
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 650,
+  "fields": {
+    "cropinteraction_ptr": 650
   }
 },
 {
@@ -17413,6 +17498,13 @@
   }
 },
 {
+  "model": "rotator.tagsinteraction",
+  "pk": 648,
+  "fields": {
+    "cropinteraction_ptr": 648
+  }
+},
+{
   "model": "rotator.cropdatasource",
   "pk": 1,
   "fields": {
@@ -19214,6 +19306,26 @@
       5,
       11,
       15,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 104,
+  "fields": {
+    "title": "Lucerna siewna - MwP",
+    "descr": "Jest najbardziej wydajną spośród roślin bobowatych - również względem wiązania wzotu w glebie i jako składnik mieszanek paszowych. Świetnie sprawdza się jako roślina strukturotwórcza - potrafi wytworzyć ponad 2m korzeń palowy. Jest więc gatunkiem ekstremalnie odpornym na suszę i wysokie temperatury. Sugeruje się wysiewać ją wiosną w zboża ozime, lub rośliny jare (jęczmień, słonecznik lub grykę). Silnie tłumi chwasty.",
+    "descr_pl": "Jest najbardziej wydajną spośród roślin bobowatych - również względem wiązania wzotu w glebie i jako składnik mieszanek paszowych. Świetnie sprawdza się jako roślina strukturotwórcza - potrafi wytworzyć ponad 2m korzeń palowy. Jest więc gatunkiem ekstremalnie odpornym na suszę i wysokie temperatury. Sugeruje się wysiewać ją wiosną w zboża ozime, lub rośliny jare (jęczmień, słonecznik lub grykę). Silnie tłumi chwasty.",
+    "descr_en": "Alfalfa is the most efficient of fabaceae family - both when it comes to nitrogen fixing abilities, as well as an animal fodder ingredient. It works well as a structure-creating plant - it can grow a taproot more than 2m long. Hence it's a species extremely resistant to drought and high temperatures. It is suggested to sow it in spring into winter cereals, or spring plants (barley, sunflower, and buckwheat).",
+    "from_crop": 49,
+    "at_data_string": 11,
+    "pages_from": 257,
+    "pages_to": 260,
+    "at_tag": [
+      5,
+      11,
+      14,
       25
     ]
   }
