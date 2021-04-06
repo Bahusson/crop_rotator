@@ -47,8 +47,9 @@
     "family_master": null,
     "family_relationships": [
       11,
-      46,
-      624
+      666,
+      658,
+      46
     ],
     "family_slaves": []
   }
@@ -126,7 +127,7 @@
     "cooldown_max": 4,
     "is_manurable": true,
     "culture_manured": 1,
-    "is_mandatory_crop": true,
+    "is_mandatory_crop": false,
     "is_family_slave": false,
     "family_master": null,
     "family_relationships": [],
@@ -146,7 +147,7 @@
     "cooldown_max": null,
     "is_manurable": true,
     "culture_manured": 1,
-    "is_mandatory_crop": true,
+    "is_mandatory_crop": false,
     "is_family_slave": false,
     "family_master": null,
     "family_relationships": [],
@@ -173,6 +174,10 @@
       11,
       46,
       14,
+      662,
+      657,
+      655,
+      665,
       623
     ],
     "family_slaves": []
@@ -561,7 +566,9 @@
     "is_featured": true,
     "crop_relationships": [
       622,
-      629
+      629,
+      659,
+      669
     ]
   }
 },
@@ -597,7 +604,10 @@
     "crop_relationships": [
       630,
       628,
-      39
+      656,
+      39,
+      644,
+      648
     ]
   }
 },
@@ -628,21 +638,6 @@
     "descr_en": "This species is considered a clover for the purposes of interactions",
     "image": "",
     "is_featured": false,
-    "crop_relationships": []
-  }
-},
-{
-  "model": "rotator.croptag",
-  "pk": 22,
-  "fields": {
-    "name": "Energetyczne",
-    "name_pl": "Energetyczne",
-    "name_en": "Energy crop",
-    "descr": "Ta roślina nadaje się szczególnie dobrze do celów energetycznych",
-    "descr_pl": "Ta roślina nadaje się szczególnie dobrze do celów energetycznych",
-    "descr_en": "This plant can be used especially well as an energy source",
-    "image": "",
-    "is_featured": true,
     "crop_relationships": []
   }
 },
@@ -784,6 +779,7 @@
     "crop_relationships": [],
     "tags": [
       11,
+      23,
       13
     ]
   }
@@ -819,7 +815,8 @@
     "tags": [
       2,
       11,
-      14
+      14,
+      23
     ]
   }
 },
@@ -881,14 +878,17 @@
     "takes_mix_level": 1,
     "seed_norm_min": 8,
     "seed_norm_max": 12,
-    "plant_type": 0,
+    "plant_type": 1,
     "crop_relationships": [
-      625
+      625,
+      654,
+      664
     ],
     "tags": [
       5,
       2,
-      11
+      11,
+      23
     ]
   }
 },
@@ -954,7 +954,8 @@
     "tags": [
       5,
       2,
-      11
+      11,
+      23
     ]
   }
 },
@@ -984,6 +985,7 @@
     "seed_norm_max": 100,
     "plant_type": 0,
     "crop_relationships": [
+      661,
       22,
       23
     ],
@@ -1198,7 +1200,8 @@
       430,
       431,
       434,
-      432
+      432,
+      667
     ],
     "tags": [
       18,
@@ -1266,7 +1269,9 @@
     "seed_norm_max": null,
     "plant_type": 0,
     "crop_relationships": [],
-    "tags": []
+    "tags": [
+      23
+    ]
   }
 },
 {
@@ -1303,7 +1308,8 @@
     "tags": [
       5,
       11,
-      14
+      14,
+      23
     ]
   }
 },
@@ -1556,7 +1562,8 @@
       12,
       5,
       11,
-      14
+      14,
+      23
     ]
   }
 },
@@ -1603,16 +1610,16 @@
   "model": "rotator.crop",
   "pk": 32,
   "fields": {
-    "name": "Burak",
-    "name_pl": "Burak",
-    "name_en": null,
-    "latin_name": null,
+    "name": "Burak cukrowy",
+    "name_pl": "Burak cukrowy",
+    "name_en": "Sugar beet",
+    "latin_name": "Beta vulgaris L. subsp. vulgaris convar. crassa Alef. var altissima",
     "descr": null,
     "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Burak_cukrowy.jpg",
+    "image_source": 60,
+    "pubdate": "2021-04-05T12:32:25Z",
     "family": 8,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -1623,7 +1630,7 @@
     "takes_mix_level": 1,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "plant_type": 0,
+    "plant_type": 1,
     "crop_relationships": [],
     "tags": [
       17,
@@ -1647,23 +1654,28 @@
     "pubdate": "2021-03-08T08:58:00Z",
     "family": 9,
     "culture_override": 0,
-    "cooldown_min_override": null,
-    "cooldown_max_override": null,
+    "cooldown_min_override": 4,
+    "cooldown_max_override": 5,
     "is_demanding": false,
     "is_deep_roots": false,
     "is_leaves_mess": false,
     "takes_mix_level": 0,
     "seed_norm_min": null,
     "seed_norm_max": null,
-    "plant_type": 0,
+    "plant_type": 1,
     "crop_relationships": [
       157,
       146,
+      671,
       152,
       626,
+      673,
+      674,
       153,
+      670,
       631,
       156,
+      672,
       154,
       160,
       159,
@@ -2123,14 +2135,14 @@
   "fields": {
     "name": "Koniczyna biała",
     "name_pl": "Koniczyna biała",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Trifolium rapens",
-    "descr_pl": "Trifolium rapens",
+    "name_en": "white clover",
+    "latin_name": "Trifolium rapens",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Koniczyna_biała.jpg",
+    "image_source": 60,
+    "pubdate": "2021-04-05T06:56:38Z",
     "family": 4,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2138,14 +2150,23 @@
     "is_demanding": false,
     "is_deep_roots": false,
     "is_leaves_mess": false,
-    "takes_mix_level": 0,
+    "takes_mix_level": 1,
     "seed_norm_min": 6,
     "seed_norm_max": 10,
     "plant_type": 2,
-    "crop_relationships": [],
+    "crop_relationships": [
+      643,
+      642,
+      640,
+      641
+    ],
     "tags": [
       21,
-      2
+      5,
+      2,
+      11,
+      14,
+      25
     ]
   }
 },
@@ -2155,14 +2176,14 @@
   "fields": {
     "name": "Koniczyna czerwona",
     "name_pl": "Koniczyna czerwona",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Trifolium pratense, koniczyna łąkowa",
-    "descr_pl": "Trifolium pratense, koniczyna łąkowa",
+    "name_en": "Red clover",
+    "latin_name": "Trifolium pratense",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Koniczyna_czerwona.jpg",
+    "image_source": 75,
+    "pubdate": "2021-04-05T07:35:35Z",
     "family": 4,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2174,10 +2195,18 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 2,
-    "crop_relationships": [],
+    "crop_relationships": [
+      645,
+      646,
+      647
+    ],
     "tags": [
       21,
-      5
+      5,
+      2,
+      11,
+      15,
+      25
     ]
   }
 },
@@ -2187,14 +2216,14 @@
   "fields": {
     "name": "Lucerna siewna",
     "name_pl": "Lucerna siewna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Medicago sativa",
-    "descr_pl": "Medicago sativa",
+    "name_en": "Alfalfa",
+    "latin_name": "Medicago sativa",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Lucerna_siewna.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-05T09:28:33Z",
     "family": 4,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2206,10 +2235,18 @@
     "seed_norm_min": 20,
     "seed_norm_max": 25,
     "plant_type": 2,
-    "crop_relationships": [],
+    "crop_relationships": [
+      651,
+      649,
+      650,
+      663
+    ],
     "tags": [
       5,
-      2
+      2,
+      11,
+      14,
+      25
     ]
   }
 },
@@ -2250,14 +2287,14 @@
   "fields": {
     "name": "Siekiernica włoska",
     "name_pl": "Siekiernica włoska",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Hedysarum coronarium",
-    "descr_pl": "Hedysarum coronarium",
+    "name_en": "Sulla coronaria",
+    "latin_name": "Hedysarum coronarium",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Siekiernica.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-05T10:57:38Z",
     "family": 4,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2268,10 +2305,16 @@
     "takes_mix_level": 5,
     "seed_norm_min": 10,
     "seed_norm_max": 20,
-    "plant_type": 0,
-    "crop_relationships": [],
+    "plant_type": 2,
+    "crop_relationships": [
+      653
+    ],
     "tags": [
-      5
+      5,
+      2,
+      11,
+      14,
+      25
     ]
   }
 },
@@ -2281,14 +2324,14 @@
   "fields": {
     "name": "Komonica zwyczajna",
     "name_pl": "Komonica zwyczajna",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Lotus corniculatus, komonica pospolita, komonica rożkowa",
-    "descr_pl": "Lotus corniculatus, komonica pospolita, komonica rożkowa",
+    "name_en": "Common bird's-foot trefoil",
+    "latin_name": "Lotus corniculatus",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Komonica_zwyczajna.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-05T10:15:39Z",
     "family": 4,
     "culture_override": 1,
     "cooldown_min_override": null,
@@ -2300,9 +2343,14 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 2,
-    "crop_relationships": [],
+    "crop_relationships": [
+      652
+    ],
     "tags": [
-      2
+      2,
+      11,
+      14,
+      25
     ]
   }
 },
@@ -2312,14 +2360,14 @@
   "fields": {
     "name": "Nostrzyk żółty",
     "name_pl": "Nostrzyk żółty",
-    "name_en": null,
-    "latin_name": null,
-    "descr": "Melilotus officinalis, nostrzyk lekarski / zwyczajny, trawa tatarska",
-    "descr_pl": "Melilotus officinalis, nostrzyk lekarski / zwyczajny, trawa tatarska",
+    "name_en": "Yellow melilot",
+    "latin_name": "Melilotus officinalis",
+    "descr": null,
+    "descr_pl": null,
     "descr_en": null,
-    "image": "",
-    "image_source": null,
-    "pubdate": null,
+    "image": "images/Nostrzyk_żółty.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-05T10:32:17Z",
     "family": 4,
     "culture_override": 0,
     "cooldown_min_override": null,
@@ -2333,8 +2381,12 @@
     "plant_type": 2,
     "crop_relationships": [],
     "tags": [
+      12,
       5,
-      2
+      2,
+      11,
+      13,
+      25
     ]
   }
 },
@@ -2616,7 +2668,7 @@
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
-    "is_deep_roots": false,
+    "is_deep_roots": true,
     "is_leaves_mess": false,
     "takes_mix_level": 0,
     "seed_norm_min": null,
@@ -2837,9 +2889,9 @@
   "model": "rotator.crop",
   "pk": 66,
   "fields": {
-    "name": "Kultywary Kapusty",
-    "name_pl": "Kultywary Kapusty",
-    "name_en": "Cabbage Cultivars",
+    "name": "Kultywary Kapusty Warzywnej",
+    "name_pl": "Kultywary Kapusty Warzywnej",
+    "name_en": "Vegetable Cabbage Cultivars",
     "latin_name": "Brassica oleracea",
     "descr": null,
     "descr_pl": null,
@@ -2852,7 +2904,7 @@
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
-    "is_deep_roots": false,
+    "is_deep_roots": true,
     "is_leaves_mess": false,
     "takes_mix_level": 0,
     "seed_norm_min": null,
@@ -2902,7 +2954,7 @@
     "cooldown_min_override": null,
     "cooldown_max_override": null,
     "is_demanding": false,
-    "is_deep_roots": false,
+    "is_deep_roots": true,
     "is_leaves_mess": false,
     "takes_mix_level": 0,
     "seed_norm_min": null,
@@ -3054,6 +3106,7 @@
     "plant_type": 0,
     "crop_relationships": [],
     "tags": [
+      17,
       18
     ]
   }
@@ -3343,6 +3396,7 @@
       319
     ],
     "tags": [
+      17,
       18
     ]
   }
@@ -4766,7 +4820,8 @@
     "seed_norm_max": null,
     "plant_type": 0,
     "crop_relationships": [
-      634
+      634,
+      668
     ],
     "tags": [
       11
@@ -6263,7 +6318,7 @@
   "fields": {
     "title": "ziemniak - karczoch (W)",
     "is_positive": false,
-    "about_crop": 33,
+    "about_crop": 58,
     "about_family": null,
     "about_tag": null,
     "info_source": 35,
@@ -10309,7 +10364,7 @@
   "fields": {
     "title": "cebula + ogórek (W)",
     "is_positive": true,
-    "about_crop": 84,
+    "about_crop": 63,
     "about_family": null,
     "about_tag": null,
     "info_source": 34,
@@ -12867,20 +12922,6 @@
 },
 {
   "model": "rotator.cropinteraction",
-  "pk": 624,
-  "fields": {
-    "title": "Bobowate - bobowate (N)",
-    "is_positive": false,
-    "about_crop": null,
-    "about_family": 4,
-    "about_tag": null,
-    "info_source": 94,
-    "type_of_interaction": 2,
-    "season_of_interaction": 0
-  }
-},
-{
-  "model": "rotator.cropinteraction",
   "pk": 625,
   "fields": {
     "title": "rzepak + koniczyna krw (N)(J)",
@@ -13072,6 +13113,482 @@
     "about_tag": 19,
     "info_source": 101,
     "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 640,
+  "fields": {
+    "title": "koniczyna biała + trawy (w)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": 11,
+    "about_tag": null,
+    "info_source": 102,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 641,
+  "fields": {
+    "title": "koniczyna biała + zboża (W)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 19,
+    "info_source": 102,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 642,
+  "fields": {
+    "title": "koniczyna biała + rzepak (W)",
+    "is_positive": true,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 102,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 643,
+  "fields": {
+    "title": "koniczyna biała + kukurydza (W)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 102,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 644,
+  "fields": {
+    "title": "Zboża ozime + koniczyna czerwona (n)(j)",
+    "is_positive": true,
+    "about_crop": 48,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 103,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 645,
+  "fields": {
+    "title": "koniczyna czerwona + kukurydza (W)",
+    "is_positive": true,
+    "about_crop": 18,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 103,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 646,
+  "fields": {
+    "title": "koniczyna czerwona + rzepak (W)",
+    "is_positive": true,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 103,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 647,
+  "fields": {
+    "title": "koniczyna czerwona + trawy (W)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": 11,
+    "about_tag": null,
+    "info_source": 103,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 648,
+  "fields": {
+    "title": "Zboże ozime + lucerna (n)(j)",
+    "is_positive": true,
+    "about_crop": 49,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 649,
+  "fields": {
+    "title": "lucerna + jęczmień (W)(j)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 650,
+  "fields": {
+    "title": "lucerna + słonecznik (W)(j)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 651,
+  "fields": {
+    "title": "lucerna + gryka (W)(J)",
+    "is_positive": true,
+    "about_crop": 31,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 104,
+    "type_of_interaction": 0,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 652,
+  "fields": {
+    "title": "komonica zwyczajna + zboża (w)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 19,
+    "info_source": 105,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 653,
+  "fields": {
+    "title": "siekiernica włoska - zboże (w)",
+    "is_positive": false,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 19,
+    "info_source": 107,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 654,
+  "fields": {
+    "title": "rzepak + pszenica (n)(o)",
+    "is_positive": true,
+    "about_crop": 14,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 108,
+    "type_of_interaction": 2,
+    "season_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 655,
+  "fields": {
+    "title": "Strączkowe + pszenica (N)(O)",
+    "is_positive": true,
+    "about_crop": 14,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 108,
+    "type_of_interaction": 2,
+    "season_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 656,
+  "fields": {
+    "title": "Zboża - pszenica (N)(O)",
+    "is_positive": false,
+    "about_crop": 14,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 108,
+    "type_of_interaction": 2,
+    "season_of_interaction": 2
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 657,
+  "fields": {
+    "title": "Strączkowe + jęczmień (N)(J)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 109,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 658,
+  "fields": {
+    "title": "Bobowate + jęczmień (N)(J)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 109,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 659,
+  "fields": {
+    "title": "Okopowe + jęczmień (N)(J)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 109,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 661,
+  "fields": {
+    "title": "Owies Siewny + Jęczmień (N)(J)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 109,
+    "type_of_interaction": 2,
+    "season_of_interaction": 1
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 662,
+  "fields": {
+    "title": "Strączkowe + burak cukrowy",
+    "is_positive": true,
+    "about_crop": 32,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 110,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 663,
+  "fields": {
+    "title": "lucerna - burak cukrowy (N)",
+    "is_positive": false,
+    "about_crop": 32,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 110,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 664,
+  "fields": {
+    "title": "rzepak - burak cukrowy (N)",
+    "is_positive": false,
+    "about_crop": 32,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 110,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 665,
+  "fields": {
+    "title": "Strączkowe + ziemniak (N)",
+    "is_positive": true,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 666,
+  "fields": {
+    "title": "Bobowate + Ziemniak (N)",
+    "is_positive": true,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 667,
+  "fields": {
+    "title": "kukurydza - ziemniak (n)",
+    "is_positive": false,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 668,
+  "fields": {
+    "title": "łubin żółty - ziemniak (n)",
+    "is_positive": false,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 669,
+  "fields": {
+    "title": "Okopowe + ziemniak (n)",
+    "is_positive": true,
+    "about_crop": 33,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 670,
+  "fields": {
+    "title": "ziemniak + rzepak (n)",
+    "is_positive": true,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 671,
+  "fields": {
+    "title": "ziemniak + jęczmień (n)",
+    "is_positive": true,
+    "about_crop": 16,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 672,
+  "fields": {
+    "title": "ziemniak + żyto (n)",
+    "is_positive": true,
+    "about_crop": 12,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 673,
+  "fields": {
+    "title": "ziemniak + len (n)",
+    "is_positive": true,
+    "about_crop": 30,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 111,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 674,
+  "fields": {
+    "title": "ziemniak + oleiste (n)",
+    "is_positive": true,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 23,
+    "info_source": 111,
+    "type_of_interaction": 2,
     "season_of_interaction": 0
   }
 },
@@ -13381,6 +13898,13 @@
   "pk": 42,
   "fields": {
     "cropinteraction_ptr": 42
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 661,
+  "fields": {
+    "cropinteraction_ptr": 661
   }
 },
 {
@@ -14785,6 +15309,13 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 652,
+  "fields": {
+    "cropinteraction_ptr": 652
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 37,
   "fields": {
     "cropinteraction_ptr": 37
@@ -14795,6 +15326,55 @@
   "pk": 621,
   "fields": {
     "cropinteraction_ptr": 621
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 643,
+  "fields": {
+    "cropinteraction_ptr": 643
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 642,
+  "fields": {
+    "cropinteraction_ptr": 642
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 640,
+  "fields": {
+    "cropinteraction_ptr": 640
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 641,
+  "fields": {
+    "cropinteraction_ptr": 641
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 645,
+  "fields": {
+    "cropinteraction_ptr": 645
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 646,
+  "fields": {
+    "cropinteraction_ptr": 646
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 647,
+  "fields": {
+    "cropinteraction_ptr": 647
   }
 },
 {
@@ -15012,6 +15592,41 @@
   "pk": 432,
   "fields": {
     "cropinteraction_ptr": 432
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 667,
+  "fields": {
+    "cropinteraction_ptr": 667
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 651,
+  "fields": {
+    "cropinteraction_ptr": 651
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 649,
+  "fields": {
+    "cropinteraction_ptr": 649
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 650,
+  "fields": {
+    "cropinteraction_ptr": 650
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 663,
+  "fields": {
+    "cropinteraction_ptr": 663
   }
 },
 {
@@ -16080,6 +16695,20 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 654,
+  "fields": {
+    "cropinteraction_ptr": 654
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 664,
+  "fields": {
+    "cropinteraction_ptr": 664
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 536,
   "fields": {
     "cropinteraction_ptr": 536
@@ -16524,6 +17153,13 @@
   "pk": 350,
   "fields": {
     "cropinteraction_ptr": 350
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 653,
+  "fields": {
+    "cropinteraction_ptr": 653
   }
 },
 {
@@ -17004,6 +17640,13 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 671,
+  "fields": {
+    "cropinteraction_ptr": 671
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 152,
   "fields": {
     "cropinteraction_ptr": 152
@@ -17018,9 +17661,30 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 673,
+  "fields": {
+    "cropinteraction_ptr": 673
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 674,
+  "fields": {
+    "cropinteraction_ptr": 674
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 153,
   "fields": {
     "cropinteraction_ptr": 153
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 670,
+  "fields": {
+    "cropinteraction_ptr": 670
   }
 },
 {
@@ -17035,6 +17699,13 @@
   "pk": 156,
   "fields": {
     "cropinteraction_ptr": 156
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 672,
+  "fields": {
+    "cropinteraction_ptr": 672
   }
 },
 {
@@ -17123,6 +17794,13 @@
 },
 {
   "model": "rotator.cropsinteraction",
+  "pk": 668,
+  "fields": {
+    "cropinteraction_ptr": 668
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
   "pk": 28,
   "fields": {
     "cropinteraction_ptr": 28
@@ -17151,6 +17829,20 @@
 },
 {
   "model": "rotator.familyinteraction",
+  "pk": 666,
+  "fields": {
+    "cropinteraction_ptr": 666
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 658,
+  "fields": {
+    "cropinteraction_ptr": 658
+  }
+},
+{
+  "model": "rotator.familyinteraction",
   "pk": 46,
   "fields": {
     "cropinteraction_ptr": 46
@@ -17158,16 +17850,37 @@
 },
 {
   "model": "rotator.familyinteraction",
-  "pk": 624,
+  "pk": 14,
   "fields": {
-    "cropinteraction_ptr": 624
+    "cropinteraction_ptr": 14
   }
 },
 {
   "model": "rotator.familyinteraction",
-  "pk": 14,
+  "pk": 662,
   "fields": {
-    "cropinteraction_ptr": 14
+    "cropinteraction_ptr": 662
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 657,
+  "fields": {
+    "cropinteraction_ptr": 657
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 655,
+  "fields": {
+    "cropinteraction_ptr": 655
+  }
+},
+{
+  "model": "rotator.familyinteraction",
+  "pk": 665,
+  "fields": {
+    "cropinteraction_ptr": 665
   }
 },
 {
@@ -17200,6 +17913,20 @@
 },
 {
   "model": "rotator.tagsinteraction",
+  "pk": 659,
+  "fields": {
+    "cropinteraction_ptr": 659
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
+  "pk": 669,
+  "fields": {
+    "cropinteraction_ptr": 669
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
   "pk": 41,
   "fields": {
     "cropinteraction_ptr": 41
@@ -17221,9 +17948,30 @@
 },
 {
   "model": "rotator.tagsinteraction",
+  "pk": 656,
+  "fields": {
+    "cropinteraction_ptr": 656
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
   "pk": 39,
   "fields": {
     "cropinteraction_ptr": 39
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
+  "pk": 644,
+  "fields": {
+    "cropinteraction_ptr": 644
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
+  "pk": 648,
+  "fields": {
+    "cropinteraction_ptr": 648
   }
 },
 {
@@ -17325,7 +18073,7 @@
     "title": "Rzodkiew Japońska - MwP",
     "descr": "Ta odmiana rzodkwi skutecznie tłumi chwasty wiążąc cały dostępny w glebie azot i nie pozostawiając go innym roślinom. Ze względu na częściowo wystający z ziemi korzeń jest łatwa w niszczeniu mechanicznym. Nie drewnieje i zniszczona łatwo oddaje wszystkie zgromadzone składniki odżywcze roślinie następczej. Jest wymagająca względem wilgoci, ciepła i przestrzeni. Dobrze spulchnia glebę. Szczególnie polecana na przedplon kukurydzy w uprawie strip-till.",
     "descr_pl": "Ta odmiana rzodkwi skutecznie tłumi chwasty wiążąc cały dostępny w glebie azot i nie pozostawiając go innym roślinom. Ze względu na częściowo wystający z ziemi korzeń jest łatwa w niszczeniu mechanicznym. Nie drewnieje i zniszczona łatwo oddaje wszystkie zgromadzone składniki odżywcze roślinie następczej. Jest wymagająca względem wilgoci, ciepła i przestrzeni. Dobrze spulchnia glebę. Szczególnie polecana na przedplon kukurydzy w uprawie strip-till.",
-    "descr_en": "This radish species is particularily efficient at suppressing weeds by depriving them of nitrogen. Due to its root being partially exposed it is easily destroyed mechanically. It won't lignify and if destroyed it will easily return accumulated nutrients to be used by following crop. It is demanding in terms of warmth, humidity and space. It loosens the soil well. Good forecrop to corn.",
+    "descr_en": "This radish species is particularily efficient at suppressing weeds by depriving them of nitrogen. Due to its root being partially exposed it is easily destroyed mechanically. It won't lignify and if destroyed it will easily return accumulated nutrients to be used by following crop. It is demanding in terms of warmth, humidity and space. It loosens the soil well. Good forecrop for corn.",
     "from_crop": 5,
     "at_data_string": 11,
     "pages_from": 158,
@@ -17458,7 +18206,7 @@
     "title": "Przenżyto - MwP",
     "descr": "Przenżyto jest mieszańcem żyta i pszenicy. Wykazuje od żyta mniejsze zdolności konkurencyjne i większą podatność na choroby i szkodniki. Zużywa jednak mniej azotu niż pszenica i rośnie na gorszych glebach. Dobrze nadaje się na roślinę pastewną. Dobrze penetruje glebę, co w mieszance międzyplonowej czyni go dobrym przedplonem dla takich roślin jarych jak kukurydza, słonecznik, czy burak.",
     "descr_pl": "Przenżyto jest mieszańcem żyta i pszenicy. Wykazuje od żyta mniejsze zdolności konkurencyjne i większą podatność na choroby i szkodniki. Zużywa jednak mniej azotu niż pszenica i rośnie na gorszych glebach. Dobrze nadaje się na roślinę pastewną. Dobrze penetruje glebę, co w mieszance międzyplonowej czyni go dobrym przedplonem dla takich roślin jarych jak kukurydza, słonecznik, czy burak.",
-    "descr_en": "Triticale is a hybrid of rye and wheat. Its' competitive tendencies are weaker than that of rye and at the same time it is more prone to pathogens. Triticale uses however less nitrogen than wheat and grows on weaker soils. It is good for animal feed. Triticale loosens soil, which in cover crop mix makes for a good forecrop before summer plants like maize, sunflower, or beet.",
+    "descr_en": "Triticale is a hybrid of rye and wheat. Its' competitive tendencies are weaker than that of rye and at the same time it is more prone to pathogens. Triticale uses however less nitrogen than wheat and grows on weaker soils. It is good for animal feed. Triticale loosens soil, which in cover crop mix makes for a good forecrop for summer plants like maize, sunflower, or beet.",
     "from_crop": 17,
     "at_data_string": 11,
     "pages_from": 180,
@@ -18840,7 +19588,7 @@
     "title": "Koniczyna aleksandryjska - MwP",
     "descr": "W mieszankach z trawami daje paszę dobrej jakości. Bardzo dobrze nadaje się na śródplon (szybki wzrost), zwłaszcza przed zbożami, oraz na przedplon dla roślin jarych (np. burak). Nie jest podatna na choroby. Jest znakomitą rośliną miododajną.",
     "descr_pl": "W mieszankach z trawami daje paszę dobrej jakości. Bardzo dobrze nadaje się na śródplon (szybki wzrost), zwłaszcza przed zbożami, oraz na przedplon dla roślin jarych (np. burak). Nie jest podatna na choroby. Jest znakomitą rośliną miododajną.",
-    "descr_en": "Together with grasses it makes for a great animal feed. It is a great middle crop (fast growth), especially cereals, and as a forecrop before summer crops.. It is not prone to disease. It is a great nectar source.",
+    "descr_en": "Together with grasses it makes for a great animal feed. It is a great middle crop (fast growth), especially cereals, and as a forecrop for summer crops.. It is not prone to disease. It is a great nectar source.",
     "from_crop": 43,
     "at_data_string": 11,
     "pages_from": 236,
@@ -18991,6 +19739,217 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 102,
+  "fields": {
+    "title": "Koniczyna biała - MwP",
+    "descr": "Roślina wiloletnia zwykle używana samodzielnie, lub w mieszankach z trawami, przeznaczeniem na paszę. Może jednak być z powodzeniem łączona ze zbożami (w tym z kukurydzą), oraz rzepakiem, o ile będzie odpowiednio kontrolowana. Do uprawy współrzędnej ze zbożami polecane są odmiany w typie średniolistnym (f. hollandicum), lub karłowe, gdyż inaczej koniczyna biała wykazuje duże zdolności konkurencyjne i walcząc o dostęp do światła może wyrosnąć nawet na 1,5 metra w zwyż. Wykazuje dużą otporność na suszę.",
+    "descr_pl": "Roślina wiloletnia zwykle używana samodzielnie, lub w mieszankach z trawami, przeznaczeniem na paszę. Może jednak być z powodzeniem łączona ze zbożami (w tym z kukurydzą), oraz rzepakiem, o ile będzie odpowiednio kontrolowana. Do uprawy współrzędnej ze zbożami polecane są odmiany w typie średniolistnym (f. hollandicum), lub karłowe, gdyż inaczej koniczyna biała wykazuje duże zdolności konkurencyjne i walcząc o dostęp do światła może wyrosnąć nawet na 1,5 metra w zwyż. Wykazuje dużą otporność na suszę.",
+    "descr_en": "Perennial plant, usually used alone or mixed with grasses for animal feed. It can also be used together with cereals (maize included), and canola if properly managed. For companion planting with cereals it is advised to seek average-leafed (f. hollandicum) or dwarf variants, bacause of white clovers naturally high competitiveness, which leads plant to grow up to 1,5m tall in seek of light. White clover shows high resistance to drought.",
+    "from_crop": 47,
+    "at_data_string": 11,
+    "pages_from": 251,
+    "pages_to": 253,
+    "at_tag": [
+      21,
+      5,
+      11,
+      14,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 103,
+  "fields": {
+    "title": "Koniczyna czerwona - MwP",
+    "descr": "Może być wysiewana samodzielnie lub z trawą pastewną z przeznaczeniem na paszę, albo uprawiana jako przedplon dla roślin ozimych uprawianych w plonie głównym. Uprawiana jako międzyplon dobrze sprawdza się jako wiosenna wsiewka w zboża ozime. Nadaje się do ostrożnej uprawy z rzepakiem. Koniczynę czerwoną można również z powodzeniem wsiewać w kukurydzę gdy ta jest w fazie 6-8 liści, aby uniknąć konkurencji o wodę między gatunkami. Ten gatunek koniczyny jest dość konkurencyjny, nadaje się do uprawy na wszystkich glebach; radzi sobie dobrze zwłaszcza na tych ciężkich i zbitych, oraz tam gdzie okresowo stoi woda. Wykazuje odporność na wymarzanie. Dobrze przerasta nawet gliniastą glebę.",
+    "descr_pl": "Może być wysiewana samodzielnie lub z trawą pastewną z przeznaczeniem na paszę, albo uprawiana jako przedplon dla roślin ozimych uprawianych w plonie głównym. Uprawiana jako międzyplon dobrze sprawdza się jako wiosenna wsiewka w zboża ozime. Nadaje się do ostrożnej uprawy z rzepakiem. Koniczynę czerwoną można również z powodzeniem wsiewać w kukurydzę gdy ta jest w fazie 6-8 liści, aby uniknąć konkurencji o wodę między gatunkami. Ten gatunek koniczyny jest dość konkurencyjny, nadaje się do uprawy na wszystkich glebach; radzi sobie dobrze zwłaszcza na tych ciężkich i zbitych, oraz tam gdzie okresowo stoi woda. Wykazuje odporność na wymarzanie. Dobrze przerasta nawet gliniastą glebę.",
+    "descr_en": "Red clover can be used alone or together with grasses as animal fodder, or as a forecrop for main winter crops. Cultivated as a cover crop it works well sown into a winter nurse crop in the beginnings of spring. It can be carefully used as a companion crop with canola. One can also use corn in 6-8 leaves phase as a nurse crop for the red clover thus avoiding competition for water between those species. This species of clover is rather competitive, can be cultivated on all soils; especially those heavy and compact,  and those where water happens to accumulate periodically. It shows resistance to freezing and well grows through even clay-like soils.",
+    "from_crop": 48,
+    "at_data_string": 11,
+    "pages_from": 254,
+    "pages_to": 256,
+    "at_tag": [
+      21,
+      5,
+      11,
+      15,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 104,
+  "fields": {
+    "title": "Lucerna siewna - MwP",
+    "descr": "Jest najbardziej wydajną spośród roślin bobowatych - również względem wiązania wzotu w glebie i jako składnik mieszanek paszowych. Świetnie sprawdza się jako roślina strukturotwórcza - potrafi wytworzyć ponad 2m korzeń palowy. Jest więc gatunkiem ekstremalnie odpornym na suszę i wysokie temperatury. Sugeruje się wysiewać ją wiosną w zboża ozime, lub rośliny jare (jęczmień, słonecznik lub grykę). Silnie tłumi chwasty.",
+    "descr_pl": "Jest najbardziej wydajną spośród roślin bobowatych - również względem wiązania wzotu w glebie i jako składnik mieszanek paszowych. Świetnie sprawdza się jako roślina strukturotwórcza - potrafi wytworzyć ponad 2m korzeń palowy. Jest więc gatunkiem ekstremalnie odpornym na suszę i wysokie temperatury. Sugeruje się wysiewać ją wiosną w zboża ozime, lub rośliny jare (jęczmień, słonecznik lub grykę). Silnie tłumi chwasty.",
+    "descr_en": "Alfalfa is the most efficient of fabaceae family - both when it comes to nitrogen fixing abilities, as well as an animal fodder ingredient. It works well as a structure-creating plant - it can grow a taproot more than 2m long. Hence it's a species extremely resistant to drought and high temperatures. It is suggested to sow it in spring into winter cereals, or spring plants (barley, sunflower, and buckwheat).",
+    "from_crop": 49,
+    "at_data_string": 11,
+    "pages_from": 257,
+    "pages_to": 260,
+    "at_tag": [
+      5,
+      11,
+      14,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 105,
+  "fields": {
+    "title": "Komonica zwyczajna - MwP",
+    "descr": "Roślina ze względu na swoje głębokie korzenie pełni szczególną rolę strukturotwórczą. Jest dość odporna na suszę. Nadaje się do uprawy wraz ze zbożami lub winoroślą.",
+    "descr_pl": "Roślina ze względu na swoje głębokie korzenie pełni szczególną rolę strukturotwórczą. Jest dość odporna na suszę. Nadaje się do uprawy wraz ze zbożami lub winoroślą.",
+    "descr_en": "Due to its deep roots this plant has particularly important srtucture-creating role for the soil. It is rather drought resistant. It can be cultivated together with cereals or grapevines.",
+    "from_crop": 52,
+    "at_data_string": 11,
+    "pages_from": 261,
+    "pages_to": 262,
+    "at_tag": [
+      11,
+      14,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 106,
+  "fields": {
+    "title": "Nostrzyk żółty - MwP",
+    "descr": "Roślina o niewielkich wymaganiach. rośnie zarówno na glebach wapiennych jak i kwaśnych. Posiada głęboki, palowy system korzeniowy, czym przyczynia się do poprawy struktury gleby. Posiada potwierdzone działanie allelopatyczne, co czyni z nostrzyka dobrą roślinę fitosanitarną, służącą do regeneracji pól długo leżących odłogiem; jest też dość konkurencyjny. Jest jedną z najbardziej miododajnych roślin. Sfermentowane, źle przesuszone siano nostrzyka pod wpływem pleśnienia wydziela dikumarol, który będąc silnym antykoagulantem powoduje krwawienie wewnętrzne u zwierząt nim karmionych.",
+    "descr_pl": "Roślina o niewielkich wymaganiach. rośnie zarówno na glebach wapiennych jak i kwaśnych. Posiada głęboki, palowy system korzeniowy, czym przyczynia się do poprawy struktury gleby. Posiada potwierdzone działanie allelopatyczne, co czyni z nostrzyka dobrą roślinę fitosanitarną, służącą do regeneracji pól długo leżących odłogiem; jest też dość konkurencyjny. Jest jedną z najbardziej miododajnych roślin. Sfermentowane, źle przesuszone siano nostrzyka pod wpływem pleśnienia wydziela dikumarol, który będąc silnym antykoagulantem powoduje krwawienie wewnętrzne u zwierząt nim karmionych.",
+    "descr_en": "Yellow melilot is not demanding of soils - it can grow on both acidic and calcareous ones. It has long taproot root system which enhances soil structure. Itr has confirmed allelopatic abilities, which makes it a great phytosanitary plant for long unused fields; it's also quite competitive by itself. Yellow memilot is one of the best nectar sources. However its fermented, badly dried and moldy hay produces dicoumarol, which being a powerful anticoagulant caused internal bleeding in animals fed with it.",
+    "from_crop": 53,
+    "at_data_string": 11,
+    "pages_from": 263,
+    "pages_to": 265,
+    "at_tag": [
+      12,
+      5,
+      2,
+      11,
+      13,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 107,
+  "fields": {
+    "title": "Siekiernica włoska - MwP",
+    "descr": "Jest odpowiednikiem lucerny siewnej dla klimatu półpustynnego. W uprawie ze zbożem może stać się dla niego niebezpiecznym konkurentem.",
+    "descr_pl": "Jest odpowiednikiem lucerny siewnej dla klimatu półpustynnego. W uprawie ze zbożem może stać się dla niego niebezpiecznym konkurentem.",
+    "descr_en": "It is an Alfalfa equivalent for semi-desert climate. However cultivated together with cereals it might become dangerously competitive.",
+    "from_crop": 51,
+    "at_data_string": 11,
+    "pages_from": 257,
+    "pages_to": null,
+    "at_tag": [
+      5,
+      2,
+      11,
+      14,
+      25
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 108,
+  "fields": {
+    "title": "Pszenica - Rolnictwo 6",
+    "descr": "Dobrymi przedplonami dla pszenicy ozimej są rośliny strączkowe i rzepak.\r\nNajgorszymi przedplonami są inne zboża, a zwłaszcza pszenica.\r\nZiemniaki mogą stanowić dobry przedplon jeśli są uprawiane na glebach co najmniej dobrych.",
+    "descr_pl": "Dobrymi przedplonami dla pszenicy ozimej są rośliny strączkowe i rzepak.\r\nNajgorszymi przedplonami są inne zboża, a zwłaszcza pszenica.\r\nZiemniaki mogą stanowić dobry przedplon jeśli są uprawiane na glebach co najmniej dobrych.",
+    "descr_en": "Best forecrop for winter wheat are legumes and canola.\r\nWorst forecrop make other cereals.\r\nPotatoes make for good forecrop only if they are cultivated on good soils.",
+    "from_crop": 14,
+    "at_data_string": 12,
+    "pages_from": 60,
+    "pages_to": null,
+    "at_tag": [
+      19
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 109,
+  "fields": {
+    "title": "Jęczmień zwyczajny - Rolnictwo 6",
+    "descr": "Dobrymi przedplonami dla jęczmienia jarego są (zależnie od kierunku produkcji): strączkowe, bobowate, okopowe, oraz jęczmień.\r\nZłymi przeplonami są natomiast: jęczmień pszenica, oraz pszenżyto.",
+    "descr_pl": "Dobrymi przedplonami dla jęczmienia jarego są (zależnie od kierunku produkcji): strączkowe, bobowate, okopowe, oraz jęczmień.\r\nZłymi przeplonami są natomiast: jęczmień pszenica, oraz pszenżyto.",
+    "descr_en": "Good forecrop for summer barley are (depending on production target): leguminosae, legumes, root crops, and oat.\r\nBad forecrops are: barley, wheat and triticale.",
+    "from_crop": 16,
+    "at_data_string": 12,
+    "pages_from": 87,
+    "pages_to": null,
+    "at_tag": [
+      19
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 110,
+  "fields": {
+    "title": "Burak cukrowy - Rolnictwo 6",
+    "descr": "Burak cukrowy jest wymagający tak pod względem jakości gleby, oraz ilości wody. Gleba powinna być wolna możliwie wolna od szkodników glebowych, chwastów, oraz nie powinno się stosować szkodliwych herbicydów. \r\nNajlepszymi przedplonami dla buraka cukrowego są rośliny strączkowe. \r\nNie należy go uprawiać po sobie, po rzepaku, lucernie, koniczynach z trawami, oraz innych roślinach pozostawiających rolę w złej kulturze.",
+    "descr_pl": "Burak cukrowy jest wymagający tak pod względem jakości gleby, oraz ilości wody. Gleba powinna być wolna możliwie wolna od szkodników glebowych, chwastów, oraz nie powinno się stosować szkodliwych herbicydów. \r\nNajlepszymi przedplonami dla buraka cukrowego są rośliny strączkowe. \r\nNie należy go uprawiać po sobie, po rzepaku, lucernie, koniczynach z trawami, oraz innych roślinach pozostawiających rolę w złej kulturze.",
+    "descr_en": "Sweet beet is demanding of both soil and amount of water. Soil should be as free of pests and weeds as possible, and one should not use harmful herbicides beforehand.\r\nThe best forecrop for sweet beet are legumes.\r\nIt should not be cultivated after itself, canola, alfalfa, clovers with grasses, and other plants leaving soil in bad culture.",
+    "from_crop": 32,
+    "at_data_string": 12,
+    "pages_from": 132,
+    "pages_to": 139,
+    "at_tag": [
+      17,
+      18
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 111,
+  "fields": {
+    "title": "Ziemniak - Rolnictwo 6",
+    "descr": "Ziemniaki, przy dobrym nawożeniu i we właściwej uprawie radzą sobie dobrze właściwe na każdym stanowisku. Najlepszymi przedplonami dla ziemniaka są rośliny bobowate, strączkowe (bez łubinu na nasiona, który tak jak ziemniak jest porażany przez czarną nóżkę), oraz inne rośliny okopowe (poza samym ziemniakiem ze względu na występowanie chorób). Kukurydza jest również złym przedplonem dla ziemniaka ze względu na to, że jej silnie rozwinięty system korzeniowy niszczy strukturę gleby.\r\nZiemniaki są doskonałym przedplonem dla większości roślin uprawnych, gdyż zostawiają glebę odchwaszczoną, zasobną w próchnicę i składniki mineralne. Ziemniaki są dobrym przedplonem m.in dla: rzepaku, jęczmienia, żyta, lnu i ogólnie dla roślin oleistych.",
+    "descr_pl": "Ziemniaki, przy dobrym nawożeniu i we właściwej uprawie radzą sobie dobrze właściwe na każdym stanowisku. Najlepszymi przedplonami dla ziemniaka są rośliny bobowate, strączkowe (bez łubinu na nasiona, który tak jak ziemniak jest porażany przez czarną nóżkę), oraz inne rośliny okopowe (poza samym ziemniakiem ze względu na występowanie chorób). Kukurydza jest również złym przedplonem dla ziemniaka ze względu na to, że jej silnie rozwinięty system korzeniowy niszczy strukturę gleby.\r\nZiemniaki są doskonałym przedplonem dla większości roślin uprawnych, gdyż zostawiają glebę odchwaszczoną, zasobną w próchnicę i składniki mineralne. Ziemniaki są dobrym przedplonem m.in dla: rzepaku, jęczmienia, żyta, lnu i ogólnie dla roślin oleistych.",
+    "descr_en": "Potatoes, with good fertilization and properly cultured, can be farmed in almost any locality. The best forecrop for potatoes are leguminosae, legumes (without lupin for seeds which like potato is host to black leg), and other root crops (apart from potato itself due to disease spread). Maize is also a bad forecrop for potato due to its vast root sytem destroying soil structure.\r\nPotatoes are a good forecrop for most plants, because they leave soil without weeds and full of nutrients. Good aftercrops are (among others): canola, barley, rye, linen, and oil crops in general.",
+    "from_crop": 33,
+    "at_data_string": 12,
+    "pages_from": 184,
+    "pages_to": 186,
+    "at_tag": [
+      17
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 112,
+  "fields": {
+    "title": "Rzepak - Rolnictwo 6",
+    "descr": "Najlepszymi przedplonami dla rzepaku są rośliny, które wcześnie schodzą z pola i pozostawiaja po sobie czystą, oraz żyzną glebę. Są to m.in wczesne odmiany grochu, a także koniczyna czerwona, mieszanki koniczyn z trawami i lucerna zaorane po pierwszym koszeniu.\r\nDobrym przedplonem ze względu na możliwość wykonania po nich właściwej uprawy roli jest również jęczmień ozimy, pszenica jara, owies i żyto.\r\nRzepak zostawi po sobie dobre stanowisko, bogate w materię organiczną i składniki pokarmowe, szczególnie po przyoraniu słomy. Jest dobrym przedplonem dla pszenicy ozimej, jęczmienia ozimego i pszenżyta ozimego.\r\nZe względu na tendencję do osypywania się nasion a co za tym idzie pojawiania się samosiewów tej rośliny w charakterze chwastów, na plantacjach z rzepakiem niezalecana jest produkcja buraka cukrowego.\r\nRzepak jest rośliną fisotanitarną, gdyż oczyszcza glebę z chorób podsuszkowych. Dobrze drenuje glebę i udostępnia leżące głębiej składniki pokarmowe roślinie następczej.",
+    "descr_pl": "Najlepszymi przedplonami dla rzepaku są rośliny, które wcześnie schodzą z pola i pozostawiaja po sobie czystą, oraz żyzną glebę. Są to m.in wczesne odmiany grochu, a także koniczyna czerwona, mieszanki koniczyn z trawami i lucerna zaorane po pierwszym koszeniu.\r\nDobrym przedplonem ze względu na możliwość wykonania po nich właściwej uprawy roli jest również jęczmień ozimy, pszenica jara, owies i żyto.\r\nRzepak zostawi po sobie dobre stanowisko, bogate w materię organiczną i składniki pokarmowe, szczególnie po przyoraniu słomy. Jest dobrym przedplonem dla pszenicy ozimej, jęczmienia ozimego i pszenżyta ozimego.\r\nZe względu na tendencję do osypywania się nasion a co za tym idzie pojawiania się samosiewów tej rośliny w charakterze chwastów, na plantacjach z rzepakiem niezalecana jest produkcja buraka cukrowego.\r\nRzepak jest rośliną fisotanitarną, gdyż oczyszcza glebę z chorób podsuszkowych. Dobrze drenuje glebę i udostępnia leżące głębiej składniki pokarmowe roślinie następczej.",
+    "descr_en": "Te best forecrop for canola are plants that leave field early and soil clear and fertile. Those are among others early peas, red clover, grass-clover mixes, and alfalfa, plown right after first mowing.\r\nGood forecrop due to being able to properly prepare the field are also: winter barley, summer wheat and rye.\r\nCanola leaves the field in good shape, rich in organic matter and nutrients, especially after plowing over hay. It is a good forecrop for winter wheat, winter barley, and winter triticale. \r\nDue to its tendency to self-sow its seeds, and hence weed its previous location in following years, on Canola plantations it is not advised to plant sweet beet.",
+    "from_crop": 6,
+    "at_data_string": 12,
+    "pages_from": 241,
+    "pages_to": 242,
+    "at_tag": [
+      12,
+      23
+    ]
+  }
+},
+{
   "model": "rotator.cropdatafamilysource",
   "pk": 94,
   "fields": {
@@ -19003,7 +19962,7 @@
   "pk": 11,
   "fields": {
     "title": "Międzyplony w Praktyce",
-    "part1": "Thomas F., Matthieu A. 2019. Międzyplony w praktyce",
+    "part1": "Thomas F., Archambeaud M. 2019. Międzyplony w praktyce",
     "link": null
   }
 },
@@ -19539,6 +20498,15 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 75,
+  "fields": {
+    "title": "Wikipedia CC - koniczyna czerwona",
+    "part1": "STRONGlk7 - Own work, CC BY-SA 3.0",
+    "link": "https://commons.wikimedia.org/w/index.php?curid=449768"
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 63,
   "fields": {
@@ -19935,6 +20903,13 @@
   "pk": 38,
   "fields": {
     "cropdatastring_ptr": 38
+  }
+},
+{
+  "model": "rotator.cropimagestring",
+  "pk": 75,
+  "fields": {
+    "cropdatastring_ptr": 75
   }
 },
 {
