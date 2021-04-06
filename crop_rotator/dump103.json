@@ -4426,6 +4426,7 @@
       558
     ],
     "tags": [
+      2,
       24
     ]
   }
@@ -4535,6 +4536,7 @@
       571
     ],
     "tags": [
+      2,
       24
     ]
   }
@@ -4609,6 +4611,7 @@
       585
     ],
     "tags": [
+      2,
       24
     ]
   }
@@ -4752,7 +4755,10 @@
     "crop_relationships": [
       602
     ],
-    "tags": []
+    "tags": [
+      2,
+      25
+    ]
   }
 },
 {
@@ -20681,6 +20687,74 @@
     "from_crop": 36,
     "at_data_string": 77,
     "pages_from": 76,
+    "pages_to": null,
+    "at_tag": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 132,
+  "fields": {
+    "title": "Mięta pieprzowa - Miododajne",
+    "descr": "Roślina miododajna.",
+    "descr_pl": "Roślina miododajna.",
+    "descr_en": "Nectar source.",
+    "from_crop": 101,
+    "at_data_string": 77,
+    "pages_from": 85,
+    "pages_to": null,
+    "at_tag": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 133,
+  "fields": {
+    "title": "Macierzanka Tymianek - Miododajne",
+    "descr": "Wydajność miodowa tymianku dochodzi do 200kg/ha.",
+    "descr_pl": "Wydajność miodowa tymianku dochodzi do 200kg/ha.",
+    "descr_en": "Honey-production efficiency of thymum reaches up to 200kg/ha.",
+    "from_crop": 106,
+    "at_data_string": 77,
+    "pages_from": 120,
+    "pages_to": null,
+    "at_tag": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 134,
+  "fields": {
+    "title": "Szałwia - Miododajne",
+    "descr": "Wydajność miodowa szałwi dochodzi do 300kg/ha.",
+    "descr_pl": "Wydajność miodowa szałwi dochodzi do 300kg/ha.",
+    "descr_en": "Honey-production efficiency of salvia can reach up to 300kg/ha.",
+    "from_crop": 104,
+    "at_data_string": 77,
+    "pages_from": 121,
+    "pages_to": null,
+    "at_tag": [
+      2
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 135,
+  "fields": {
+    "title": "Malina właściwa - Miododajne",
+    "descr": "Wydajność miodowa maliny właściwej wynosi pomiędzy 150-250kg/ha.",
+    "descr_pl": "Wydajność miodowa maliny właściwej wynosi pomiędzy 150-250kg/ha.",
+    "descr_en": "Honey-production efficiency of Raspberry varies between 150-250kg/ha.",
+    "from_crop": 110,
+    "at_data_string": 77,
+    "pages_from": 136,
     "pages_to": null,
     "at_tag": [
       2
