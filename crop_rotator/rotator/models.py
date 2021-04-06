@@ -302,9 +302,10 @@ class CropDataSource(models.Model):
     )
     pages_from = models.IntegerField(blank=True, null=True)
     pages_to = models.IntegerField(blank=True, null=True)
+    order = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        ordering = ["-from_crop", "title"]
+        ordering = ["-from_crop", "order", "title"]
 
     def __str__(self):
         return self.title
