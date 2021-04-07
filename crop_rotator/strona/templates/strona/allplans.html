@@ -16,13 +16,13 @@
         {% for plan in rotation_plans %}
           <hr class="featurette-divider">
            <div class="row featurette kol">
-             <div class="col-md-5 kol">
-               {% include "strona/plan_parts/plan_summary.html" %}
-             </div>
              <div class="col-md-7 kol">
                <!-- Tutaj gdzieś dodaj soil type -->
                <a href="{% url 'lurk_plan' plan.0.id %}"><h2 class="featurette-heading title">{{ plan.0.title }}</h2></a> <h5 class="text-muted">{{ plan.0.pubdate_short }}</h5>
                <a href="{% url 'lurk_plan' plan.0.id %}">{{ items.see_more }}</a>
+             </div>
+             <div class="col-md-5 kol">
+              {% include "strona/plan_parts/plan_summary.html" %}
              </div>
            </div>
         {% endfor %}
