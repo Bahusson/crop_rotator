@@ -348,7 +348,7 @@ class CropDataString(models.Model):
 class CropBookString(CropDataString):
 
         class Meta:
-            ordering = ["title"]
+            ordering = ["part1"]
 
         def __str__(self):
             return self.title

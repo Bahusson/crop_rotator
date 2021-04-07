@@ -89,6 +89,18 @@ def about(request):
     return render(request, template, context_lazy)
 
 
+#Widok "O źródłach"
+def about_sources(request):
+    pe_sources = pe(CropBookString).allelements
+    context = {
+        "sources": pe_sources,
+    }
+    pl = PageLoad(P, L)
+    context_lazy = pl.lazy_context(skins=S, context=context)
+    template = "strona/about_sources.html"
+    return render(request, template, context_lazy)
+
+
 # Widok strony "O nawozach"
 def fertilize(request):
     pe_apn = pe(AboutPageNames).baseattrs

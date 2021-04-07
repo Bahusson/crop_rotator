@@ -72,7 +72,9 @@
                 {% for source in sources %}
                   {% if source.descr %}<p>{{ source.descr|linebreaksbr }}({{ forloop.counter }})</p>{% endif %}
                 {% endfor %}
+                {% if sources %}
                 <p>{{ translatables.sources }}:</p>
+                {% endif %}
                   {% for source in sources %}
                     <p>({{ forloop.counter }}){{ source.at_data_string.part1 }}{% if source.pages_from %}
                       {% if source.pages_to %}pp. {{ source.pages_from }}-{{ source.pages_to }}

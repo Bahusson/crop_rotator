@@ -67,7 +67,7 @@ class PageLoad(object):
         return self.context
 
 
-# Klasa ładowania widoków /strony/
+# Nakładka na django do obsługi dodatku tłumaczeniowego django-modeltranslation.
 class PageElement(object):
     def __init__(self, *args, **kwargs):
         self.x = args[0]

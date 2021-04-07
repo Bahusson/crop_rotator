@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ items.about_sources }}</title>
+{% endblock %}
+
+ <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
+{% block aside %}
+<!-- Null -->
+{% block body %}
+<main role="main">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">{{ items.about_sources }}</h1>
+      <br>
+       <div class="row featurette">
+        <div class="col-md-12">
+          {% for source in sources %}
+            <p>{{ source.part1 }}</p>
+          {% endfor %}
+        </div>
+      </div>
+  </section>
+</main>
+{% endblock %}
+{% endblock aside %}
