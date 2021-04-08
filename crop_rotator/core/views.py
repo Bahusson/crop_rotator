@@ -14,13 +14,11 @@ from .snippets import flare
 from .models import RotatorAdminPanel
 from .forms import (
     RotatorAdminPanelForm,
-    ChangeElementCropsInteractionsForm,
-    ChangeElementFamilyInteractionsForm,
     )
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from strona.views import AllPlantFamilies
-from rotator.models import Crop, CropFamily, CropTag, CropInteraction
+from rotator.models import Crop, CropFamily, CropTag, CropsInteraction
 from django.views import View
 
 
@@ -105,20 +103,18 @@ class CropAdmin(View):
             for item in crops_to_tag:
                 for interaction in item.crop_relationships.all():
                     if interaction.about_tag == pe_croptag_id:
-                        form = ChangeElementCropsInteractionsForm(request.POST)
-                        if form.is_valid():
-                            flare("valid!")
-                            new_item_id = form.save(
-                             item.name,
+                        cr = CropsInteraction.create(
+                             item.name + " " + str(interaction.is_positive) + " " + interaction.about_tag.name + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")",
                              interaction.is_positive,
                              interaction.about_crop,
                              interaction.about_family,
                              interaction.about_tag,
+                             interaction.info_source,
                              interaction.type_of_interaction,
                              interaction.season_of_interaction,
                              )
-                            item.crops_interactions.add(new_item_id)
-
+                        cr.save()
+                        item.crop_relationships.add(cr.id)
             self.the_element.tags.add(element_to_add)
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')

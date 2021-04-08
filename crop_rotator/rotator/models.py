@@ -192,7 +192,6 @@ class CropMix(models.Model):
     def __str__(self):
         return self.name
 
-
 # Podstawowa klasa interakcji - niewidoczna w adminie -
 # od której dla wygody wyciągam pomniejsze poniżej.
 class CropInteraction(models.Model):
@@ -248,6 +247,20 @@ class CropInteraction(models.Model):
     season_of_interaction = models.PositiveSmallIntegerField(
         choices=CROP_TYPE, default=0
     )
+
+    @classmethod
+    def create(cls, *args):
+        interaction = cls(
+         title = args[0],
+         is_positive = args[1],
+         about_crop = args[2],
+         about_family = args[3],
+         about_tag = args[4],
+         info_source = args[5],
+         type_of_interaction = args[6],
+         season_of_interaction = args[7],
+         )
+        return interaction
 
     class Meta:
         ordering = ["title"]

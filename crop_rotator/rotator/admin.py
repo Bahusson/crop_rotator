@@ -9,6 +9,7 @@ from .models import (
     CropDataSource,
     CropDataFamilySource,
     CropDataTagSource,
+    CropInteraction,
     CropsInteraction,
     FamilyInteraction,
     TagsInteraction,
@@ -24,6 +25,7 @@ admin.site.register(CropTag)
 admin.site.register(CropDataSource)
 admin.site.register(CropDataFamilySource)
 admin.site.register(CropDataTagSource)
+admin.site.register(CropInteraction)
 admin.site.register(CropsInteraction)
 admin.site.register(FamilyInteraction)
 admin.site.register(TagsInteraction)
