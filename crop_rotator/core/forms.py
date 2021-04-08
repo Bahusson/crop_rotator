@@ -30,7 +30,19 @@ class ChangeElementCropsInteractionsForm(forms.ModelForm):
 
     class Meta:
         model = CropsInteraction
+        fields = (
+         "title", "is_positive", "about_crop", "about_family", "about_tag",
+         "type_of_interaction", "season_of_interaction",
+        )
+
+    def save(self, cropname, commit=True):
+        pass #element.title = cropname + " " + str(self.cleaned_data['is_positive']) +
 
 
-class ChangeElementFamilyInteractionsForm(forms.ModelForm):
-    pass
+class ChangeElementFamilyInteractionsForm(ChangeElementCropsInteractionsForm):
+
+    class Meta:
+        model = FamilyInteraction
+        fields = (
+         "title", "is_positive", "about_crop", "about_family", "about_tag",
+        )
