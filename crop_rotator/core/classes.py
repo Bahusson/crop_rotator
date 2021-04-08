@@ -175,9 +175,6 @@ class PlannerRelationship(object):
             "crop_to_family": self.a[4].crop_relationships.filter(about_family__id=self.b[4].family.id),
             "family_to_crop": self.a[4].family.family_relationships.filter(about_crop__id=self.b[4].id),
             "family_to_family": self.a[4].family.family_relationships.filter(about_family__id=self.b[4].family.id),
-            # tag_relationships:
-            "crop_to_tag": [self.b[4].tags.all(), self.a[4].crop_relationships],
-            "family_to_tag": [self.b[4].tags.all(), self.a[4].family.family_relationships],
         }
         self.seasondict = {
             0: None,
