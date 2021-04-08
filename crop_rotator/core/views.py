@@ -20,7 +20,7 @@ from .forms import (
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from strona.views import AllPlantFamilies
-from rotator.models import Crop, CropFamily, CropTag
+from rotator.models import Crop, CropFamily, CropTag, CropInteraction
 from django.views import View
 
 
@@ -97,10 +97,27 @@ class CropAdmin(View):
             element_to_add = request.POST.get('add_element')
             pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
             crops_to_tag = Crop.objects.filter(crop_relationships__about_tag=element_to_add)
-            flare(list(crops_to_tag))
-            #for item in pe_croptag_id:
-            #    form = ChangeElementCropsInteractionsForm(id=pe_croptag_id)
-
+            family_to_tag = Crop.objects.filter(family__family_relationships__about_tag=element_to_add)
+            tag_to_tag = Crop.objects.filter(crop_relationships__about_tag__crop_relationships__about_tag=element_to_add)
+        #    flare(list(crops_to_tag), name= "Crop_to_Tag")
+        #    flare(list(family_to_tag), name= "Family_to_Tag")
+        #    flare(list(tag_to_tag), name= "Tag_to_Tag")
+            for item in crops_to_tag:
+                for interaction in item.crop_relationships.all():
+                    if interaction.about_tag == pe_croptag_id:
+                        form = ChangeElementCropsInteractionsForm(request.POST)
+                        if form.is_valid():
+                            flare("valid!")
+                            new_item_id = form.save(
+                             item.name,
+                             interaction.is_positive,
+                             interaction.about_crop,
+                             interaction.about_family,
+                             interaction.about_tag,
+                             interaction.type_of_interaction,
+                             interaction.season_of_interaction,
+                             )
+                            item.crops_interactions.add(new_item_id)
 
             self.the_element.tags.add(element_to_add)
         if "remove_element_button" in request.POST:
