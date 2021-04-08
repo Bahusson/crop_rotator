@@ -89,6 +89,17 @@ class CropAdmin(View):
         return render(request, template, context_lazy)
 
     def post(self, request, *args, **kwargs):
+        if "remove_element" in request.POST:
+            element_to_remove = request.POST.get('remove_element')
+            self.the_element.tags.remove(element_to_remove)
+
+
+        if "add_element" in request.POST:
+            element_to_add = request.POST.get('add_element')
+            self.the_element.tags.add(element_to_add)
+
+
+
         return redirect('crop_admin', self.element_id)
 
 # Edytuj
