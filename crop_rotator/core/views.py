@@ -12,7 +12,11 @@ from .classes import (
 )
 from .snippets import flare
 from .models import RotatorAdminPanel
-from .forms import RotatorAdminPanelForm
+from .forms import (
+    RotatorAdminPanelForm,
+    ChangeElementCropsInteractionsForm,
+    ChangeElementFamilyInteractionsForm,
+    )
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from strona.views import AllPlantFamilies
@@ -89,14 +93,17 @@ class CropAdmin(View):
         return render(request, template, context_lazy)
 
     def post(self, request, *args, **kwargs):
-        if "remove_element" in request.POST:
-            element_to_remove = request.POST.get('remove_element')
-            self.the_element.tags.remove(element_to_remove)
-
-
-        if "add_element" in request.POST:
+        if "add_element_button" in request.POST:
             element_to_add = request.POST.get('add_element')
+            pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
+            for item in pe_croptag_id:
+                form = ChangeElementCropsInteractionsForm(id=pe_croptag_id)
+
+
             self.the_element.tags.add(element_to_add)
+        if "remove_element_button" in request.POST:
+            element_to_remove = request.POST.get('remove_element')
+        #    for item in self.the_element.tags
 
 
 
