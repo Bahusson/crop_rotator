@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ items.all_plants }}</title>
+{% endblock %}
+
+ <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
+{% block aside %}
+<!-- Null -->
+{% block body %}
+
+<br>
+<br>
+<br>
+    <main role="main">
+      <div class="row">
+        <div class="col-md-12 blog-main">
+          <h2 class ="text-center pt-3">PANEL ADMINISTRACYJNY</h2>
+          <h1 class="text-center pt-3 ">{{ items.all_plants }} - {% if redir == "crop_admin" %}{{ items.by_crops }}{% elif redir == "family_admin" %}{{ items.by_families }}{% elif redir == "tag_admin" %}{{ items.by_tags }}{% endif %}</h1>
+        </div>
+        <div class="col-md-12 blog-main">'
+        {% if not redir == "crop_admin" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_crops_admin' %}">{{ items.by_crops }}</a></button>{% endif %}
+        {% if not redir == "family_admin" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_families_admin' %}">{{ items.by_families }}</a></button>{% endif %}
+        {% if not redir == "tag_admin" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_tags_admin' %}">{{ items.by_tags }}</a></button>{% endif %}
+      </div>
+      </div>
+      {% include 'strona/crop_parts/divide_list_by_3_part.html' %}
+    </main>
+    <!-- empty div -->
+      <div class="top-content">
+        <div class="container">
+      <div class="row">	<div class="col-sm-12 text wow fadeInLeft"></div></div>
+
+
+    </div>
+    </div>
+    <!-- end of empty div -->
+
+{% endblock %}
+{% endblock aside %}

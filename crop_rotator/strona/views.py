@@ -117,6 +117,7 @@ def fertilize(request):
 class AllPlantFamilies(View):
     crf = CropFamily.objects.filter(is_family_slave=False)
     redirect_link = "family"
+    template = "strona/all_plant_families.html"
 
     def get(self, request, *args, **kwargs):
         sl3 = slice_list_3(self.crf)
@@ -127,9 +128,8 @@ class AllPlantFamilies(View):
             "ml2": sl3[1],
         }
         pl = PageLoad(P, L)
-        template = "strona/all_plant_families.html"
         context_lazy = pl.lazy_context(skins=S, context=context)
-        return render(request, template, context_lazy)
+        return render(request, self.template, context_lazy)
 
 
 # Spis wszystkich tagów.

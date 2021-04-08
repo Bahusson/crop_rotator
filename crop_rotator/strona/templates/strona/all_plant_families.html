@@ -16,52 +16,15 @@
     <main role="main">
       <div class="row">
         <div class="col-md-12 blog-main">
-          <h1 class="text-center pt-3 ">{{ items.all_plants }} - {% if redir == "crop" %}{{ items.by_crops }}{% elif redir == "family" %}{{ items.by_families }}{% else %}{{ items.by_tags }}{% endif %}</h1>
+          <h1 class="text-center pt-3 ">{{ items.all_plants }} - {% if redir == "crop" %}{{ items.by_crops }}{% elif redir == "family" %}{{ items.by_families }}{% elif redir == "tag" %}{{ items.by_tags }}{% endif %}</h1>
         </div>
-        <div class="col-md-12 blog-main">
+        <div class="col-md-12 blog-main">'
         {% if not redir == "crop" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_crops' %}">{{ items.by_crops }}</a></button>{% endif %}
         {% if not redir == "family" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_plant_families' %}">{{ items.by_families }}</a></button>{% endif %}
         {% if not redir == "tag" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_tags' %}">{{ items.by_tags }}</a></button>{% endif %}
       </div>
       </div>
-      <div class="container">
-        <div class="row">
-          <hr />
-          <br />
-              <div class="col-md-4 shdwn">
-              {% with  master_slice1=ml1|stringformat:"s" %}
-              {% with  msl=":"|add:master_slice1 %}
-              {% for family in families|slice:msl %}
-                <p><a href="{% url redir family.id %}">{{ family.name }}</a></p>
-              {% endfor %}
-              {% endwith %}
-              {% endwith %}
-              </div>
-              <div class="col-md-4 shdwn">
-              {% with  master_slice1=ml1|stringformat:"s" %}
-              {% with  middleman=master_slice1|add:":" %}
-              {% with  master_slice2=ml2|stringformat:"s" %}
-              {% with  msl=middleman|add:master_slice2 %}
-              {% for family in families|slice:msl %}
-                <p><a href="{% url redir family.id %}">{{ family.name }}</a></p>
-              {% endfor %}
-              {% endwith %}
-              {% endwith %}
-              {% endwith %}
-              {% endwith %}
-              </div>
-              <div class="col-md-4 shdwn">
-              {% with  master_slice2=ml2|stringformat:"s" %}
-              {% with  msl=master_slice2|add:":" %}
-              {% for family in families|slice:msl %}
-                <p><a href="{% url redir family.id %}">{{ family.name }}</a></p>
-              {% endfor %}
-              {% endwith %}
-              {% endwith %}
-              </div>
-          <br />
-          </div>
-        </div>
+      {% include 'strona/crop_parts/divide_list_by_3_part.html' %}
     </main>
     <!-- empty div -->
       <div class="top-content">
