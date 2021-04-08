@@ -67,6 +67,7 @@ class CropAdmin(View):
     taglist = CropTag.objects.all()
 
     def dispatch(self, request, element_id, *args, **kwargs):
+        self.element_id = element_id
         pe_element = pe(self.the_element_class)
         self.the_element = pe_element.by_id(G404=G404, id=element_id)
         if self.the_element_class == Crop:
@@ -88,7 +89,7 @@ class CropAdmin(View):
         return render(request, template, context_lazy)
 
     def post(self, request, *args, **kwargs):
-        pass
+        return redirect('crop_admin', self.element_id)
 
 # Edytuj
 @method_decorator(staff_member_required, name="dispatch")

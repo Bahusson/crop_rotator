@@ -19,10 +19,12 @@
           <h2 class ="text-center pt-3">PANEL ADMINISTRACYJNY</h2>
           <h1 class="text-center pt-3 ">Edytujesz: {{ element.name }}</h1>
         </div>
-        <div class="col-md-12 blog-main">'
+        <div class="col-md-12 blog-main">
+        <form name="ElementChangeForm" method="post" class="form">
+          {% csrf_token %}
         {% if element.tags %}
         {% for tag in element.tags.all %}
-          <p>{{ tag.name }}   <button class="btn btn-link-3 btn-light" remove_element="{{ tag.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
+          <p>{{ tag.name }}   <button class="btn btn-link-3 btn-light" remove_key="0" remove_element="{{ tag.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
         {% endfor %}
         <div class="row master0" value="1782">
           <div class="col-md-9" value="254">
@@ -41,6 +43,11 @@
           </div>
         </div>
       {% endif %}
+      <input type="hidden" id="add_key" name="add_key" value=""/>
+      <input type="hidden" id="add_element" name="add_element" value=""/>
+      <input type="hidden" id="remove_key" name="remove_key" value=""/>
+      <input type="hidden" id="remove_element" name="remove_element" value=""/>
+    </form>
       </div>
     </main>
     <!-- empty div -->
