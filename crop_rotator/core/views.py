@@ -4,6 +4,7 @@ from crop_rotator.settings import LANGUAGES as L
 from strona.models import (
     PageSkin as S,
     PageNames as P,
+    RotatorEditorPageNames,
 )
 from .classes import (
     PageElement as pe,
@@ -62,6 +63,8 @@ class AllTagsAdmin(AllPlantFamilies):
 @method_decorator(staff_member_required, name="dispatch")
 class CropAdmin(View):
     the_element_class = Crop
+    translatables = pe(RotatorEditorPageNames).baseattrs
+    taglist = CropTag.objects.all()
 
     def dispatch(self, request, element_id, *args, **kwargs):
         pe_element = pe(self.the_element_class)
@@ -76,6 +79,8 @@ class CropAdmin(View):
     def get(self, request, *args, **kwargs):
         context = {
             "element": self.the_element,
+            "translatables": self.translatables,
+            "taglist": self.taglist,
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)

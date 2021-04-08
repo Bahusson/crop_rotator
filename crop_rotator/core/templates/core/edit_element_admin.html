@@ -20,9 +20,27 @@
           <h1 class="text-center pt-3 ">Edytujesz: {{ element.name }}</h1>
         </div>
         <div class="col-md-12 blog-main">'
-          <p>Tutaj idzie jakiś formularz</p>
-
-      </div>
+        {% if element.tags %}
+        {% for tag in element.tags.all %}
+          <p>{{ tag.name }}   <button class="btn btn-link-3 btn-light" remove_element="{{ tag.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
+        {% endfor %}
+        <div class="row master0" value="1782">
+          <div class="col-md-9" value="254">
+            <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
+              <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
+              {% for tag in taglist %}
+                {% if tag not in element.tags.all %}
+                <option value="{{ tag.id }}">{{ tag.name }}</option>
+                {% endif %}
+              {% endfor %}
+            </select></p>
+          </div>
+          <div class="col-md-3">
+            <p>
+              <button class="btn btn-link-3 btn-light" name="add_element_button">{{ translatables.add_element }}</button></p>
+          </div>
+        </div>
+      {% endif %}
       </div>
     </main>
     <!-- empty div -->
@@ -37,3 +55,8 @@
 
 {% endblock %}
 {% endblock aside %}
+
+{% block scripts %}
+<script src="/static/assets/js/remove_elements.js"></script>
+<script src="/static/assets/js/add_elements.js"></script>
+{% endblock scripts %}
