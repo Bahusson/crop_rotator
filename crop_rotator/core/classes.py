@@ -203,39 +203,6 @@ class PlannerRelationship(object):
                 self.finishing(given_list=kwargs['given_list'])
                 return self.given_list
 
-    def tag_relationship(self, **kwargs):
-        for tag in self.ifdict[kwargs['relationship']][0]:
-            if self.ifdict[kwargs['relationship']][1].filter(about_tag__id=tag.id).exists():
-                for self.i in self.ifdict[kwargs['relationship']][1].filter(about_tag__id=tag.id):
-                    self.finishing(given_list=kwargs['given_list'])
-                    return self.given_list
-
-    # Wszystko co jest .all() jest zasobożerne.
-    # Dawaj .exist() jeśli się da, bo to tylko jedno zapytanie zamiast łażenia po pętli.
-    # A jak już dajesz 2xall, to szykuj się, że będzie mulić do kwadratu...
-    # Do optymalizacji - jeśli to w ogóle możliwe - patrz: odłożone karty na GLO['interakcje'].
-    def reverse_tag_relationship(self, **kwargs):
-        for tag in self.a[4].tags.all():
-            for self.i in tag.crop_relationships.all():
-                self.tag_dict = {
-                    "tag_to_crop": [self.i.about_crop, self.b[4]],
-                    "tag_to_family": [self.i.about_family, self.b[4].family],
-                }
-                if self.tag_dict[kwargs['relationship']][0] == self.tag_dict[kwargs['relationship']][1]:
-                    self.finishing(given_list=kwargs['given_list'])
-                    return self.given_list
-
-    # Nie testowałem taga do tagu (zatem pewnie nie działa :P), bo to będzie potencjalnie nieracjonalnie zasobożerne i na razie nie znalazłem zastosowania...
-    # Jak znajdę to zrobię i wprowadzę. W ogóle to powinien być jakiś przełącznik na to wszystko czy coś... :]
-    def tag_to_tag_relationship(self, **kwargs):
-        for tag in self.a[4].tags.all():
-            for tag2 in tag.crop_relationships.all():
-                for tag3 in self.b[4].tags.all():
-                    for self.i in tag3.crop_ralationships.all():
-                        if self.i.about_tag == tag2.about_tag:
-                            self.finishing(given_list=kwargs['given_list'])
-                            return self.given_list
-
 
 # Klasa obchodzi błędy związane z używaniem wzornika CropPlanner tam gdzie nie potrzeba analizować treści.
 class DummyCropPlanner(object):
@@ -306,12 +273,8 @@ class CropPlanner(object):
         err_crop_list = []
         crop_interaction_list = []
         family_interaction_list = []
-        tag_interaction_list = []
         crop_interaction_list_f = []
         family_interaction_list_f = []
-        tag_interaction_list_f = []
-        crop_interaction_list_t = []
-        family_interaction_list_t = []
         for item in cooldown_list:
             if item[0] > len_listed_pe_rs:
                 error_len_crops.append(item[1])
@@ -329,30 +292,19 @@ class CropPlanner(object):
                 pr.relationship(given_list=family_interaction_list, relationship="crop_to_family")
                 pr.relationship(given_list=crop_interaction_list_f, relationship="family_to_crop")
                 pr.relationship(given_list=family_interaction_list_f, relationship="family_to_family")
-                pr.tag_relationship(given_list=tag_interaction_list, relationship="crop_to_tag")
-                pr.tag_relationship(given_list=tag_interaction_list_f, relationship="family_to_tag")
-                pr.reverse_tag_relationship(given_list=crop_interaction_list_t, relationship="tag_to_crop")
-                pr.reverse_tag_relationship(given_list=family_interaction_list_t, relationship="tag_to_family")
+
         fabs = []
         tabs = []
         self.interactions = []
         self.interactions_f = []
         self.f_interactions = []
         self.f_interactions_f = []
-        self.interactions_t = []
-        self.f_interactions_t = []
-        self.t_interactions = []
-        self.t_interactions_f = []
         remove_repeating(fabs, fabacae)
         remove_repeating(tabs, err_tab_list)
         remove_repeating(self.interactions, crop_interaction_list)
         remove_repeating(self.interactions_f, family_interaction_list)
         remove_repeating(self.f_interactions, crop_interaction_list_f)
         remove_repeating(self.f_interactions_f, family_interaction_list_f)
-        remove_repeating(self.interactions_t, tag_interaction_list)
-        remove_repeating(self.f_interactions_t, tag_interaction_list_f)
-        remove_repeating(self.t_interactions, crop_interaction_list_t)
-        remove_repeating(self.t_interactions_f, family_interaction_list_t)
         fabs_percent = float(len(fabs)) / float(self.top_tier * 3)
         fabs_rounded = round(fabs_percent, 3)
         flare(fabs_rounded)
@@ -373,10 +325,6 @@ class CropPlanner(object):
             "interactions_f": self.interactions_f,
             "f_interactions": self.f_interactions,
             "f_interactions_f": self.f_interactions_f,
-            "interactions_t": self.interactions_t,
-            "f_interactions_t": self.f_interactions_t,
-            "t_interactions": self.t_interactions,
-            "t_interactions_f": self.t_interactions_f,
             "f_error": self.fabs_error,
             "efcs": self.error_family_crops,
             "cr_len_warning": self.clw,
