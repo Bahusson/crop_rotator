@@ -1,15 +1,11 @@
 from django import forms
 from .models import RotatorAdminPanel
+from rotator.models import CropsInteraction, FamilyInteraction
 from .snippets import flare
 
 
-
-
 class RotatorAdminPanelForm(forms.ModelForm):
-    #max_steps = forms.IntegerField()
-    #max_user_plans = forms.IntegerField()
-    #lurk_plan_cooldown = forms.IntegerField()
-    #evaluated_plan_cooldown = forms.IntegerField()
+
     class Meta:
         model = RotatorAdminPanel
         fields = (
@@ -28,3 +24,13 @@ class RotatorAdminPanelForm(forms.ModelForm):
         if commit:
             panel.save()
         return panel
+
+
+class ChangeElementCropsInteractionsForm(forms.ModelForm):
+
+    class Meta:
+        model = CropsInteraction
+
+
+class ChangeElementFamilyInteractionsForm(forms.ModelForm):
+    pass
