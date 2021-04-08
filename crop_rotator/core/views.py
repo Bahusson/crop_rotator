@@ -9,6 +9,7 @@ from .classes import (
     PageElement as pe,
     PageLoad,
 )
+from .snippets import flare
 from .models import RotatorAdminPanel
 from .forms import RotatorAdminPanelForm
 from django.contrib.admin.views.decorators import staff_member_required
@@ -63,20 +64,17 @@ class CropAdmin(View):
     the_element_class = Crop
     pe_element = pe(the_element_class)
 
-
     def dispatch(self, request, element_id, *args, **kwargs):
-        the_element = self.pe_element.by_id(G404=G404, id=element_id)
-        if self.the_element_class == Crop:
-            if the_element.family.is_family_slave:
-                the_element_family = the_element.family.master_family
-            else:
-                the_element_family = the_element.family
+        self.the_element = self.pe_element.by_id(G404=G404, id=element_id)
+        if self.the_element.family.is_family_slave:
+            the_element_family = self.the_element.family.master_family
+        else:
+            the_element_family = self.the_element.family
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)
-
 
     def get(self, request, *args, **kwargs):
         context = {
-
+            "element": self.the_element,
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
@@ -89,8 +87,17 @@ class CropAdmin(View):
 # Edytuj
 @method_decorator(staff_member_required, name="dispatch")
 class FamilyAdmin(CropAdmin):
-    pass
+    the_element_class = CropFamily
+
+    def dispatch(self, request, element_id, *args, **kwargs):
+        self.the_element = self.pe_element.by_id(G404=G404, id=element_id)
+        return super(CropAdmin, self).dispatch(request, *args, **kwargs)
+
 
 @method_decorator(staff_member_required, name="dispatch")
 class TagAdmin(CropAdmin):
-    pass
+    the_element_class = CropTag
+
+    def dispatch(self, request, element_id, *args, **kwargs):
+        self.the_element = self.pe_element.by_id(G404=G404, id=element_id)
+        return super(CropAdmin, self).dispatch(request, *args, **kwargs)
