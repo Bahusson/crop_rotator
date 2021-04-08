@@ -62,14 +62,15 @@ class AllTagsAdmin(AllPlantFamilies):
 @method_decorator(staff_member_required, name="dispatch")
 class CropAdmin(View):
     the_element_class = Crop
-    pe_element = pe(the_element_class)
 
     def dispatch(self, request, element_id, *args, **kwargs):
-        self.the_element = self.pe_element.by_id(G404=G404, id=element_id)
-        if self.the_element.family.is_family_slave:
-            the_element_family = self.the_element.family.master_family
-        else:
-            the_element_family = self.the_element.family
+        pe_element = pe(self.the_element_class)
+        self.the_element = pe_element.by_id(G404=G404, id=element_id)
+        if self.the_element_class == Crop:
+            if self.the_element.family.is_family_slave:
+                the_element_family = self.the_element.family.master_family
+            else:
+                the_element_family = self.the_element.family
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
@@ -89,15 +90,7 @@ class CropAdmin(View):
 class FamilyAdmin(CropAdmin):
     the_element_class = CropFamily
 
-    def dispatch(self, request, element_id, *args, **kwargs):
-        self.the_element = self.pe_element.by_id(G404=G404, id=element_id)
-        return super(CropAdmin, self).dispatch(request, *args, **kwargs)
-
 
 @method_decorator(staff_member_required, name="dispatch")
 class TagAdmin(CropAdmin):
     the_element_class = CropTag
-
-    def dispatch(self, request, element_id, *args, **kwargs):
-        self.the_element = self.pe_element.by_id(G404=G404, id=element_id)
-        return super(CropAdmin, self).dispatch(request, *args, **kwargs)
