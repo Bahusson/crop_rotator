@@ -96,8 +96,10 @@ class CropAdmin(View):
         if "add_element_button" in request.POST:
             element_to_add = request.POST.get('add_element')
             pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
-            for item in pe_croptag_id:
-                form = ChangeElementCropsInteractionsForm(id=pe_croptag_id)
+            crops_to_tag = Crop.objects.filter(crop_relationships__about_tag=element_to_add)
+            flare(list(crops_to_tag))
+            #for item in pe_croptag_id:
+            #    form = ChangeElementCropsInteractionsForm(id=pe_croptag_id)
 
 
             self.the_element.tags.add(element_to_add)
@@ -106,7 +108,7 @@ class CropAdmin(View):
         #    for item in self.the_element.tags
 
 
-
+            self.the_element.tags.remove(element_to_remove)
         return redirect('crop_admin', self.element_id)
 
 # Edytuj
