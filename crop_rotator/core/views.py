@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404 as G404
 from crop_rotator.settings import LANGUAGES as L
 from strona.models import (
     PageSkin as S,
@@ -59,8 +60,33 @@ class AllTagsAdmin(AllPlantFamilies):
 
 @method_decorator(staff_member_required, name="dispatch")
 class CropAdmin(View):
-    pass
+    the_element_class = Crop
+    pe_element = pe(the_element_class)
 
+
+    def dispatch(self, request, element_id, *args, **kwargs):
+        the_element = self.pe_element.by_id(G404=G404, id=element_id)
+        if self.the_element_class == Crop:
+            if the_element.family.is_family_slave:
+                the_element_family = the_element.family.master_family
+            else:
+                the_element_family = the_element.family
+        return super(CropAdmin, self).dispatch(request, *args, **kwargs)
+
+
+    def get(self, request, *args, **kwargs):
+        context = {
+
+        }
+        pl = PageLoad(P, L)
+        context_lazy = pl.lazy_context(skins=S, context=context)
+        template = "core/edit_element_admin.html"
+        return render(request, template, context_lazy)
+
+    def post(self, request, *args, **kwargs):
+        pass
+
+# Edytuj
 @method_decorator(staff_member_required, name="dispatch")
 class FamilyAdmin(CropAdmin):
     pass
