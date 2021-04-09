@@ -95,7 +95,7 @@ class CropAdmin(View):
             element_to_add = request.POST.get('add_element')
         #    pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
             crops_to_tag = Crop.objects.filter(crop_relationships__about_tag=element_to_add)
-            family_to_tag = Crop.objects.filter(family__family_relationships__about_tag=element_to_add)
+            family_to_tag = Crop.objects.filter(family__crop_relationships__about_tag=element_to_add)
             tag_to_tag = Crop.objects.filter(crop_relationships__about_tag__crop_relationships__about_tag=element_to_add)
         #    flare(list(crops_to_tag), name= "Crop_to_Tag")
         #    flare(list(family_to_tag), name= "Family_to_Tag")
@@ -121,8 +121,8 @@ class CropAdmin(View):
             for tag in self.the_element.tags.all():
                 if tag.id == element_to_remove:
                     for interaction in tag.crop_relationships.all():
-                        if interaction
-                        #
+                        if interaction:
+                            pass
                 #    cr = CropsInteraction
 
 

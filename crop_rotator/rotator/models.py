@@ -31,7 +31,7 @@ class CropFamily(models.Model):
     # W jakiej kulturze zostawia po użyciu wraz z obornikiem?
     is_mandatory_crop = models.BooleanField(default=False)
     # Czy musi występować w płodozmianie? (Bo trzeba wyróżnić Bobowate)
-    family_relationships = models.ManyToManyField(
+    crop_relationships = models.ManyToManyField(
         "FamilyInteraction", related_name="known_family_interactions", blank=True
     )
     is_family_slave = models.BooleanField(default=False)
