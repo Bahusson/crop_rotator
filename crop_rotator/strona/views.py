@@ -199,11 +199,11 @@ class InteractionPage(View):
             crop_to_f = Crop.objects.filter(
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
-             )
+            )
             family_to_f = CropFamily.objects.filter(
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
-             )
+            )
             tag_to_f = CropTag.objects.filter(
             crop_relationships__about_family=family_id,
             crop_relationships__is_server_generated=False,
@@ -233,9 +233,18 @@ class InteractionPage(View):
             tag = myitem.by_id(G404=G404, id=crop_id)
             for relationship in tag.crop_relationships.all():
                 crop_tags_from.append((tag,relationship))
-            crop_to_t = Crop.objects.filter(crop_relationships__about_tag=tag.id)
-            family_to_t = CropFamily.objects.filter(crop_relationships__about_tag=tag.id)
-            tag_to_t = CropTag.objects.filter(crop_relationships__about_tag=tag.id)
+            crop_to_t = Crop.objects.filter(
+             crop_relationships__about_tag=tag.id,
+             crop_relationships__is_server_generated=False,
+            )
+            family_to_t = CropFamily.objects.filter(
+             crop_relationships__about_tag=tag.id,
+             crop_relationships__is_server_generated=False,
+            )
+            tag_to_t = CropTag.objects.filter(
+             crop_relationships__about_tag=tag.id,
+             crop_relationships__is_server_generated=False,
+            )
             crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
             for item in crop_tags_to_0:
                 crop_tags_to.append(item)
@@ -252,9 +261,18 @@ class InteractionPage(View):
             for tag in pe_c_id.tags.all():
                 for relationship in tag.crop_relationships.all():
                     crop_tags_from.append((tag,relationship))
-                crop_to_t = Crop.objects.filter(crop_relationships__about_tag=tag.id)
-                family_to_t = CropFamily.objects.filter(crop_relationships__about_tag=tag.id)
-                tag_to_t = CropTag.objects.filter(crop_relationships__about_tag=tag.id)
+                crop_to_t = Crop.objects.filter(
+                 crop_relationships__about_tag=tag.id,
+                 crop_relationships__is_server_generated=False,
+                )
+                family_to_t = CropFamily.objects.filter(
+                 crop_relationships__about_tag=tag.id,
+                 crop_relationships__is_server_generated=False,
+                )
+                tag_to_t = CropTag.objects.filter(
+                 crop_relationships__about_tag=tag.id,
+                 crop_relationships__is_server_generated=False,
+                )
                 crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
                 for item in crop_tags_to_0:
                     crop_tags_to.append(item)
