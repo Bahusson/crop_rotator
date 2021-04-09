@@ -68,6 +68,25 @@ class CropAdmin(View):
     translatables = pe(RotatorEditorPageNames).baseattrs
     taglist = CropTag.objects.all()
 
+    def add_element(self, query, element_to_add):
+        pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
+        for item in query:
+            for interaction in item.crop_relationships.all():
+                if interaction.about_tag == pe_croptag_id:
+                    cr = CropsInteraction.create(
+                         item.name + " " + str(interaction.is_positive) + " " + interaction.about_tag.name + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")",
+                         interaction.is_positive,
+                         self.the_element,
+                         interaction.about_family,
+                         interaction.about_tag,
+                         interaction.info_source,
+                         interaction.type_of_interaction,
+                         interaction.season_of_interaction,
+                         )
+                    cr.save()
+                    item.crop_relationships.add(cr.id)
+        self.the_element.tags.add(element_to_add)
+
     def dispatch(self, request, element_id, *args, **kwargs):
         self.element_id = element_id
         pe_element = pe(self.the_element_class)
@@ -99,23 +118,7 @@ class CropAdmin(View):
             flare(list(crops_to_tag), name= "Crop_to_Tag")
         #    flare(list(family_to_tag), name= "Family_to_Tag")
         #    flare(list(tag_to_tag), name= "Tag_to_Tag")
-            pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
-            for item in crops_to_tag:
-                for interaction in item.crop_relationships.all():
-                    if interaction.about_tag == pe_croptag_id:
-                        cr = CropsInteraction.create(
-                             item.name + " " + str(interaction.is_positive) + " " + interaction.about_tag.name + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")",
-                             interaction.is_positive,
-                             self.the_element,
-                             interaction.about_family,
-                             interaction.about_tag,
-                             interaction.info_source,
-                             interaction.type_of_interaction,
-                             interaction.season_of_interaction,
-                             )
-                        cr.save()
-                        item.crop_relationships.add(cr.id)
-            self.the_element.tags.add(element_to_add)
+            self.add_element(crops_to_tag, element_to_add)
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
             filter_cr1 = CropsInteraction.objects.filter(about_crop=self.the_element.id, about_tag=element_to_remove)
