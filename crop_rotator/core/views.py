@@ -92,7 +92,10 @@ class CropAdmin(View):
         self.the_element.tags.add(element_to_add)
 
     def add_tag_element(self, query, element_to_add):
-        pass
+        for item in query:
+            for interaction in item.family.crop_relationships.all():
+                self.add_common(interaction, item, element_to_add)
+        self.the_element.tags.add(element_to_add)
 
     def add_common(self, interaction, item, element_to_add):
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
@@ -127,13 +130,13 @@ class CropAdmin(View):
             element_to_add = request.POST.get('add_element')
             crops_to_tag = Crop.objects.filter(crop_relationships__about_tag=element_to_add)
             family_to_tag = Crop.objects.filter(family__crop_relationships__about_tag=element_to_add)
-            tag_to_tag = Crop.objects.filter(crop_relationships__about_tag__crop_relationships__about_tag=element_to_add)
+            tag_to_tag = Crop.objects.filter(tags__crop_relationships__about_tag=element_to_add)
         #    flare(list(crops_to_tag), name= "Crop_to_Tag")
         #    flare(list(family_to_tag), name= "Family_to_Tag")
-        #    flare(list(tag_to_tag), name= "Tag_to_Tag")
+            flare(list(tag_to_tag), name= "Tag_to_Tag")
         #    self.add_element(crops_to_tag, element_to_add)
         #    self.add_family_element(family_to_tag, element_to_add)
-        #    self.add_tag_element(tag_to_tag, element_to_add)
+            self.add_tag_element(tag_to_tag, element_to_add)
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
             filter_cr1 = CropsInteraction.objects.filter(about_crop=self.the_element.id, about_tag=element_to_remove)
