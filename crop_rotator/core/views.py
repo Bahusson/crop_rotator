@@ -128,9 +128,14 @@ class CropAdmin(View):
             elif interaction.about_tag is not None:
                 query = Crop.objects.filter(
                  tags__crop_relationships__about_tag=interaction.about_tag.id)
-                
-            else:  # Jeśli tag uszkodzony - możesz dodać ostrzeżenie o błędzie.
-                return redirect('crop_admin', self.element_id)
+                for item in query:
+                    self.add_common(
+                         interaction, self.the_element, pe_croptag_id, self.the_element.id, item.id,
+                          item,
+                          )
+                self.the_element.tags.add(element_to_add)
+            else:  # Jeśli tag też pusty śmigaj dalej. TODO: Daj jakieś ostrzeżenie o błędzie.
+                continue
             self.add_common(
              interaction, self.the_element, pe_croptag_id, self.the_element.id,
              tag_type.id, interaction.about_crop,
@@ -139,9 +144,7 @@ class CropAdmin(View):
 
     def add_common(self, interaction, item, pe_croptag_id, item1, item2, about_crop):
         if item1 != item2:
-            signature = str(item1) + " " + str(interaction.is_positive) + " "
-            + str(item2) + " (" + str(interaction.type_of_interaction) + ")("
-            + str(interaction.season_of_interaction) + ")"
+            signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
             if not CropsInteraction.objects.filter(title=signature).exists():
                 cr = CropsInteraction.create(
                      signature,
