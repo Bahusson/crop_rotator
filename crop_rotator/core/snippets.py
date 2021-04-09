@@ -205,25 +205,25 @@ def list_crops_to(myitem ,crops_query, family_query, tag_query, variant):
     item_id = myitem.id
     for crop in crops_query:
         variantdict={
-        "crop": crop.crop_relationships.filter(about_crop=item_id),
-        "family": crop.crop_relationships.filter(about_family=item_id),
-        "tag": crop.crop_relationships.filter(about_tag=item_id),
+        "crop": crop.crop_relationships.filter(about_crop=item_id, is_server_generated=False),
+        "family": crop.crop_relationships.filter(about_family=item_id, is_server_generated=False),
+        "tag": crop.crop_relationships.filter(about_tag=item_id, is_server_generated=False),
         }
         for item in variantdict[variant]:
             list_appending.append((crop, item, variant, myitem))
     for family in family_query:
         variantdict={
-        "crop": family.crop_relationships.filter(about_crop=item_id),
-        "family": family.crop_relationships.filter(about_family=item_id),
-        "tag": family.crop_relationships.filter(about_tag=item_id),
+        "crop": family.crop_relationships.filter(about_crop=item_id, is_server_generated=False),
+        "family": family.crop_relationships.filter(about_family=item_id, is_server_generated=False),
+        "tag": family.crop_relationships.filter(about_tag=item_id, is_server_generated=False),
         }
         for item in variantdict[variant]:
             list_appending.append((family, item, variant, myitem))
     for tag in tag_query:
         variantdict={
-        "crop": tag.crop_relationships.filter(about_crop=item_id),
-        "family": tag.crop_relationships.filter(about_family=item_id),
-        "tag": tag.crop_relationships.filter(about_tag=item_id),
+        "crop": tag.crop_relationships.filter(about_crop=item_id, is_server_generated=False),
+        "family": tag.crop_relationships.filter(about_family=item_id, is_server_generated=False),
+        "tag": tag.crop_relationships.filter(about_tag=item_id, is_server_generated=False),
         }
         for item in variantdict[variant]:
             list_appending.append((tag, item, variant, myitem))
