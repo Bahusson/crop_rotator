@@ -110,9 +110,10 @@ class CropAdmin(View):
         self.the_element.tags.add(element_to_add)
 
     def add_common(self, interaction, item, pe_croptag_id):
-        if interaction.about_tag == pe_croptag_id and not interaction.is_server_generated:
+        signature = str(item.id) + " " + str(interaction.is_positive) + " " + str(self.the_element.id) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
+        if interaction.about_tag == pe_croptag_id and not CropsInteraction.objects.filter(title=signature).exists():
             cr = CropsInteraction.create(
-                 item.name + " " + str(interaction.is_positive) + " " + self.the_element.name + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")",
+                 signature,
                  interaction.is_positive,
                  self.the_element,
                  interaction.about_family,
