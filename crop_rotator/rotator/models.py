@@ -247,6 +247,7 @@ class CropInteraction(models.Model):
     season_of_interaction = models.PositiveSmallIntegerField(
         choices=CROP_TYPE, default=0
     )
+    is_server_generated = models.BooleanField(default=False)
 
     @classmethod
     def create(cls, *args):
@@ -259,6 +260,7 @@ class CropInteraction(models.Model):
          info_source = args[5],
          type_of_interaction = args[6],
          season_of_interaction = args[7],
+         is_server_generated = True
          )
         return interaction
 

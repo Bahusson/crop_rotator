@@ -65,7 +65,10 @@ class AllTagsAdmin(AllPlantFamilies):
 @method_decorator(staff_member_required, name="dispatch")
 class CropAdmin(View):
     the_element_class = Crop
-    translatables = pe(RotatorEditorPageNames).baseattrs
+    try:
+        translatables = pe(RotatorEditorPageNames).baseattrs
+    except:
+        pass
     taglist = CropTag.objects.all()
 
     def dispatch(self, request, element_id, *args, **kwargs):
@@ -83,6 +86,7 @@ class CropAdmin(View):
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
             for interaction in item.crop_relationships.all():
+                #flare(interaction)
                 self.add_common(interaction, item, pe_croptag_id)
         self.the_element.tags.add(element_to_add)
 
@@ -90,6 +94,7 @@ class CropAdmin(View):
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
             for interaction in item.family.crop_relationships.all():
+                #flare(interaction)
                 self.add_common(interaction, item, pe_croptag_id)
         self.the_element.tags.add(element_to_add)
 
@@ -100,11 +105,12 @@ class CropAdmin(View):
             for tag in item.tags.all():
                 if tag in tags_searched:
                     for interaction in tag.crop_relationships.all():
+                        #flare(interaction)
                         self.add_common(interaction, item, pe_croptag_id)
         self.the_element.tags.add(element_to_add)
 
     def add_common(self, interaction, item, pe_croptag_id):
-        if interaction.about_tag == pe_croptag_id:
+        if interaction.about_tag == pe_croptag_id and not interaction.is_server_generated:
             cr = CropsInteraction.create(
                  item.name + " " + str(interaction.is_positive) + " " + self.the_element.name + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")",
                  interaction.is_positive,
@@ -115,6 +121,7 @@ class CropAdmin(View):
                  interaction.type_of_interaction,
                  interaction.season_of_interaction,
                  )
+            flare(cr)
             cr.save()
             item.crop_relationships.add(cr.id)
 
