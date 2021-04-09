@@ -126,12 +126,12 @@ class CropAdmin(View):
             elif interaction.about_family is not None:
                 tag_type = interaction.about_family
             elif interaction.about_tag is not None:
-                query = Crop.objects.filter(
-                 tags__crop_relationships__about_tag=interaction.about_tag.id)
+                query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
+                    flare(item.name)
                     self.add_common(
-                         interaction, self.the_element, pe_croptag_id, self.the_element.id, item.id,
-                          item,
+                         interaction, self.the_element, pe_croptag_id,
+                         self.the_element.id, item.id,item,
                           )
                 self.the_element.tags.add(element_to_add)
             else:  # Jeśli tag też pusty śmigaj dalej. TODO: Daj jakieś ostrzeżenie o błędzie.
@@ -157,7 +157,7 @@ class CropAdmin(View):
                      interaction.season_of_interaction,
                      )
                 cr.save()
-                flare(cr)
+                #flare(cr)
                 item.crop_relationships.add(cr.id)
 
     def get(self, request, *args, **kwargs):
