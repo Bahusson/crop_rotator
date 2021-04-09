@@ -128,6 +128,7 @@ class CropAdmin(View):
             elif interaction.about_tag is not None:
                 query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
+                    flare(item.name)
                     self.add_common(
                          interaction, self.the_element, pe_croptag_id,
                          self.the_element.id, item.id,item,
@@ -156,6 +157,7 @@ class CropAdmin(View):
                      interaction.season_of_interaction,
                      )
                 cr.save()
+                #flare(cr)
                 item.crop_relationships.add(cr.id)
 
     def get(self, request, *args, **kwargs):
