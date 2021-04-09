@@ -93,7 +93,7 @@ class CropAdmin(View):
     def post(self, request, *args, **kwargs):
         if "add_element_button" in request.POST:
             element_to_add = request.POST.get('add_element')
-        #    pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
+            pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
             crops_to_tag = Crop.objects.filter(crop_relationships__about_tag=element_to_add)
             family_to_tag = Crop.objects.filter(family__crop_relationships__about_tag=element_to_add)
             tag_to_tag = Crop.objects.filter(crop_relationships__about_tag__crop_relationships__about_tag=element_to_add)
@@ -102,11 +102,11 @@ class CropAdmin(View):
         #    flare(list(tag_to_tag), name= "Tag_to_Tag")
             for item in crops_to_tag:
                 for interaction in item.crop_relationships.all():
-                    if interaction.about_tag.id == element_to_add:
+                    if interaction.about_tag == pe_croptag_id:
                         cr = CropsInteraction.create(
                              item.name + " " + str(interaction.is_positive) + " " + interaction.about_tag.name + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")",
                              interaction.is_positive,
-                             interaction.about_crop,
+                             self.the_element,
                              interaction.about_family,
                              interaction.about_tag,
                              interaction.info_source,
@@ -118,15 +118,9 @@ class CropAdmin(View):
             self.the_element.tags.add(element_to_add)
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
-            for tag in self.the_element.tags.all():
-                if tag.id == element_to_remove:
-                    for interaction in tag.crop_relationships.all():
-                        if interaction:
-                            pass
-                #    cr = CropsInteraction
-
-
-
+            filter_cr1 = CropsInteraction.objects.filter(about_crop=self.the_element.id, about_tag=element_to_remove)
+            for interaction in filter_cr1:
+                interaction.delete()
             self.the_element.tags.remove(element_to_remove)
         return redirect('crop_admin', self.element_id)
 
