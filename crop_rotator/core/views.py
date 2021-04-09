@@ -149,7 +149,8 @@ class CropAdmin(View):
             element_to_remove = request.POST.get('remove_element')
             filter_cr1 = CropsInteraction.objects.filter(about_crop=self.the_element.id, about_tag=element_to_remove)
             for interaction in filter_cr1:
-                interaction.delete()
+                if interaction.is_server_generated:
+                    interaction.delete()
             self.the_element.tags.remove(element_to_remove)
         return redirect('crop_admin', self.element_id)
 
