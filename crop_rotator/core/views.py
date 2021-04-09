@@ -87,7 +87,10 @@ class CropAdmin(View):
         for item in query:
             for interaction in item.crop_relationships.all():
                 #flare(interaction)
-                self.add_common(interaction, item, pe_croptag_id)
+                self.add_common(
+                 interaction, item, pe_croptag_id, item.id, self.the_element.id,
+                  self.the_element
+                  )
         self.the_element.tags.add(element_to_add)
 
     def add_family_element(self, query, element_to_add):
@@ -95,7 +98,10 @@ class CropAdmin(View):
         for item in query:
             for interaction in item.family.crop_relationships.all():
                 #flare(interaction)
-                self.add_common(interaction, item, pe_croptag_id)
+                self.add_common(
+                 interaction, item, pe_croptag_id, item.id, self.the_element.id,
+                 self.the_element
+                 )
         self.the_element.tags.add(element_to_add)
 
     def add_tag_element(self, query, element_to_add):
@@ -106,25 +112,50 @@ class CropAdmin(View):
                 if tag in tags_searched:
                     for interaction in tag.crop_relationships.all():
                         #flare(interaction)
-                        self.add_common(interaction, item, pe_croptag_id)
+                        self.add_common(
+                         interaction, item, pe_croptag_id, item.id,
+                          self.the_element.id, self.the_element
+                          )
         self.the_element.tags.add(element_to_add)
 
-    def add_common(self, interaction, item, pe_croptag_id):
-        signature = str(item.id) + " " + str(interaction.is_positive) + " " + str(self.the_element.id) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
-        if interaction.about_tag == pe_croptag_id and not CropsInteraction.objects.filter(title=signature).exists():
-            cr = CropsInteraction.create(
-                 signature,
-                 interaction.is_positive,
-                 self.the_element,
-                 interaction.about_family,
-                 interaction.about_tag,
-                 interaction.info_source,
-                 interaction.type_of_interaction,
-                 interaction.season_of_interaction,
-                 )
-            flare(cr)
-            cr.save()
-            item.crop_relationships.add(cr.id)
+    def add_tag_crop_element(self, element_to_add):
+        pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
+        for interaction in pe_croptag_id.crop_relationships.all():
+            if interaction.about_crop is not None:
+                tag_type = interaction.about_crop
+            elif interaction.about_family is not None:
+                tag_type = interaction.about_family
+            elif interaction.about_tag is not None:
+                query = Crop.objects.filter(
+                 tags__crop_relationships__about_tag=interaction.about_tag.id)
+                
+            else:  # Jeśli tag uszkodzony - możesz dodać ostrzeżenie o błędzie.
+                return redirect('crop_admin', self.element_id)
+            self.add_common(
+             interaction, self.the_element, pe_croptag_id, self.the_element.id,
+             tag_type.id, interaction.about_crop,
+             )
+        self.the_element.tags.add(element_to_add)
+
+    def add_common(self, interaction, item, pe_croptag_id, item1, item2, about_crop):
+        if item1 != item2:
+            signature = str(item1) + " " + str(interaction.is_positive) + " "
+            + str(item2) + " (" + str(interaction.type_of_interaction) + ")("
+            + str(interaction.season_of_interaction) + ")"
+            if not CropsInteraction.objects.filter(title=signature).exists():
+                cr = CropsInteraction.create(
+                     signature,
+                     interaction.is_positive,
+                     about_crop,
+                     interaction.about_family,
+                     pe_croptag_id,
+                     interaction.info_source,
+                     interaction.type_of_interaction,
+                     interaction.season_of_interaction,
+                     )
+                cr.save()
+                flare(cr)
+                item.crop_relationships.add(cr.id)
 
     def get(self, request, *args, **kwargs):
         context = {
@@ -146,11 +177,17 @@ class CropAdmin(View):
             self.add_element(crops_to_tag, element_to_add)
             self.add_family_element(family_to_tag, element_to_add)
             self.add_tag_element(tag_to_tag, element_to_add)
+            self.add_tag_crop_element(element_to_add)
+
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
+            pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_remove)
             filter_cr1 = CropsInteraction.objects.filter(about_crop=self.the_element.id, about_tag=element_to_remove)
             for interaction in filter_cr1:
                 if interaction.is_server_generated:
+                    interaction.delete()
+            for interaction in self.the_element.crop_relationships.all():
+                if interaction.about_tag == pe_croptag_id and interaction.is_server_generated:
                     interaction.delete()
             self.the_element.tags.remove(element_to_remove)
         return redirect('crop_admin', self.element_id)
