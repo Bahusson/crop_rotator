@@ -146,7 +146,7 @@ class AllCrops(AllPlantFamilies):
 # Mam wrażenie, że trochę przekombinowałem z tą króliczą norą... :D
 # Chyba było lepiej jak były po prostu 3 funkcje. (Cyklomatyka, czytelność)
 # TODO: Przywrócić do stanu, żeby było czytelne.
-@method_decorator(cache_page(360), name='dispatch')
+@method_decorator(cache_page(1), name='dispatch')
 class InteractionPage(View):
     is_family = False
     is_tag = False
@@ -170,7 +170,8 @@ class InteractionPage(View):
             family_id = c_family.id
             crop_id = pe_c_id.id
             crop_from = none_ify(
-             pe_c_id.crop_relationships.fliter(is_server_generated=False))
+             pe_c_id.crop_relationships.all().filter(is_server_generated=False)
+             )
             crop_to_c = Crop.objects.filter(
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
