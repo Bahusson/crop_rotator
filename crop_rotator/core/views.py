@@ -83,7 +83,10 @@ class CropAdmin(View):
                 self.the_element_family = self.the_element.family.master_family
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)
 
-    def add_element(self, query, element_to_add):
+    def add_element(
+         self, query, element_to_add, *args):
+        if args:
+            self.the_element = args[0]
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
             for interaction in item.crop_relationships.all():
@@ -93,7 +96,10 @@ class CropAdmin(View):
                  )
         self.the_element.tags.add(element_to_add)
 
-    def add_family_element(self, query, element_to_add):
+    def add_family_element(
+         self, query, element_to_add, *args):
+        if args:
+            self.the_element = args[0]
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
             for interaction in item.family.crop_relationships.all():
@@ -103,7 +109,10 @@ class CropAdmin(View):
                  )
         self.the_element.tags.add(element_to_add)
 
-    def add_tag_element(self, query, element_to_add):
+    def add_tag_element(
+         self, query, element_to_add, *args):
+        if args:
+            self.the_element = args[0]
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         tags_searched = CropTag.objects.filter(
          crop_relationships__about_tag=pe_croptag_id)
@@ -117,7 +126,10 @@ class CropAdmin(View):
                          )
         self.the_element.tags.add(element_to_add)
 
-    def add_tag_crop_element(self, element_to_add):
+    def add_tag_crop_element(
+         self, element_to_add, *args):
+        if args:
+            self.the_element = args[0]
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for interaction in pe_croptag_id.crop_relationships.all():
             if interaction.about_crop is not None:
@@ -143,7 +155,7 @@ class CropAdmin(View):
         self.the_element.tags.add(element_to_add)
 
     def add_common(
-     self, interaction, item, pe_croptag_id, item1, item2, about_crop):
+         self, interaction, item, pe_croptag_id, item1, item2, about_crop):
         if item1 != item2:
             signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
             if not CropsInteraction.objects.filter(title=signature).exists():
@@ -156,6 +168,7 @@ class CropAdmin(View):
                      interaction.info_source,
                      interaction.type_of_interaction,
                      interaction.season_of_interaction,
+                     True,  # Wygenerowano automatycznie.
                      )
                 cr.save()
                 item.crop_relationships.add(cr.id)
@@ -208,3 +221,41 @@ class FamilyAdmin(CropAdmin):
 @method_decorator(staff_member_required, name="dispatch")
 class TagAdmin(CropAdmin):
     the_element_class = CropTag
+
+
+# Synchronizuj bazę danych tagów jednym kliknięciem.
+@method_decorator(staff_member_required, name="dispatch")
+class SyncCropTagDB(CropAdmin):
+    def dispatch(self, request, args, **kwargs):
+        pass
+        return super(CropAdmin, self).dispatch(request, *args, **kwargs)
+
+    # Stwórz automatycznie  wszystkie (brakujące) dowiąznia tagów.
+    # Może trochę potrwać.
+    def post(self, request, *args, **kwargs):
+        if "populate_tag_db" in request.POST:
+            query = Crop.objects.all()
+            for crop in query:
+                for tag in crop.tags.all():
+                    element_to_add = tag
+                    crops_to_tag = Crop.objects.filter(
+                     crop_relationships__about_tag=element_to_add)
+                    family_to_tag = Crop.objects.filter(
+                     family__crop_relationships__about_tag=element_to_add)
+                    tag_to_tag = Crop.objects.filter(
+                     tags__crop_relationships__about_tag=element_to_add)
+                    self.add_element(
+                     crops_to_tag, element_to_add, crop)
+                    self.add_family_element(
+                     family_to_tag, element_to_add, crop)
+                    self.add_tag_element(
+                     tag_to_tag, element_to_add, crop)
+                    self.add_tag_crop_element(
+                     element_to_add, crop)
+
+        # Wywal wszystkie tagi stworzone maszynowo.
+        if "purge_tag_db" in request.POST:
+            query = CropsInteraction.objects.filter(is_server_generated=True)
+            for item in query:
+                item.delete()
+        return redirect('crop_admin', self.element_id)

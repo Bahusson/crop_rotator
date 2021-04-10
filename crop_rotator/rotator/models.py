@@ -258,15 +258,15 @@ class CropInteraction(models.Model):
     @classmethod
     def create(cls, *args):
         interaction = cls(
-         title = args[0],
-         is_positive = args[1],
-         about_crop = args[2],
-         about_family = args[3],
-         about_tag = args[4],
-         info_source = args[5],
-         type_of_interaction = args[6],
-         season_of_interaction = args[7],
-         is_server_generated = True
+         title=args[0],
+         is_positive=args[1],
+         about_crop=args[2],
+         about_family=args[3],
+         about_tag=args[4],
+         info_source=args[5],
+         type_of_interaction=args[6],
+         season_of_interaction=args[7],
+         is_server_generated=args[8]
          )
         return interaction
 
