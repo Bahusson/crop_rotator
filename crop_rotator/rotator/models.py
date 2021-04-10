@@ -167,14 +167,14 @@ class Crop(models.Model):
 
 # TODO: Wsiewki i miksy. Gotowe klasy do odhaszowania jak znajdzie się czas. :)
 # Klasa dla wsiewek. Jeśli zachowują się wtedy inaczej niż normalnie.
-#class InCrop(Crop):
+# class InCrop(Crop):
 #    is_slave_to = models.ForeignKey(
 #        "Crop", on_delete=models.CASCADE, related_name="set_master_crop_in",
 #        blank=True, null=True
 #        )
 
 # Klasa dla miksów. Jesli zachowują się wtedy inaczej niż normalnie.
-#class MixedCrop(Crop):
+# class MixedCrop(Crop):
 #    is_slave_to = models.ForeignKey(
 #        "Crop", on_delete=models.CASCADE, related_name="set_master_crop_mix",
 #        blank=True, null=True

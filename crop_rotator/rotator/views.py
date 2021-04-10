@@ -151,7 +151,7 @@ class Plan(View):
         return render(request, template, context_lazy)
 
 
-# Subklasowany widok powyżej używany tylko do aktu ewaluacji planu. Ma wbudowane cache.
+# Subklasowany widok powyżej używany tylko do aktu ewaluacji planu.
 @method_decorator(cache_page(edit_delay_sec), name='dispatch')
 class PlanEvaluated(Plan):
     VarCropPlanner = CropPlanner
@@ -184,7 +184,7 @@ def my_plans(request):
         form = RotationPlanForm(request.POST)
         if form.is_valid():
             form.save(user_id=userdata)
-            return redirect('my_plans') # Przekierowuj później na stronę planu
+            return redirect('my_plans')
     else:
         form = RotationPlanForm()
         sl3 = slice_list_3(plans_list)
@@ -219,7 +219,7 @@ def plan_edit(request, plan_id):
                 form = FirstRotationStepForm(request.POST)
                 if form.is_valid():
                     form.save(pe_rp_id)
-                    return redirect('plan', plan_id) # Przekierowuj później na stronę planu
+                    return redirect('plan', plan_id)
             else:
                 form = FirstRotationStepForm()
                 context = {
@@ -231,7 +231,7 @@ def plan_edit(request, plan_id):
                 template = "strona/first_step_create.html"
                 return render(request, template, context_lazy)
     else:
-       return redirect('home')
+        return redirect('home')
 
 
 def removedict(pe_stp_id, remove_key, element_to_remove):
@@ -250,7 +250,6 @@ def step(request, step_id):
     croplist = Crop.objects.all()
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
-    plan_id = pe_stp_id.from_plan.id
     translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_stp_id.from_plan):
         if "save_step_changes" in request.POST:
@@ -263,34 +262,35 @@ def step(request, step_id):
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
             remove_key = request.POST.get('remove_key')
-            if request.POST.get('remove_key') == "early":
+            if remove_key == "early":
                 pe_stp_id.early_crop.remove(element_to_remove)
-            elif request.POST.get('remove_key') == "middle":
+            elif remove_key == "middle":
                 pe_stp_id.middle_crop.remove(element_to_remove)
-            elif request.POST.get('remove_key') == "late":
+            elif remove_key == "late":
                 pe_stp_id.late_crop.remove(element_to_remove)
             return redirect('step', step_id)
+
         if "add_element_button" in request.POST:
-        # Dodaje po jednym elemencie do każdego kroku.
+            # Dodaje po jednym elemencie do każdego kroku.
+            # TODO: Napraw excepty jeszcze na JS w jakiś sensowny sposób.
             element_to_add = request.POST.get('add_element')
-            add_key = request.POST.get('remove_key')
-            if request.POST.get('add_key') == "early":
+            add_key = request.POST.get('add_key')
+            if add_key == "early":
                 try:
                     pe_stp_id.early_crop.add(element_to_add)
-                except :
+                except:
                     pass
-            elif request.POST.get('add_key') == "middle":
+            elif add_key == "middle":
                 try:
                     pe_stp_id.middle_crop.add(element_to_add)
                 except:
                     pass
-            elif request.POST.get('add_key') == "late":
+            elif add_key == "late":
                 try:
                     pe_stp_id.late_crop.add(element_to_add)
                 except:
                     pass
             return redirect('step', step_id)
-
 
         form = StepEditionForm(instance=pe_stp_id)
         context = {
