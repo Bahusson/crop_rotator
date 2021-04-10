@@ -7,11 +7,15 @@ from .views import (
     CropAdmin,
     FamilyAdmin,
     TagAdmin,
+    SyncCropTagDB,
     )
 
 urlpatterns = [
     path("rotator_admin", views.rotator_admin, name="rotator_admin"),
     path("all_crops_admin", AllCropsAdmin.as_view(), name="all_crops_admin"),
+    path(
+     "admin_db_superpowers", SyncCropTagDB.as_view(),
+     name="admin_db_superpowers"),
     path(
      "all_families_admin",
      AllFamiliesAdmin.as_view(),

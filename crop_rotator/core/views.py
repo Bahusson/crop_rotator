@@ -15,6 +15,7 @@ from .forms import (
     RotatorAdminPanelForm,
     )
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import user_passes_test
 from django.utils.decorators import method_decorator
 from strona.views import AllPlantFamilies
 from rotator.models import Crop, CropFamily, CropTag, CropsInteraction
@@ -73,6 +74,7 @@ class CropAdmin(View):
     except:
         pass
     taglist = CropTag.objects.all()
+    template = "core/edit_element_admin.html"
 
     def dispatch(self, request, element_id, *args, **kwargs):
         self.element_id = element_id
@@ -181,8 +183,7 @@ class CropAdmin(View):
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
-        template = "core/edit_element_admin.html"
-        return render(request, template, context_lazy)
+        return render(request, self.template, context_lazy)
 
     def post(self, request, *args, **kwargs):
         if "add_element_button" in request.POST:
@@ -224,8 +225,10 @@ class TagAdmin(CropAdmin):
 
 
 # Synchronizuj bazę danych tagów jednym kliknięciem.
-@method_decorator(staff_member_required, name="dispatch")
+@method_decorator(user_passes_test(lambda u: u.is_superuser), name="dispatch")
 class SyncCropTagDB(CropAdmin):
+    template = "core/admin_db_superpowers.html"
+
     def dispatch(self, request, args, **kwargs):
         pass
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)

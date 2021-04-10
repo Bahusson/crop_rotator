@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load xfilters %}
+
+{% block title %}
+<title>$MASOWE TWORZENIE DOWIĄZAŃ TAGÓW</title>
+{% endblock %}
+
+{% block css %}
+{% endblock css %}
+
+ <!-- Nullifikator bocznego menu z base.html Nie ruszaj tego, jak i end-taga!-->
+{% block aside %}
+<!-- Null -->
+{% block body %}
+<br>
+<br>
+<br>
+    <main role="main">
+      <div class="row">
+        <div class="col-md-12 plan-main">
+          <div class="container">
+            <h6 class="text-center pt-3 ">$MASOWE TWORZENIE DOWIĄZAŃ TAGÓW:</h6>
+            <form name="Admin_Superpower_Form" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
+             {% csrf_token %}
+              <p>$Masowo tworzy i niszczy dowiązania tagów. Jeśli nie wiesz co robisz nie klikaj guzików poniżej.</p>
+              <p>$Poczekaj cierpliwie aż skończy, bo to może trochę potrwać. ;)</p>
+              <p><button class="btn btn-link-3 btn-light" name="populate_tag_db" type="submit">$Utwórz TAGI!</button></p>
+              <p><button class="btn btn-link-3 btn-dark" name="purge_tag_db" type="submit">$Usuń TAGI!</button></p>
+            </form>
+        </div>
+        </div>
+      </div>
+    </main>
+    <!-- empty div -->
+      <div class="top-content">
+        <div class="container">
+      <div class="row">	<div class="col-sm-12 text wow fadeInLeft"></div></div>
+
+
+    </div>
+    </div>
+    <!-- end of empty div -->
+{% endblock %}
+{% endblock aside %}
+
+{% block scripts %}
+{% endblock scripts %}
