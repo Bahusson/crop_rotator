@@ -1,9 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404 as G404
-from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404 as G404
 from .models import (
     PageSkin as S,
     PageNames as P,
-    RegNames,
     AboutPageNames,
     RotatorEditorPageNames,
 )
@@ -36,7 +34,6 @@ from core.snippets import (
     list_crops_to,
     none_ify,
 )
-from rotator.models import Crop
 from operator import attrgetter
 from random import shuffle
 from django.views import View
@@ -172,7 +169,8 @@ class InteractionPage(View):
             c_family = pe_c_id.family
             family_id = c_family.id
             crop_id = pe_c_id.id
-            crop_from = none_ify(pe_c_id.crop_relationships.all())
+            crop_from = none_ify(
+             pe_c_id.crop_relationships.fliter(is_server_generated=False))
             crop_to_c = Crop.objects.filter(
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
