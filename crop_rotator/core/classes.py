@@ -171,18 +171,23 @@ class PlannerRelationship(object):
         self.b = kwargs['b']
         self.ifdict = {
             # relationships:
-            "crop_to_crop": self.a[4].crop_relationships.filter(about_crop__id=self.b[4].id),
-            "crop_to_family": self.a[4].crop_relationships.filter(about_family__id=self.b[4].family.id),
-            "family_to_crop": self.a[4].family.crop_relationships.filter(about_crop__id=self.b[4].id),
-            "family_to_family": self.a[4].family.crop_relationships.filter(about_family__id=self.b[4].family.id),
+            "crop_to_crop": self.a[4].crop_relationships.filter(
+             about_crop__id=self.b[4].id),
+            "crop_to_family": self.a[4].crop_relationships.filter(
+             about_family__id=self.b[4].family.id),
+            "family_to_crop": self.a[4].family.crop_relationships.filter(
+             about_crop__id=self.b[4].id),
+            "family_to_family": self.a[4].family.crop_relationships.filter(
+             about_family__id=self.b[4].family.id),
         }
         self.seasondict = {
             0: None,
             1: "Summer",
             2: "Winter",
         }
+
     def finishing(self, **kwargs):
-        interactiondict = {0: [0,0], 1: [0,1], 2: [1,1],}
+        interactiondict = {0: [0, 0], 1: [0, 1], 2: [1, 1]}
         self.given_list = kwargs['given_list']
         season = self.seasondict[self.i.season_of_interaction]
         if season == "Summer" or season is None:
@@ -285,10 +290,18 @@ class CropPlanner(object):
                     err_crop_list.append(a + b)
                     err_crop_list.append(b + a)
                 pr = PlannerRelationship(top_tier=self.top_tier, a=a, b=b)
-                pr.relationship(given_list=crop_interaction_list, relationship="crop_to_crop")
-                pr.relationship(given_list=family_interaction_list, relationship="crop_to_family")
-                pr.relationship(given_list=crop_interaction_list_f, relationship="family_to_crop")
-                pr.relationship(given_list=family_interaction_list_f, relationship="family_to_family")
+                pr.relationship(
+                 given_list=crop_interaction_list,
+                 relationship="crop_to_crop")
+                pr.relationship(
+                 given_list=family_interaction_list,
+                 relationship="crop_to_family")
+                pr.relationship(
+                 given_list=crop_interaction_list_f,
+                 relationship="family_to_crop")
+                pr.relationship(
+                 given_list=family_interaction_list_f,
+                 relationship="family_to_family")
 
         fabs = []
         tabs = []
@@ -335,6 +348,8 @@ class CropPlanner(object):
 
     def top_tier(self):
         return self.top_tier
+
+
 try:
     edit_delay_sec = PageElement(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
     lurk_delay_min = PageElement(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
