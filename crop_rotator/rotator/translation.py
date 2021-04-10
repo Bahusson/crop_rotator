@@ -8,7 +8,6 @@ from .models import (
     CropDataTagSource,
     CropTag,
  )
-from core.snippets import all_names
 
 
 class CropMixTranslate(TranslationOptions):

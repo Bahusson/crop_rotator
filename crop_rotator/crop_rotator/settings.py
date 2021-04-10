@@ -68,7 +68,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-#    "login_required.middleware.LoginRequiredMiddleware",
 ]
 
 ROOT_URLCONF = "crop_rotator.urls"
@@ -193,7 +192,7 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = {"default": ("en", "pl")}
 # Tutaj rejestruje się wszystkie trackery translacyjne translation.py
 MODELTRANSLATION_TRANSLATION_FILES = (
    "rekruter.translation",
-    "strona.translation",
+   "strona.translation",
 )
 
 # Static files (CSS, JavaScript, Images)
@@ -211,17 +210,6 @@ LOGOUT_REDIRECT_URL = "/"  # Przekierowanie po wylogowaniu.
 
 # Poniżej dane do ustawień Middleware blokującego strony przed niezalogowanymi.
 LOGIN_URL = "/"
-
-# https://github.com/CleitonDeLima/django-login-required-middleware
-LOGIN_REQUIRED_IGNORE_PATHS = [
-    r"^$",
-    r"^strona/.*$",
-    r"^rekruter/logger/$",
-    r"^rekruter/register/$",
-    r"^static/.*$",
-    r"^media/.*$",
-    r"^admin/.*$",
-]
 
 # Ściągnij ustawienia lokalne gdybyśmy chcieli udostępnić kod i wejść na OpenSource
 # na serwerze obok "settings" robisz plik .local_settings i ustalasz od nowa:

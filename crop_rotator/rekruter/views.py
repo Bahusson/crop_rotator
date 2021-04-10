@@ -5,7 +5,7 @@ from crop_rotator.settings import LANGUAGES as L
 from core.classes import PageLoad
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import ExtendedCreationForm
-from core.snippets import gen_login, flare
+from core.snippets import gen_login
 
 
 # Formularz rejestracji.

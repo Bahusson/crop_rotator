@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
+from django.contrib.auth.models import User
+
 
 # Plan płodozmianu - potencjalnie przyporządkowany do użytkownika.
 class RotationPlan(models.Model):
@@ -10,7 +11,9 @@ class RotationPlan(models.Model):
         (CLASS_4B_LOW, "Gleby Gorszej Jakości"),
     )
     title = models.CharField(max_length=150)
-    owner = models.ForeignKey(User, related_name="rotation_plan_owner_set0", on_delete=models.CASCADE, blank=True, null=True)
+    owner = models.ForeignKey(
+     User, related_name="rotation_plan_owner_set0",
+     on_delete=models.CASCADE, blank=True, null=True)
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
     soil_type = models.PositiveSmallIntegerField(choices=SOIL_CLASS, default=0)
     published = models.BooleanField(default=False)  # Czy ma być widoczny na głównej.
@@ -23,6 +26,7 @@ class RotationPlan(models.Model):
 
     def pubdate_short(self):
         return self.pubdate.strftime("%a %d %b %Y")
+
 
 # Element płodozmianu.
 class RotationStep(models.Model):
@@ -47,7 +51,8 @@ class RotationStep(models.Model):
         "rotator.Crop", related_name="crop_middle_set0", blank=True
     )
     # Z listy: plon główny
-    late_crop = models.ManyToManyField("rotator.Crop", related_name="crop_late_set0", blank=True)
+    late_crop = models.ManyToManyField(
+     "rotator.Crop", related_name="crop_late_set0", blank=True)
     # Międzyplon typu "poplon"
     is_late_crop_destroy = models.BooleanField(default=False)
     # Czy plon późny zostanie zniszczony na zielony nawóz?

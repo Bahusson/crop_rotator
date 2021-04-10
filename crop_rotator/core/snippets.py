@@ -1,5 +1,6 @@
 import random
 
+
 # Generator mnemotechnicznych loginów losowych do przekazywania innym userom,
 # bo nicki nie muszą być unikalne a jakoś trzeba się banować, polecać,
 # wyszukiwać itp.
@@ -38,8 +39,10 @@ def gen_login():
     fulllogin = L1 + L2 + L3 + L4 + L5 + L6 + L7 + L8 + L9
     return fulllogin
 
+
 def sortSecond(val):
     return val[1]
+
 
 # Wyciąga nazwy wszystkich atrybutów modelu
 # i zamyka je w tupli do użycia w translatorze.
@@ -99,7 +102,8 @@ def list_appending_short(items, vars, season, *args):
                     flare("vars2")
                     vars[2].append(str(vars[1].order) + "b")
 
-def list_appending_long(a,b,c, vars):
+
+def list_appending_long(a, b, c,  vars):
     if len(a) > 0:
         vars[3] += 1
         list_appending_short(a, vars, "Summer", b, c)
@@ -110,6 +114,7 @@ def list_appending_long(a,b,c, vars):
         vars[3] += 1
         list_appending_short(c, vars, "Winter")
     return vars[3]
+
 
 # Skraca usuwanie niepoprawnego numeru cropstepu.
 def level_off(top_tier, a, b):
@@ -124,10 +129,6 @@ def remove_repeating(new_list, old_list):
     [new_list.append(x) for x in old_list if x not in new_list]
 
 
-def remove_repeating_2(list):
-    [k for k, g in itertools.groupby(sorted(family_interaction_list))]
-
-
 def repack(wrapped_list):
     try:
         wrapped_list1 = wrapped_list[0]
@@ -137,7 +138,7 @@ def repack(wrapped_list):
 
 
 def check_slaves(*args):
-    slavedict = {True: 1, False: 0,}
+    slavedict = {True: 1, False: 0}
     master_id = args[slavedict[args[2]]]
     family_slav_list = [master_id]
     if master_id.family_slaves.exists():
@@ -149,7 +150,7 @@ def check_slaves(*args):
 def check_ownership(request, user_model, checked_model):
     try:
         userdata = user_model.objects.get(
-        id=request.user.id)
+         id=request.user.id)
         user_id = userdata.id
     except:
         user_id = -1
@@ -161,7 +162,7 @@ def slice_list_3(list):
     master_len = len(list)
     master_len_1 = round(master_len/3)
     master_len_2 = master_len_1*2
-    return (master_len_1,master_len_2)
+    return (master_len_1, master_len_2)
 
 
 def summarize_plans(plans_list, step_class):
@@ -195,35 +196,44 @@ def summarize_plans(plans_list, step_class):
             num = tag_list.count(item)
             mychunk = (item, round(num/crop_total*100))
             tag_list3.append(mychunk)
-        tag_list3.sort(key = sortSecond, reverse=True)
+        tag_list3.sort(key=sortSecond, reverse=True)
         summarized_list.append((plan, tag_list3, steps_total, crop_total))
     return summarized_list
 
 
-def list_crops_to(myitem ,crops_query, family_query, tag_query, variant):
+def list_crops_to(myitem, crops_query, family_query, tag_query, variant):
     list_appending = []
     item_id = myitem.id
     for crop in crops_query:
-        variantdict={
-        "crop": crop.crop_relationships.filter(about_crop=item_id, is_server_generated=False),
-        "family": crop.crop_relationships.filter(about_family=item_id, is_server_generated=False),
-        "tag": crop.crop_relationships.filter(about_tag=item_id, is_server_generated=False),
+        variantdict = {
+         "crop": crop.crop_relationships.filter(
+           about_crop=item_id, is_server_generated=False),
+         "family": crop.crop_relationships.filter(
+           about_family=item_id, is_server_generated=False),
+         "tag": crop.crop_relationships.filter(
+           about_tag=item_id, is_server_generated=False),
         }
         for item in variantdict[variant]:
             list_appending.append((crop, item, variant, myitem))
     for family in family_query:
-        variantdict={
-        "crop": family.crop_relationships.filter(about_crop=item_id, is_server_generated=False),
-        "family": family.crop_relationships.filter(about_family=item_id, is_server_generated=False),
-        "tag": family.crop_relationships.filter(about_tag=item_id, is_server_generated=False),
+        variantdict = {
+         "crop": family.crop_relationships.filter(
+          about_crop=item_id, is_server_generated=False),
+         "family": family.crop_relationships.filter(
+          about_family=item_id, is_server_generated=False),
+         "tag": family.crop_relationships.filter(
+          about_tag=item_id, is_server_generated=False),
         }
         for item in variantdict[variant]:
             list_appending.append((family, item, variant, myitem))
     for tag in tag_query:
-        variantdict={
-        "crop": tag.crop_relationships.filter(about_crop=item_id, is_server_generated=False),
-        "family": tag.crop_relationships.filter(about_family=item_id, is_server_generated=False),
-        "tag": tag.crop_relationships.filter(about_tag=item_id, is_server_generated=False),
+        variantdict = {
+         "crop": tag.crop_relationships.filter(
+          about_crop=item_id, is_server_generated=False),
+         "family": tag.crop_relationships.filter(
+          about_family=item_id, is_server_generated=False),
+         "tag": tag.crop_relationships.filter(
+          about_tag=item_id, is_server_generated=False),
         }
         for item in variantdict[variant]:
             list_appending.append((tag, item, variant, myitem))

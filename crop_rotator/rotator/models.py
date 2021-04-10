@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User  # Zaimportuj uproszczony model usera.
 
 
 # Rodzina Botaniczna - zawiera informacje o typowych wartościach
@@ -17,7 +16,8 @@ class CropFamily(models.Model):
     )
     name = models.CharField(max_length=150)
     latin_name = models.CharField(max_length=150, blank=True, null=True)
-    culture = models.PositiveSmallIntegerField(choices=AGRICULTURE_STATUS, default=3)
+    culture = models.PositiveSmallIntegerField(
+        choices=AGRICULTURE_STATUS, default=3)
     # W jakim stanie zostawia glebę po sobie.
     cooldown_min = models.IntegerField(blank=True, null=True)
     # Ile lat nie wolno uprawiać po sobie minimum.
@@ -32,7 +32,8 @@ class CropFamily(models.Model):
     is_mandatory_crop = models.BooleanField(default=False)
     # Czy musi występować w płodozmianie? (Bo trzeba wyróżnić Bobowate)
     crop_relationships = models.ManyToManyField(
-        "FamilyInteraction", related_name="known_family_interactions", blank=True
+        "FamilyInteraction", related_name="known_family_interactions",
+        blank=True,
     )
     is_family_slave = models.BooleanField(default=False)
     # Czy jest programistycznym podtypem rodziny
@@ -127,8 +128,8 @@ class Crop(models.Model):
     pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
     family = models.ForeignKey(
         "CropFamily", on_delete=models.SET_NULL, related_name="set_family",
-         blank=True, null=True
-    )
+        blank=True, null=True
+        )
     culture_override = models.PositiveSmallIntegerField(
         choices=AGRICULTURE_STATUS, default=0
     )
@@ -143,8 +144,10 @@ class Crop(models.Model):
     # Czy ma głęboki system korzeniowy?
     is_leaves_mess = models.BooleanField(default=False)
     # Czy zostawia dużo resztek pożniwnych?
-    takes_mix_level = models.PositiveSmallIntegerField(choices=MIX_LEVEL, default=0)
-    tags = models.ManyToManyField("CropTag", related_name="special_tags", blank=True)
+    takes_mix_level = models.PositiveSmallIntegerField(
+        choices=MIX_LEVEL, default=0)
+    tags = models.ManyToManyField(
+        "CropTag", related_name="special_tags", blank=True)
     # dodatkowe cechy plonu wyrażone w tagach.
     seed_norm_min = models.IntegerField(blank=True, null=True)
     # minimalna norma wysiewu w kg/ha
@@ -178,6 +181,8 @@ class Crop(models.Model):
 #        )
 
 # Mieszanka na miedzyplon
+
+
 class CropMix(models.Model):
     name = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
@@ -191,6 +196,7 @@ class CropMix(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Podstawowa klasa interakcji - niewidoczna w adminie -
 # od której dla wygody wyciągam pomniejsze poniżej.
@@ -270,12 +276,13 @@ class CropInteraction(models.Model):
     def __str__(self):
         return self.title
 
+
 class CropsInteraction(CropInteraction):
     class Meta:
         ordering = ["title"]
 
     def __str__(self):
-            return self.title
+        return self.title
 
 
 class FamilyInteraction(CropInteraction):
@@ -291,7 +298,7 @@ class TagsInteraction(CropInteraction):
         ordering = ["title"]
 
     def __str__(self):
-            return self.title
+        return self.title
 
 
 # Fizyczne źródła danych dot. roślin np. z książek.
@@ -347,6 +354,7 @@ class CropDataTagSource(CropDataSource):
         null=True,
     )
 
+
 # Część źródła danych w formia poszatkowanego stringa - reusable.
 class CropDataString(models.Model):
     title = models.CharField(max_length=150)
@@ -361,19 +369,18 @@ class CropDataString(models.Model):
 
 
 class CropBookString(CropDataString):
+    class Meta:
+        ordering = ["part1"]
 
-        class Meta:
-            ordering = ["part1"]
+    def __str__(self):
+        return self.title
 
-        def __str__(self):
-            return self.title
 
 class CropImageString(CropDataString):
+    class Meta:
+        ordering = ["title"]
 
-        class Meta:
-            ordering = ["title"]
-
-        def __str__(self):
-            return self.title
+    def __str__(self):
+        return self.title
 
 # Tutaj jeszcze trzeba zrobić klasy tłumaczeniowe dla kultury gleby, oraz poziomu w mieszance

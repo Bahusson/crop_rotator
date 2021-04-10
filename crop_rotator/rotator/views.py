@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 from strona.models import (
     PageSkin as S,
     PageNames as P,
-    RegNames,
-    AboutPageNames,
     RotatorEditorPageNames,
 )
 from django.views.decorators.cache import cache_page
@@ -27,10 +25,6 @@ from core.classes import (
 )
 from core.snippets import (
     flare,
-    level_off,
-    list_appending_short,
-    remove_repeating,
-    repack,
     check_ownership,
     slice_list_3,
     summarize_plans,
@@ -45,7 +39,6 @@ from rotator.forms import (
     StepMoveForm,
     StepEditionForm,
 )
-from rotator.models import Crop
 from django.views import View
 
 
@@ -69,11 +62,11 @@ class Plan(View):
     VarCropPlanner = DummyCropPlanner
 
     def dispatch(self, request, plan_id, *args, **kwargs):
-        admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps -1
+        admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps - 1
         pe_rp = pe(RotationPlan)
         self.pe_stp = pe(RotationStep)
         translatables = pe(RotatorEditorPageNames).baseattrs
-        self.plan_id=plan_id
+        self.plan_id = plan_id
         self.pe_rp_id = pe_rp.by_id(G404=G404, id=self.plan_id)
         if self.user_editable:
             if not check_ownership(request, User, self.pe_rp_id):
@@ -82,7 +75,7 @@ class Plan(View):
         form2 = StepMoveForm()
         form3 = RotationPlanForm()
         context = {
-            "user_editable": self.user_editable,  # Bramka dla zawartości widocznej tylko dla autora.
+            "user_editable": self.user_editable,
             "form": form,
             "form2": form2,
             "form3": form3,
@@ -90,7 +83,8 @@ class Plan(View):
             "translatables": translatables,
             "eval_button_on": self.eval_button_on,
             }
-        self.cp = self.VarCropPlanner(self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
+        self.cp = self.VarCropPlanner(
+         self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
         self.plans_context = self.cp.basic_context(context=context)
         return super(Plan, self).dispatch(request, *args, **kwargs)
 
@@ -101,19 +95,22 @@ class Plan(View):
             if form.is_valid():
                 form.save(self.pe_rp_id, self.cp.top_tier)
                 return redirect('plan', self.plan_id)
-        # Usuń cały plan.
+        # Usuń cały plan. -# TODO: Można przenieść do managera, w update
+        # bo mamy w tej funkcji max złożoność cyklomatyczną.
         if "delete_plan" in request.POST:
             self.pe_rp_id.delete()
             return redirect('my_plans', )
-        # Opublikuj plan.
+        # Opublikuj plan. Też można przenieść do managera.
         if "publish_plan" in request.POST:
-            form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
+            form = UserPlanPublicationForm(
+             request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save(True)
                 return redirect('plan', self.plan_id)
-        # Wycofaj plan z pubilkacji.
+        # Wycofaj plan z pubilkacji. Też można dać do managera.
         if "unpublish_plan" in request.POST:
-            form = UserPlanPublicationForm(request.POST, instance=self.pe_rp_id)
+            form = UserPlanPublicationForm(
+             request.POST, instance=self.pe_rp_id)
             if form.is_valid():
                 form.save(False)
                 return redirect('plan', self.plan_id)
@@ -123,7 +120,7 @@ class Plan(View):
              G404=G404, id=request.POST.get('sender_step'))
             try:
                 receiver_step_id = self.pe_stp.by_id(
-                G404=G404, id=request.POST.get('receiver_step'))
+                 G404=G404, id=request.POST.get('receiver_step'))
             except:
                 return redirect('plan', self.plan_id)
             sender_step_order = sender_step_id.order
@@ -135,10 +132,12 @@ class Plan(View):
                 return redirect('plan', self.plan_id)
         # Usuń krok
         if "delete_step" in request.POST:
-            last_step = self.pe_stp.by_id(G404=G404, id=request.POST.get('delete_step'))
+            last_step = self.pe_stp.by_id(
+             G404=G404, id=request.POST.get('delete_step'))
             last_step.delete()
             return redirect('plan', self.plan_id)
-        # Edytuj tytuł planu.
+        # Edytuj tytuł planu. Do mangera, albo na inny widok.
+        # Taki np. robią button typu "ustawienia" z obrazkiem klucza lub coga.
         if "edit_plan_title" in request.POST:
             form = RotationPlanForm(request.POST, instance=self.pe_rp_id)
             if form.is_valid():
@@ -171,7 +170,6 @@ def my_plans(request):
     admin_max_plans = pe(RotatorAdminPanel).baseattrs.max_user_plans
     userdata = User.objects.get(
      id=request.user.id)
-
     try:
         pe_upl = pe(RotationPlan).allelements.filter(owner=userdata)
     except:
@@ -235,6 +233,7 @@ def plan_edit(request, plan_id):
     else:
        return redirect('home')
 
+
 def removedict(pe_stp_id, remove_key, element_to_remove):
     removedict = {
         "early": pe_stp_id.early_crop.remove(element_to_remove),
@@ -243,7 +242,9 @@ def removedict(pe_stp_id, remove_key, element_to_remove):
         }
     return removedict[remove_key]
 
+
 # Widok edycji pojedynczego kroku w planie zmianowania.
+# Popraw excepty, bo to jakiś joke. Cyklomatyka tu siada zupełnie.
 @login_required
 def step(request, step_id):
     croplist = Crop.objects.all()

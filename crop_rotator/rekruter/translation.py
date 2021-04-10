@@ -1,7 +1,7 @@
 from modeltranslation.translator import translator, TranslationOptions
 from .models import (
-RotationPlan,
-RotationStep,
+    RotationPlan,
+    RotationStep,
 )
 
 class RotationPlanTranslate(TranslationOptions):

@@ -7,6 +7,7 @@ from .models import (
     AboutPageNames,
     RotatorEditorPageNames,
 )
+from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from rekruter.models import (
     RotationPlan,
@@ -89,7 +90,7 @@ def about(request):
     return render(request, template, context_lazy)
 
 
-#Widok "O źródłach"
+# Widok "O źródłach"
 def about_sources(request):
     pe_sources = pe(CropBookString).allelements
     context = {
@@ -145,7 +146,10 @@ class AllCrops(AllPlantFamilies):
 
 
 # Bazowy widok strony podglądu interakcji. Domyślnie wyświetla "Crop"
-# Mam wrażenie, że trochę przekombinowałem. :D
+# Mam wrażenie, że trochę przekombinowałem z tą króliczą norą... :D
+# Chyba było lepiej jak były po prostu 3 funkcje. (Cyklomatyka, czytelność)
+# TODO: Przywrócić do stanu, żeby było czytelne.
+@method_decorator(cache_page(360), name='dispatch')
 class InteractionPage(View):
     is_family = False
     is_tag = False
@@ -181,7 +185,8 @@ class InteractionPage(View):
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
              )
-            crop_to = list_crops_to(pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
+            crop_to = list_crops_to(
+             pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
             pe_cds = CDS.objects.filter(from_crop=crop_id)
             master_family = pe_c_id.family.name
             if pe_c_id.family.is_family_slave:
@@ -205,10 +210,11 @@ class InteractionPage(View):
              crop_relationships__is_server_generated=False,
             )
             tag_to_f = CropTag.objects.filter(
-            crop_relationships__about_family=family_id,
-            crop_relationships__is_server_generated=False,
+             crop_relationships__about_family=family_id,
+             crop_relationships__is_server_generated=False,
             )
-            crop_family_to = list_crops_to(c_family, crop_to_f, family_to_f, tag_to_f, "family")
+            crop_family_to = list_crops_to(
+             c_family, crop_to_f, family_to_f, tag_to_f, "family")
 
         # Crop, Tag
         if self.is_family:
@@ -232,7 +238,7 @@ class InteractionPage(View):
         if self.is_tag:
             tag = myitem.by_id(G404=G404, id=crop_id)
             for relationship in tag.crop_relationships.all():
-                crop_tags_from.append((tag,relationship))
+                crop_tags_from.append((tag, relationship))
             crop_to_t = Crop.objects.filter(
              crop_relationships__about_tag=tag.id,
              crop_relationships__is_server_generated=False,
@@ -245,7 +251,8 @@ class InteractionPage(View):
              crop_relationships__about_tag=tag.id,
              crop_relationships__is_server_generated=False,
             )
-            crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
+            crop_tags_to_0 = list_crops_to(
+             tag, crop_to_t, family_to_t, tag_to_t, "tag")
             for item in crop_tags_to_0:
                 crop_tags_to.append(item)
             pe_cds = TDS.objects.filter(from_tag=crop_id)
@@ -255,12 +262,11 @@ class InteractionPage(View):
             for item in family_slav_list:
                 house.append(item)
 
-
         # Crop
         if not self.is_family and not self.is_tag:
             for tag in pe_c_id.tags.all():
                 for relationship in tag.crop_relationships.all():
-                    crop_tags_from.append((tag,relationship))
+                    crop_tags_from.append((tag, relationship))
                 crop_to_t = Crop.objects.filter(
                  crop_relationships__about_tag=tag.id,
                  crop_relationships__is_server_generated=False,
@@ -273,7 +279,8 @@ class InteractionPage(View):
                  crop_relationships__about_tag=tag.id,
                  crop_relationships__is_server_generated=False,
                 )
-                crop_tags_to_0 = list_crops_to(tag, crop_to_t, family_to_t, tag_to_t, "tag")
+                crop_tags_to_0 = list_crops_to(
+                 tag, crop_to_t, family_to_t, tag_to_t, "tag")
                 for item in crop_tags_to_0:
                     crop_tags_to.append(item)
                 house.append(tag)
@@ -302,12 +309,15 @@ class InteractionPage(View):
 
 
 # Widok podglądu interakcji dla danej rodziny.
+@method_decorator(cache_page(360), name='dispatch')
 class InteractionFamily(InteractionPage):
     is_family = True
     base_item = CropFamily
     template = "strona/family.html"
 
+
 # Widok podglądu interakcji dla danego taga.
+@method_decorator(cache_page(360), name='dispatch')
 class InteractionTag(InteractionPage):
     is_tag = True
     base_item = CropTag
