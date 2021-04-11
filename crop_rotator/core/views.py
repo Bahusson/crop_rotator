@@ -141,7 +141,6 @@ class CropAdmin(View):
             elif interaction.about_tag is not None:
                 query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
-                    flare(item.name)
                     self.add_common(
                          interaction, self.the_element, pe_croptag_id,
                          self.the_element.id, item.id, item,
@@ -149,6 +148,7 @@ class CropAdmin(View):
                 self.the_element.tags.add(element_to_add)
             else:  # Jeśli tag też pusty śmigaj dalej.
                 # TODO: Daj jakieś ostrzeżenie o błędzie.
+                flare("BŁĄD")
                 continue
             self.add_common(
              interaction, self.the_element, pe_croptag_id, self.the_element.id,
@@ -160,6 +160,7 @@ class CropAdmin(View):
          self, interaction, item, pe_croptag_id, item1, item2, about_crop):
         if item1 != item2:
             signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
+            print("checking for:" + signature)
             if not CropsInteraction.objects.filter(title=signature).exists():
                 cr = CropsInteraction.create(
                      signature,
@@ -172,6 +173,7 @@ class CropAdmin(View):
                      interaction.season_of_interaction,
                      True,  # Wygenerowano automatycznie.
                      )
+                print(str(cr) + " added to database!")
                 cr.save()
                 item.crop_relationships.add(cr.id)
 
@@ -229,7 +231,7 @@ class TagAdmin(CropAdmin):
 class SyncCropTagDB(CropAdmin):
     template = "core/admin_db_superpowers.html"
 
-    def dispatch(self, request, args, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         pass
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)
 
@@ -240,7 +242,7 @@ class SyncCropTagDB(CropAdmin):
             query = Crop.objects.all()
             for crop in query:
                 for tag in crop.tags.all():
-                    element_to_add = tag
+                    element_to_add = tag.id
                     crops_to_tag = Crop.objects.filter(
                      crop_relationships__about_tag=element_to_add)
                     family_to_tag = Crop.objects.filter(
@@ -261,4 +263,13 @@ class SyncCropTagDB(CropAdmin):
             query = CropsInteraction.objects.filter(is_server_generated=True)
             for item in query:
                 item.delete()
-        return redirect('crop_admin', self.element_id)
+        return redirect('rotator_admin')
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            "translatables": self.translatables,
+            "taglist": self.taglist,
+        }
+        pl = PageLoad(P, L)
+        context_lazy = pl.lazy_context(skins=S, context=context)
+        return render(request, self.template, context_lazy)
