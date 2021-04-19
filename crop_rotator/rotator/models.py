@@ -254,6 +254,13 @@ class CropInteraction(models.Model):
         choices=CROP_TYPE, default=0
     )
     is_server_generated = models.BooleanField(default=False)
+    server_tag = models.ForeignKey(
+        "CropTag",
+        related_name="tag_server_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
 
     @classmethod
     def create(cls, *args):
