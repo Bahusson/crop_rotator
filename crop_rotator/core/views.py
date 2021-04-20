@@ -138,10 +138,11 @@ class CropAdmin(View):
         for interaction in pe_croptag_id.crop_relationships.all():
             if interaction.about_crop is not None:
                 tag_type = interaction.about_crop
+                flare(interaction.about_crop)
             elif interaction.about_family is not None:
                 tag_type = interaction.about_family
             elif interaction.about_tag is not None:
-                query = Crop.objects.filter(tags=interaction.about_tag.id,)
+                query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
                     self.add_common(
                          interaction, self.the_element, pe_croptag_id,
@@ -168,7 +169,7 @@ class CropAdmin(View):
                      interaction.is_positive,
                      about_crop,
                      interaction.about_family,
-                     pe_croptag_id,  #  Spróbuj dać tutaj None, albo zrób jakoś tak, żeby nie wykrywał tagów z interakcji maszynowych na etapie kreacji.
+                     None,  #  Spróbuj dać tutaj None, albo zrób jakoś tak, żeby nie wykrywał tagów z interakcji maszynowych na etapie kreacji.
                      interaction.info_source,
                      interaction.type_of_interaction,
                      interaction.season_of_interaction,
@@ -176,8 +177,9 @@ class CropAdmin(View):
                      interaction,  # Interakcja-matka (debug)
                      debug,
                      self.the_element,
+                     pe_croptag_id,
                      )
-        #        print(str(cr) + " added to database!")
+                print(str(cr) + " added to database!")
                 cr.save()
                 item.crop_relationships.add(cr.id)
 
@@ -212,7 +214,7 @@ class CropAdmin(View):
             element_to_remove = request.POST.get('remove_element')
             pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_remove)
             filter_cr1 = CropsInteraction.objects.filter(
-             trigger_crop=self.the_element.id, about_tag=element_to_remove, )
+             trigger_crop=self.the_element.id, trigger_tag=element_to_remove, )
             for interaction in filter_cr1:
                 if interaction.is_server_generated:
                     interaction.delete()

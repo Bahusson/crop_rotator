@@ -269,6 +269,13 @@ class CropInteraction(models.Model):
         blank=True,
         null=True,
     )
+    trigger_tag = models.ForeignKey(
+        "CropTag",
+        related_name="tag_tag_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
 
     @classmethod
     def create(cls, *args):
@@ -284,7 +291,8 @@ class CropInteraction(models.Model):
          is_server_generated=args[8],
          server_interaction=args[9],
          debug_line=args[10],
-         trigger_crop=args[11]
+         trigger_crop=args[11],
+         trigger_tag=args[12],
          )
         return interaction
 
