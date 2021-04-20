@@ -106,10 +106,12 @@ class CropAdmin(View):
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
             for interaction in item.family.crop_relationships.all():
-                self.add_common(
-                 interaction, item, pe_croptag_id, item.id,
-                 self.the_element.id, self.the_element, "add_family_element",
-                 )
+                if interaction.about_crop == self.the_element:
+                    self.add_common(
+                     interaction, item, pe_croptag_id, item.id,
+                     self.the_element.id, self.the_element,
+                     "add_family_element",
+                     )
         self.the_element.tags.add(element_to_add)
 
     def add_tag_element(
@@ -126,7 +128,8 @@ class CropAdmin(View):
                     for interaction in tag.crop_relationships.all():
                         self.add_common(
                          interaction, item, pe_croptag_id, item.id,
-                         self.the_element.id, self.the_element, "add_tag_element",
+                         self.the_element.id, self.the_element,
+                         "add_tag_element",
                          )
         self.the_element.tags.add(element_to_add)
 
@@ -139,15 +142,17 @@ class CropAdmin(View):
             if interaction.about_crop is not None:
                 tag_type = interaction.about_crop
                 self.add_common(
-                 interaction, self.the_element, pe_croptag_id, self.the_element.id,
-                 tag_type.id, interaction.about_crop, "add_tag_crop_element",
+                 interaction, self.the_element, pe_croptag_id,
+                 self.the_element.id, tag_type.id, interaction.about_crop,
+                 "add_tag_crop_element",
                  )
         #        flare(tag_type, name="CROP")
             elif interaction.about_family is not None:
                 tag_type = interaction.about_family
                 self.add_common(
-                 interaction, self.the_element, pe_croptag_id, self.the_element.id,
-                 tag_type.id, interaction.about_crop, "add_tag_crop_element",
+                 interaction, self.the_element, pe_croptag_id,
+                 self.the_element.id, tag_type.id, interaction.about_crop,
+                 "add_tag_crop_element",
                  )
         #        flare(tag_type, name="FAMILY")
             elif interaction.about_tag is not None:
@@ -173,7 +178,7 @@ class CropAdmin(View):
                      signature,
                      interaction.is_positive,
                      about_crop,
-                     interaction.about_family,
+                     None,
                      None,
                      interaction.info_source,
                      interaction.type_of_interaction,
