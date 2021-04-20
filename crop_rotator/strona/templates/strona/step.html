@@ -32,7 +32,7 @@
                 <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="early" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
               {% endfor %}
               <div class="row master0" value="1782">
-                <div class="col-md-9" value="254">
+                <div class="col-md-12" value="254">
                   <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
                     <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
                     {% for crop in croplist %}
@@ -40,10 +40,8 @@
                       <option value="{{ crop.id }}">{{ crop.name }}</option>
                       {% endif %}
                     {% endfor %}
-                  </select></p>
-                </div>
-                <div class="col-md-3">
-                  <p>
+                  </select>
+
                     <button class="btn btn-link-3 btn-light" add_key="early"  name="add_element_button">{{ translatables.add_element }}</button></p>
                 </div>
               </div>
@@ -56,7 +54,7 @@
                 <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="middle" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
               {% endfor %}
               <div class="row master0" value="1782">
-                <div class="col-md-9" value="254">
+                <div class="col-md-12" value="254">
                   <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
                     <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
                     {% for crop in croplist %}
@@ -64,10 +62,7 @@
                       <option value="{{ crop.id }}">{{ crop.name }}</option>
                       {% endif %}
                     {% endfor %}
-                  </select></p>
-                </div>
-                <div class="col-md-3">
-                  <p>
+                  </select>
                     <button class="btn btn-link-3 btn-light" add_key="middle"  name="add_element_button">{{ translatables.add_element }}</button></p>
                 </div>
               </div>
@@ -80,7 +75,7 @@
                 <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="late" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
               {% endfor %}
               <div class="row master0" value="1782">
-                <div class="col-md-9" value="254">
+                <div class="col-md-12" value="254">
                   <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
                     <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
                     {% for crop in croplist %}
@@ -88,10 +83,7 @@
                       <option value="{{ crop.id }}">{{ crop.name }}</option>
                       {% endif %}
                     {% endfor %}
-                  </select></p>
-                </div>
-                <div class="col-md-3">
-                  <p>
+                  </select>
                     <button class="btn btn-link-3 btn-light" add_key="late"  name="add_element_button">{{ translatables.add_element }}</button></p>
                 </div>
               </div>

@@ -146,7 +146,6 @@ class CropAdmin(View):
                  self.the_element.id, tag_type.id, interaction.about_crop,
                  "add_tag_crop_element",
                  )
-        #        flare(tag_type, name="CROP")
             elif interaction.about_family is not None:
                 tag_type = interaction.about_family
                 self.add_common(
@@ -154,7 +153,6 @@ class CropAdmin(View):
                  self.the_element.id, tag_type.id, interaction.about_crop,
                  "add_tag_crop_element",
                  )
-        #        flare(tag_type, name="FAMILY")
             elif interaction.about_tag is not None:
                 query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
