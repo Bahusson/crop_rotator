@@ -262,6 +262,13 @@ class CropInteraction(models.Model):
         null=True,
     )
     debug_line = models.CharField(max_length=20, blank=True, null=True)
+    trigger_crop = models.ForeignKey(
+        "Crop",
+        related_name="trigger_crop_set",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
 
     @classmethod
     def create(cls, *args):
@@ -277,6 +284,7 @@ class CropInteraction(models.Model):
          is_server_generated=args[8],
          server_interaction=args[9],
          debug_line=args[10],
+         trigger_crop=args[11]
          )
         return interaction
 

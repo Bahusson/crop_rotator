@@ -141,7 +141,7 @@ class CropAdmin(View):
             elif interaction.about_family is not None:
                 tag_type = interaction.about_family
             elif interaction.about_tag is not None:
-                query = Crop.objects.filter(tags=interaction.about_tag.id)
+                query = Crop.objects.filter(tags=interaction.about_tag.id,)
                 for item in query:
                     self.add_common(
                          interaction, self.the_element, pe_croptag_id,
@@ -173,8 +173,9 @@ class CropAdmin(View):
                      interaction.type_of_interaction,
                      interaction.season_of_interaction,
                      True,  # Wygenerowano automatycznie.
-                     interaction,  # Interakcja-matka
+                     interaction,  # Interakcja-matka (debug)
                      debug,
+                     self.the_element,
                      )
         #        print(str(cr) + " added to database!")
                 cr.save()
@@ -211,7 +212,7 @@ class CropAdmin(View):
             element_to_remove = request.POST.get('remove_element')
             pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_remove)
             filter_cr1 = CropsInteraction.objects.filter(
-             about_crop=self.the_element.id, about_tag=element_to_remove)
+             trigger_crop=self.the_element.id, about_tag=element_to_remove, )
             for interaction in filter_cr1:
                 if interaction.is_server_generated:
                     interaction.delete()
