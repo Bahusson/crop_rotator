@@ -92,10 +92,11 @@ class CropAdmin(View):
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
             for interaction in item.crop_relationships.all():
-                self.add_common(
-                 interaction, item, pe_croptag_id, item.id,
-                 self.the_element.id, self.the_element, "add_element",
-                 )
+                if interaction.about_tag == pe_croptag_id:
+                    self.add_common(
+                     interaction, item, pe_croptag_id, item.id,
+                     self.the_element.id, self.the_element, "add_element",
+                     )
         self.the_element.tags.add(element_to_add)
 
     def add_family_element(
@@ -151,7 +152,7 @@ class CropAdmin(View):
                 continue
             self.add_common(
              interaction, self.the_element, pe_croptag_id, self.the_element.id,
-             tag_type.id, interaction.about_crop,
+             tag_type.id, interaction.about_crop, "add_tag_crop_element",
              )
         self.the_element.tags.add(element_to_add)
 
@@ -159,7 +160,7 @@ class CropAdmin(View):
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
         if item1 != item2:
             signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
-            print("checking for:" + signature)
+        #    print("checking for:" + signature)
             if not CropsInteraction.objects.filter(title=signature).exists():
                 cr = CropsInteraction.create(
                      signature,
@@ -174,7 +175,7 @@ class CropAdmin(View):
                      interaction,  # Interakcja-matka
                      debug,
                      )
-                print(str(cr) + " added to database!")
+        #        print(str(cr) + " added to database!")
                 cr.save()
                 item.crop_relationships.add(cr.id)
 
