@@ -118,7 +118,8 @@ class CropAdmin(View):
             self.the_element = args[0]
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         tags_searched = CropTag.objects.filter(
-         crop_relationships__about_tag=pe_croptag_id)
+         crop_relationships__about_tag=pe_croptag_id,
+         crop_relationships__is_server_generated=False)
         for item in query:
             for tag in item.tags.all():
                 if tag in tags_searched:
@@ -167,7 +168,7 @@ class CropAdmin(View):
                      interaction.is_positive,
                      about_crop,
                      interaction.about_family,
-                     pe_croptag_id,
+                     pe_croptag_id,  #  Spróbuj dać tutaj None, albo zrób jakoś tak, żeby nie wykrywał tagów z interakcji maszynowych na etapie kreacji.
                      interaction.info_source,
                      interaction.type_of_interaction,
                      interaction.season_of_interaction,
@@ -193,11 +194,14 @@ class CropAdmin(View):
         if "add_element_button" in request.POST:
             element_to_add = request.POST.get('add_element')
             crops_to_tag = Crop.objects.filter(
-             crop_relationships__about_tag=element_to_add)
+             crop_relationships__about_tag=element_to_add,
+             crop_relationships__is_server_generated=False)
             family_to_tag = Crop.objects.filter(
-             family__crop_relationships__about_tag=element_to_add)
+             family__crop_relationships__about_tag=element_to_add,
+             family__crop_relationships__is_server_generated=False)
             tag_to_tag = Crop.objects.filter(
-             tags__crop_relationships__about_tag=element_to_add)
+             tags__crop_relationships__about_tag=element_to_add,
+             tags__crop_relationships__is_server_generated=False)
             self.add_element(crops_to_tag, element_to_add)
             self.add_family_element(family_to_tag, element_to_add)
             self.add_tag_element(tag_to_tag, element_to_add)
@@ -246,11 +250,14 @@ class SyncCropTagDB(CropAdmin):
                 for tag in crop.tags.all():
                     element_to_add = tag.id
                     crops_to_tag = Crop.objects.filter(
-                     crop_relationships__about_tag=element_to_add)
+                     crop_relationships__about_tag=element_to_add,
+                     crop_relationships__is_server_generated=False)
                     family_to_tag = Crop.objects.filter(
-                     family__crop_relationships__about_tag=element_to_add)
+                     family__crop_relationships__about_tag=element_to_add,
+                     family__crop_relationships__is_server_generated=False)
                     tag_to_tag = Crop.objects.filter(
-                     tags__crop_relationships__about_tag=element_to_add)
+                     tags__crop_relationships__about_tag=element_to_add,
+                     tags__crop_relationships__is_server_generated=False)
                     self.add_element(
                      crops_to_tag, element_to_add, crop)
                     self.add_family_element(
