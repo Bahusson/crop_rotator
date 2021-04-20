@@ -254,9 +254,9 @@ class CropInteraction(models.Model):
         choices=CROP_TYPE, default=0
     )
     is_server_generated = models.BooleanField(default=False)
-    server_tag = models.ForeignKey(
-        "CropTag",
-        related_name="tag_server_set",
+    server_interaction = models.ForeignKey(
+        "CropInteraction",
+        related_name="server_interaction_set",
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
@@ -273,7 +273,8 @@ class CropInteraction(models.Model):
          info_source=args[5],
          type_of_interaction=args[6],
          season_of_interaction=args[7],
-         is_server_generated=args[8]
+         is_server_generated=args[8],
+         server_interaction=args[9],
          )
         return interaction
 
