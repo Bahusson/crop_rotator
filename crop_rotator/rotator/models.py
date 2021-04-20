@@ -261,6 +261,7 @@ class CropInteraction(models.Model):
         blank=True,
         null=True,
     )
+    debug_line = models.CharField(max_length=20, blank=True, null=True)
 
     @classmethod
     def create(cls, *args):
@@ -275,6 +276,7 @@ class CropInteraction(models.Model):
          season_of_interaction=args[7],
          is_server_generated=args[8],
          server_interaction=args[9],
+         debug_line=args[10],
          )
         return interaction
 

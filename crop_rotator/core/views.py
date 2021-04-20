@@ -94,7 +94,7 @@ class CropAdmin(View):
             for interaction in item.crop_relationships.all():
                 self.add_common(
                  interaction, item, pe_croptag_id, item.id,
-                 self.the_element.id, self.the_element
+                 self.the_element.id, self.the_element, "add_element",
                  )
         self.the_element.tags.add(element_to_add)
 
@@ -107,7 +107,7 @@ class CropAdmin(View):
             for interaction in item.family.crop_relationships.all():
                 self.add_common(
                  interaction, item, pe_croptag_id, item.id,
-                 self.the_element.id, self.the_element
+                 self.the_element.id, self.the_element, "add_family_element",
                  )
         self.the_element.tags.add(element_to_add)
 
@@ -124,7 +124,7 @@ class CropAdmin(View):
                     for interaction in tag.crop_relationships.all():
                         self.add_common(
                          interaction, item, pe_croptag_id, item.id,
-                         self.the_element.id, self.the_element
+                         self.the_element.id, self.the_element, "add_tag_element",
                          )
         self.the_element.tags.add(element_to_add)
 
@@ -143,12 +143,11 @@ class CropAdmin(View):
                 for item in query:
                     self.add_common(
                          interaction, self.the_element, pe_croptag_id,
-                         self.the_element.id, item.id, item,
+                         self.the_element.id, item.id, item, "add_tag_crop_element",
                           )
                 self.the_element.tags.add(element_to_add)
             else:  # Jeśli tag też pusty śmigaj dalej.
-                # TODO: Daj jakieś ostrzeżenie o błędzie.
-                flare("BŁĄD")
+                # TODO: Zapisz ID pustej interakcji do dziennika błędów.
                 continue
             self.add_common(
              interaction, self.the_element, pe_croptag_id, self.the_element.id,
@@ -157,7 +156,7 @@ class CropAdmin(View):
         self.the_element.tags.add(element_to_add)
 
     def add_common(
-         self, interaction, item, pe_croptag_id, item1, item2, about_crop):
+         self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
         if item1 != item2:
             signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
             print("checking for:" + signature)
@@ -172,6 +171,8 @@ class CropAdmin(View):
                      interaction.type_of_interaction,
                      interaction.season_of_interaction,
                      True,  # Wygenerowano automatycznie.
+                     interaction,  # Interakcja-matka
+                     debug,
                      )
                 print(str(cr) + " added to database!")
                 cr.save()
