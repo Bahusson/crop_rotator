@@ -138,9 +138,18 @@ class CropAdmin(View):
         for interaction in pe_croptag_id.crop_relationships.all():
             if interaction.about_crop is not None:
                 tag_type = interaction.about_crop
-                flare(interaction.about_crop)
+                self.add_common(
+                 interaction, self.the_element, pe_croptag_id, self.the_element.id,
+                 tag_type.id, interaction.about_crop, "add_tag_crop_element",
+                 )
+        #        flare(tag_type, name="CROP")
             elif interaction.about_family is not None:
                 tag_type = interaction.about_family
+                self.add_common(
+                 interaction, self.the_element, pe_croptag_id, self.the_element.id,
+                 tag_type.id, interaction.about_crop, "add_tag_crop_element",
+                 )
+        #        flare(tag_type, name="FAMILY")
             elif interaction.about_tag is not None:
                 query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
@@ -152,10 +161,6 @@ class CropAdmin(View):
             else:  # Jeśli tag też pusty śmigaj dalej.
                 # TODO: Zapisz ID pustej interakcji do dziennika błędów.
                 continue
-            self.add_common(
-             interaction, self.the_element, pe_croptag_id, self.the_element.id,
-             tag_type.id, interaction.about_crop, "add_tag_crop_element",
-             )
         self.the_element.tags.add(element_to_add)
 
     def add_common(
@@ -169,7 +174,7 @@ class CropAdmin(View):
                      interaction.is_positive,
                      about_crop,
                      interaction.about_family,
-                     None,  #  Spróbuj dać tutaj None, albo zrób jakoś tak, żeby nie wykrywał tagów z interakcji maszynowych na etapie kreacji.
+                     None,
                      interaction.info_source,
                      interaction.type_of_interaction,
                      interaction.season_of_interaction,
@@ -179,7 +184,7 @@ class CropAdmin(View):
                      self.the_element,
                      pe_croptag_id,
                      )
-                print(str(cr) + " added to database!")
+                #print(str(cr) + " added to database!")
                 cr.save()
                 item.crop_relationships.add(cr.id)
 
