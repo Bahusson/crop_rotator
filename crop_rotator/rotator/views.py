@@ -244,7 +244,6 @@ def removedict(pe_stp_id, remove_key, element_to_remove):
 
 
 # Widok edycji pojedynczego kroku w planie zmianowania.
-# Popraw excepty, bo to jakiś joke. Cyklomatyka tu siada zupełnie.
 @login_required
 def step(request, step_id):
     croplist = Crop.objects.all()
@@ -272,24 +271,14 @@ def step(request, step_id):
 
         if "add_element_button" in request.POST:
             # Dodaje po jednym elemencie do każdego kroku.
-            # TODO: Napraw excepty jeszcze na JS w jakiś sensowny sposób.
             element_to_add = request.POST.get('add_element')
             add_key = request.POST.get('add_key')
             if add_key == "early":
-                try:
-                    pe_stp_id.early_crop.add(element_to_add)
-                except:
-                    pass
+                pe_stp_id.early_crop.add(element_to_add)
             elif add_key == "middle":
-                try:
-                    pe_stp_id.middle_crop.add(element_to_add)
-                except:
-                    pass
+                pe_stp_id.middle_crop.add(element_to_add)
             elif add_key == "late":
-                try:
-                    pe_stp_id.late_crop.add(element_to_add)
-                except:
-                    pass
+                pe_stp_id.late_crop.add(element_to_add)
             return redirect('step', step_id)
 
         form = StepEditionForm(instance=pe_stp_id)
