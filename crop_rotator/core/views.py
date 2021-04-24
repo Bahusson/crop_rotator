@@ -197,7 +197,7 @@ class CropAdmin(View):
         element_list.append("f" + str(element.family.id))
         for tag in element.tags.all():
             element_list.append("t" + str(tag.id))
-        listToStr = ''.join([str(elem) for elem in element_list])
+        listToStr = ','.join([str(elem) for elem in element_list])
         element.meta_tags_source = listToStr
         element.save()
 
@@ -295,7 +295,7 @@ class SyncCropTagDB(CropAdmin):
                 item.delete()
 
         if "create_meta_tag_db" in request.POST:
-            query = Crop.objects.filter(meta_tags=False)
+            query = Crop.objects.filter(is_crop_mix=False)
             for crop in query:
                 self.map_all_properties(crop)
 

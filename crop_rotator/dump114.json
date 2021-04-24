@@ -771,7 +771,8 @@
     "seed_norm_min": 8,
     "seed_norm_max": 10,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c1,f2,t2,t11",
+    "is_crop_mix": false,
     "crop_relationships": [],
     "tags": [
       2,
@@ -804,7 +805,8 @@
     "seed_norm_min": 2,
     "seed_norm_max": 3,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c2,f2,t12,t2,t11",
+    "is_crop_mix": false,
     "crop_relationships": [],
     "tags": [
       12,
@@ -838,7 +840,8 @@
     "seed_norm_min": 8,
     "seed_norm_max": 12,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c3,f2,t11,t23,t13",
+    "is_crop_mix": false,
     "crop_relationships": [],
     "tags": [
       11,
@@ -872,7 +875,8 @@
     "seed_norm_min": 6,
     "seed_norm_max": 8,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c4,f2,t2,t11,t14,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       44
     ],
@@ -909,7 +913,8 @@
     "seed_norm_min": 5,
     "seed_norm_max": 8,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c5,f2,t5,t11",
+    "is_crop_mix": false,
     "crop_relationships": [
       5515,
       24
@@ -945,7 +950,8 @@
     "seed_norm_min": 8,
     "seed_norm_max": 12,
     "plant_type": 1,
-    "meta_tags_source": null,
+    "meta_tags_source": "c6,f2,t12,t5,t2,t11,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       5436,
       679,
@@ -988,7 +994,8 @@
     "seed_norm_min": 6,
     "seed_norm_max": 10,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c8,f2,t2,t11,t15",
+    "is_crop_mix": false,
     "crop_relationships": [],
     "tags": [
       2,
@@ -1022,7 +1029,8 @@
     "seed_norm_min": 3,
     "seed_norm_max": 5,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c9,f2,t5,t2,t11,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       4340
     ],
@@ -1059,7 +1067,8 @@
     "seed_norm_min": 70,
     "seed_norm_max": 100,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c10,f15,t12,t5,t11,t26,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       4930,
       5016,
@@ -1213,7 +1222,8 @@
     "seed_norm_min": 35,
     "seed_norm_max": 50,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c11,f15,t12,t5,t11,t14,t26,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       4954,
       5019,
@@ -1369,7 +1379,8 @@
     "seed_norm_min": 70,
     "seed_norm_max": 100,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c12,f11,t5,t26,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       2486,
       5074,
@@ -1566,7 +1577,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c14,f11,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       5033,
       5032,
@@ -1711,7 +1723,8 @@
     "seed_norm_min": 80,
     "seed_norm_max": 120,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c16,f11,t5,t14,t26,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       3701,
       5004,
@@ -1861,7 +1874,8 @@
     "seed_norm_min": 80,
     "seed_norm_max": 120,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c17,f11,t11,t26,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       5037,
       5036,
@@ -2010,7 +2024,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c18,f11,t18,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       4220,
       5010,
@@ -2194,7 +2209,8 @@
     "seed_norm_min": 15,
     "seed_norm_max": 25,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c20,f11,t5,t11,t15,t14,t26",
+    "is_crop_mix": false,
     "crop_relationships": [
       5747
     ],
@@ -2232,7 +2248,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c21,f10,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       5212,
       3679,
@@ -2268,7 +2285,8 @@
     "seed_norm_min": 20,
     "seed_norm_max": 25,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c22,f5,t5,t2,t11,t14,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       3661,
       5721,
@@ -2316,7 +2334,8 @@
     "seed_norm_min": 12,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c23,f4,t21,t2,t11",
+    "is_crop_mix": false,
     "crop_relationships": [
       3972,
       637,
@@ -2357,7 +2376,8 @@
     "seed_norm_min": 15,
     "seed_norm_max": 25,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c24,f11,t12,t5,t11,t15,t14,t13,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       5053,
       5052,
@@ -2510,7 +2530,8 @@
     "seed_norm_min": 30,
     "seed_norm_max": 30,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c26,f11,t11,t14,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       5069,
       5068,
@@ -2658,7 +2679,8 @@
     "seed_norm_min": 12,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c27,f11,t12,t5,t11,t14",
+    "is_crop_mix": false,
     "crop_relationships": [
       5637,
       4170,
@@ -2732,7 +2754,8 @@
     "seed_norm_min": 8,
     "seed_norm_max": 12,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c28,f5,t12,t5,t11",
+    "is_crop_mix": false,
     "crop_relationships": [
       4916,
       42
@@ -2769,7 +2792,8 @@
     "seed_norm_min": 6,
     "seed_norm_max": 10,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c29,f6,t2,t11,t14",
+    "is_crop_mix": false,
     "crop_relationships": [
       20
     ],
@@ -2805,7 +2829,8 @@
     "seed_norm_min": 20,
     "seed_norm_max": 30,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c30,f7,t12,t5,t11,t14,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       4338,
       47,
@@ -2846,7 +2871,8 @@
     "seed_norm_min": 40,
     "seed_norm_max": 60,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c31,f13,t5,t2,t11,t14",
+    "is_crop_mix": false,
     "crop_relationships": [
       3971,
       3662,
@@ -2894,7 +2920,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 1,
-    "meta_tags_source": null,
+    "meta_tags_source": "c32,f8,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       2695,
       4992,
@@ -2988,7 +3015,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 1,
-    "meta_tags_source": null,
+    "meta_tags_source": "c33,f9,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5071,
       5070,
@@ -3110,7 +3138,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c34,f14,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       4448,
       5012,
@@ -3222,7 +3251,8 @@
     "seed_norm_min": 60,
     "seed_norm_max": 80,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c35,f10,t11,t14,t20",
+    "is_crop_mix": false,
     "crop_relationships": [
       4919,
       4942,
@@ -3293,7 +3323,8 @@
     "seed_norm_min": 40,
     "seed_norm_max": 50,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c36,f10,t5,t2,t11,t20",
+    "is_crop_mix": false,
     "crop_relationships": [
       5215,
       3682,
@@ -3334,7 +3365,8 @@
     "seed_norm_min": 35,
     "seed_norm_max": 45,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c37,f10,t5,t2,t14,t20",
+    "is_crop_mix": false,
     "crop_relationships": [
       5214,
       3681,
@@ -3375,7 +3407,8 @@
     "seed_norm_min": 25,
     "seed_norm_max": 35,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c39,f10,t5,t11",
+    "is_crop_mix": false,
     "crop_relationships": [
       5211,
       3678,
@@ -3414,7 +3447,8 @@
     "seed_norm_min": 150,
     "seed_norm_max": 200,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c40,f10,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       2627,
       4990,
@@ -3503,7 +3537,8 @@
     "seed_norm_min": 35,
     "seed_norm_max": 60,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c41,f10,t11,t13",
+    "is_crop_mix": false,
     "crop_relationships": [
       5210,
       3677,
@@ -3541,7 +3576,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c42,f10,t11,t14,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       5209,
       3676,
@@ -3580,7 +3616,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c43,f4,t21,t2,t11",
+    "is_crop_mix": false,
     "crop_relationships": [
       4921,
       4944,
@@ -3628,7 +3665,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c44,f4,t21,t2,t11,t14",
+    "is_crop_mix": false,
     "crop_relationships": [
       3976
     ],
@@ -3665,7 +3703,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c45,f4,t21,t2,t11,t15,t14",
+    "is_crop_mix": false,
     "crop_relationships": [
       3974
     ],
@@ -3703,7 +3742,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c46,f4,t21,t5,t11,t14,t13",
+    "is_crop_mix": false,
     "crop_relationships": [
       4923,
       4946,
@@ -3753,7 +3793,8 @@
     "seed_norm_min": 6,
     "seed_norm_max": 10,
     "plant_type": 2,
-    "meta_tags_source": null,
+    "meta_tags_source": "c47,f4,t21,t5,t2,t11,t14,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       4922,
       4945,
@@ -3807,7 +3848,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 2,
-    "meta_tags_source": null,
+    "meta_tags_source": "c48,f4,t21,t5,t2,t11,t15,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       3970,
       3969,
@@ -3850,7 +3892,8 @@
     "seed_norm_min": 20,
     "seed_norm_max": 25,
     "plant_type": 2,
-    "meta_tags_source": null,
+    "meta_tags_source": "c49,f4,t5,t2,t11,t14,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       4342,
       651,
@@ -3893,7 +3936,8 @@
     "seed_norm_min": 40,
     "seed_norm_max": 50,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c50,f4,t5,t2",
+    "is_crop_mix": false,
     "crop_relationships": [
       3574
     ],
@@ -3928,7 +3972,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 20,
     "plant_type": 2,
-    "meta_tags_source": null,
+    "meta_tags_source": "c51,f4,t5,t2,t11,t14,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       4924,
       4947,
@@ -3977,7 +4022,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 2,
-    "meta_tags_source": null,
+    "meta_tags_source": "c52,f4,t2,t11,t14,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       4920,
       4943,
@@ -4024,7 +4070,8 @@
     "seed_norm_min": 10,
     "seed_norm_max": 15,
     "plant_type": 2,
-    "meta_tags_source": null,
+    "meta_tags_source": "c53,f4,t12,t5,t2,t11,t13,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       4815
     ],
@@ -4063,7 +4110,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c54,f11,t19",
+    "is_crop_mix": false,
     "crop_relationships": [
       5029,
       5028,
@@ -4209,7 +4257,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c55,f10,t20,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3611,
       4999,
@@ -4318,7 +4367,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c56,f10,t20,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       4918,
       3654,
@@ -4441,7 +4491,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c57,f10,t20,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5063,
       5062,
@@ -4533,7 +4584,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c58,f5,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3768,
       5007,
@@ -4619,7 +4671,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c59,f10,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3589,
       4998,
@@ -4731,7 +4784,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c60,f2,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3747,
       5006,
@@ -4819,7 +4873,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c61,f5,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3231,
       4996,
@@ -4916,7 +4971,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c62,f21,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5041,
       5040,
@@ -5010,7 +5066,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c63,f18,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       4909,
       5013,
@@ -5115,7 +5172,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c64,f22,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5055,
       5054,
@@ -5202,7 +5260,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c65,f14,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3632,
       5000,
@@ -5297,7 +5356,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c66,f2,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       4240,
       5011,
@@ -5401,7 +5461,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c67,f2,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3725,
       5005,
@@ -5509,7 +5570,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c68,f5,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5047,
       5046,
@@ -5621,7 +5683,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c69,f2,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5043,
       5042,
@@ -5714,7 +5777,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c70,f8,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       2661,
       4991,
@@ -5807,7 +5871,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c71,f27,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5061,
       5060,
@@ -5894,7 +5959,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c72,f9,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       4967,
       5020,
@@ -5982,7 +6048,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c73,f14,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       4977,
       5021,
@@ -6075,7 +6142,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c74,f23,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5025,
       5024,
@@ -6177,7 +6245,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c75,f2,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5045,
       5044,
@@ -6282,7 +6351,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c76,f13,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5039,
       5038,
@@ -6374,7 +6444,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c77,f8,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       2729,
       4993,
@@ -6481,7 +6552,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c78,f5,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5065,
       5064,
@@ -6571,7 +6643,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c79,f14,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5049,
       5048,
@@ -6673,7 +6746,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c80,f8,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5057,
       5056,
@@ -6782,7 +6856,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c81,f9,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5023,
       5022,
@@ -6889,7 +6964,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c82,f5,t17,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3261,
       4997,
@@ -6984,7 +7060,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c83,f18,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3201,
       4995,
@@ -7073,7 +7150,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c84,f23,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       3072,
       4994,
@@ -7180,7 +7258,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c85,f24,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       465,
       464,
@@ -7219,7 +7298,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c86,f14,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       495,
       499,
@@ -7267,7 +7347,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c87,f5,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       467,
       466
@@ -7302,7 +7383,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c88,f24,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       473,
       477,
@@ -7345,7 +7427,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c89,f6,t2,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       481,
       484,
@@ -7386,7 +7469,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c90,f5,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       500
     ],
@@ -7420,7 +7504,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c91,f5,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       506,
       502,
@@ -7459,7 +7544,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c92,f25,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       512,
       507,
@@ -7499,7 +7585,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c93,f14,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       515,
       514,
@@ -7536,7 +7623,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c94,f23,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       526,
       525,
@@ -7581,7 +7669,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c95,f14,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       534,
       533,
@@ -7619,7 +7708,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c96,f2,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       536,
       535
@@ -7654,7 +7744,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c97,f14,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       545,
       538,
@@ -7697,7 +7788,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c98,f24,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       549,
       548
@@ -7732,7 +7824,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c99,f2,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       550
     ],
@@ -7766,7 +7859,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c100,f14,t17,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       4987,
       4986,
@@ -7813,7 +7907,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c101,f24,t2,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       560,
       559,
@@ -7853,7 +7948,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c102,f26,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       564
     ],
@@ -7887,7 +7983,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c103,f24,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       565,
       568,
@@ -7924,7 +8021,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c104,f24,t2,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       569,
       576,
@@ -7966,7 +8064,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c105,f23,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       581,
       584,
@@ -8007,7 +8106,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c106,f24,t2,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       586,
       585
@@ -8043,7 +8143,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c107,f5,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       587
     ],
@@ -8077,7 +8178,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c108,f24,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       589,
       588
@@ -8112,7 +8214,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c109,f20,t18",
+    "is_crop_mix": false,
     "crop_relationships": [
       5059,
       5058,
@@ -8210,7 +8313,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c110,f20,t2,t25",
+    "is_crop_mix": false,
     "crop_relationships": [
       602
     ],
@@ -8245,7 +8349,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c111,f5,t24",
+    "is_crop_mix": false,
     "crop_relationships": [
       604,
       607,
@@ -8286,7 +8391,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c112,f5",
+    "is_crop_mix": false,
     "crop_relationships": [
       613,
       616,
@@ -8323,7 +8429,8 @@
     "seed_norm_min": 30,
     "seed_norm_max": 40,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c113,f4",
+    "is_crop_mix": false,
     "crop_relationships": [],
     "tags": []
   }
@@ -8353,7 +8460,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c114,f10,t11",
+    "is_crop_mix": false,
     "crop_relationships": [
       5216,
       3683,
@@ -8391,7 +8499,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c115,f28,t5,t23",
+    "is_crop_mix": false,
     "crop_relationships": [
       3980
     ],
@@ -8426,7 +8535,8 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": null,
+    "meta_tags_source": "c116,f4",
+    "is_crop_mix": false,
     "crop_relationships": [],
     "tags": []
   }
@@ -8457,6 +8567,7 @@
     "seed_norm_max": null,
     "plant_type": 0,
     "meta_tags_source": "",
+    "is_crop_mix": true,
     "crop_relationships": [],
     "tags": []
   }
