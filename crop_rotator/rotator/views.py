@@ -13,6 +13,7 @@ from rekruter.models import (
 )
 from rotator.models import (
     Crop,
+    MixCrop,
 )
 from crop_rotator.settings import LANGUAGES as L
 from core.classes import (
@@ -28,6 +29,7 @@ from core.snippets import (
     check_ownership,
     slice_list_3,
     summarize_plans,
+    compare_csv_lists,
 )
 from core.models import RotatorAdminPanel
 from django.contrib.auth.decorators import login_required
@@ -256,29 +258,31 @@ def step(request, step_id):
             if form.is_valid():
                 form.save()
                 return redirect('step', step_id)
-        # Usuwa po jednym elemencie z każdego kroku.
-        # Nie lubię tego kodu, ale nie mam na razie pomysłu na inny.
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
             remove_key = request.POST.get('remove_key')
             if remove_key == "early":
                 pe_stp_id.early_crop.remove(element_to_remove)
+                compare_csv_lists(MixCrop, pe_stp_id.early_crop)
             elif remove_key == "middle":
                 pe_stp_id.middle_crop.remove(element_to_remove)
+                compare_csv_lists(MixCrop, pe_stp_id.middle_crop)
             elif remove_key == "late":
                 pe_stp_id.late_crop.remove(element_to_remove)
+                compare_csv_lists(MixCrop, pe_stp_id.late_crop)
             return redirect('step', step_id)
-
         if "add_element_button" in request.POST:
-            # Dodaje po jednym elemencie do każdego kroku.
             element_to_add = request.POST.get('add_element')
             add_key = request.POST.get('add_key')
             if add_key == "early":
                 pe_stp_id.early_crop.add(element_to_add)
+                compare_csv_lists(MixCrop, pe_stp_id.early_crop)
             elif add_key == "middle":
                 pe_stp_id.middle_crop.add(element_to_add)
+                compare_csv_lists(MixCrop, pe_stp_id.middle_crop)
             elif add_key == "late":
                 pe_stp_id.late_crop.add(element_to_add)
+                compare_csv_lists(MixCrop, pe_stp_id.late_crop)
             return redirect('step', step_id)
 
         form = StepEditionForm(instance=pe_stp_id)

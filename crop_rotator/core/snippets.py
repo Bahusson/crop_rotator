@@ -1,6 +1,5 @@
 import random
 
-
 # Generator mnemotechnicznych loginów losowych do przekazywania innym userom,
 # bo nicki nie muszą być unikalne a jakoś trzeba się banować, polecać,
 # wyszukiwać itp.
@@ -248,3 +247,19 @@ def none_ify(query):
         item = (None, element)
         mylist.append(item)
     return mylist
+
+
+def compare_csv_lists(*args):
+    crop_mixes = args[0].objects.all()  # MixCrop
+    third_crop_step = args[1].all()  # step.xxxx_xrop
+    tcp_listed = []
+    for item in third_crop_step:
+        temp_list = item.meta_tags_source.split(",")
+        for temp_item in temp_list:
+            tcp_listed.append(temp_item)
+    for mix in crop_mixes:
+        mix_list = mix.meta_tags.split(",")
+        if(set(mix_list).issubset(set(tcp_listed))):
+            args[1].add(mix)
+        else:
+            args[1].remove(mix)
