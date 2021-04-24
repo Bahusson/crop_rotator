@@ -191,6 +191,16 @@ class CropAdmin(View):
                 cr.save()
                 item.crop_relationships.add(cr.id)
 
+    def map_all_properties(self, element):
+        element_list = []
+        element_list.append("c" + str(element.id))
+        element_list.append("f" + str(element.family.id))
+        for tag in element.tags.all():
+            element_list.append("t" + str(tag.id))
+        listToStr = ''.join([str(elem) for elem in element_list])
+        element.meta_tags_source = listToStr
+        element.save()
+
     def get(self, request, *args, **kwargs):
         context = {
             "element": self.the_element,
@@ -283,6 +293,12 @@ class SyncCropTagDB(CropAdmin):
             query = CropsInteraction.objects.filter(is_server_generated=True)
             for item in query:
                 item.delete()
+
+        if "create_meta_tag_db" in request.POST:
+            query = Crop.objects.filter(meta_tags=False)
+            for crop in query:
+                self.map_all_properties(crop)
+
         return redirect('rotator_admin')
 
     def get(self, request, *args, **kwargs):
