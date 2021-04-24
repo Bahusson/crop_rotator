@@ -4,7 +4,8 @@ from django.contrib import admin
 from .models import (
     CropFamily,
     Crop,
-    CropMix,
+    MixCrop,
+#    CropMix,
     CropTag,
     CropDataSource,
     CropDataFamilySource,
@@ -20,7 +21,8 @@ from .models import (
 
 admin.site.register(CropFamily)
 admin.site.register(Crop)
-admin.site.register(CropMix)
+admin.site.register(MixCrop)
+#admin.site.register(CropMix)
 admin.site.register(CropTag)
 admin.site.register(CropDataSource)
 admin.site.register(CropDataFamilySource)

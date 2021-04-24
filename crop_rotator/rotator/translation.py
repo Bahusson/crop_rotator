@@ -1,6 +1,7 @@
 from modeltranslation.translator import translator, TranslationOptions
 from .models import (
     CropMix,
+    MixCrop,
     Crop,
     CropFamily,
     CropDataSource,
@@ -57,3 +58,10 @@ class CropTagTranslate(TranslationOptions):
 
 
 translator.register(CropTag, CropTagTranslate)
+
+
+class MixCropTranslate(TranslationOptions):
+    fields = ()
+
+
+translator.register(MixCrop, MixCropTranslate)

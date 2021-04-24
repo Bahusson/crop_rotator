@@ -154,6 +154,7 @@ class Crop(models.Model):
     seed_norm_max = models.IntegerField(blank=True, null=True)
     # maksymalna norma wysiewu w kg/ha
     plant_type = models.PositiveSmallIntegerField(choices=PLANT_TYPE, default=0)
+    meta_tags_source = models.TextField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -166,7 +167,7 @@ class Crop(models.Model):
         return class_name
 
 class MixCrop(Crop):
-    pass
+    meta_tags = models.TextField(blank=True, null=True)
 
 # Nieużywany na razie mix do mieszanek typu "Biomax".
 # Mechanika na glo boardzie.
