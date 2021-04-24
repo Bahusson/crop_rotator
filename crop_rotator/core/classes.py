@@ -170,7 +170,6 @@ class PlannerRelationship(object):
         self.a = kwargs['a']
         self.b = kwargs['b']
         self.ifdict = {
-            # relationships:
             "crop_to_crop": self.a[4].crop_relationships.filter(
              about_crop__id=self.b[4].id),
             "crop_to_family": self.a[4].crop_relationships.filter(
@@ -349,6 +348,7 @@ class CropPlanner(object):
         return self.top_tier
 
 
+# Do ładowania po raz pierwszy na serwer.
 try:
     edit_delay_sec = PageElement(RotatorAdminPanel).baseattrs.evaluated_plan_cooldown
     lurk_delay_min = PageElement(RotatorAdminPanel).baseattrs.lurk_plan_cooldown
