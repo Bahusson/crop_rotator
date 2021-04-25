@@ -231,6 +231,7 @@ class DummyCropPlanner(object):
             "efcs": self.error_family_crops,
             "plan": self.pe_rp_id,
             "steps": self.pe_rs,
+            "substeps": self.pe_rss,
             "top_tier": self.top_tier,
         }
         self.context.update(kwargs['context'])
@@ -246,6 +247,7 @@ class CropPlanner(object):
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
+        self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)
         listed_pe_rs = list(self.pe_rs)
         len_listed_pe_rs = len(listed_pe_rs)
         cooldown_list = []
@@ -338,6 +340,7 @@ class CropPlanner(object):
             "cr_len_warning": self.clw,
             "plan": self.pe_rp_id,
             "steps": self.pe_rs,
+            "substeps": self.pe_rss,
             "top_tier": self.top_tier,
         }
         self.context.update(kwargs['context'])

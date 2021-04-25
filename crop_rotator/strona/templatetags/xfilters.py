@@ -83,6 +83,7 @@ def shallow_list(**kwargs):
     if a is order and b is plant:
         return c
 
+
 # Przeróbka powyższego.
 @register.simple_tag(name="complex_list")
 def complex_list(**kwargs):
@@ -93,10 +94,10 @@ def complex_list(**kwargs):
     mylist = []
     for i in from_context:
         a = i[3][0]
-        b = i[sub_type] # 1 dla rośliny a 2 dla rodziny.
+        b = i[sub_type]  # 1 dla rośliny a 2 dla rodziny.
         specimen = i[9]
         i_value = i[10]
         step = i[8]
         if a is order and b is subject:
-            mylist.append((specimen,i_value,step))
+            mylist.append((specimen, i_value, step))
     return mylist

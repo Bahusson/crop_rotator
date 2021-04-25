@@ -127,43 +127,27 @@
               {% endif %}
 
               <div class="row">
-                {% if step.middle_crop.all %}
-                <div class="col-md-4">
-                {% else %}
-                <div class="col-md-6">
-                {% endif %}
-                {% if step.early_crop.all %}
+              {% for substep in substeps %}
+              {% if substep.from_step == step %}
+                <div class="col-md">
+                {% if substep.order == 1 %}
                   <h2>{{ translatables.early_crop }}:</h2>
-                  {% for crop in step.early_crop.all %}
-                    {% include 'strona/plan_parts/plan_step.html' %}
-                  {% endfor %}
-                {% endif %}
-                </div>
-              {% if step.middle_crop.all %}
-                <div class="col-md-4">
+                {% elif substep.order == 2 %}
                   <h2>{{ translatables.middle_crop }}:</h2>
-                  {% for crop in step.middle_crop.all %}
-                    {% include 'strona/plan_parts/plan_step.html' %}
-                  {% endfor %}
-              </div>
-              {% endif %}
-                  {% if step.middle_crop.all %}
-                  <div class="col-md-4">
-                  {% else %}
-                  <div class="col-md-6">
-                  {% endif %}
-                  {% if step.late_crop.all %}
+                {% else %}
                   <h2>{{ translatables.late_crop }}:</h2>
-                  {% for crop in step.late_crop.all %}
-                    {% include 'strona/plan_parts/plan_step.html' %}
-                  {% endfor %}
+                {% endif %}
+                {% if substep.crop_substep.all %}
+                {% for crop in substep.crop_substep.all %}
+                  {% include 'strona/plan_parts/plan_step.html' %}
+                {% endfor %}
                 {% endif %}
                 </div>
+              {% endif %}
+              {% endfor %}
               </div>
-              <hr/>
-            {% endfor %}
 
-          </div>
+          {% endfor %}<!-- Endfor step in steps -->
         </div>
       </div><!-- /.row -->
       {% if user_editable and top_tier < admin_max_steps %}
