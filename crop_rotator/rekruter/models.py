@@ -32,6 +32,7 @@ class RotationPlan(models.Model):
 class RotationStep(models.Model):
     title = models.CharField(max_length=150)
     descr = models.CharField(max_length=500, blank=True, null=True)
+    # trzy poniżej do wywalenia
     add_manure_early = models.BooleanField(default=False)
     add_manure_middle = models.BooleanField(default=False)
     add_manure_late = models.BooleanField(default=False)
@@ -55,6 +56,7 @@ class RotationStep(models.Model):
     late_crop = models.ManyToManyField(
      "rotator.Crop", related_name="crop_late_set0", blank=True)
     # Międzyplon typu "poplon"
+    #Trzy poniżej do wywalenia
     is_late_crop_destroy = models.BooleanField(default=False)
     # Czy plon późny zostanie zniszczony na zielony nawóz?
     # Jeśli nie to przyjmujemy, że zostaje zebrany np. na siano lub na ziarno.
@@ -76,6 +78,7 @@ class RotationStep(models.Model):
         return self.title
 
 
+# Podkrok elementu płodozmianu.
 class RotationSubStep(models.Model):
     EARLY = 0
     MIDDLE = 1
@@ -86,7 +89,7 @@ class RotationSubStep(models.Model):
         (LATE, "Plon Późny"),
     )
     order = models.PositiveSmallIntegerField(choices=LOCAL_ORDER, default=0)
-    from_plan = models.ForeignKey(
+    from_step = models.ForeignKey(
             "RotationStep",
             related_name="rotation_step_set",
             on_delete=models.CASCADE,
@@ -96,7 +99,8 @@ class RotationSubStep(models.Model):
     crop_substep = models.ManyToManyField(
         "rotator.Crop", related_name="crop_subtep_set", blank=True
     )
-
+    add_manure = models.BooleanField(default=False)
+    is_crop_destroy = models.BooleanField(default=False)
     class Meta:
         ordering = ["-fromstep", "order"]
         verbose_name_plural = "Rotation Substeps"
