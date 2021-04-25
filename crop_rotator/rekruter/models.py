@@ -80,9 +80,9 @@ class RotationStep(models.Model):
 
 # Podkrok elementu płodozmianu.
 class RotationSubStep(models.Model):
-    EARLY = 0
-    MIDDLE = 1
-    LATE = 2
+    EARLY = 1
+    MIDDLE = 2
+    LATE = 3
     LOCAL_ORDER = (
         (EARLY, "Plon Wczesny"),
         (MIDDLE, "Śródplon"),
@@ -115,4 +115,4 @@ class RotationSubStep(models.Model):
         verbose_name_plural = "Rotation Substeps"
 
     def __str__(self):
-        return self.from_plan.title + str(self.order)
+        return self.from_step.title + " (" + str(self.order) +")"

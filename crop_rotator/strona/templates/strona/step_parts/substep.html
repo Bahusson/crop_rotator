@@ -6,7 +6,7 @@
     {{ translatables.middle_crop }}
     {% else %}
     {{ translatables.late_crop }}
-    {% endif %}: <button class="btn btn-link-3 btn-dark" name="remove_substep_button" substep_id="{{ substep.id }}"></h4>
+    {% endif %}: <button class="btn btn-link-3 btn-dark" name="remove_substep_button" substep_id="{{ substep.id }}">$Usuń</button></h4>
 
 {% for crop in substep.crop_substep.all %}
 {% if not crop.is_crop_mix %}

@@ -26,10 +26,15 @@
              {% csrf_token %}
               <p>{{ translatables.title }}: {{ form.title }}</p>
               <p>{{ translatables.descr }}: {{ form.descr }}</p>
+              <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button></p>
               {% for button in buttons %}
-                {% for substep in substeps %}
-                {% if button == substep.order %}
+                  {% orderlookup button=button as button_lookup %}
+                  {% if button_lookup %}
+                  {% for substep in substeps %}
+                  {% if substep.order == button %}
                   {% include 'strona/step_parts/substep.html' %}
+                  {% endif %}
+                  {% endfor %}
                 {% else %}
                   <button class="btn btn-link-3 btn-light" inter_key="{{ button }}" name="add_substep_button">$Dodaj
                     {% if button == 1 %}
@@ -40,11 +45,10 @@
                     {{ translatables.late_crop }}
                     {% endif %}<button>
                 {% endif %}
-                {% endfor %}
               {% endfor %}
               <input type="hidden" id="inter_key" name="inter_key" value=""/>
               <input type="hidden" id="inter_element" name="inter_element" value=""/>
-              <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button></p>
+
             </form>
             <p><a href="{% url 'plan' step.from_plan.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.return_to_plan }}</button></a></p>
 

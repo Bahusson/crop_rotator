@@ -46,6 +46,14 @@ def negator(var):
 def zip_lists(a, b):
     return zip(a, b)
 
+@register.simple_tag(takes_context=True)
+def orderlookup(context, **kwargs):
+    substeps = context['substeps']
+    button = kwargs['button']
+    for substep in substeps:
+        if button == substep.order:
+            return True
+
 
 @register.simple_tag(takes_context=True, name='deep_list')
 def deep_list(context, **kwargs):
