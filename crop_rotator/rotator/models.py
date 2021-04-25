@@ -167,8 +167,10 @@ class Crop(models.Model):
         class_name = "Crop"
         return class_name
 
+
 class MixCrop(Crop):
     meta_tags = models.TextField(blank=True, null=True)
+
 
 # Nieużywany na razie mix do mieszanek typu "Biomax".
 # Mechanika na glo boardzie.

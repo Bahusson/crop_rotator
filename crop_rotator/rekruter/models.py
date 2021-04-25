@@ -101,6 +101,15 @@ class RotationSubStep(models.Model):
     )
     add_manure = models.BooleanField(default=False)
     is_crop_destroy = models.BooleanField(default=False)
+
+    @classmethod
+    def create(cls, *args):
+        substep = cls(
+         order=args[0],
+         from_step=args[1],
+         )
+        return substep
+
     class Meta:
         ordering = ["-fromstep", "order"]
         verbose_name_plural = "Rotation Substeps"

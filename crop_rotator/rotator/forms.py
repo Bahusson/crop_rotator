@@ -1,5 +1,5 @@
 from django import forms
-from rekruter.models import RotationPlan, RotationStep
+from rekruter.models import RotationPlan, RotationStep, RotationSubStep
 from core.snippets import flare
 import datetime
 

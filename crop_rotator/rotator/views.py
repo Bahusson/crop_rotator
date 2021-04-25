@@ -244,6 +244,7 @@ def step(request, step_id):
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
     translatables = pe(RotatorEditorPageNames).baseattrs
+    rss_objects = RotationSubStep.objects.filter(from_step=pe_stp_id)
     if check_ownership(request, User, pe_stp_id.from_plan):
         if "save_step_changes" in request.POST:
             form = StepEditionForm(request.POST, instance=pe_stp_id)
@@ -264,12 +265,22 @@ def step(request, step_id):
             rss_object.crop_substep.add(element_to_add)
             compare_csv_lists(MixCrop, rss_object.crop_substep)
             return redirect('step', step_id)
+        if "add_substep" in request.POST:
+            local_order = request.POST.get('local_order')
+            ss = RotationSubStep.create(local_order, pe_stp_id)
+            ss.save()
+        if "remove_substep" in request.POST:
+            substep_id = request.POST.get('substep_id')
+            substep_to_delete = pe(
+             RotationSubStep).by_id(G404=G404, id=substep_id)
+            substep_to_delete.delete()
 
         form = StepEditionForm(instance=pe_stp_id)
         context = {
          "croplist": croplist,
          "form": form,
          "step": pe_stp_id,
+         "substep": rss_objects,
          "translatables": translatables,
         }
         pl = PageLoad(P, L)
