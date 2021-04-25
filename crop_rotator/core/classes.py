@@ -193,7 +193,7 @@ class PlannerRelationship(object):
             if (
                 self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
                 or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
-                ):
+                 ):
                 level_off(self.top_tier, self.a, self.b)
                 self.given_list.append(self.a + self.b + [self.i.is_positive])
                 return self.given_list
@@ -246,7 +246,7 @@ class CropPlanner(object):
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
-        self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)  # RotationSubSteps
+#        self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)  # RotationSubSteps
         listed_pe_rs = list(self.pe_rs)
         len_listed_pe_rs = len(listed_pe_rs)
         cooldown_list = []
@@ -254,13 +254,14 @@ class CropPlanner(object):
         top_tier_list = []
         sub_index = 0
         for item in listed_pe_rs:
-            i1 = list(item.early_crop.all())
-            i2 = list(item.middle_crop.all())
-            i3 = list(item.late_crop.all())
+            pe_rss_pack = args[3].objects.filter(from_step=item)
+            rss_list = []
+            for sub_item in pe_rss_pack:
+                rss_list.append(sub_item)
             i4 = item.order
             top_tier_list.append(i4)
             vars = [cooldown_list, item, fabacae, sub_index]
-            sub_index = list_appending_long(i1,i2,i3,vars)
+            sub_index = list_appending_long(rss_list, vars)
         cooldown_list.sort()
         top_tier_list.sort()
         self.clw = False

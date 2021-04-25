@@ -101,17 +101,18 @@ def list_appending_short(items, vars, season, *args):
                     flare("vars2")
                     vars[2].append(str(vars[1].order) + "b")
 
+
 # Do wywalenia
-def list_appending_long(a, b, c,  vars):
-    if len(a) > 0:
+def list_appending_long(rss_list,  vars):
+    if len(rss_list) > 0:
         vars[3] += 1
-        list_appending_short(a, vars, "Summer", b, c)
-    if len(b) > 0:
+        list_appending_short(rss_list[0], vars)
+    if len(rss_list) > 1:
         vars[3] += 1
-        list_appending_short(b, vars, None, c, [None])
-    if len(c) > 0:
+        list_appending_short(rss_list[1], vars)
+    if len(rss_list) > 2:
         vars[3] += 1
-        list_appending_short(c, vars, "Winter")
+        list_appending_short(rss_list[2], vars)
     return vars[3]
 
 
