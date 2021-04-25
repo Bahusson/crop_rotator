@@ -246,7 +246,6 @@ class CropPlanner(object):
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
-#        self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)  # RotationSubSteps
         listed_pe_rs = list(self.pe_rs)
         len_listed_pe_rs = len(listed_pe_rs)
         cooldown_list = []
@@ -266,7 +265,7 @@ class CropPlanner(object):
         top_tier_list.sort()
         self.clw = False
         error_len_crops = []
-        cooldown_list1 = copy.deepcopy(cooldown_list)  # kopiowanie listy
+        cooldown_list1 = copy.deepcopy(cooldown_list)
         self.top_tier = top_tier_list[-1]
         for item in cooldown_list1:
             item[3][0] += self.top_tier
