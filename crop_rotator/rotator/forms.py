@@ -78,22 +78,13 @@ class StepEditionForm(forms.ModelForm):
     class Meta:
         model = RotationStep
         fields = (
-         "title", "descr", "add_manure_early", "add_manure_middle",
-         "add_manure_late",
-         "is_late_crop_destroy", "is_middle_crop_destroy",
-         "is_early_crop_destroy",
+         "title", "descr"
          )
 
     def save(self, commit=True):
         step = super(StepEditionForm, self).save(commit=False)
         step.title = self.cleaned_data["title"]
         step.descr = self.cleaned_data["descr"]
-        step.add_manure_early = self.cleaned_data["add_manure_early"]
-        step.add_manure_middle = self.cleaned_data["add_manure_middle"]
-        step.add_manure_late = self.cleaned_data["add_manure_late"]
-        step.is_late_crop_destroy = self.cleaned_data["is_late_crop_destroy"]
-        step.is_middle_crop_destroy = self.cleaned_data["is_middle_crop_destroy"]
-        step.is_early_crop_destroy = self.cleaned_data["is_early_crop_destroy"]
 
         if commit:
             step.save()
