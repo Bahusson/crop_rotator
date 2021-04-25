@@ -237,6 +237,13 @@ def plan_edit(request, plan_id):
         return redirect('home')
 
 
+def changed_element(request):
+    element_to_change = request.POST.get('inter_element')
+    change_key = request.POST.get('inter_key')
+    rss_object = pe(RotationSubStep).by_id(G404=G404, id=change_key)
+    return (rss_object, element_to_change)
+
+
 # Widok edycji pojedynczego kroku w planie zmianowania.
 @login_required
 def step(request, step_id):
@@ -252,25 +259,21 @@ def step(request, step_id):
                 form.save()
                 return redirect('step', step_id)
         if "remove_element_button" in request.POST:
-            element_to_remove = request.POST.get('remove_element')
-            remove_key = request.POST.get('remove_key')
-            rss_object = pe(RotationSubStep).by_id(G404=G404, id=remove_key)
-            rss_object.crop_substep.remove(element_to_remove)
-            compare_csv_lists(MixCrop, rss_object.crop_substep)
+            rss_object = changed_element(request)
+            rss_object[0].crop_substep.remove(rss_object[1])
+            compare_csv_lists(MixCrop, rss_object[0].crop_substep)
             return redirect('step', step_id)
         if "add_element_button" in request.POST:
-            element_to_add = request.POST.get('add_element')
-            add_key = request.POST.get('add_key')
-            rss_object = pe(RotationSubStep).by_id(G404=G404, id=add_key)
-            rss_object.crop_substep.add(element_to_add)
-            compare_csv_lists(MixCrop, rss_object.crop_substep)
+            rss_object = changed_element(request)
+            rss_object[0].crop_substep.add(rss_object[1])
+            compare_csv_lists(MixCrop, rss_object[0].crop_substep)
             return redirect('step', step_id)
         if "add_substep" in request.POST:
             local_order = request.POST.get('local_order')
             ss = RotationSubStep.create(local_order, pe_stp_id)
             ss.save()
-        if "remove_substep" in request.POST:
-            substep_id = request.POST.get('substep_id')
+        if "remove_substep_button" in request.POST:
+            substep_id = request.POST.get('inter_key')
             substep_to_delete = pe(
              RotationSubStep).by_id(G404=G404, id=substep_id)
             substep_to_delete.delete()

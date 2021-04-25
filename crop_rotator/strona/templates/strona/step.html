@@ -29,10 +29,8 @@
               {% for substep in substeps %}
                 {% include 'strona/step_parts/substep.html' %}
               {% endfor %}
-              <input type="hidden" id="add_key" name="add_key" value=""/>
-              <input type="hidden" id="add_element" name="add_element" value=""/>
-              <input type="hidden" id="remove_key" name="remove_key" value=""/>
-              <input type="hidden" id="remove_element" name="remove_element" value=""/>
+              <input type="hidden" id="inter_key" name="inter_key" value=""/>
+              <input type="hidden" id="inter_element" name="inter_element" value=""/>
               <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button></p>
             </form>
             <p><a href="{% url 'plan' step.from_plan.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.return_to_plan }}</button></a></p>
@@ -56,4 +54,5 @@
 {% block scripts %}
 <script src="/static/assets/js/remove_elements.js"></script>
 <script src="/static/assets/js/add_elements.js"></script>
+<script src="/static/assets/js/remove_substep.js"></script>
 {% endblock scripts %}
