@@ -111,7 +111,7 @@ class RotationSubStep(models.Model):
         return substep
 
     class Meta:
-        ordering = ["-fromstep", "order"]
+        ordering = ["-from_step", "order"]
         verbose_name_plural = "Rotation Substeps"
 
     def __str__(self):
