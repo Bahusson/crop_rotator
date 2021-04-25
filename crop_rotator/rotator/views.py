@@ -268,8 +268,8 @@ def step(request, step_id):
             rss_object[0].crop_substep.add(rss_object[1])
             compare_csv_lists(MixCrop, rss_object[0].crop_substep)
             return redirect('step', step_id)
-        if "add_substep" in request.POST:
-            local_order = request.POST.get('local_order')
+        if "add_substep_button" in request.POST:
+            local_order = request.POST.get('inter_key')
             ss = RotationSubStep.create(local_order, pe_stp_id)
             ss.save()
         if "remove_substep_button" in request.POST:
@@ -285,6 +285,7 @@ def step(request, step_id):
          "step": pe_stp_id,
          "substeps": rss_objects,
          "translatables": translatables,
+         "buttons": [1, 2, 3],
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)

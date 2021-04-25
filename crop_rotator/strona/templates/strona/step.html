@@ -26,8 +26,21 @@
              {% csrf_token %}
               <p>{{ translatables.title }}: {{ form.title }}</p>
               <p>{{ translatables.descr }}: {{ form.descr }}</p>
-              {% for substep in substeps %}
-                {% include 'strona/step_parts/substep.html' %}
+              {% for button in buttons %}
+                {% for substep in substeps %}
+                {% if button == substep.order %}
+                  {% include 'strona/step_parts/substep.html' %}
+                {% else %}
+                  <button class="btn btn-link-3 btn-light" inter_key="{{ button }}" name="add_substep_button">$Dodaj
+                    {% if button == 1 %}
+                    {{ translatables.early_crop }}
+                    {% elif button == 2 %}
+                    {{ translatables.middle_crop }}
+                    {% else %}
+                    {{ translatables.late_crop }}
+                    {% endif %}<button>
+                {% endif %}
+                {% endfor %}
               {% endfor %}
               <input type="hidden" id="inter_key" name="inter_key" value=""/>
               <input type="hidden" id="inter_element" name="inter_element" value=""/>
@@ -55,4 +68,5 @@
 <script src="/static/assets/js/remove_elements.js"></script>
 <script src="/static/assets/js/add_elements.js"></script>
 <script src="/static/assets/js/remove_substep.js"></script>
+<script src="/static/assets/js/add_substep.js"></script>
 {% endblock scripts %}
