@@ -14,9 +14,9 @@ class RotationPlan(models.Model):
     owner = models.ForeignKey(
      User, related_name="rotation_plan_owner_set0",
      on_delete=models.CASCADE, blank=True, null=True)
-    pubdate = models.DateTimeField(blank=True, null=True)  # Data publikacji
+    pubdate = models.DateTimeField(blank=True, null=True)
     soil_type = models.PositiveSmallIntegerField(choices=SOIL_CLASS, default=0)
-    published = models.BooleanField(default=False)  # Czy ma być widoczny na głównej.
+    published = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-pubdate"]
@@ -44,6 +44,16 @@ class RotationStep(models.Model):
     )
     order = models.IntegerField(blank=True, null=True)
     # auto: kolejność w planie.
+    # Trzy poniżej do wywalenia
+    early_crop = models.ManyToManyField(
+        "rotator.Crop", related_name="crop_early_set0", blank=True
+    )
+    middle_crop = models.ManyToManyField(
+        "rotator.Crop", related_name="crop_middle_set0", blank=True
+    )
+    # Z listy: plon główny
+    late_crop = models.ManyToManyField(
+     "rotator.Crop", related_name="crop_late_set0", blank=True)
     # Międzyplon typu "poplon"
     is_late_crop_destroy = models.BooleanField(default=False)
     # Czy plon późny zostanie zniszczony na zielony nawóz?
@@ -67,7 +77,15 @@ class RotationStep(models.Model):
 
 
 class RotationSubStep(models.Model):
-    order = models.IntegerField(blank=True, null=True)
+    EARLY = 0
+    MIDDLE = 1
+    LATE = 2
+    LOCAL_ORDER = (
+        (EARLY, "Plon Wczesny"),
+        (MIDDLE, "Śródplon"),
+        (LATE, "Plon Późny"),
+    )
+    order = models.PositiveSmallIntegerField(choices=LOCAL_ORDER, default=0)
     from_plan = models.ForeignKey(
             "RotationStep",
             related_name="rotation_step_set",
@@ -78,3 +96,10 @@ class RotationSubStep(models.Model):
     crop_substep = models.ManyToManyField(
         "rotator.Crop", related_name="crop_subtep_set", blank=True
     )
+
+    class Meta:
+        ordering = ["-fromstep", "order"]
+        verbose_name_plural = "Rotation Substeps"
+
+    def __str__(self):
+        return self.from_plan.title + str(self.order)
