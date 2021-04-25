@@ -26,79 +26,9 @@
              {% csrf_token %}
               <p>{{ translatables.title }}: {{ form.title }}</p>
               <p>{{ translatables.descr }}: {{ form.descr }}</p>
-              <div class="col-md-12 plan-main">
-              <h4>{{ translatables.early_crop }}:</h4>
-                {% for crop in step.early_crop.all%}
-                {% if not crop.is_crop_mix %}
-                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="early" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
-                {% endif %}
+              {% for substep in substeps %}
+                {% include 'strona/step_parts/substep.html' %}
               {% endfor %}
-              <div class="row master0" value="1782">
-                <div class="col-md-12" value="254">
-                  <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
-                    <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
-                    {% for crop in croplist %}
-                      {% if crop not in step.early_crop.all and not crop.is_crop_mix %}
-                      <option value="{{ crop.id }}">{{ crop.name }}</option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
-                    <button class="btn btn-link-3 btn-light" add_key="early"  name="add_element_button">{{ translatables.add_element }}</button></p>
-                </div>
-              </div>
-              </div>
-              {{ translatables.add_fertilizer }}: {{ form.add_manure_early }} *{{ translatables.add_fertilizer_onhover }}</p>
-              <p>{{ translatables.destroy_early_crop }}: {{ form.is_early_crop_destroy }}</p>
-              <div class="col-md-12 plan-main">
-                <h4>{{ translatables.middle_crop }}:</h4>
-                {% for crop in step.middle_crop.all %}
-                {% if not crop.is_crop_mix %}
-                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="middle" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
-                {% endif %}
-              {% endfor %}
-              <div class="row master0" value="1782">
-                <div class="col-md-12" value="254">
-                  <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
-                    <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
-                    {% for crop in croplist %}
-                      {% if crop not in step.middle_crop.all and not crop.is_crop_mix %}
-                      <option value="{{ crop.id }}">{{ crop.name }}</option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
-                    <button class="btn btn-link-3 btn-light" add_key="middle"  name="add_element_button">{{ translatables.add_element }}</button></p>
-                </div>
-              </div>
-              </div>
-             {{ translatables.add_fertilizer }}: {{ form.add_manure_middle }} *{{ translatables.add_fertilizer_onhover }}</p>
-              <p>{{ translatables.destroy_middle_crop }}: {{ form.is_middle_crop_destroy }}</p>
-              <div class="col-md-12 plan-main">
-                <h4>{{ translatables.late_crop }}:</h4>
-                {% for crop in step.late_crop.all %}
-                {% if not crop.is_crop_mix %}
-                <p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="late" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
-                {% endif %}
-              {% endfor %}
-              <div class="row master0" value="1782">
-                <div class="col-md-12" value="254">
-                  <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
-                    <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
-                    {% for crop in croplist %}
-                      {% if crop not in step.late_crop.all and not crop.is_crop_mix %}
-                      <option value="{{ crop.id }}">{{ crop.name }}</option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
-                    <button class="btn btn-link-3 btn-light" add_key="late"  name="add_element_button">{{ translatables.add_element }}</button></p>
-                </div>
-              </div>
-              </div>
-              {{ translatables.add_fertilizer }}: {{ form.add_manure_late }} *{{ translatables.add_fertilizer_onhover }}</p>
-              <p>{{ translatables.destroy_late_crop }}: {{ form.is_late_crop_destroy }}</p>
-              <!--Zrób coś, żeby wykrywał, że user dodał nawóz do obydwu kroków i informował go o ryzyku przenawożenia.
-              Coś w stylu "Dodałeś nawóz w obydwu krokach, czy na pewno wiesz co robisz?"
-              Tak samo ze zniszczeniem na zielony nawóz i nawożeniem.
-              Ogólnie jak zaznaczy dwa dowolne checkboxy "nawożące" to mu wywal ten błąd.-->
               <input type="hidden" id="add_key" name="add_key" value=""/>
               <input type="hidden" id="add_element" name="add_element" value=""/>
               <input type="hidden" id="remove_key" name="remove_key" value=""/>

@@ -1,0 +1,29 @@
+
+<div class="col-md-12 plan-main">
+  <h4>{% if substep.order == 1 %}
+    {{ translatables.early_crop }}
+    {% elif substep.order == 2 %}
+    {{ translatables.middle_crop }}
+    {% else %}
+    {{ translatables.late_crop }}
+    {% endif %}: <button class="btn btn-link-3 btn-dark" name="remove_substep" substep_id="substep.id"></h4>
+
+{% for crop in substep.crop_substep.all %}
+{% if not crop.is_crop_mix %}
+<p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="substep.id" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
+{% endif %}
+{% endfor %}
+<div class="row master0" value="1782">
+<div class="col-md-12" value="254">
+  <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
+    <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
+    {% for crop in croplist %}
+      {% if crop not in substep.crup_substep.all and not crop.is_crop_mix %}
+      <option value="{{ crop.id }}">{{ crop.name }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+    <button class="btn btn-link-3 btn-light" add_key="late"  name="add_element_button">{{ translatables.add_element }}</button></p>
+</div>
+</div>
+</div>

@@ -280,7 +280,7 @@ def step(request, step_id):
          "croplist": croplist,
          "form": form,
          "step": pe_stp_id,
-         "substep": rss_objects,
+         "substeps": rss_objects,
          "translatables": translatables,
         }
         pl = PageLoad(P, L)
