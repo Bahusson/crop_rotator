@@ -187,7 +187,7 @@ class CropAdmin(View):
                      self.the_element,
                      pe_croptag_id,
                      )
-                #print(str(cr) + " added to database!")
+                # print(str(cr) + " added to database!")
                 cr.save()
                 item.crop_relationships.add(cr.id)
 

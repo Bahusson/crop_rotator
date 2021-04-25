@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 from rekruter.models import (
     RotationPlan,
     RotationStep,
+    RotationSubStep,
 )
 from rotator.models import (
     Crop,
@@ -236,21 +237,13 @@ def plan_edit(request, plan_id):
         return redirect('home')
 
 
-def removedict(pe_stp_id, remove_key, element_to_remove):
-    removedict = {
-        "early": pe_stp_id.early_crop.remove(element_to_remove),
-        "middle": pe_stp_id.middle_crop.remove(element_to_remove),
-        "late": pe_stp_id.late_crop.remove(element_to_remove)
-        }
-    return removedict[remove_key]
-
-
 # Widok edycji pojedynczego kroku w planie zmianowania.
 @login_required
 def step(request, step_id):
     croplist = Crop.objects.all()
     pe_stp = pe(RotationStep)
     pe_stp_id = pe_stp.by_id(G404=G404, id=step_id)
+    rss_objects = RotationSubStep.objects.filter(from_step=pe_stp_id)
     translatables = pe(RotatorEditorPageNames).baseattrs
     if check_ownership(request, User, pe_stp_id.from_plan):
         if "save_step_changes" in request.POST:
@@ -261,28 +254,16 @@ def step(request, step_id):
         if "remove_element_button" in request.POST:
             element_to_remove = request.POST.get('remove_element')
             remove_key = request.POST.get('remove_key')
-            if remove_key == "early":
-                pe_stp_id.early_crop.remove(element_to_remove)
-                compare_csv_lists(MixCrop, pe_stp_id.early_crop)
-            elif remove_key == "middle":
-                pe_stp_id.middle_crop.remove(element_to_remove)
-                compare_csv_lists(MixCrop, pe_stp_id.middle_crop)
-            elif remove_key == "late":
-                pe_stp_id.late_crop.remove(element_to_remove)
-                compare_csv_lists(MixCrop, pe_stp_id.late_crop)
+
+            pe_rss_id.early_crop.remove(element_to_remove)
+            compare_csv_lists(MixCrop, pe_stp_id.early_crop)
             return redirect('step', step_id)
         if "add_element_button" in request.POST:
             element_to_add = request.POST.get('add_element')
             add_key = request.POST.get('add_key')
-            if add_key == "early":
-                pe_stp_id.early_crop.add(element_to_add)
-                compare_csv_lists(MixCrop, pe_stp_id.early_crop)
-            elif add_key == "middle":
-                pe_stp_id.middle_crop.add(element_to_add)
-                compare_csv_lists(MixCrop, pe_stp_id.middle_crop)
-            elif add_key == "late":
-                pe_stp_id.late_crop.add(element_to_add)
-                compare_csv_lists(MixCrop, pe_stp_id.late_crop)
+
+            pe_rss_id.late_crop.add(element_to_add)
+            compare_csv_lists(MixCrop, pe_stp_id.late_crop)
             return redirect('step', step_id)
 
         form = StepEditionForm(instance=pe_stp_id)
