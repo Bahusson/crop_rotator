@@ -44,15 +44,6 @@ class RotationStep(models.Model):
     )
     order = models.IntegerField(blank=True, null=True)
     # auto: kolejność w planie.
-    early_crop = models.ManyToManyField(
-        "rotator.Crop", related_name="crop_early_set0", blank=True
-    )
-    middle_crop = models.ManyToManyField(
-        "rotator.Crop", related_name="crop_middle_set0", blank=True
-    )
-    # Z listy: plon główny
-    late_crop = models.ManyToManyField(
-     "rotator.Crop", related_name="crop_late_set0", blank=True)
     # Międzyplon typu "poplon"
     is_late_crop_destroy = models.BooleanField(default=False)
     # Czy plon późny zostanie zniszczony na zielony nawóz?
@@ -73,3 +64,17 @@ class RotationStep(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class RotationSubStep(models.Model):
+    order = models.IntegerField(blank=True, null=True)
+    from_plan = models.ForeignKey(
+            "RotationStep",
+            related_name="rotation_step_set",
+            on_delete=models.CASCADE,
+            blank=True,
+            null=True,
+        )
+    crop_substep = models.ManyToManyField(
+        "rotator.Crop", related_name="crop_subtep_set", blank=True
+    )
