@@ -262,7 +262,10 @@ def step(request, step_id):
             compare_csv_lists(MixCrop, rss_object[0].crop_substep)
             return redirect('step', step_id)
         if "add_element_button" in request.POST:
-            rss_object = changed_element(request)
+            try:
+                rss_object = changed_element(request)
+            except ValueError:
+                return redirect('step', step_id)
             rss_object[0].crop_substep.add(rss_object[1])
             compare_csv_lists(MixCrop, rss_object[0].crop_substep)
             return redirect('step', step_id)
