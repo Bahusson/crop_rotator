@@ -79,7 +79,7 @@ def flare(debugged_content, **kwargs):
 
 
 # Skraca powtarzający się kawałek kodu na widokach.
-def list_appending_short(rss_list, vars, *args):
+def list_appending_short(rss_list, vars):
     seasondict = {0: "Summer", 1: None, 2: "Winter"}
     for item in rss_list:
         for i in item.crop_substep:
@@ -96,24 +96,22 @@ def list_appending_short(rss_list, vars, *args):
             # Policz bobowate i strączkowe (tzw. mandatory crops):
             if i.family.is_mandatory_crop:
                 vars[2].append(str(vars[1].order))
-                if args and len(args[0]) == 0:
-                    flare("vars1")
+                if len(rss_list) > 1:
                     vars[2].append(str(vars[1].order) + "a")
-                    if args and len(args[1]) == 0:
-                        flare("vars2")
+                    if len(rss_list) > 2:
                         vars[2].append(str(vars[1].order) + "b")
 
 
 def list_appending_long(rss_list,  vars):
     if len(rss_list) > 0:
         vars[3] += 1
-        list_appending_short(rss_list[0], vars, "Summer", b, c)
+        list_appending_short(rss_list[0], vars)
     if len(rss_list) > 1:
         vars[3] += 1
-        list_appending_short(rss_list[1], vars, None, c, [None])
+        list_appending_short(rss_list[1], vars)
     if len(rss_list) > 2:
         vars[3] += 1
-        list_appending_short(rss_list[2], vars, "Winter")
+        list_appending_short(rss_list[2], vars)
     return vars[3]
 
 
