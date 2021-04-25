@@ -87,7 +87,8 @@ class Plan(View):
             "eval_button_on": self.eval_button_on,
             }
         self.cp = self.VarCropPlanner(
-         self.pe_rp_id, RotationStep, Crop, plan_id=self.plan_id)
+         self.pe_rp_id, RotationStep, Crop, RotationSubStep,
+         plan_id=self.plan_id)
         self.plans_context = self.cp.basic_context(context=context)
         return super(Plan, self).dispatch(request, *args, **kwargs)
 
@@ -121,11 +122,8 @@ class Plan(View):
         if "receiver_step" in request.POST:
             sender_step_id = self.pe_stp.by_id(
              G404=G404, id=request.POST.get('sender_step'))
-            try:
-                receiver_step_id = self.pe_stp.by_id(
-                 G404=G404, id=request.POST.get('receiver_step'))
-            except:
-                return redirect('plan', self.plan_id)
+            receiver_step_id = self.pe_stp.by_id(
+             G404=G404, id=request.POST.get('receiver_step'))
             sender_step_order = sender_step_id.order
             form1 = StepMoveForm(request.POST, instance=sender_step_id)
             form2 = StepMoveForm(request.POST, instance=receiver_step_id)

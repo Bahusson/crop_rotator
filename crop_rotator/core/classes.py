@@ -205,12 +205,14 @@ class PlannerRelationship(object):
                 return self.given_list
 
 
-# Klasa obchodzi błędy związane z używaniem wzornika CropPlanner tam gdzie nie potrzeba analizować treści.
+# Klasa obchodzi błędy związane z używaniem wzornika
+# CropPlanner tam gdzie nie potrzeba analizować treści.
 class DummyCropPlanner(object):
     def __init__(self, *args, **kwargs):
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
+        self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)
         err_crop_list = []
         tabs = []
         self.error_family_crops = {
@@ -244,20 +246,18 @@ class CropPlanner(object):
         plan_id = kwargs['plan_id']
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
+        self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)  # RotationSubSteps
         listed_pe_rs = list(self.pe_rs)
         len_listed_pe_rs = len(listed_pe_rs)
         cooldown_list = []
         fabacae = []
         top_tier_list = []
-        self.fertilized = True
         sub_index = 0
         for item in listed_pe_rs:
             i1 = list(item.early_crop.all())
             i2 = list(item.middle_crop.all())
             i3 = list(item.late_crop.all())
             i4 = item.order
-            if item.add_manure_early or item.add_manure_late or item.add_manure_middle:
-                self.fertilized = False
             top_tier_list.append(i4)
             vars = [cooldown_list, item, fabacae, sub_index]
             sub_index = list_appending_long(i1,i2,i3,vars)
@@ -339,7 +339,6 @@ class CropPlanner(object):
             "plan": self.pe_rp_id,
             "steps": self.pe_rs,
             "top_tier": self.top_tier,
-            "fertilized": self.fertilized,
         }
         self.context.update(kwargs['context'])
         return self.context

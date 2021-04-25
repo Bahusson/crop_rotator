@@ -77,7 +77,7 @@ def flare(debugged_content, **kwargs):
     print("")
     print("")
 
-
+# Do wywalenia
 # Skraca powtarzający się kawałek kodu na widokach.
 def list_appending_short(items, vars, season, *args):
     for i in items:
@@ -101,7 +101,7 @@ def list_appending_short(items, vars, season, *args):
                     flare("vars2")
                     vars[2].append(str(vars[1].order) + "b")
 
-
+# Do wywalenia
 def list_appending_long(a, b, c,  vars):
     if len(a) > 0:
         vars[3] += 1
