@@ -16,7 +16,7 @@
 <div class="row master0" value="1782">
 <div class="col-md-12" value="254">
   <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
-    <option value ="None" selected disabled>{{ translatables.option_select }}:</option>
+    <option value="None" selected disabled>{{ translatables.option_select }}:</option>
     {% for crop in croplist %}
       {% if crop not in substep.crop_substep.all and not crop.is_crop_mix %}
       <option value="{{ crop.id }}">{{ crop.name }}</option>

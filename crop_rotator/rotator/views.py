@@ -268,14 +268,18 @@ def step(request, step_id):
             return redirect('step', step_id)
         if "add_substep_button" in request.POST:
             local_order = request.POST.get('inter_key')
+            for rss_object in rss_objects:
+                if rss_object.order == local_order:
+                    return redirect("step", step_id)
             ss = RotationSubStep.create(local_order, pe_stp_id)
             ss.save()
+            return redirect('step', step_id)
         if "remove_substep_button" in request.POST:
             substep_id = request.POST.get('inter_key')
             substep_to_delete = pe(
              RotationSubStep).by_id(G404=G404, id=substep_id)
             substep_to_delete.delete()
-
+            return redirect('step', step_id)
         form = StepEditionForm(instance=pe_stp_id)
         context = {
          "croplist": croplist,
