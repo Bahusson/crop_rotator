@@ -79,39 +79,38 @@ def flare(debugged_content, **kwargs):
 
 
 # Skraca powtarzający się kawałek kodu na widokach.
-def list_appending_short(rss_list, vars):
+def list_appending_short(item, vars, length):
     seasondict = {0: "Summer", 1: None, 2: "Winter"}
-    for item in rss_list:
-        for i in item.crop_substep:
-            vars[0].append(
-                [
-                    i.family.cooldown_min,
-                    i.id,
-                    i.family,
-                    [vars[1].order, vars[3], seasondict[item.order]],
-                    i,
-                ]
-            )
+    for i in item.crop_substep.all():
+        vars[0].append(
+            [
+                i.family.cooldown_min,
+                i.id,
+                i.family,
+                [vars[1].order, vars[3], seasondict[item.order]],
+                i,
+            ]
+        )
 
-            # Policz bobowate i strączkowe (tzw. mandatory crops):
-            if i.family.is_mandatory_crop:
-                vars[2].append(str(vars[1].order))
-                if len(rss_list) > 1:
-                    vars[2].append(str(vars[1].order) + "a")
-                    if len(rss_list) > 2:
-                        vars[2].append(str(vars[1].order) + "b")
+        # Policz bobowate i strączkowe (tzw. mandatory crops):
+        if i.family.is_mandatory_crop:
+            vars[2].append(str(vars[1].order))
+            if length > 1:
+                vars[2].append(str(vars[1].order) + "a")
+                if length > 2:
+                    vars[2].append(str(vars[1].order) + "b")
 
 
 def list_appending_long(rss_list,  vars):
     if len(rss_list) > 0:
         vars[3] += 1
-        list_appending_short(rss_list[0], vars)
+        list_appending_short(rss_list[0], vars, len(rss_list))
     if len(rss_list) > 1:
         vars[3] += 1
-        list_appending_short(rss_list[1], vars)
+        list_appending_short(rss_list[1], vars, len(rss_list))
     if len(rss_list) > 2:
         vars[3] += 1
-        list_appending_short(rss_list[2], vars)
+        list_appending_short(rss_list[2], vars, len(rss_list))
     return vars[3]
 
 
