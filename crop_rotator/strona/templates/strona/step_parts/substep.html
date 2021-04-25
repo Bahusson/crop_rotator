@@ -10,7 +10,7 @@
 
 {% for crop in substep.crop_substep.all %}
 {% if not crop.is_crop_mix %}
-<p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="substep.id" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
+<p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="{{ substep.id }}" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
 {% endif %}
 {% endfor %}
 <div class="row master0" value="1782">
@@ -23,7 +23,7 @@
       {% endif %}
     {% endfor %}
   </select>
-    <button class="btn btn-link-3 btn-light" add_key="late"  name="add_element_button">{{ translatables.add_element }}</button></p>
+    <button class="btn btn-link-3 btn-light" add_key="{{ substep.id }}"  name="add_element_button">{{ translatables.add_element }}</button></p>
 </div>
 </div>
 </div>
