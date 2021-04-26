@@ -1,5 +1,6 @@
 
 <div class="col-md-12 plan-main">
+  <hr/>
   <h4>{% if substep.order == 1 %}
     {{ translatables.early_crop }}
     {% elif substep.order == 2 %}
@@ -10,7 +11,7 @@
 
 {% for crop in substep.crop_substep.all %}
 {% if not crop.is_crop_mix %}
-<p>{{ crop.name }}   <button class="btn btn-link-3 btn-light" remove_key="{{ substep.id }}" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
+<p>{{ crop.name }}   <button class="btn btn-link-3 btn-dark" remove_key="{{ substep.id }}" remove_element="{{ crop.id }}" name="remove_element_button">{{ translatables.remove_element }}</button></p>
 {% endif %}
 {% endfor %}
 <div class="row master0" value="1782">

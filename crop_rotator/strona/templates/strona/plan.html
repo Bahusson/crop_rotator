@@ -85,11 +85,22 @@
 
             <!--Tutaj dawaj po kolei wszystkie elementy planu -->
             {% for step in steps %}
-
+             <hr/>
               <h1>
                 {{ step.title }}
                 {% if user_editable %}
                     <a href="{% url 'step' step.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.editme }}</button></a>
+                    {% if step.order == top_tier %}
+                    <button class="btn btn-link-3 btn-dark untoggle" value="0" name="safety_valve">{{ translatables.step_remove }}</button>
+                    <div name="ButtonHiddenDiv" class="toggle" style="display: none" value="0">
+                     <form name="StepDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa ostatni -->
+                      {% csrf_token %}
+                      <p class="wnioski2">{{ translatables.remove_warning }}</p>
+                      <button class="btn btn-link-3 btn-dark" name="delete_step" value="{{ step.id }}" type="submit">{{ translatables.remove_permanent }}</button>
+                      <button name="dont_delete_event" type="button" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
+                    </form> <!-- Koniec formularza usywającego ostatni krok-->
+                    </div>
+                    {% endif %}
                 {% endif %}
               </h1>
               {% if step.descr %}
@@ -97,7 +108,7 @@
               {% endif %}
               {% if user_editable %}
               <div class="row master0" value="1782">
-                <div class="col-md-9" value="254">
+                <div>
                   <p class="slave0" value="test_slave0">{{ translatables.switch_text }}: <select class="selectables" name="step_selection">
                     <option name="None" value ="None" selected disabled>{{ translatables.option_select }}:</option>
                     {% for step2 in steps %}
@@ -105,25 +116,13 @@
                         <option name="{{ step2.id }}" value ="{{ step2.order }}">{{ step2.title }}</option>
                       {% endif %}
                     {% endfor %}
-                  </select></p>
+                  </select>
                 </div>
-                <div class="col-md-3">
-                  <p>
+                <div>
                   <button class="btn btn-link-3 btn-light" name="move_plan" value="{{ step.id }}" type="submit">{{ translatables.switch_places }}</button></p>
                 </div>
               </div>
               <br>
-                {% if step.order == top_tier %}
-                <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve">{{ translatables.step_remove }}</button></p>
-                <div name="ButtonHiddenDiv" class="toggle" style="display: none" value="0">
-                 <form name="StepDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa ostatni -->
-                  {% csrf_token %}
-                  <p class="wnioski2">{{ translatables.remove_warning }}</p>
-                  <button class="btn btn-link-3 btn-light" name="delete_step" value="{{ step.id }}" type="submit">{{ translatables.remove_permanent }}</button>
-                  <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
-                </form> <!-- Koniec formularza usywającego ostatni krok-->
-                </div>
-                {% endif %}
               {% endif %}
 
               <div class="row">

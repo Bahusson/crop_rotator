@@ -26,7 +26,10 @@
              {% csrf_token %}
               <p>{{ translatables.title }}: {{ form.title }}</p>
               <p>{{ translatables.descr }}: {{ form.descr }}</p>
-              <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button></p>
+              <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button>
+                 <button class="btn btn-link-3 btn-light"><a href="{% url 'plan' step.from_plan.id %}">{{ translatables.return_to_plan }}</a></button></p>
+          </div>
+          <div class="container">
               {% for button in buttons %}
                   {% orderlookup button=button as button_lookup %}
                   {% if button_lookup %}
@@ -36,7 +39,8 @@
                   {% endif %}
                   {% endfor %}
                 {% else %}
-                  <button class="btn btn-link-3 btn-light" inter_key="{{ button }}" name="add_substep_button">$Dodaj
+                <hr/>
+                  <button class="btn btn-link-3 btn-light" inter_key="{{ button }}" name="add_substep_button">+
                     {% if button == 1 %}
                     {{ translatables.early_crop }}
                     {% elif button == 2 %}
@@ -48,11 +52,8 @@
               {% endfor %}
               <input type="hidden" id="inter_key" name="inter_key" value=""/>
               <input type="hidden" id="inter_element" name="inter_element" value=""/>
-
             </form>
-            <p><a href="{% url 'plan' step.from_plan.id %}"><button class="btn btn-link-3 btn-light">{{ translatables.return_to_plan }}</button></a></p>
-
-        </div>
+         </div>
         </div>
       </div>
     </main>
