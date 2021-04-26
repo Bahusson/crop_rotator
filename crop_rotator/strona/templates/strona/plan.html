@@ -31,16 +31,17 @@
             {% if user_editable %}
             <form name="PlanTitleChangeForm" method="post" class="form form-inline">
              {% csrf_token %}
-              <p>{{ translatables.title }}: {{ form3.title }}</p>
-              <p><button class="btn btn-link-3 btn-light" name="edit_plan_title" type="submit">{{ translatables.change }}</button></p>
+              <p>{{ translatables.title }}: {{ form3.title }}
+              <button class="btn btn-link-3 btn-light" name="edit_plan_title" type="submit">{{ translatables.change }}</button>
+              <button class="btn btn-link-3 btn-dark untoggle" type="button" value="0" name="safety_valve_event">{{ translatables.plan_remove }}</button></p>
+
             </form>
-            <p><button class="btn btn-link-3 btn-light untoggle" value="0" name="safety_valve_event">{{ translatables.plan_remove }}</button></p>
             <div name="EventButtonHiddenDiv" class="toggle" style="display: none" value="0">
              <form name="EventDeleteForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
               {% csrf_token %}
               <p class="wnioski2">{{ translatables.remove_warning }} </p>
-              <button class="btn btn-link-3 btn-light" name="delete_plan" type="submit">{{ translatables.remove_permanent }}</button>
-              <button name="dont_delete_event" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
+              <button class="btn btn-link-3 btn-dark" name="delete_plan" type="submit">{{ translatables.remove_permanent }}</button>
+              <button name="dont_delete_event" type="button" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
              </form> <!-- Koniec formularz usuwającego wydarzenie -->
             </div>
             <br />
@@ -97,7 +98,7 @@
                       {% csrf_token %}
                       <p class="wnioski2">{{ translatables.remove_warning }}</p>
                       <button class="btn btn-link-3 btn-dark" name="delete_step" value="{{ step.id }}" type="submit">{{ translatables.remove_permanent }}</button>
-                      <button name="dont_delete_event" type="button" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
+                      <button name="dont_delete" type="button" class="btn btn-link-3 btn-light" value="0">{{ translatables.dont_remove }}</button>
                     </form> <!-- Koniec formularza usywającego ostatni krok-->
                     </div>
                     {% endif %}
