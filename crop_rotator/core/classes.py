@@ -248,6 +248,7 @@ class CropPlanner(object):
         self.pe_rp_id = args[0]
         self.pe_rs = args[1].objects.filter(from_plan=plan_id)
         self.pe_rss = args[3].objects.filter(from_step__from_plan=plan_id)
+        rss_object = args[3]
         listed_pe_rs = list(self.pe_rs)
         len_listed_pe_rs = len(listed_pe_rs)
         cooldown_list = []
@@ -262,7 +263,7 @@ class CropPlanner(object):
             i4 = item.order
             top_tier_list.append(i4)
             vars = [cooldown_list, item, fabacae, sub_index]
-            sub_index = list_appending_long(rss_list, vars)
+            sub_index = list_appending_long(rss_list, vars, rss_object)
         cooldown_list.sort()
         top_tier_list.sort()
         self.clw = False
