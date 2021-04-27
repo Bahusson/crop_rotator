@@ -98,7 +98,13 @@ class Plan(View):
             form = NextRotationStepForm(request.POST)
             if form.is_valid():
                 form.save(self.pe_rp_id, self.cp.top_tier)
-                return redirect('plan', self.plan_id)
+                newsteps = RotationStep.objects.filter(
+                 from_plan=self.pe_rp_id)
+                newstep_list = []
+                for newstep in newsteps:
+                    newstep_list.append(newstep.id)
+                newstep_id = max(newstep_list)
+                return redirect('step', newstep_id)
         # Usuń cały plan. -# TODO: Można przenieść do managera, w update
         # bo mamy w tej funkcji max złożoność cyklomatyczną.
         if "delete_plan" in request.POST:
