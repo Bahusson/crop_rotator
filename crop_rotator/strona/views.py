@@ -46,7 +46,7 @@ def home(request):
     pe_rp_shuffled = list(pe_rp_published)
     shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
     pe_rp_shuffled = pe_rp_shuffled[:4]
-    plans_list = summarize_plans(pe_rp_shuffled, RotationSubStep)
+    plans_list = summarize_plans(pe_rp_shuffled, RotationStep, RotationSubStep)
     context = {
         "rotation_plans": plans_list,
     }
