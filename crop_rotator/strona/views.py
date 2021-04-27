@@ -10,6 +10,7 @@ from django.views.decorators.cache import cache_page
 from rekruter.models import (
     RotationPlan,
     RotationStep,
+    RotationSubStep,
 )
 from rotator.models import (
     Crop,
@@ -45,7 +46,7 @@ def home(request):
     pe_rp_shuffled = list(pe_rp_published)
     shuffle(pe_rp_shuffled)  # Losuje z widocznych na głównej.
     pe_rp_shuffled = pe_rp_shuffled[:4]
-    plans_list = summarize_plans(pe_rp_shuffled, RotationStep)
+    plans_list = summarize_plans(pe_rp_shuffled, RotationSubStep)
     context = {
         "rotation_plans": plans_list,
     }

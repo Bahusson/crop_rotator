@@ -48,7 +48,7 @@ from django.views import View
 # Widok wszystkich płodozmianów - dodać wyszukiwarkę?
 def allplans(request):
     pe_rp_published = RotationPlan.objects.filter(published=True)
-    plans_list = summarize_plans(pe_rp_published, RotationStep)
+    plans_list = summarize_plans(pe_rp_published, RotationSubStep)
     context = {
         "rotation_plans": plans_list,
     }
@@ -181,7 +181,7 @@ def my_plans(request):
         pe_upl = pe(RotationPlan).allelements.filter(owner=userdata)
     except:
         pe_upl = []
-    plans_list = summarize_plans(pe_upl, RotationStep)
+    plans_list = summarize_plans(pe_upl, RotationSubStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
     user_limit_reached = False
     if len(list(pe_upl)) > admin_max_plans-1:

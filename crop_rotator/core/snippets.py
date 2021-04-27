@@ -164,26 +164,17 @@ def slice_list_3(list):
     return (master_len_1, master_len_2)
 
 
-def summarize_plans(plans_list, step_class):
+def summarize_plans(plans_list, substep_class):
     summarized_list = []
     for plan in plans_list:
-        pe_rs = step_class.objects.filter(from_plan=plan.id)
-        listed_pe_rs = list(pe_rs)
-        steps_total = len(listed_pe_rs)
+        pe_rss = substep_class.objects.filter(from_step__from_plan=plan.id)
+        flare(pe_rss)
+        listed_pe_rss = list(pe_rss)
+        steps_total = len(listed_pe_rss)
         crop_total = 0
         tag_list = []
-        for step in listed_pe_rs:
-            for crop in step.early_crop.all():
-                crop_total += 1
-                for tag in crop.tags.all():
-                    if tag.is_featured:
-                        tag_list.append(tag)
-            for crop in step.middle_crop.all():
-                crop_total += 1
-                for tag in crop.tags.all():
-                    if tag.is_featured:
-                        tag_list.append(tag)
-            for crop in step.late_crop.all():
+        for step in listed_pe_rss:
+            for crop in step.crop_substep.all():
                 crop_total += 1
                 for tag in crop.tags.all():
                     if tag.is_featured:
