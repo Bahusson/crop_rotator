@@ -80,8 +80,9 @@ def flare(debugged_content, **kwargs):
 
 # Skraca powtarzający się kawałek kodu na widokach.
 def list_appending_short(item, vars, length):
-    seasondict = {0: "Summer", 1: None, 2: "Winter"}
+    seasondict = {1: "Summer", 2: None, 3: "Winter",}
     for i in item.crop_substep.all():
+        flare(item.order)
         vars[0].append(
             [
                 i.family.cooldown_min,
