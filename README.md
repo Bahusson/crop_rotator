@@ -1,28 +1,13 @@
-Program "Płodozmian" ("Crop Rotator") został stworzony z myślą o ułatwieniu
-osobom zajmującym się zawodowo i amatorsko rolą, stosowania dobrych praktyk
-rolniczych w zakresie płodozmianu, międzyplonów, oraz rolnictwa ekologicznego.
+Projekt "Crop Rotator" (to by było po polsku "Płodozmieniacz") to efekt mojego podejścia do pracy dyplomowej na Studiach podyplomowych z Rolnictwa dla absolwentów nierolniczych studiów wyższych Szkoły Głównej Gospodarstwa Wiejskiego w Warszawie.
 
-W czasach gdy przy obecnej rabunkowej gospodarce ziemi uprawnej
-pozostało nam na 60 lat, a przy galopującej katastrofie klimatycznej jedyną
-sprawdzoną opcją na wychwyt CO2 jest wiązanie go w glebie* i w biomasie,
-trzeba tym bardziej postawić na łatwość w zdobywaniu i stosowaniu wiedzy
-rolniczej.
+Celem programu jest ułatwienie osobom posiadającym już kwalifikacje rolnicze, szybkie układanie złożonych planów zmianowania. Program adresowany jest w szczególności do osób zainteresowanych rolnictwem ekologicznym, gdyż przyjęto w nim założenie, że użytkownik chce zapewnić roślinom jak najlepsze warunki przy stosowaniu minimalnej ilości chemicznych środków ochrony roślin i nawozów sztucznych.
 
-Ten bezpłatny program jest zarazem moją pracą dyplomową na SGGW na kierunku
-Rolnictwo, który to muszę ukończyć aby móc samemu również wziąć się za uprawę
-a zarazem naprawę, zniszczonej przez rewolucję przemysłową ziemi.
+Promotorem tej pracy jest dr hab. Dariusz Gozdowski.
 
-Niech ta aplikacja będzie moją cegiełką, która posłuży do odbudowy świata,
-z którą z nieznanych mi przyczyn zwlekaliśmy do ostatniej chwili.
+ #############
 
-W tym miejscu pojawi się w najbliższym czasie adres internetowy wersji testowej.
-Naturalnie zapraszam do testowania i dzielenia się opiniami wszystkich zainteresowanych koleżanki i kolegów rolników.
+Project "Crop Rotator" is an effect of my attempt at my thesis on post-graduate studies for graduates of non-agriculture students of Agriculture on Warsaw University of Life Sciences.
 
-Uwagi prośby i zażalenia proszę kierować na adres: j.kozdrowicz@apdeveloper.com.pl
+The purpose of this site is to help people that already have agricultural qualifications to quickly set up coplex rotation plans. It is meant to be especially useful for those interested in ecological agriculture due to its programmed preassumptions that user wants to supply their plants with best possible contitions, using lowest possible amounts of chemical means of plant protection and artificial fertilizers.
 
-
-
-*Niestety jak na razie jest to jedyny skalowalny sposób możliwy do wprowadzenia
-na JUŻ. Inne rozwiązania nie otrzymały wciąż wystarczającego finansowania,
-wymagają długiego i kosztownego wdrożenia (emisje) i często są niedostatecznie przetestowane. Ucieczka na księżyc i/lub marsa, oraz obszary pokryte do tej pory wieczną zmarzliną to ułańska fantazja a nie realna opcja. Także albo my, albo
-ryzykujemy geoinżynierię, która może się nam wymknąć spod kontroli. :/
+The promoter of this thesis is dr hab. Dariusz Gozdowski
