@@ -156,6 +156,7 @@ class Crop(models.Model):
     plant_type = models.PositiveSmallIntegerField(choices=PLANT_TYPE, default=0)
     meta_tags_source = models.TextField(blank=True, null=True)
     is_crop_mix = models.BooleanField(default=False)
+    is_fertilizer = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["name"]

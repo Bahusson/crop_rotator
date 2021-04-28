@@ -1,3 +1,4 @@
+{% load xfilters %}
 
 <div class="col-md-12 plan-main">
   <hr/>
@@ -19,12 +20,15 @@
   <p class="slave0" value="test_slave0"><select class="selectables" name="crop_select">
     <option value="None" selected disabled>{{ translatables.option_select }}:</option>
     {% for crop in croplist %}
-      {% if crop not in substep.crop_substep.all and not crop.is_crop_mix %}
+      {% if crop not in substep.crop_substep.all and not crop.is_crop_mix and not crop.is_fertilizer%}
       <option value="{{ crop.id }}">{{ crop.name }}</option>
       {% endif %}
     {% endfor %}
   </select>
-    <button class="btn btn-link-3 btn-light" add_key="{{ substep.id }}" name="add_element_button">{{ translatables.add_element }}</button></p>
+    <button class="btn btn-link-3 btn-light" add_key="{{ substep.id }}" name="add_element_button">{{ translatables.add_element }}</button>
+    {% fertilizerlookup substep=substep as fertilizer_lookup %}
+    {% if not fertilizer_lookup %}
+     <button class="btn btn-link-3 btn-light" value="{{ substep.id }}" name="add_fertilizer_button">{{ translatables.add_fertilizer }}</button>{% endif %}</p>
 </div>
 </div>
 </div>

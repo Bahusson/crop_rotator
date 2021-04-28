@@ -55,6 +55,14 @@ def orderlookup(context, **kwargs):
             return True
 
 
+@register.simple_tag(takes_context=True)
+def fertilizerlookup(context, **kwargs):
+    substep = kwargs['substep']
+    for item in substep.crop_substep.all():
+        if item.id == 118:
+            return True
+
+
 @register.simple_tag(takes_context=True, name='deep_list')
 def deep_list(context, **kwargs):
     itemlist = context['efcs']
