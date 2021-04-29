@@ -157,6 +157,8 @@ class Crop(models.Model):
     meta_tags_source = models.TextField(blank=True, null=True)
     is_crop_mix = models.BooleanField(default=False)
     is_fertilizer = models.BooleanField(default=False)
+    redirect_name = models.CharField(max_length=10, blank=True, null=True)
+    redirect_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -171,6 +173,7 @@ class Crop(models.Model):
 
 class MixCrop(Crop):
     meta_tags = models.TextField(blank=True, null=True)
+
 
 
 # Nieużywany na razie mix do mieszanek typu "Biomax".

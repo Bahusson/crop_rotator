@@ -1,0 +1,1 @@
+{% if not interaction.0.is_crop_mix %}<a href="{% url 'crop' interaction.0.id %}">{% else %}<a href="{% url interaction.0.redirect_name interaction.0.redirect_id %}">{% endif %}
