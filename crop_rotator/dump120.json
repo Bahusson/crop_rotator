@@ -44,6 +44,7 @@
       5762,
       5765,
       5766,
+      5767,
       697,
       11,
       689,
@@ -9254,6 +9255,82 @@
       26,
       25,
       27
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 126,
+  "fields": {
+    "name": "Tymotka łąkowa",
+    "name_pl": "Tymotka łąkowa",
+    "name_en": "Timothy grass",
+    "latin_name": "Phleum pratense",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Tymotka_łąkowa.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-29T16:51:53Z",
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 0,
+    "seed_norm_min": 10,
+    "seed_norm_max": 15,
+    "plant_type": 2,
+    "meta_tags_source": "",
+    "is_crop_mix": false,
+    "is_fertilizer": false,
+    "redirect_name": null,
+    "redirect_id": null,
+    "crop_relationships": [],
+    "tags": [
+      26,
+      25,
+      27
+    ]
+  }
+},
+{
+  "model": "rotator.crop",
+  "pk": 127,
+  "fields": {
+    "name": "Życica trwała",
+    "name_pl": "Życica trwała",
+    "name_en": "English ryegrass",
+    "latin_name": "Lolium perenne",
+    "descr": null,
+    "descr_pl": null,
+    "descr_en": null,
+    "image": "images/Życica_trwała.jpg",
+    "image_source": 15,
+    "pubdate": "2021-04-29T17:06:27Z",
+    "family": 11,
+    "culture_override": 0,
+    "cooldown_min_override": null,
+    "cooldown_max_override": null,
+    "is_demanding": false,
+    "is_deep_roots": false,
+    "is_leaves_mess": false,
+    "takes_mix_level": 5,
+    "seed_norm_min": 25,
+    "seed_norm_max": 35,
+    "plant_type": 2,
+    "meta_tags_source": "",
+    "is_crop_mix": false,
+    "is_fertilizer": false,
+    "redirect_name": null,
+    "redirect_id": null,
+    "crop_relationships": [],
+    "tags": [
+      5,
+      26,
+      25
     ]
   }
 },
@@ -84476,6 +84553,25 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 5767,
+  "fields": {
+    "title": "Bobowate + tymotka łąkowa",
+    "is_positive": true,
+    "about_crop": 126,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 148,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 4930,
   "fields": {
@@ -111896,6 +111992,13 @@
 },
 {
   "model": "rotator.familyinteraction",
+  "pk": 5767,
+  "fields": {
+    "cropinteraction_ptr": 5767
+  }
+},
+{
+  "model": "rotator.familyinteraction",
   "pk": 697,
   "fields": {
     "cropinteraction_ptr": 697
@@ -114878,6 +114981,46 @@
       26,
       25,
       27
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 148,
+  "fields": {
+    "title": "Tymotka łąkowa - rolnictwo 6",
+    "descr": "Trawa wysoka dająca paszę bardzo wysokiej jakości. Dobry plon daje głównie w pierwszym roku użytkowania. Najlepiej współgra z bobowatymi.",
+    "descr_pl": "Trawa wysoka dająca paszę bardzo wysokiej jakości. Dobry plon daje głównie w pierwszym roku użytkowania. Najlepiej współgra z bobowatymi.",
+    "descr_en": "High grass that yields high quality animal feed. Good harvest may be expected mainly in first year of use. It grows best with fabaceae.",
+    "from_crop": 126,
+    "at_data_string": 12,
+    "pages_from": 379,
+    "pages_to": 384,
+    "order": 1,
+    "at_tag": [
+      26,
+      25,
+      27
+    ]
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 149,
+  "fields": {
+    "title": "Życica trwała",
+    "descr": "Trawa niska, o silnie rozwiniętym, ale płytkim systemie korzeniowym.  W sprzyjających warunkach daje 3 pokosy paszy dobrej jakości.",
+    "descr_pl": "Trawa niska, o silnie rozwiniętym, ale płytkim systemie korzeniowym.  W sprzyjających warunkach daje 3 pokosy paszy dobrej jakości.",
+    "descr_en": "Short grass with well established but shallow root system. In right conditions it yields 3 harvests of good quality animal feed.",
+    "from_crop": 127,
+    "at_data_string": 12,
+    "pages_from": 379,
+    "pages_to": 384,
+    "order": 1,
+    "at_tag": [
+      5,
+      26,
+      25
     ]
   }
 },
