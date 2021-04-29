@@ -199,10 +199,17 @@ class CropInteraction(models.Model):
     CO_CROP = 0
     ALLELOPATIC = 1
     NEXT_CROP = 2
+    SECOND_YEAR = 3
+    THIRD_YEAR = 4
+    TWO_CONSECUTIVE = 5
     INTERACTION_TYPE = (
         (CO_CROP, "Współrzędne"),
         (ALLELOPATIC, "Allelopatyczne"),
         (NEXT_CROP, "Następcze"),
+        (SECOND_YEAR, "W drugim roku"),
+        (THIRD_YEAR, "W trzecim roku"),
+        (TWO_CONSECUTIVE, "W dwóch kolejnych latach"),
+
     )
     N_A = 0
     ANNUAL = 1

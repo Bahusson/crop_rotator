@@ -186,7 +186,14 @@ class PlannerRelationship(object):
         }
 
     def finishing(self, **kwargs):
-        interactiondict = {0: [0, 0], 1: [0, 1], 2: [1, 1]}
+        interactiondict = {
+         0: [0, 0],  # Współrzędne
+         1: [0, 1],  # Allelopatyczne / Współrzędne i następcze
+         2: [1, 1],  # Następcze
+         3: [2, 2],  # W drugim roku
+         4: [3, 3],  # W trzecim roku
+         5: [1, 2],  # W pierwszym i drugim roku
+         }
         self.given_list = kwargs['given_list']
         season = self.seasondict[self.i.season_of_interaction]
         if season == "Summer" or season is None:
