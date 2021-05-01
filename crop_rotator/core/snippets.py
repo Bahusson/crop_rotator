@@ -97,7 +97,6 @@ def list_appending_short(item, vars, rss_list, rss_object):
             vars[2].append(str(vars[1].order))
             is_winter = item.from_step
             winter_sibling = rss_object.objects.filter(from_step=is_winter, order=3)
-            flare(winter_sibling)
             if item.order == 1 and length == 1:
                 vars[2].append(str(vars[1].order) + "a")
                 vars[2].append(str(vars[1].order) + "b")

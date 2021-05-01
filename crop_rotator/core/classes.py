@@ -187,24 +187,37 @@ class PlannerRelationship(object):
 
     def finishing(self, **kwargs):
         interactiondict = {
-         0: [0, 0],  # Współrzędne
-         1: [0, 1],  # Allelopatyczne / Współrzędne i następcze
-         2: [1, 1],  # Następcze
-         3: [2, 2],  # W całym drugim roku
-         4: [3, 3],  # W całym trzecim roku
-         5: [1, 2],  # W pierwszym i drugim roku
-         6: [1, 1],  # W całym następnym roku
+         # Interakcje po subkrokach:
+         0: [0, 0, True],  # Współrzędne
+         1: [0, 1, True],  # Allelopatyczne / Współrzędne i następcze
+         2: [1, 1, True],  # Następcze
+         # Interakcje po krokach:
+         3: [2, 2, False],  # W całym drugim roku
+         4: [3, 3, False],  # W całym trzecim roku
+         5: [1, 2, False],  # W pierwszym i drugim roku
+         6: [1, 1, False],  # W całym następnym roku
          }
         self.given_list = kwargs['given_list']
         season = self.seasondict[self.i.season_of_interaction]
         if season == "Summer" or season is None:
-            if (
-                self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
-                or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
-                 ):
-                level_off(self.top_tier, self.a, self.b)
-                self.given_list.append(self.a + self.b + [self.i.is_positive])
-                return self.given_list
+            if interactiondict[self.i.type_of_interaction][2]:
+                if (
+                    self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][0]
+                    or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
+                     ):
+                    level_off(self.top_tier, self.a, self.b)
+                    self.given_list.append(self.a + self.b + [self.i.is_positive])
+                    return self.given_list
+            else:
+                if (
+                    self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][0]
+                    or self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][1]
+                     ):
+                    level_off(self.top_tier, self.a, self.b)
+                    self.given_list.append(self.a + self.b + [self.i.is_positive])
+                    return self.given_list
+
+
 
     def relationship(self, **kwargs):
         if self.ifdict[kwargs['relationship']].exists():
