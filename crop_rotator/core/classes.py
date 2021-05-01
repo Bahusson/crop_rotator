@@ -166,6 +166,7 @@ class PortalLoad(PageLoad):
 # Klasa liczy interakcje w crop plannerze - (klasa-slave)
 class PlannerRelationship(object):
     def __init__(self, *args, **kwargs):
+
         self.top_tier = kwargs['top_tier']
         self.a = kwargs['a']
         self.b = kwargs['b']
@@ -213,7 +214,6 @@ class PlannerRelationship(object):
                     self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][0]
                     or self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][1]
                      ):
-                    level_off(self.top_tier, self.a, self.b)
                     self.given_list.append(self.a + self.b + [self.i.is_positive])
                     return self.given_list
 
