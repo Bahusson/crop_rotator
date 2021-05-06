@@ -211,7 +211,6 @@ class CropInteraction(models.Model):
         (THIRD_YEAR, "W trzecim roku"),
         (TWO_CONSECUTIVE, "W dwóch kolejnych latach"),
         (NEXT_YEAR, "W kolejnym roku"),
-
     )
     N_A = 0
     ANNUAL = 1
@@ -221,8 +220,21 @@ class CropInteraction(models.Model):
         (ANNUAL, "Jare"),
         (PERENNIAL, "Ozime"),
     )
+    NONE = 0
+    FALSE = 1
+    TRUE = 2
+    SIGNS = (
+        (NONE, "Brak"),
+        (FALSE, "Szkodzi"),
+        (TRUE, "Wspiera"),
+    )
     title = models.CharField(max_length=150)  # Tytuł i od razu opis relacji
+    signature = models.CharField(max_length=150, blank=True, null=True)  # Sygnatura dla serwera.
+    # Poniżej do wywalenia po konwersji
     is_positive = models.BooleanField(default=True)  # Typ oddziaływania
+    interaction_sign = models.PositiveSmallIntegerField(
+     choices=SIGNS, default=0
+    )
     about_crop = models.ForeignKey(
         "Crop",
         related_name="crop_interaction_set",
@@ -301,7 +313,7 @@ class CropInteraction(models.Model):
         return interaction
 
     class Meta:
-        ordering = ["title"]
+        ordering = ["is_server_generated" ,"title"]
 
     def __str__(self):
         return self.title
