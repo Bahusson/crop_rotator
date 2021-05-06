@@ -321,7 +321,7 @@ class CropInteraction(models.Model):
 
 class CropsInteraction(CropInteraction):
     class Meta:
-        ordering = ["title"]
+        ordering = ["is_server_generated" ,"title"]
 
     def __str__(self):
         return self.title
@@ -329,7 +329,7 @@ class CropsInteraction(CropInteraction):
 
 class FamilyInteraction(CropInteraction):
     class Meta:
-        ordering = ["title"]
+        ordering = ["is_server_generated" ,"title"]
 
     def __str__(self):
         return self.title
@@ -337,7 +337,7 @@ class FamilyInteraction(CropInteraction):
 
 class TagsInteraction(CropInteraction):
     class Meta:
-        ordering = ["title"]
+        ordering = ["is_server_generated" ,"title"]
 
     def __str__(self):
         return self.title
