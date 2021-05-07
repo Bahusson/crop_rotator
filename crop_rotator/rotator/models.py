@@ -294,21 +294,22 @@ class CropInteraction(models.Model):
     )
 
     @classmethod
-    def create(cls, *args):
+    def create(cls, **kwargs):
         interaction = cls(
-         title=args[0],
-         is_positive=args[1],
-         about_crop=args[2],
-         about_family=args[3],
-         about_tag=args[4],
-         info_source=args[5],
-         type_of_interaction=args[6],
-         season_of_interaction=args[7],
-         is_server_generated=args[8],
-         server_interaction=args[9],
-         debug_line=args[10],
-         trigger_crop=args[11],
-         trigger_tag=args[12],
+         title=kwargs['title']
+         signture=kwargs['signature'],
+         is_positive=kwargs['is_positive'],
+         about_crop=kwargs['about_crop'],
+         about_family=kwargs['about_family'],
+         about_tag=kwargs['about_tag'],
+         info_source=kwargs['info_source'],
+         type_of_interaction=kwargs['type_of_interaction'],
+         season_of_interaction=kwargs['season_interaction'],
+         is_server_generated=kwargs['is_server_generated'],
+         server_interaction=kwargs['server_interaction'],
+         debug_line=kwargs['debug_line'],
+         trigger_crop=kwargs['trigger_crop'],
+         trigger_tag=kwargs['trigger_tag'],
          )
         return interaction
 

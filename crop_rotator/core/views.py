@@ -170,24 +170,23 @@ class CropAdmin(View):
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
         if item1 != item2:
             signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
-        #    print("checking for:" + signature)
             if not CropsInteraction.objects.filter(title=signature).exists():
                 cr = CropsInteraction.create(
-                     signature,
-                     interaction.is_positive,
-                     about_crop,
-                     None,
-                     None,
-                     interaction.info_source,
-                     interaction.type_of_interaction,
-                     interaction.season_of_interaction,
-                     True,  # Wygenerowano automatycznie.
-                     interaction,  # Interakcja-matka (debug)
-                     debug,
-                     self.the_element,
-                     pe_croptag_id,
+                     title=signature,
+                     signature=signature,
+                     is_positive=interaction.is_positive,
+                     about_crop=about_crop,
+                    # about_family=None,
+                    # about_tag=None,
+                     info_source=interaction.info_source,
+                     type_of_interaction=interaction.type_of_interaction,
+                     season_of_interaction=interaction.season_of_interaction,
+                     is_server_generated=True,
+                     server_interaction=interaction,
+                     debug_line=debug,
+                     trigger_crop=self.the_element,
+                     trigger_tag=pe_croptag_id,
                      )
-                # print(str(cr) + " added to database!")
                 cr.save()
                 item.crop_relationships.add(cr.id)
 
@@ -200,6 +199,10 @@ class CropAdmin(View):
         listToStr = ','.join([str(elem) for elem in element_list])
         element.meta_tags_source = listToStr
         element.save()
+
+    def make_signatures(self):
+        pass
+
 
     def get(self, request, *args, **kwargs):
         context = {
@@ -298,6 +301,11 @@ class SyncCropTagDB(CropAdmin):
             query = Crop.objects.filter(is_crop_mix=False)
             for crop in query:
                 self.map_all_properties(crop)
+
+        if "create_all_signatures_db" in request.POST:
+            query = CropsInteraction.objects.all()
+            for item in query:
+                self.make_signatures()
 
         return redirect('rotator_admin')
 
