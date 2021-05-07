@@ -296,8 +296,8 @@ class CropInteraction(models.Model):
     @classmethod
     def create(cls, **kwargs):
         interaction = cls(
-         title=kwargs['title']
-         signture=kwargs['signature'],
+         title=kwargs['title'],
+         signature=kwargs['signature'],
          is_positive=kwargs['is_positive'],
          about_crop=kwargs['about_crop'],
          about_family=kwargs['about_family'],

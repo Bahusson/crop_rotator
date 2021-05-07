@@ -169,12 +169,12 @@ class CropAdmin(View):
     def add_common(
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
         if item1 != item2:
-            signature = str(item1) + " " + str(interaction.is_positive) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
+            signature = str(item1) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
             if not CropsInteraction.objects.filter(title=signature).exists():
                 cr = CropsInteraction.create(
                      title=signature,
                      signature=signature,
-                     is_positive=interaction.is_positive,
+                     is_positive=interaction.is_positive, # obsolete
                      about_crop=about_crop,
                     # about_family=None,
                     # about_tag=None,
@@ -200,8 +200,10 @@ class CropAdmin(View):
         element.meta_tags_source = listToStr
         element.save()
 
-    def make_signatures(self):
-        pass
+    def make_signatures(self, item):
+        the_crop = Crop.objects.filter(crop_relationships=item)
+        item.signature = str(the_crop.id) + " " + str(item.about_crop.id) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
+        item.save()
 
 
     def get(self, request, *args, **kwargs):
@@ -305,7 +307,7 @@ class SyncCropTagDB(CropAdmin):
         if "create_all_signatures_db" in request.POST:
             query = CropsInteraction.objects.all()
             for item in query:
-                self.make_signatures()
+                self.make_signatures(item)
 
         return redirect('rotator_admin')
 
