@@ -299,6 +299,7 @@ class CropInteraction(models.Model):
          title=kwargs['title'],
          signature=kwargs['signature'],
          is_positive=kwargs['is_positive'],
+         interaction_sign=kwargs['interaction_sign'],
          about_crop=kwargs['about_crop'],
          about_family=kwargs['about_family'],
          about_tag=kwargs['about_tag'],

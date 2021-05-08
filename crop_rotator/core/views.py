@@ -18,7 +18,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import user_passes_test
 from django.utils.decorators import method_decorator
 from strona.views import AllPlantFamilies
-from rotator.models import Crop, CropFamily, CropTag, CropsInteraction
+from rotator.models import Crop, CropFamily, CropTag, CropsInteraction, CropInteraction
 from django.views import View
 
 
@@ -170,17 +170,18 @@ class CropAdmin(View):
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
         if item1 != item2:
             signature = str(item1) + " " + str(item2) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
-            if not CropsInteraction.objects.filter(title=signature).exists():
+            if not CropsInteraction.objects.filter(signature=signature).exists():
                 cr = CropsInteraction.create(
                      title=signature,
                      signature=signature,
                      is_positive=interaction.is_positive, # obsolete
+                     interaction_sign=interaction.interaction_sign,
                      about_crop=about_crop,
-                    # about_family=None,
-                    # about_tag=None,
+                     about_family=None,
+                     about_tag=None,
                      info_source=interaction.info_source,
                      type_of_interaction=interaction.type_of_interaction,
-                     season_of_interaction=interaction.season_of_interaction,
+                     season_interaction=interaction.season_of_interaction,
                      is_server_generated=True,
                      server_interaction=interaction,
                      debug_line=debug,
@@ -206,6 +207,11 @@ class CropAdmin(View):
             new_crop = the_crop[0].id
             item.signature = str(new_crop) + " " + str(item.about_crop.id) + " (" + str(item.type_of_interaction) + ")(" + str(item.season_of_interaction) + ")"
             item.save()
+
+    #def rewrite_all_signs(self,item):
+    #    signaturedict={True:2, False:1}
+    #    item.interaction_sign = signaturedict[item.is_positive]
+    #    item.save()
 
     def get(self, request, *args, **kwargs):
         context = {
@@ -308,6 +314,7 @@ class SyncCropTagDB(CropAdmin):
         if "create_all_signatures_db" in request.POST:
             query = CropsInteraction.objects.filter(is_server_generated=False)
             for item in query:
+        #        self.rewrite_all_signs(item)
                 self.make_signatures(item)
 
         return redirect('rotator_admin')
