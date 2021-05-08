@@ -201,10 +201,11 @@ class CropAdmin(View):
         element.save()
 
     def make_signatures(self, item):
-        the_crop = Crop.objects.filter(crop_relationships=item)
-        item.signature = str(the_crop.id) + " " + str(item.about_crop.id) + " (" + str(interaction.type_of_interaction) + ")(" + str(interaction.season_of_interaction) + ")"
-        item.save()
-
+        if item.about_crop:
+            the_crop = Crop.objects.filter(crop_relationships=item)
+            new_crop = the_crop[0].id
+            item.signature = str(new_crop) + " " + str(item.about_crop.id) + " (" + str(item.type_of_interaction) + ")(" + str(item.season_of_interaction) + ")"
+            item.save()
 
     def get(self, request, *args, **kwargs):
         context = {
@@ -305,7 +306,7 @@ class SyncCropTagDB(CropAdmin):
                 self.map_all_properties(crop)
 
         if "create_all_signatures_db" in request.POST:
-            query = CropsInteraction.objects.all()
+            query = CropsInteraction.objects.filter(is_server_generated=False)
             for item in query:
                 self.make_signatures(item)
 
