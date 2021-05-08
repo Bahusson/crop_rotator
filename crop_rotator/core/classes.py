@@ -208,14 +208,16 @@ class PlannerRelationship(object):
                     or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
                      ):
                     level_off(self.top_tier, self.a, self.b)
-                    self.given_list.append(self.a + self.b + [signdict[self.i.interaction_sign]])
+                    if self.i.interaction_sign != 0:
+                        self.given_list.append(self.a + self.b + [signdict[self.i.interaction_sign]])
                     return self.given_list
             else:
                 if (
                     self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][0]
                     or self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][1]
                      ):
-                    self.given_list.append(self.a + self.b + [signdict[self.i.interaction_sign]])
+                    if self.i.interaction_sign != 0:
+                        self.given_list.append(self.a + self.b + [signdict[self.i.interaction_sign]])
                     return self.given_list
 
 
