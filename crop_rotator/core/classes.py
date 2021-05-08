@@ -198,6 +198,7 @@ class PlannerRelationship(object):
          5: [1, 2, False],  # W pierwszym i drugim roku
          6: [1, 1, False],  # W całym następnym roku
          }
+        signdict = {1:False, 2:True}
         self.given_list = kwargs['given_list']
         season = self.seasondict[self.i.season_of_interaction]
         if season == "Summer" or season is None:
@@ -207,14 +208,14 @@ class PlannerRelationship(object):
                     or self.a[3][1] == self.b[3][1] - interactiondict[self.i.type_of_interaction][1]
                      ):
                     level_off(self.top_tier, self.a, self.b)
-                    self.given_list.append(self.a + self.b + [self.i.is_positive])
+                    self.given_list.append(self.a + self.b + [signdict[self.i.interaction_sign]])
                     return self.given_list
             else:
                 if (
                     self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][0]
                     or self.a[3][0] == self.b[3][0] - interactiondict[self.i.type_of_interaction][1]
                      ):
-                    self.given_list.append(self.a + self.b + [self.i.is_positive])
+                    self.given_list.append(self.a + self.b + [signdict[self.i.interaction_sign]])
                     return self.given_list
 
 
