@@ -171,20 +171,21 @@ class InteractionPage(View):
             family_id = c_family.id
             crop_id = pe_c_id.id
             crop_from = none_ify(
-             pe_c_id.crop_relationships.all().filter(is_server_generated=False)
+             pe_c_id.crop_relationships.all().filter(
+             is_server_generated=False).exclude(interaction_sign=0)
              )
             crop_to_c = Crop.objects.filter(
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
-             )
+             ).exclude(crop_relationships__interaction_sign=0)
             family_to_c = CropFamily.objects.filter(
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
-             )
+             ).exclude(crop_relationships__interaction_sign=0)
             tag_to_c = CropTag.objects.filter(
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
-             )
+             ).exclude(crop_relationships__interaction_sign=0)
             crop_to = list_crops_to(
              pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
             pe_cds = CDS.objects.filter(from_crop=crop_id)
@@ -204,15 +205,15 @@ class InteractionPage(View):
             crop_to_f = Crop.objects.filter(
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
-            )
+            ).exclude(crop_relationships__interaction_sign=0)
             family_to_f = CropFamily.objects.filter(
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
-            )
+            ).exclude(crop_relationships__interaction_sign=0)
             tag_to_f = CropTag.objects.filter(
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
-            )
+            ).exclude(crop_relationships__interaction_sign=0)
             crop_family_to = list_crops_to(
              c_family, crop_to_f, family_to_f, tag_to_f, "family")
 
@@ -242,15 +243,15 @@ class InteractionPage(View):
             crop_to_t = Crop.objects.filter(
              crop_relationships__about_tag=tag.id,
              crop_relationships__is_server_generated=False,
-            )
+            ).exclude(crop_relationships__interaction_sign=0)
             family_to_t = CropFamily.objects.filter(
              crop_relationships__about_tag=tag.id,
              crop_relationships__is_server_generated=False,
-            )
+            ).exclude(crop_relationships__interaction_sign=0)
             tag_to_t = CropTag.objects.filter(
              crop_relationships__about_tag=tag.id,
              crop_relationships__is_server_generated=False,
-            )
+            ).exclude(crop_relationships__interaction_sign=0)
             crop_tags_to_0 = list_crops_to(
              tag, crop_to_t, family_to_t, tag_to_t, "tag")
             for item in crop_tags_to_0:
@@ -270,15 +271,15 @@ class InteractionPage(View):
                 crop_to_t = Crop.objects.filter(
                  crop_relationships__about_tag=tag.id,
                  crop_relationships__is_server_generated=False,
-                )
+                ).exclude(crop_relationships__interaction_sign=0)
                 family_to_t = CropFamily.objects.filter(
                  crop_relationships__about_tag=tag.id,
                  crop_relationships__is_server_generated=False,
-                )
+                ).exclude(crop_relationships__interaction_sign=0)
                 tag_to_t = CropTag.objects.filter(
                  crop_relationships__about_tag=tag.id,
                  crop_relationships__is_server_generated=False,
-                )
+                ).exclude(crop_relationships__interaction_sign=0)
                 crop_tags_to_0 = list_crops_to(
                  tag, crop_to_t, family_to_t, tag_to_t, "tag")
                 for item in crop_tags_to_0:
