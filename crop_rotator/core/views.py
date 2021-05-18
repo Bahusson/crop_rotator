@@ -18,7 +18,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import user_passes_test
 from django.utils.decorators import method_decorator
 from strona.views import AllPlantFamilies
-from rotator.models import Crop, CropFamily, CropTag, CropsInteraction, CropInteraction
+from rotator.models import Crop, CropFamily, CropTag, CropInteraction, CropsInteraction, CropInteraction
 from django.views import View
 
 
@@ -173,9 +173,9 @@ class CropAdmin(View):
     def add_mass_family_to(self, *args):
         if args:
             self.the_element = args[0]
-        for interaction in self.the_element.crop_relationships.all().exclude(
+        for interaction in self.the_element.crop_relationships.all().filter(
+         is_server_generated=False).exclude(
          about_family=None):
-            flare(interaction)
             for crop_item in Crop.objects.filter(
              family=interaction.about_family.id):
                 self.add_common(
@@ -187,18 +187,15 @@ class CropAdmin(View):
     def add_mass_family_from(self, *args):
         if args:
             self.the_element = args[0]
-        query = Crop.objects.filter(
-         crop_relationships__about_family=self.the_element.family,
-         crop_relationships__is_server_generated=False)
-        for item in query:
-            for interaction in item.crop_relationships.all().filter(
-             about_family=self.the_element.family):
-                for crop_item in Crop.objects.filter(family=item.family):
-                    self.add_common(
-                     interaction, item, None, crop_item.id,
-                     self.the_element.id, self.the_element,
-                     "add_from_family"
-                     )
+        for interaction in CropInteraction.objects.all().filter(
+         about_family=self.the_element.family,
+         is_server_generated=False):
+            for crop_item in Crop.objects.filter(family=self.the_element.family):
+                self.add_common(
+                 interaction, crop_item, None, crop_item.id,
+                 self.the_element.id, self.the_element,
+                 "add_from_family"
+                 )
 
     def add_common(
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
