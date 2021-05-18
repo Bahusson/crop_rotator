@@ -107,12 +107,13 @@ class CropAdmin(View):
         for item in query:
             for interaction in item.family.crop_relationships.all():
                 if interaction.about_crop == self.the_element:
-                    self.add_common(
-                     interaction, item, pe_croptag_id, item.id,
-                     self.the_element.id, self.the_element,
-                     "add_family_element",
-                     )
-        self.the_element.tags.add(element_to_add)
+                    for crop_item in Crop.objects.filter(family=item.family):
+                        self.add_common(
+                         interaction, item, pe_croptag_id, crop_item.id,
+                         self.the_element.id, self.the_element,
+                         "add_family_element"
+                         )
+            self.the_element.tags.add(element_to_add)
 
     def add_tag_element(
          self, query, element_to_add, *args):
@@ -147,12 +148,13 @@ class CropAdmin(View):
                  "add_tag_crop_element",
                  )
             elif interaction.about_family is not None:
-                tag_type = interaction.about_family
-                self.add_common(
-                 interaction, self.the_element, pe_croptag_id,
-                 self.the_element.id, tag_type.id, interaction.about_crop,
-                 "add_tag_crop_element",
-                 )
+                for crop_item in Crop.objects.filter(family=interaction.about_family.id):
+                    tag_type = crop_item
+                    self.add_common(
+                     interaction, self.the_element, pe_croptag_id,
+                     self.the_element.id, tag_type.id, interaction.about_crop,
+                     "add_tag_crop_element",
+                     )
             elif interaction.about_tag is not None:
                 query = Crop.objects.filter(tags=interaction.about_tag.id)
                 for item in query:
@@ -164,6 +166,9 @@ class CropAdmin(View):
             else:  # Jeśli tag też pusty śmigaj dalej.
                 # TODO: Zapisz ID pustej interakcji do dziennika błędów.
                 continue
+        self.the_element.tags.add(element_to_add)
+
+    def add_mass_family_to(self):
         self.the_element.tags.add(element_to_add)
 
     def add_common(
@@ -274,12 +279,16 @@ class SyncCropTagDB(CropAdmin):
         pass
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)
 
-    # Stwórz automatycznie  wszystkie (brakujące) dowiąznia tagów.
+    # Stwórz automatycznie  wszystkie (brakujące) dowiązania tagów.
     # Może trochę potrwać.
     def post(self, request, *args, **kwargs):
         if "populate_tag_db" in request.POST:
             query = Crop.objects.all()
             for crop in query:
+                # Najpierw dowiąż zależności rodzin.
+                self.add_mass_family_to()
+                #self.add_mass_family_from()
+                # Potem dowiąż zależności tagów.
                 for tag in crop.tags.all():
                     element_to_add = tag.id
                     crops_to_tag = Crop.objects.filter(
@@ -316,6 +325,8 @@ class SyncCropTagDB(CropAdmin):
             for item in query:
         #        self.rewrite_all_signs(item)
                 self.make_signatures(item)
+
+
 
         return redirect('rotator_admin')
 
