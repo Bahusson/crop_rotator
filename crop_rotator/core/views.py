@@ -82,8 +82,15 @@ class CropAdmin(View):
         self.the_element = pe_element.by_id(G404=G404, id=element_id)
         if self.the_element_class == Crop:
             if self.the_element.family.is_family_slave:
-                self.the_element_family = self.the_element.family.master_family
+                self.the_element_family = self.the_element.family.family_master
         return super(CropAdmin, self).dispatch(request, *args, **kwargs)
+
+    def check_family_slave(self):
+        if self.the_element.family.is_family_slave and self.the_element.family.family_master is not None:
+            self.the_element_family = self.the_element.family.family_master
+            return self.the_element_family
+        else:
+            return self.the_element.family
 
     def add_element(
          self, query, element_to_add, *args):
@@ -173,7 +180,24 @@ class CropAdmin(View):
     def add_mass_family_to(self, *args):
         if args:
             self.the_element = args[0]
-        for interaction in self.the_element.crop_relationships.all().filter(
+            self.the_element_family = self.check_family_slave()
+        for interaction in CropInteraction.objects.all().filter(
+         about_family=self.the_element.family,
+         is_server_generated=False):
+            for crop_item in Crop.objects.filter(family=self.the_element_family):
+                self.add_common(
+                 interaction, crop_item, None, crop_item.id,
+                 self.the_element.id, self.the_element,
+                 "add_from_family"
+                 )
+
+    def add_mass_family_from(self, *args):
+        if args:
+            self.the_element = args[0]
+            self.the_element_family = self.check_family_slave()
+        Crop_family.id = CropFamily.objects.filter(id=self.the_element_family.id)
+
+        for interaction in CropInteraction.objects.all().filter(
          is_server_generated=False).exclude(
          about_family=None):
             for crop_item in Crop.objects.filter(
@@ -182,19 +206,6 @@ class CropAdmin(View):
                  interaction, self.the_element, None,
                  self.the_element.id, crop_item.id, interaction.about_crop,
                  "add_to_family",
-                 )
-
-    def add_mass_family_from(self, *args):
-        if args:
-            self.the_element = args[0]
-        for interaction in CropInteraction.objects.all().filter(
-         about_family=self.the_element.family,
-         is_server_generated=False):
-            for crop_item in Crop.objects.filter(family=self.the_element.family):
-                self.add_common(
-                 interaction, crop_item, None, crop_item.id,
-                 self.the_element.id, self.the_element,
-                 "add_from_family"
                  )
 
     def add_common(
