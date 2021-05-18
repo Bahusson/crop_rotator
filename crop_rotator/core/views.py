@@ -188,25 +188,38 @@ class CropAdmin(View):
                 self.add_common(
                  interaction, crop_item, None, crop_item.id,
                  self.the_element.id, self.the_element,
-                 "add_from_family"
+                 "add_family_to_family"
                  )
 
     def add_mass_family_from(self, *args):
         if args:
             self.the_element = args[0]
             self.the_element_family = self.check_family_slave()
-        Crop_family.id = CropFamily.objects.filter(id=self.the_element_family.id)
+        query = CropFamily.objects.filter(
+         crop_relationships__about_family=self.the_element_family)
+        for item in query:
+            for interaction in item.crop_relationships.all().filter(
+             is_server_generated=False, about_family=self.the_element_family):
+                for crop_item in Crop.objects.filter(family=item.id):
+                    self.add_common(
+                     interaction, self.the_element, None,
+                     self.the_element.id, crop_item.id, interaction.about_crop,
+                     "add_to_family",
+                     )
 
-        for interaction in CropInteraction.objects.all().filter(
-         is_server_generated=False).exclude(
-         about_family=None):
-            for crop_item in Crop.objects.filter(
-             family=interaction.about_family.id):
+    def add_mass_family(self, *args):
+        if args:
+            self.the_element = args[0]
+            self.the_element_family = self.check_family_slave()
+        for interaction in self.the_element_family.crop_relationships.all().filter(
+         is_server_generated=False):
+            for crop_item in Crop.objects.filter(family=item.id):
                 self.add_common(
                  interaction, self.the_element, None,
                  self.the_element.id, crop_item.id, interaction.about_crop,
-                 "add_to_family",
+                 "add_from_family",
                  )
+
 
     def add_common(
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
@@ -325,8 +338,9 @@ class SyncCropTagDB(CropAdmin):
                 # Najpierw dowiąż zależności rodzin.
                 self.add_mass_family_to(crop)
                 self.add_mass_family_from(crop)
+                self.add_mass_family(crop)
                 # Potem dowiąż zależności tagów.
-                for tag in crop.tags.all():
+            '''    for tag in crop.tags.all():
                     element_to_add = tag.id
                     crops_to_tag = Crop.objects.filter(
                      crop_relationships__about_tag=element_to_add,
@@ -344,7 +358,7 @@ class SyncCropTagDB(CropAdmin):
                     self.add_tag_element(
                      tag_to_tag, element_to_add, crop)
                     self.add_tag_crop_element(
-                     element_to_add, crop)
+                     element_to_add, crop)'''
 
         # Wywal wszystkie tagi stworzone maszynowo.
         if "purge_tag_db" in request.POST:
