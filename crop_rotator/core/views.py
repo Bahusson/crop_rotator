@@ -105,15 +105,15 @@ class CropAdmin(View):
             self.the_element = args[0]
         pe_croptag_id = pe(CropTag).by_id(G404=G404, id=element_to_add)
         for item in query:
-            for interaction in item.family.crop_relationships.all():
-                if interaction.about_crop == self.the_element:
-                    for crop_item in Crop.objects.filter(family=item.family):
-                        self.add_common(
-                         interaction, item, pe_croptag_id, crop_item.id,
-                         self.the_element.id, self.the_element,
-                         "add_family_element"
-                         )
-            self.the_element.tags.add(element_to_add)
+            for interaction in item.family.crop_relationships.all().filter(
+             about_crop=self.the_element):
+                for crop_item in Crop.objects.filter(family=item.family):
+                    self.add_common(
+                     interaction, item, pe_croptag_id, crop_item.id,
+                     self.the_element.id, self.the_element,
+                     "add_family_element"
+                     )
+        self.the_element.tags.add(element_to_add)
 
     def add_tag_element(
          self, query, element_to_add, *args):
@@ -148,7 +148,8 @@ class CropAdmin(View):
                  "add_tag_crop_element",
                  )
             elif interaction.about_family is not None:
-                for crop_item in Crop.objects.filter(family=interaction.about_family.id):
+                for crop_item in Crop.objects.filter(
+                 family=interaction.about_family.id):
                     tag_type = crop_item
                     self.add_common(
                      interaction, self.the_element, pe_croptag_id,
@@ -160,7 +161,8 @@ class CropAdmin(View):
                 for item in query:
                     self.add_common(
                          interaction, self.the_element, pe_croptag_id,
-                         self.the_element.id, item.id, item, "add_tag_crop_element",
+                         self.the_element.id, item.id, item,
+                         "add_tag_crop_element",
                           )
                 self.the_element.tags.add(element_to_add)
             else:  # Jeśli tag też pusty śmigaj dalej.
@@ -168,8 +170,35 @@ class CropAdmin(View):
                 continue
         self.the_element.tags.add(element_to_add)
 
-    def add_mass_family_to(self):
-        self.the_element.tags.add(element_to_add)
+    def add_mass_family_to(self, *args):
+        if args:
+            self.the_element = args[0]
+        for interaction in self.the_element.crop_relationships.all().exclude(
+         about_family=None):
+            flare(interaction)
+            for crop_item in Crop.objects.filter(
+             family=interaction.about_family.id):
+                self.add_common(
+                 interaction, self.the_element, None,
+                 self.the_element.id, crop_item.id, interaction.about_crop,
+                 "add_to_family",
+                 )
+
+    def add_mass_family_from(self, *args):
+        if args:
+            self.the_element = args[0]
+        query = Crop.objects.filter(
+         crop_relationships__about_family=self.the_element.family,
+         crop_relationships__is_server_generated=False)
+        for item in query:
+            for interaction in item.crop_relationships.all().filter(
+             about_family=self.the_element.family):
+                for crop_item in Crop.objects.filter(family=item.family):
+                    self.add_common(
+                     interaction, item, None, crop_item.id,
+                     self.the_element.id, self.the_element,
+                     "add_from_family"
+                     )
 
     def add_common(
          self, interaction, item, pe_croptag_id, item1, item2, about_crop, debug):
@@ -286,8 +315,8 @@ class SyncCropTagDB(CropAdmin):
             query = Crop.objects.all()
             for crop in query:
                 # Najpierw dowiąż zależności rodzin.
-                self.add_mass_family_to()
-                #self.add_mass_family_from()
+                self.add_mass_family_to(crop)
+                self.add_mass_family_from(crop)
                 # Potem dowiąż zależności tagów.
                 for tag in crop.tags.all():
                     element_to_add = tag.id
