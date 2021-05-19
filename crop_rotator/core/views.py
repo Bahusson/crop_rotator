@@ -220,19 +220,38 @@ class CropAdmin(View):
                  "add_family_to_family"
                  )
 
-
-
-    def common_stuff_family2(self, query):
+    # Interakcje Przychodzące - WIP
+    def common_stuff_family3(self, query):
         newquery = Crop.objects.filter(family=query)
         for item in newquery:
             for interaction in item.crop_relationships.all().filter(
              is_server_generated=False, about_family=self.set_master_family_f()):
                 for crop_item in Crop.objects.filter(family=item.id):
-                    self.add_common(
-                     interaction, self.the_element, None,
-                     self.the_element.id, crop_item.id, interaction.about_crop,
-                     "add_to_family",
-                     )
+                    pass
+
+    # Interakcje wychodzące
+    def common_stuff_family2(self, query):
+        newquery = Crop.objects.filter(family=query)
+        for item in newquery:
+            for interaction in item.crop_relationships.all():
+                for crop_item in Crop.objects.filter(family=item.id):
+                    if interaction.about_crop is not None:
+                       tag_type = interaction.about_crop
+                       self.add_common(
+                        interaction, self.tag_type, None,
+                        self.the_element.id, crop_item.id, interaction.about_crop,
+                        "add_to_family_crop",
+                        )
+                    elif interaction.about_family is not None:
+                        secondary_query = interaction.about_family
+                        for second_crop in secondary_query:
+                            self.add_common(
+                             interaction, self.the_element, None,
+                             self.the_element.id, crop_item.id, interaction.about_crop,
+                             "add_to_family",
+                             )
+                    elif interaction.about_tag is not None:
+                        pass
 
     def add_mass_family_from(self, *args):
         if args:
@@ -242,11 +261,10 @@ class CropAdmin(View):
         if type(query) != CropFamily:
             for sliceditem in query:
                 self.common_stuff_family2(sliceditem)
+    #            self.common_stuff_family3(sliceditem)
         else:
             self.common_stuff_family2(query)
-
-
-
+    #        self.common_stuff_family3(query)
 
     # WIP - do wywalenia ??
     def add_mass_family(self, *args):
