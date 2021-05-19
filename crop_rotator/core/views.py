@@ -93,6 +93,10 @@ class CropAdmin(View):
         else:
             return CropFamily.objects.get(pk=self.the_element.family.id)
 
+    def set_master_family(self):
+        if self.the_element.family.is_family_slave and self.the_element.family.family_master is not None:
+            return self.the_element.family.family_master
+
     def add_element(
          self, query, element_to_add, *args):
         if args:
@@ -201,11 +205,9 @@ class CropAdmin(View):
 
     def common_stuff_family2(self, query):
         newquery = Crop.objects.filter(family=query)
-        flare(newquery)
         for item in newquery:
-            flare(item)
             for interaction in item.crop_relationships.all().filter(
-             is_server_generated=False, about_family=self.the_element_family):
+             is_server_generated=False, about_family=self.set_master_family()):
                 for crop_item in Crop.objects.filter(family=item.id):
                     self.add_common(
                      interaction, self.the_element, None,
@@ -217,9 +219,8 @@ class CropAdmin(View):
         if args:
             self.the_element = args[0]
             self.the_element_family = self.check_family_slave()
-        query = CropFamily.objects.filter(
-         crop_relationships__about_family=self.the_element_family)
-        if len(query) > 1:
+        query = self.the_element_family
+        if type(query) != CropFamily:
             for sliceditem in query:
                 self.common_stuff_family2(sliceditem)
         else:
