@@ -139,7 +139,11 @@
                 {% endif %}
                 {% fertilizerlookup substep=substep as fertilizer_lookup %}
                 {% if fertilizer_lookup %}
-                $ DODANO OBORNIK
+                {{ translatables.manure_added }}
+                {% endif %}
+                {% fertilizerlookup2 substep=substep as fertilizer_lookup2 %}
+                {% if fertilizer_lookup2 %}
+                {{ translatables.green_manure_destroyed }}
                 {% endif %}
                 {% if substep.crop_substep.all %}
                 {% for crop in substep.crop_substep.all %}

@@ -159,10 +159,16 @@ class RotatorEditorPageNames(models.Model):
     second_year = models.CharField(max_length=50, blank=True, null=True) # W drugim roku
     third_year = models.CharField(max_length=50, blank=True, null=True) # W trzecim roku
     two_consecutive = models.CharField(max_length=50, blank=True, null=True) # W dwóch kolejnych latach
+    manure_added = models.CharField(max_length=50, blank=True, null=True) # DODANO OBORNIK
+    green_manure_destroyed = models.CharField(max_length=50, blank=True, null=True) # ZNISZCZONO NA ZIELONY NAWÓZ
+    remove_button = models.CharField(max_length=50, blank=True, null=True) # Usuń
+
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
 
+
+#### W obecnym kształcie poniższe są do wyrzucenia w kolejnej aktualizacji ###
 
 # klasa tłumaczeniowa dla strony "o nawozach"
 class FertilizerPageNames(models.Model):
