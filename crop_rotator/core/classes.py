@@ -173,12 +173,6 @@ class PlannerRelationship(object):
         self.ifdict = {
             "crop_to_crop": self.a[4].crop_relationships.filter(
              about_crop__id=self.b[4].id),
-            "crop_to_family": self.a[4].crop_relationships.filter(
-             about_family__id=self.b[4].family.id),
-            "family_to_crop": self.a[4].family.crop_relationships.filter(
-             about_crop__id=self.b[4].id),
-            "family_to_family": self.a[4].family.crop_relationships.filter(
-             about_family__id=self.b[4].family.id),
         }
         self.seasondict = {
             0: None,
