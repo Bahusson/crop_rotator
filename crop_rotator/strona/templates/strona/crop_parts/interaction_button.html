@@ -3,8 +3,16 @@
  {{ translatables.companion }}
 {% elif interaction.1.type_of_interaction == 1 %}
  {{ translatables.allelopatic }}
-{% else %}
+ {% elif interaction.1.type_of_interaction == 2 %}
  {{ translatables.following }}
+ {% elif interaction.1.type_of_interaction == 3 %}
+ {{ translatables.second_year }}
+ {% elif interaction.1.type_of_interaction == 4 %}
+ {{ translatables.third_year }}
+ {% elif interaction.1.type_of_interaction == 5 %}
+ {{ translatables.two_consecutive }}
+ {% elif interaction.1.type_of_interaction == 6 %}
+ {{ translatables.next_year }}
 {% endif %}
 {% if interaction.1.season_of_interaction == 1 %}
  {{ translatables.annual }}

@@ -155,6 +155,10 @@ class RotatorEditorPageNames(models.Model):
     add_element = models.CharField(max_length=50, blank=True, null=True) # Dodaj element (button)
     return_to_plan = models.CharField(max_length=50, blank=True, null=True) # Powrót do planu (button)
     categories = models.CharField(max_length=50, blank=True, null=True) # Kategorie
+    next_year = models.CharField(max_length=50, blank=True, null=True) # W kolejnym roku
+    second_year = models.CharField(max_length=50, blank=True, null=True) # W drugim roku
+    third_year = models.CharField(max_length=50, blank=True, null=True) # W trzecim roku
+    two_consecutive = models.CharField(max_length=50, blank=True, null=True) # W dwóch kolejnych latach
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
