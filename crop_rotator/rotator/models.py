@@ -277,7 +277,7 @@ class CropInteraction(models.Model):
         blank=True,
         null=True,
     )
-    debug_line = models.CharField(max_length=20, blank=True, null=True)
+    debug_line = models.CharField(max_length=30, blank=True, null=True)
     trigger_crop = models.ForeignKey(
         "Crop",
         related_name="trigger_crop_set",
