@@ -4960,7 +4960,7 @@
     "seed_norm_min": 40,
     "seed_norm_max": 50,
     "plant_type": 0,
-    "meta_tags_source": "c50,f4,t5,t2",
+    "meta_tags_source": "c50,f4,t5,t2,t25",
     "is_crop_mix": false,
     "is_fertilizer": false,
     "redirect_name": null,
@@ -9021,7 +9021,7 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": "c85,f24,t24",
+    "meta_tags_source": "c85,f24,t25,t24",
     "is_crop_mix": false,
     "is_fertilizer": false,
     "redirect_name": null,
@@ -10109,7 +10109,6 @@
     "redirect_name": null,
     "redirect_id": null,
     "crop_relationships": [
-      12773,
       587
     ],
     "tags": [
@@ -11252,12 +11251,29 @@
     "seed_norm_min": null,
     "seed_norm_max": null,
     "plant_type": 0,
-    "meta_tags_source": "",
+    "meta_tags_source": "c129,f29",
     "is_crop_mix": false,
     "is_fertilizer": true,
     "redirect_name": null,
     "redirect_id": null,
-    "crop_relationships": [],
+    "crop_relationships": [
+      55054,
+      55057,
+      55056,
+      55059,
+      55068,
+      55067,
+      55064,
+      55060,
+      55061,
+      55058,
+      55063,
+      55069,
+      55065,
+      55062,
+      55066,
+      55055
+    ],
     "tags": []
   }
 },
@@ -25472,27 +25488,6 @@
     "about_family": null,
     "about_tag": null,
     "info_source": 154,
-    "type_of_interaction": 2,
-    "season_of_interaction": 0,
-    "is_server_generated": false,
-    "server_interaction": null,
-    "debug_line": null,
-    "trigger_crop": null,
-    "trigger_tag": null
-  }
-},
-{
-  "model": "rotator.cropinteraction",
-  "pk": 12773,
-  "fields": {
-    "title": "TEST Bylica Piołun / Życica Trwała (N)",
-    "signature": null,
-    "is_positive": true,
-    "interaction_sign": 0,
-    "about_crop": 127,
-    "about_family": null,
-    "about_tag": null,
-    "info_source": 149,
     "type_of_interaction": 2,
     "season_of_interaction": 0,
     "is_server_generated": false,
@@ -132834,6 +132829,342 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 55054,
+  "fields": {
+    "title": "Zielony nawóz + kapustowate (N)",
+    "signature": null,
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": null,
+    "about_family": 2,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55055,
+  "fields": {
+    "title": "129 99 (2)(0)",
+    "signature": "129 99 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 99,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55056,
+  "fields": {
+    "title": "129 2 (2)(0)",
+    "signature": "129 2 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 2,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55057,
+  "fields": {
+    "title": "129 1 (2)(0)",
+    "signature": "129 1 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 1,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55058,
+  "fields": {
+    "title": "129 67 (2)(0)",
+    "signature": "129 67 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 67,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55059,
+  "fields": {
+    "title": "129 3 (2)(0)",
+    "signature": "129 3 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 3,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55060,
+  "fields": {
+    "title": "129 60 (2)(0)",
+    "signature": "129 60 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 60,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55061,
+  "fields": {
+    "title": "129 66 (2)(0)",
+    "signature": "129 66 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 66,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55062,
+  "fields": {
+    "title": "129 9 (2)(0)",
+    "signature": "129 9 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 9,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55063,
+  "fields": {
+    "title": "129 69 (2)(0)",
+    "signature": "129 69 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 69,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55064,
+  "fields": {
+    "title": "129 6 (2)(0)",
+    "signature": "129 6 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 6,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55065,
+  "fields": {
+    "title": "129 8 (2)(0)",
+    "signature": "129 8 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 8,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55066,
+  "fields": {
+    "title": "129 96 (2)(0)",
+    "signature": "129 96 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 96,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55067,
+  "fields": {
+    "title": "129 5 (2)(0)",
+    "signature": "129 5 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 5,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55068,
+  "fields": {
+    "title": "129 4 (2)(0)",
+    "signature": "129 4 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 4,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 55069,
+  "fields": {
+    "title": "129 75 (2)(0)",
+    "signature": "129 75 (2)(0)",
+    "is_positive": true,
+    "interaction_sign": 2,
+    "about_crop": 75,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": true,
+    "server_interaction": 55054,
+    "debug_line": "add_family_to_family",
+    "trigger_crop": 129,
+    "trigger_tag": null
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 613,
   "fields": {
@@ -133346,9 +133677,9 @@
 },
 {
   "model": "rotator.cropsinteraction",
-  "pk": 12773,
+  "pk": 55054,
   "fields": {
-    "cropinteraction_ptr": 12773
+    "cropinteraction_ptr": 55054
   }
 },
 {
@@ -142365,6 +142696,111 @@
   "pk": 54997,
   "fields": {
     "cropinteraction_ptr": 54997
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55057,
+  "fields": {
+    "cropinteraction_ptr": 55057
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55056,
+  "fields": {
+    "cropinteraction_ptr": 55056
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55059,
+  "fields": {
+    "cropinteraction_ptr": 55059
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55068,
+  "fields": {
+    "cropinteraction_ptr": 55068
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55067,
+  "fields": {
+    "cropinteraction_ptr": 55067
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55064,
+  "fields": {
+    "cropinteraction_ptr": 55064
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55060,
+  "fields": {
+    "cropinteraction_ptr": 55060
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55061,
+  "fields": {
+    "cropinteraction_ptr": 55061
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55058,
+  "fields": {
+    "cropinteraction_ptr": 55058
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55063,
+  "fields": {
+    "cropinteraction_ptr": 55063
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55069,
+  "fields": {
+    "cropinteraction_ptr": 55069
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55065,
+  "fields": {
+    "cropinteraction_ptr": 55065
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55062,
+  "fields": {
+    "cropinteraction_ptr": 55062
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55066,
+  "fields": {
+    "cropinteraction_ptr": 55066
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 55055,
+  "fields": {
+    "cropinteraction_ptr": 55055
   }
 },
 {
@@ -177477,9 +177913,9 @@
     "categories": "kategorii",
     "categories_pl": "kategorii",
     "categories_en": "categories",
-    "and_over": "oraz ponad",
-    "and_over_pl": "oraz ponad",
-    "and_over_en": "and over",
+    "and_over": "oraz",
+    "and_over_pl": "oraz",
+    "and_over_en": "and",
     "unique_interactions": "unikalnych interakcji",
     "unique_interactions_pl": "unikalnych interakcji",
     "unique_interactions_en": "unique interactions",
@@ -177732,133 +178168,6 @@
     "remove_button": "USUŃ",
     "remove_button_pl": "USUŃ",
     "remove_button_en": "REMOVE"
-  }
-},
-{
-  "model": "strona.fertilizerpagenames",
-  "pk": 1,
-  "fields": {
-    "title": "Kilka słów o nawozachj",
-    "title_pl": "Kilka słów o nawozachj",
-    "title_en": "Few words about fertilizers",
-    "descr": "<a href=\"https://www.eea.europa.eu/themes/sustainability-transitions/drivers-of-change/growth-without-economic-growth\"> link</a>",
-    "descr_pl": "<a href=\"https://www.eea.europa.eu/themes/sustainability-transitions/drivers-of-change/growth-without-economic-growth\"> link</a>",
-    "descr_en": "<a href=\"https://www.eea.europa.eu/themes/sustainability-transitions/drivers-of-change/growth-without-economic-growth\"> link</a>",
-    "elements_head": null,
-    "elements_head_pl": null,
-    "elements_head_en": null,
-    "makro_head": null,
-    "makro_head_pl": null,
-    "makro_head_en": null,
-    "makro_descr": null,
-    "makro_descr_pl": null,
-    "makro_descr_en": null,
-    "micro_head": null,
-    "micro_head_pl": null,
-    "micro_head_en": null,
-    "micro_descr": null,
-    "micro_descr_pl": null,
-    "micro_descr_en": null,
-    "fertilizers_head": null,
-    "fertilizers_head_pl": null,
-    "fertilizers_head_en": null,
-    "natural_fertilizers_head": null,
-    "natural_fertilizers_head_pl": null,
-    "natural_fertilizers_head_en": null,
-    "natural_fertilizers_descr": null,
-    "natural_fertilizers_descr_pl": null,
-    "natural_fertilizers_descr_en": null,
-    "artificial_fertilizers_head": null,
-    "artificial_fertilizers_head_pl": null,
-    "artificial_fertilizers_head_en": null,
-    "artificial_fertilizers_descr": null,
-    "artificial_fertilizers_descr_pl": null,
-    "artificial_fertilizers_descr_en": null
-  }
-},
-{
-  "model": "strona.basicelement",
-  "pk": 1,
-  "fields": {
-    "name": "Azot",
-    "name_pl": "Azot",
-    "name_en": "Nitrogen",
-    "latin_name": "nitrogenium",
-    "symbol": "N",
-    "image": "",
-    "image_source": null,
-    "is_trace_element": false,
-    "descr": "Opis roli azotu we współczesnym nawożeniu - zwłaszcza tym ekologicznym.",
-    "descr_pl": "Opis roli azotu we współczesnym nawożeniu - zwłaszcza tym ekologicznym.",
-    "descr_en": ""
-  }
-},
-{
-  "model": "strona.basicelement",
-  "pk": 2,
-  "fields": {
-    "name": "Fosfor",
-    "name_pl": "Fosfor",
-    "name_en": "Phosphorus",
-    "latin_name": "phosphorus",
-    "symbol": "P",
-    "image": "",
-    "image_source": null,
-    "is_trace_element": false,
-    "descr": "Opis...",
-    "descr_pl": "Opis...",
-    "descr_en": ""
-  }
-},
-{
-  "model": "strona.basicelement",
-  "pk": 3,
-  "fields": {
-    "name": "Potas",
-    "name_pl": "Potas",
-    "name_en": "Potassium",
-    "latin_name": "kalium",
-    "symbol": "K",
-    "image": "",
-    "image_source": null,
-    "is_trace_element": false,
-    "descr": "Opis..",
-    "descr_pl": "Opis..",
-    "descr_en": ""
-  }
-},
-{
-  "model": "strona.basicelement",
-  "pk": 4,
-  "fields": {
-    "name": "Selen",
-    "name_pl": "Selen",
-    "name_en": "Selenium",
-    "latin_name": "selenium",
-    "symbol": "Se",
-    "image": "",
-    "image_source": null,
-    "is_trace_element": true,
-    "descr": "opis... śladowy",
-    "descr_pl": "opis... śladowy",
-    "descr_en": ""
-  }
-},
-{
-  "model": "strona.basicelement",
-  "pk": 5,
-  "fields": {
-    "name": "Kobalt",
-    "name_pl": "Kobalt",
-    "name_en": "Cobalt",
-    "latin_name": "cobaltum",
-    "symbol": "Co",
-    "image": "",
-    "image_source": null,
-    "is_trace_element": true,
-    "descr": "Opis... śladowy",
-    "descr_pl": "Opis... śladowy",
-    "descr_en": ""
   }
 }
 ]
