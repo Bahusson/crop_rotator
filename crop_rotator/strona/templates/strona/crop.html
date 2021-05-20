@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load xfilters %}
 
 {% block title %}
 <title>{{ crop.name }}</title>
@@ -21,7 +22,7 @@
         <div class="col-md-12 blog-main">
           <div class="container">
             <h1 class="text-center pt-3 ">{{ crop.name }}</h1>
-            <h4 class="text-center pt-2">{{ crop.latin_name }}</h4>
+            {% if crop.latin_name %}<h4 class="text-center pt-2">{{ crop.latin_name }}</h4>{% endif %}
             <hr />
             {% if crop.image %}<!--jeśli jest link to go wyświetl -->
                 <br/>
@@ -30,8 +31,11 @@
                 <span><b>{{ translatables.image_source }}: {% if crop.image_source.link  %}<a href="{{ crop.image_source.link }}"> {% endif %}{{ crop.image_source.part1 }}</b>{% if crop.image_source.link %}</a>{% endif %}</span>
             {% endif %}
             <br />
+          {% nonefamilylookup family=crop.family as nonefamily_lookup %}
+           {% if not nonefamily_lookup %}
             <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{{ family }}</a></p>
-            <p>{{ translatables.descr }}: {% if crop.descr %}{{ crop.descr|linebreaksbr }}{% endif %}</p>
+            {% endif %}
+            <p>{{ translatables.descr }}: {% if crop.descr %}{{ crop.descr }}{% endif %}</p>
             {% for source in sources %}
               {% if source.descr %}<p>{{ source.descr|linebreaksbr }}({{ forloop.counter }})</p>{% endif %}
             {% endfor %}
@@ -43,8 +47,10 @@
                   {% endif %}
                 {% endif %}</p>
               {% endfor %}
+            {% if not crop.is_fertilizer and not crop.is_crop_mix %}
             <hr />
             <h4 class="pt-2">{{ translatables.categories }}</h4>
+            {% endif %}
             <div class="container">
               <div class="row">
                 <hr />

@@ -190,8 +190,9 @@ class InteractionPage(View):
              pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
             pe_cds = CDS.objects.filter(from_crop=crop_id)
             master_family = pe_c_id.family.name
-            if pe_c_id.family.is_family_slave:
+            if pe_c_id.family.is_family_slave and not pe_c_id.is_fertilizer and not pe_c_id.is_crop_mix:
                 master_family = pe_c_id.family.family_master.name
+            
 
         # Family
         if self.is_family:
