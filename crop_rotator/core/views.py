@@ -369,6 +369,10 @@ class SyncCropTagDB(CropAdmin):
             query = CropsInteraction.objects.filter(is_server_generated=True)
             for item in query:
                 item.delete()
+        if "purge_all_db" in request.POST:
+            query = CropsInteraction.objects.all()
+            for item in query:
+                item.delete()
 
         if "create_meta_tag_db" in request.POST:
             query = Crop.objects.filter(is_crop_mix=False)
