@@ -7,43 +7,6 @@
     {% include 'strona/plan_parts/deep_properties.html' %}
   {% endif %}
 
-  {% if interactions_f %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions_f as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
-  {% if f_interactions %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=f_interactions as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
-  {% if f_interactions_f %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=f_interactions_f as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
-
-  {% if interactions_t %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=interactions_t as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
-
-  {% if f_interactions_t %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=f_interactions_t as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
-  {% if t_interactions %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=t_interactions as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
-  {% if t_interactions_f %}
-    {% complex_list step_no=step.order search_by=crop.id subject_type=1 from_context=t_interactions_f as complexity %}
-    {% include 'strona/plan_parts/deep_properties.html' %}
-  {% endif %}
-
   {% if not crop.is_crop_mix and not crop.is_fertilizer %}<p><b><a href="{% url 'crop' crop.id %}">{{ crop.name }}</a>  </b><button class="show_properties2" value="2">Info</button></p>
   <div class="hidden_properties">
   <p>{{ translatables.family }}: <a href="{% url 'family' crop.family.id %}">{% if crop.family.is_family_slave %} {{ crop.family.family_master }} {% else %}{{ crop.family }}{% endif %}</a></p>

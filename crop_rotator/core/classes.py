@@ -300,9 +300,6 @@ class CropPlanner(object):
         err_tab_list = []
         err_crop_list = []
         crop_interaction_list = []
-        family_interaction_list = []
-        crop_interaction_list_f = []
-        family_interaction_list_f = []
         for item in cooldown_list:
             if item[0] > len_listed_pe_rs:
                 error_len_crops.append(item[1])
@@ -319,28 +316,12 @@ class CropPlanner(object):
                 pr.relationship(
                  given_list=crop_interaction_list,
                  relationship="crop_to_crop")
-                pr.relationship(
-                 given_list=family_interaction_list,
-                 relationship="crop_to_family")
-                pr.relationship(
-                 given_list=crop_interaction_list_f,
-                 relationship="family_to_crop")
-                pr.relationship(
-                 given_list=family_interaction_list_f,
-                 relationship="family_to_family")
-
         fabs = []
         tabs = []
         self.interactions = []
-        self.interactions_f = []
-        self.f_interactions = []
-        self.f_interactions_f = []
         remove_repeating(fabs, fabacae)
         remove_repeating(tabs, err_tab_list)
         remove_repeating(self.interactions, crop_interaction_list)
-        remove_repeating(self.interactions_f, family_interaction_list)
-        remove_repeating(self.f_interactions, crop_interaction_list_f)
-        remove_repeating(self.f_interactions_f, family_interaction_list_f)
         fabs_percent = float(len(fabs)) / float(self.top_tier * 3)
         fabs_rounded = round(fabs_percent, 3)
         self.fabs_error = False
@@ -357,9 +338,6 @@ class CropPlanner(object):
     def basic_context(self, **kwargs):
         self.context = {
             "interactions": self.interactions,
-            "interactions_f": self.interactions_f,
-            "f_interactions": self.f_interactions,
-            "f_interactions_f": self.f_interactions_f,
             "f_error": self.fabs_error,
             "efcs": self.error_family_crops,
             "cr_len_warning": self.clw,
