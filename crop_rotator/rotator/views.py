@@ -293,6 +293,10 @@ def step(request, step_id):
             substep_id = request.POST.get('add_fertilizer_button')
             rss_object = pe(RotationSubStep).by_id(G404=G404, id=substep_id)
             rss_object.crop_substep.add(118)
+        if "destroy_fertilizer_button" in request.POST:
+            substep_id = request.POST.get('destroy_fertilizer_button')
+            rss_object = pe(RotationSubStep).by_id(G404=G404, id=substep_id)
+            rss_object.crop_substep.add(129)
 
         form = StepEditionForm(instance=pe_stp_id)
         context = {

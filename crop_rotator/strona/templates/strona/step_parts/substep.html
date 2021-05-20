@@ -28,7 +28,10 @@
     <button class="btn btn-link-3 btn-light" add_key="{{ substep.id }}" name="add_element_button">{{ translatables.add_element }}</button>
     {% fertilizerlookup substep=substep as fertilizer_lookup %}
     {% if not fertilizer_lookup %}
-     <button class="btn btn-link-3 btn-light" value="{{ substep.id }}" name="add_fertilizer_button">{{ translatables.add_fertilizer }}</button>{% endif %}</p>
+     <button class="btn btn-link-3 btn-light" value="{{ substep.id }}" name="add_fertilizer_button">{{ translatables.add_fertilizer }}</button>{% endif %}
+     {% fertilizerlookup2 substep=substep as fertilizer_lookup2 %}
+    {% if not fertilizer_lookup2 %}
+     <button class="btn btn-link-3 btn-light" value="{{ substep.id }}" name="destroy_fertilizer_button">{{ translatables.destroy_early_crop }}</button>{% endif %}</p>
 </div>
 </div>
 </div>
