@@ -71,16 +71,36 @@ i/lub zniszczenie roślin na nawóz zielony, gdyż wynikają z tego pewne intera
 2. FUNKCJE PROGRAMU - UŻYTKOWNIK NIEZALOGOWANY
 
 Program został pomyślany jako platforma internetowa dostosowana zarówno
-do obsługi urządzeń stacjonarnych i mobilnych.
+do obsługi urządzeń stacjonarnych i mobilnych. Dzięki temu zawsze jest aktualny
+i nie wymaga pobrania w całości, a jednocześnie zawsze pasuje do urządzenia i
+systemu operacyjnego użytkownika.
 
-- Podgląd planów ze skrótem zawartości
+Niezalogowany użytkownik ma możliwość przeglądania gotowych planów zmianowania opublikowanych wcześniej przez innych użytkowników. Ogólne pojęcie o zawartości
+planu daje zestawienie statystyk na temat wyróżnionych kategorii.
 
-- Przeglądanie biblioteki interakcji po roślinach/rodzinach/tagach
+[wstaw Screenshot 1 - podsumowanie zawartości planu]
 
-- Przeglądanie statystyk na temat programu na stronie "o projekcie"
+Bez logowania użytkownikowi przysługuje również możliwość przeglądania biblioteki
+wyszystkich roślin sortowanych alfabetycznie, według rodzin i kategorii.
+Po wejściu w odpowiednią opcję może on obejrzeć interakcje związane z danym
+elementem, jak również dowiedzieć się z opisu z czego one wynikają,
+oraz z jakich źródeł wynika taka a nie inna interakcja.
 
-- Możliwość rejestracji/zalogowania się.
+[Screenshoty 2 i 3 - przełącznik strony "według rodzin//tagów/alfabetycznie",
+ oraz "przykładowy Crop"]
 
+Można w ten sposób także przejrzeć aktualne statystyki projektu, na stronie
+"o projekcie" gdzie mieści się uproszczona nawigacja. Można tam także obejrzeć
+zestawienie wszystkich używanych dotychczas przez interakcje źródeł.
+
+[Screenshoty 4 i 5 - statystyki i źródła]
+
+Poza tym można się jeszcze zalogować lub zarejestrować. W tym momencie program
+generuje prosty login mnemotechniczny i nie jest zaopatrzony w narzędzie do
+odzyskiwania hasła (nie wysyła maili), ponieważ jest to tylko wersja demonstracyjna
+i nie było moim celem gromadzenie ani przetwarzanie niczyich danych osobowych.
+
+[Screenshot 6 - rejestracja]
 
 3. FUNKCJE PROGRAMU - UŻYTKOWNIK ZALOGOWANY
 
@@ -123,6 +143,9 @@ do obsługi urządzeń stacjonarnych i mobilnych.
 - Opisz pokrótce panel CR, tj. cachowanie i co ma na celu,
   oraz ograniczanie ilości planów usera i co ma na celu.
 
+- Opisz jak działa uźródłowianie obrazków i ogólnie wszystkiego. Szeregowanie
+  źródeł i czemu to ma służyć.
+
 
 (...)
 
@@ -139,8 +162,8 @@ być, gdyby poświęcić mu więcej czasu, oraz zintegrować z innymi systemami.
 W tej sekcji poruszam możliwości potencjalnego rozwoju aplikacji w przyszłości,
 gdyby ktoś chciał się tego podjąć.
 
-W tej chwili program jest dostępny wyłącznie jako aplikacja online dostępna na
-serwerze w Niemczech. Powoduje to niepotrzebne koszty energetyczne i opóźnienie
+W tej chwili program jest dostępny wyłącznie jako aplikacja online dostępna z
+serwera w Niemczech. Powoduje to niepotrzebne koszty energetyczne i opóźnienie
 na łączu dochodzące nawet do 1s. Ten problem można rozwiązać instalując program
 na szybkim serwerze w Polsce - np. w Warszawie, oraz oferując chętnym możliwość
 ściągnięcia wersji desktop działającej offline (do wykonnaia za pomocą np.
@@ -175,7 +198,8 @@ z frameworkiem Django.
  roślin x klasa ziemi i automatyczne filtrowanie sugerowanie roślin/mieszanek
  zależnie od regionu.
 
--Komunikaty/sugestie upraw zaciągane automatycznie z COBORU dla danego regionu.
+-Komunikaty/sugestie upraw/ gotowe plany zmianowania zaciągane automatycznie
+ z COBORU dla danego regionu.
 
 -Komunikaty/sugestie zaciągane automatycznie z centrum monitorowania agrofagów.
 
@@ -191,3 +215,7 @@ z frameworkiem Django.
  zestawienie sprawdziło się na konkretnym terenie. Rolnik pobiera wtedy unikalny
  token identyfikujący i bierze udział w badaniu np. w zamian za rabat na
  nawozy/nasiona zamówione przez portal, albo darmową wysyłkę.
+
+-Wyszukiwarka planów według zadanego kryterium (po tagu, po roślinie)
+
+-Wyszukiwarka roślin w kategorii "alfabetycznie".
