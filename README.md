@@ -68,4 +68,46 @@ rozwoju, zatem domyślne parametry wymagań dla gatunków są w górnej granicy.
 Program nie zakłada użycia nawozów sztucznych, ale pozwala na użycie obornika
 i/lub zniszczenie roślin na nawóz zielony, gdyż wynikają z tego pewne interakcje.
 
-2. PODSTAWOWE FUNKCJE PROGRAMU 
+2. PODSTAWOWE FUNKCJE PROGRAMU - UŻYTKOWNIK
+
+Program został pomyślany jako platforma internetowa dostosowana zarówno
+do obsługo urządzeń stacjonarnych i mobilnych.
+
+(...)
+
+3. ZAAWANSOWANE FUNKCJE PROGRAMU - UŻYTKOWNIK
+
+(...)
+
+4. PODSTAWOWE FUNKCJE PROGRAMU - ADMINISTRATOR
+
+(...)
+
+5. ZAAWANSOWANE FUNKCJE PROGRAMU - ADMINISTRATOR
+
+(...)
+
+6. PODSUMOWANIE
+
+(...)
+
+################
+
+X. DYSKUSJA
+
+Program w obecnej formie, choć sprawny, jest zaledwie namiastką tego czym mógłby
+być, gdyby poświęcić mu więcej czasu, oraz zintegrować z innymi systemami.
+W tej sekcji poruszam możliwości potencjalnego rozwoju aplikacji w przyszłości,
+gdyby ktoś chciał się tego podjąć.
+
+W tej chwili program jest dostępny wyłącznie jako aplikacja online dostępna na
+serwerze w Niemczech. Powoduje to niepotrzebne koszty energetyczne i opóźnienie
+na łączu dochodzące nawet do 1s. Ten problem można rozwiązać instalując program
+na szybkim serwerze w Polsce - np. w Warszawie, oraz oferując chętnym możliwość
+ściągnięcia wersji desktop działającej offilne (do wykonnaia za pomocą np.
+django2exe, pyinstaller). Można również stworzyć aplikację na smartfony, która
+dane będzie pobierać ze strony za pomocą Django REST.
+
+Prędkość liczenia można zwiększyć jeszcze bardziej (4.2x) przechodząc
+z domyślnego kompilatora CPython na PyPy, który dobrze współgra
+z frameworkiem Django.
