@@ -109,6 +109,21 @@ do obsługi urządzeń stacjonarnych i mobilnych.
 
 4. FUNKCJE PROGRAMU - ADMINISTRATOR
 
+- Opisz na czym polega prekompilowanie bazy danych. Dlaczego tak i czym to skutkuje?
+  Np. widać kosmiczną liczbę interakcji zamiast kilkuset. Obsługiwanie wyjątków.
+  Brak sprzecznych interakcji. Opisz hierarchię automatycznego generowania interakcji
+  (9 rodzajów interakcji z czego tylko 1 ręcznie wprowadzany).
+
+- Opisz eksperymentalną funkcję dodawania i usuwania taga z jednej rosliny.
+
+- Opisz jak działają mieszanki i nawozy - czym są dla programu
+  i jak się je wprowadza. Jaka mają rodzinę i czy jest widoczna dla usera.
+  (opcjonalnie opisz to wszystko u usera)
+
+- Opisz pokrótce panel CR, tj. cachowanie i co ma na celu,
+  oraz ograniczanie ilości planów usera i co ma na celu.
+
+
 (...)
 
 6. PODSUMOWANIE
@@ -141,7 +156,8 @@ z frameworkiem Django.
 -Można pozwolić userowy wybrać jak bardzo sztywno reguł ma się trzymać program
  obliczając wymagania dla danej rodziny/rośliny i pozwolić mu np. zaznaczyć to
  w opcjach zaawansowanych dla danego planu. Można zrobić opcje globalne, które
- będą dla danego usera domyślne w ustawieniach.
+ będą dla danego usera domyślne w ustawieniach. (W tej chwili jest na sztywno,
+ a są wprowadzone widełki przy rodzinach, a nawet przy konkretnych roślinach)
 
 -Należy skompresować zdjęcia roślin, aby były mniejsze i/lub wykonać własne.
 
@@ -150,3 +166,7 @@ z frameworkiem Django.
 
 -Należy dodać tag i ikonkę informujące o poziomie wymagań pokarmowych danej
  rośliny i stworzyć na tej podstawie interakcje.
+
+-Można zrobić globalne cachowanie strony usera po ostatniej ewaluacji,
+ aby użytkownik podglądający cudzy plan widział w nieskończoność ten plan
+ (wbrew pozorom oszczędza to energię przy spiderach).
