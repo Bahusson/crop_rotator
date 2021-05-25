@@ -78,7 +78,7 @@ systemu operacyjnego użytkownika.
 Niezalogowany użytkownik ma możliwość przeglądania gotowych planów zmianowania opublikowanych wcześniej przez innych użytkowników. Ogólne pojęcie o zawartości
 planu daje zestawienie statystyk na temat wyróżnionych kategorii.
 
-[wstaw Screenshot 1 - podsumowanie zawartości planu]
+[Fig. 1 - podsumowanie zawartości planu]
 
 Bez logowania użytkownikowi przysługuje również możliwość przeglądania biblioteki
 wyszystkich roślin sortowanych alfabetycznie, według rodzin i kategorii.
@@ -86,31 +86,79 @@ Po wejściu w odpowiednią opcję może on obejrzeć interakcje związane z dany
 elementem, jak również dowiedzieć się z opisu z czego one wynikają,
 oraz z jakich źródeł wynika taka a nie inna interakcja.
 
-[Screenshoty 2 i 3 - przełącznik strony "według rodzin//tagów/alfabetycznie",
+[Fig. 2 i 3 - przełącznik strony "według rodzin/tagów/alfabetycznie",
  oraz "przykładowy Crop"]
 
 Można w ten sposób także przejrzeć aktualne statystyki projektu, na stronie
 "o projekcie" gdzie mieści się uproszczona nawigacja. Można tam także obejrzeć
 zestawienie wszystkich używanych dotychczas przez interakcje źródeł.
 
-[Screenshoty 4 i 5 - statystyki i źródła]
+[Fig. 4 i 5 - statystyki i źródła]
 
 Poza tym można się jeszcze zalogować lub zarejestrować. W tym momencie program
 generuje prosty login mnemotechniczny i nie jest zaopatrzony w narzędzie do
 odzyskiwania hasła (nie wysyła maili), ponieważ jest to tylko wersja demonstracyjna
 i nie było moim celem gromadzenie ani przetwarzanie niczyich danych osobowych.
 
-[Screenshot 6 - rejestracja]
+[Fig. 6 - rejestracja]
 
 3. FUNKCJE PROGRAMU - UŻYTKOWNIK ZALOGOWANY
 
-- Dodawanie/usuwanie planu i ostatniego kroku / nadawanie tytułów i opisów tymże
+Po rejestracji użytkownik uzyskuje dostęp do panelu "Moje Plany", w którym ma
+możliwość dodawania / usuwania i edycji swoich własnych planów zmianowania. [Fig. 7]
 
-- Zamiana kroków miejscami
+[Fig. 7 - Lokalizacja "Moich Planów"]
 
-- Publikacja / wycofanie planu z publikacji.
+Edycja planu polega na dodawaniu, kolejnych kroków, które reprezentują kolejne
+lata w planie zmianowania. Kroki można dla wygody zamieniać miejscami, a ostatni
+z nich można usuwać. [Fig. 8]
+
+[Fig. 8 - Zakreślone lokalizacje przycisków "dodaj/usuń/edytuj krok" oraz "zamień miejscami"]
+
+Przed usunięciem każdego kroku, a także samego planu, program upewni się,
+czy napewno chcemy to zrobić, ograniczając straty czasu w razie pomyłki. [Fig. 9]
+
+[Fig. 9 - Pokazane jak działa "safety valve"]
+
+W tym momencie zarówno przycisk "dodaj nowy krok", jak i "edytuj" (patrz: Fig.8) przenoszą do strony edycji kroku. Mamy tam możliwość dla edytowania tytułu i opisu kroku. Te dane mają dla nas wartość jedynie informacyjną. Użytkownicy dodają je wyłącznie w swoich językach, jednak administratorzy mają możliwość dodać je we wszystkich językach wgranych do programu, co może być przydatne przy emisji oficjalnych / sugerowanych planów zmianowania.
+
+[Fig 10. edycja tytułu i opisu kroku.]
+
+Poniżej znajduje się możliwość zakomunikowania programowi o trzech potencjalnych
+"użyciach" pola w danym roku:
+- Na wiosnę, które program odbiera jako "Jare", lub plon wczesny,
+  znajduje się pod przyciskiem "Dodaj wczesny plon".
+- W lecie, które program odbiera jako wysadzenie średnio-późne
+  i zostało stworzone z myślą głównie o krótkich śródplonach
+  i płodozmianie warzywnym, a która to opcja jest pod przyciskiem "dodaj śródplon".
+- Na jesieni, które program odbiera jako "Ozime", lub plon późny, znajduje się
+  pod przyciskiem "dodaj późny plon"
+
+[Fig. 11 - przyciski wczesny/średni/późny plon]
+
+Zasada działania jest taka, że wybranie kolejnego "plonu" oznacza zebranie kolejnego.
+W przeciwnym wypadku program zakłada, że pozwala się mu rosnąć dalej, w myśl reguły,
+że na polu zawsze coś musi rosnąć, żeby przeciwdziałać erozji gleby i utraty składników
+odżywczych. Z resztą takie jest teraz prawo. Pozwala to sadzić różne kombinacje i
+zbierać je nawet po bardzo krótkim czasie. Program po prostu uzna, że jest to międzyplon,
+choć w takim wypadku daje nam jeszcze możliwość użycia opcji "zniszcz ma zielony nawóz".
+Efektem użycia tego przycisku będzie specjalne powiadomienie na ekranie głównym planu,
+że ten krok został zniszczony na nawóz zielony.
+
+[Fig. 12 i 13 - Przycisk "zniszcz na zielony nawóz" i jak wygląda efekt jego użycia na głównej stronie planu]
+
+Żeby lepiej zobrazować działanie wymienionej wcześniej mechaniki na przykładzie:
+Załóżmy, że wysiewamy jęczmień na wiosnę (program automatycznie zakłada,
+że jest to jęczmień jary), czyli dodajemy go do zakładki "wczesny plon". Ponieważ
+będzie on rósł do lipca-sierpnia, to zakładkę "śródplon" możemy zostawić w spokoju.
+Natomiast najpóźniej na jesieni, w zakładce "późny plon" należałoby wstawić coś nowego.
+W przeciwnym wypadku program założy, że pozwoliliśmy ziarnu osypać się na ziemię
+a pole zaczynają porastać chwasty.
+
 
 - Ewaluacja planu - jak przebiega?
+
+- Publikacja / wycofanie planu z publikacji.
 
 - Dodanie wczesnego/środkowego/późnego plonu i jak to program rozumie.
 
@@ -146,10 +194,12 @@ i nie było moim celem gromadzenie ani przetwarzanie niczyich danych osobowych.
 - Opisz jak działa uźródłowianie obrazków i ogólnie wszystkiego. Szeregowanie
   źródeł i czemu to ma służyć.
 
+- Dodatek tłumaczeniowy. Opisz jak działa django-modeltranslation
+
 
 (...)
 
-6. PODSUMOWANIE
+6. PODSUMOWANIE (?)
 
 (...)
 
@@ -219,3 +269,10 @@ z frameworkiem Django.
 -Wyszukiwarka planów według zadanego kryterium (po tagu, po roślinie)
 
 -Wyszukiwarka roślin w kategorii "alfabetycznie".
+
+-Dodanie kosmetycznej klasy wsiewek dla lepszego uporządkowania pracy.
+
+-Wprowadzenie orientacyjnych maksymalnych czasów plonowania i w związku z tym
+ ostrzeżeń, jeśli w płodozmianie są dziury.
+
+-Dodanie opcji "autosugestie" dla takich dziur w planie.
