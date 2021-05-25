@@ -68,22 +68,46 @@ rozwoju, zatem domyślne parametry wymagań dla gatunków są w górnej granicy.
 Program nie zakłada użycia nawozów sztucznych, ale pozwala na użycie obornika
 i/lub zniszczenie roślin na nawóz zielony, gdyż wynikają z tego pewne interakcje.
 
-2. PODSTAWOWE FUNKCJE PROGRAMU - UŻYTKOWNIK
+2. FUNKCJE PROGRAMU - UŻYTKOWNIK NIEZALOGOWANY
 
 Program został pomyślany jako platforma internetowa dostosowana zarówno
-do obsługo urządzeń stacjonarnych i mobilnych.
+do obsługi urządzeń stacjonarnych i mobilnych.
+
+- Podgląd planów ze skrótem zawartości
+
+- Przeglądanie biblioteki interakcji po roślinach/rodzinach/tagach
+
+- Przeglądanie statystyk na temat programu na stronie "o projekcie"
+
+- Możliwość rejestracji/zalogowania się.
+
+
+3. FUNKCJE PROGRAMU - UŻYTKOWNIK ZALOGOWANY
+
+- Dodawanie/usuwanie planu i ostatniego kroku / nadawanie tytułów i opisów tymże
+
+- Zamiana kroków miejscami
+
+- Publikacja / wycofanie planu z publikacji.
+
+- Ewaluacja planu - jak przebiega?
+
+- Dodanie wczesnego/środkowego/późnego plonu i jak to program rozumie.
+
+- Dodanie do ww. konkretnych roślin i że się nie powtarzają.
+
+- Automatyczne dodawanie i usuwanie mieszanek zdefiniowanych przez admina
+  i jak to działa.
+
+- Automatyczne dodawanie i usuwanie obornika / niszczenie na zielony nawóz i jak
+  to działa.
+
+- Przeglądanie swoich planów w panelu "moje plany"
 
 (...)
 
-3. ZAAWANSOWANE FUNKCJE PROGRAMU - UŻYTKOWNIK
 
-(...)
-
-4. PODSTAWOWE FUNKCJE PROGRAMU - ADMINISTRATOR
-
-(...)
-
-5. ZAAWANSOWANE FUNKCJE PROGRAMU - ADMINISTRATOR
+4. FUNKCJE PROGRAMU - ADMINISTRATOR
 
 (...)
 
@@ -93,7 +117,7 @@ do obsługo urządzeń stacjonarnych i mobilnych.
 
 ################
 
-X. DYSKUSJA
+DYSKUSJA
 
 Program w obecnej formie, choć sprawny, jest zaledwie namiastką tego czym mógłby
 być, gdyby poświęcić mu więcej czasu, oraz zintegrować z innymi systemami.
@@ -104,10 +128,25 @@ W tej chwili program jest dostępny wyłącznie jako aplikacja online dostępna 
 serwerze w Niemczech. Powoduje to niepotrzebne koszty energetyczne i opóźnienie
 na łączu dochodzące nawet do 1s. Ten problem można rozwiązać instalując program
 na szybkim serwerze w Polsce - np. w Warszawie, oraz oferując chętnym możliwość
-ściągnięcia wersji desktop działającej offilne (do wykonnaia za pomocą np.
+ściągnięcia wersji desktop działającej offline (do wykonnaia za pomocą np.
 django2exe, pyinstaller). Można również stworzyć aplikację na smartfony, która
 dane będzie pobierać ze strony za pomocą Django REST.
 
 Prędkość liczenia można zwiększyć jeszcze bardziej (4.2x) przechodząc
 z domyślnego kompilatora CPython na PyPy, który dobrze współgra
 z frameworkiem Django.
+
+-Można zrobić tak, żeby user widział, czy plan jest opublikowany.
+
+-Można pozwolić userowy wybrać jak bardzo sztywno reguł ma się trzymać program
+ obliczając wymagania dla danej rodziny/rośliny i pozwolić mu np. zaznaczyć to
+ w opcjach zaawansowanych dla danego planu. Można zrobić opcje globalne, które
+ będą dla danego usera domyślne w ustawieniach.
+
+-Należy skompresować zdjęcia roślin, aby były mniejsze i/lub wykonać własne.
+
+-Należy dodać tag i ikonkę informującą o typie i wielkości systemu korzeniowego
+ i na tej podstawie stworzyć interakcje.
+
+-Należy dodać tag i ikonkę informujące o poziomie wymagań pokarmowych danej
+ rośliny i stworzyć na tej podstawie interakcje.
