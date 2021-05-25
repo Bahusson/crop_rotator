@@ -170,3 +170,24 @@ z frameworkiem Django.
 -Można zrobić globalne cachowanie strony usera po ostatniej ewaluacji,
  aby użytkownik podglądający cudzy plan widział w nieskończoność ten plan
  (wbrew pozorom oszczędza to energię przy spiderach).
+
+-Rejonizacja za pomocą wbudowanego w Django3 geo-taga + mapy powiatów x odmiany
+ roślin x klasa ziemi i automatyczne filtrowanie sugerowanie roślin/mieszanek
+ zależnie od regionu.
+
+-Komunikaty/sugestie upraw zaciągane automatycznie z COBORU dla danego regionu.
+
+-Komunikaty/sugestie zaciągane automatycznie z centrum monitorowania agrofagów.
+
+-Inne ważne, rejonizowane komunikaty i sugestie od pozostałych agencji.
+
+-Sklep wysyłkowy z nasionami/sadzonkami kwalifikowanymi. Na podstawie lokalizacji
+ program sugeruje odmiany o konkretnych parametrach (odporność na suszę,
+ wymarzanie, konkretne patogeny, zamienniki lepiej dopasowane do lokalizacji itp.)
+ i automatycznie komponuje koszyk od najbliższych dostawców, żeby zaoszczędzić na
+ kosztach dostaw, a docelowo np. można mieć jakieś punkty przeładunkowe jak Amazon.
+
+-Narzędzie do raportowania zwrotnego (zbierania danych masowych) jak dane
+ zestawienie sprawdziło się na konkretnym terenie. Rolnik pobiera wtedy unikalny
+ token identyfikujący i bierze udział w badaniu np. w zamian za rabat na
+ nawozy/nasiona zamówione przez portal, albo darmową wysyłkę.
