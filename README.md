@@ -12,7 +12,7 @@ ABSTRACT
 
 Project "Crop Rotator" is an effect of my attempt at my thesis on post-graduate studies for graduates of non-agriculture students of Agriculture on Warsaw University of Life Sciences.
 
-The purpose of this site is to help people that already have agricultural qualifications to quickly set up coplex rotation plans. It is meant to be especially useful for those interested in ecological agriculture due to its programmed preassumptions that user wants to supply their plants with best possible contitions, using lowest possible amounts of chemical means of plant protection and artificial fertilizers.
+The purpose of this site is to help people that already have agricultural qualifications to quickly set up complex rotation plans. It is meant to be especially useful for those interested in ecological agriculture due to its programmed presumptions that user wants to supply their plants with best possible conditions, using lowest possible amounts of chemical means of plant protection and artificial fertilizers.
 
 The promoter of this thesis is dr hab. Dariusz Gozdowski
 
@@ -55,3 +55,17 @@ podejmowanie decyzji w zakresie odpowiedniego, złożonego zmianowania roślin.
 
 Program, który napisałem w ramach swojej pracy dylomowej, a który będę poniżej przedstawiał, ma za zadanie po części zaadresować tę potrzebę i być może
 w przyszłości stać się zaczątkiem bardziej zintegrowanego systemu.
+
+###############
+
+1. PODSTAWOWE ZADANIA STAWIANE PRZED PROGRAMEM
+
+Celem programu jest umożliwienie użytkownikowi, który posiada już kwalifikacje,
+rolnicze szybkie i intuicyjne układanie złożonych planów zmianowania,
+aby następnie zostały one sprawdzone pod kątem błędów i kolizji.
+W programie założono, że użytkownik chce zapewnić roślinom jak najlepsze warunki
+rozwoju, zatem domyślne parametry wymagań dla gatunków są w górnej granicy.
+Program nie zakłada użycia nawozów sztucznych, ale pozwala na użycie obornika
+i/lub zniszczenie roślin na nawóz zielony, gdyż wynikają z tego pewne interakcje.
+
+2. PODSTAWOWE FUNKCJE PROGRAMU 
