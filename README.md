@@ -68,12 +68,12 @@ rozwoju, zatem domyślne parametry wymagań dla gatunków są w górnej granicy.
 Program nie zakłada użycia nawozów sztucznych, ale pozwala na użycie obornika
 i/lub zniszczenie roślin na nawóz zielony, gdyż wynikają z tego pewne interakcje.
 
-2. FUNKCJE PROGRAMU - UŻYTKOWNIK NIEZALOGOWANY
-
 Program został pomyślany jako platforma internetowa dostosowana zarówno
 do obsługi urządzeń stacjonarnych i mobilnych. Dzięki temu zawsze jest aktualny
 i nie wymaga pobrania w całości, a jednocześnie zawsze pasuje do urządzenia i
-systemu operacyjnego użytkownika.
+systemu operacyjnego użytkownika - tj. jest "responsywny".
+
+2. FUNKCJE PROGRAMU - UŻYTKOWNIK NIEZALOGOWANY
 
 Niezalogowany użytkownik ma możliwość przeglądania gotowych planów zmianowania opublikowanych wcześniej przez innych użytkowników. Ogólne pojęcie o zawartości
 planu daje zestawienie statystyk na temat wyróżnionych kategorii.
@@ -105,7 +105,7 @@ i nie było moim celem gromadzenie ani przetwarzanie niczyich danych osobowych.
 3. FUNKCJE PROGRAMU - UŻYTKOWNIK ZALOGOWANY
 
 Po rejestracji użytkownik uzyskuje dostęp do panelu "Moje Plany", w którym ma
-możliwość dodawania / usuwania i edycji swoich własnych planów zmianowania. [Fig. 7]
+możliwość przeglądania, dodawania / usuwania i edycji swoich własnych planów zmianowania. [Fig. 7]
 
 [Fig. 7 - Lokalizacja "Moich Planów"]
 
@@ -155,39 +155,34 @@ Natomiast najpóźniej na jesieni, w zakładce "późny plon" należałoby wstaw
 W przeciwnym wypadku program założy, że pozwoliliśmy ziarnu osypać się na ziemię
 a pole zaczynają porastać chwasty.
 
-[Fig. 14 - Wizualizacja przykładu powyżej. Wysiew koniczyny po zbiorze jęczmienia.]
+[Fig. 14 - Wizualizacja przykładu powyżej. Wysiew koniczyny po zbiorze jęczmienia]
 
+Dodawanie roślin do sub-kroku (np. do "wczesnego plonu") odbywa się poprzez wybranie odpowiadającej nam pozycji z rozwijanego menu i wciśnięcie przycisku "dodaj pozycję". Wybrane pozycje pojawiają się powyżej rozwijanego menu i przy każdej z nich znajduje się przycisk "usuń pozycję" umożliwiający ich pojedyncze usunięcie.
+Do każdego takiego sub-kroku można dodać obornik za pomocą przycisku "dodaj obornik", którego efekt na planie głównym jest analogiczny do wymienionego wcześniej przycisku "nawozu zielonego".
 
+[Fig. 15 - Dodawanie i usuwanie poszczególnych elementów]
 
-- Dodanie do ww. konkretnych roślin i że się nie powtarzają.
+Do planu automatycznie dodawane/usuwane z niego są też zdefiniowane wcześniej przez administratora, niewidoczne dla użytkownika mieszanki, które posiadają swoje własne interakcje.
+W prezentowanym przykładzie po dodaniu do sub-kroku dowolnego elementu z kategorii "trawa" i drugiego z kategorii "koniczyna", do planu zostaje dodany ukryty element o nazwie "mieszanka trawy i koniczyny", która posiada pozytywne interakcje następcze ze wszystkimi elementami należącymi do rodziny Kapustnych. W związku z tym na planie głównym ta interakcja ujawni się po wciśnięciu przycisku "ewaluacji".
 
-- Automatyczne dodawanie i usuwanie mieszanek zdefiniowanych przez admina
-  i jak to działa.
+[Fig. 16 - Ukryte interakcje mieszanek]
 
-- Automatyczne dodawanie i usuwanie obornika / niszczenie na zielony nawóz i jak
-  to działa.
-
-
-Po wybraniu wszystkich elementów planu użytkownik ma możliwość jego ewaluacji za pomocą przycisku "ewaluacja". (Fig. xx)
+Po wybraniu wszystkich elementów planu użytkownik ma możliwość jego ewaluacji za pomocą wspomnianego wyżej przycisku "ewaluacja". (Fig. 17)
 Proces odbywa się dwuetapowo, tj. dla zaoszczędzenia zasobów program najpierw sprawdza,
 czy dla wszystkich wymienionych w planie roślin ilość kroków (lat) jest wystarczająca.
 Jeśli jest zbyt mała, nie liczy dalej, tylko podaje nazwy roślin dla których trzeba zwiększyć ilość kroków w planie, lub je usunąć.
 
-[Fig. xx - Przycisk ewaluacja i błąd długości płodozmianu]
+[Fig. 17 - Przycisk ewaluacja i błąd długości płodozmianu]
 
-Jeżeli długość płodozmianu jest właściwa, to w kolejnym etapie program sprawdza, czy  wszystkie rośliny z tych samych rodzin zostały posadzone w odpowiednim odstępie czasowym od siebie. Jeżeli nie, to zwraca ten błąd jako "kolizję" wytłuszczoną czcionką. (fig. yy)
+Jeżeli długość płodozmianu jest właściwa, to w kolejnym etapie program sprawdza, czy  wszystkie rośliny z tych samych rodzin zostały posadzone w odpowiednim odstępie czasowym od siebie. Jeżeli nie, to zwraca ten błąd jako "kolizję" wytłuszczoną czcionką. (fig. 18)
 Następnie wyciąga za pomocą permutacji wszystkie możliwe interakcje na planie i porównuje je z bazą danych interakcji jakie posiada. W razie trafienia zwraca je obok rośliny zwykłą czcionką.
 
-[Fig. yy - Błąd koilzji w rodzinie i przykładowa interakcja na planie]
+[Fig. 18 - Błąd kolizji w rodzinie i przykładowa interakcja na planie]
 
+Jeżeli użytkownik jest zadowolony ze swojego planu i chce się nim podzielić, może go teraz opublikować za pomocą przycisku "opublikuj", aby reszta użytkowników miała do niego dostęp. Opublikowane plany są dostępne w omówionej wcześniej bibliotece planów, oraz mogą zostać wylosowane na stronie głównej i zaproponowane zwiedzającym.
+W dowolnym momencie użytkownik może wycofać swój plan z publikacji wciskając przycisk "wycofaj z publikacji", który zastępuje ten pierwszy.
 
-
-
-
-- Przeglądanie swoich planów w panelu "moje plany"
-
-(...)
-
+[Fig. 19 - Miejsce gdzie znajduje się przycisk "opublikuj"/"wycofaj"]
 
 4. FUNKCJE PROGRAMU - ADMINISTRATOR
 
