@@ -155,12 +155,9 @@ Natomiast najpóźniej na jesieni, w zakładce "późny plon" należałoby wstaw
 W przeciwnym wypadku program założy, że pozwoliliśmy ziarnu osypać się na ziemię
 a pole zaczynają porastać chwasty.
 
+[Fig. 14 - Wizualizacja przykładu powyżej. Wysiew koniczyny po zbiorze jęczmienia.]
 
-- Ewaluacja planu - jak przebiega?
 
-- Publikacja / wycofanie planu z publikacji.
-
-- Dodanie wczesnego/środkowego/późnego plonu i jak to program rozumie.
 
 - Dodanie do ww. konkretnych roślin i że się nie powtarzają.
 
@@ -169,6 +166,23 @@ a pole zaczynają porastać chwasty.
 
 - Automatyczne dodawanie i usuwanie obornika / niszczenie na zielony nawóz i jak
   to działa.
+
+
+Po wybraniu wszystkich elementów planu użytkownik ma możliwość jego ewaluacji za pomocą przycisku "ewaluacja". (Fig. xx)
+Proces odbywa się dwuetapowo, tj. dla zaoszczędzenia zasobów program najpierw sprawdza,
+czy dla wszystkich wymienionych w planie roślin ilość kroków (lat) jest wystarczająca.
+Jeśli jest zbyt mała, nie liczy dalej, tylko podaje nazwy roślin dla których trzeba zwiększyć ilość kroków w planie, lub je usunąć.
+
+[Fig. xx - Przycisk ewaluacja i błąd długości płodozmianu]
+
+Jeżeli długość płodozmianu jest właściwa, to w kolejnym etapie program sprawdza, czy  wszystkie rośliny z tych samych rodzin zostały posadzone w odpowiednim odstępie czasowym od siebie. Jeżeli nie, to zwraca ten błąd jako "kolizję" wytłuszczoną czcionką. (fig. yy)
+Następnie wyciąga za pomocą permutacji wszystkie możliwe interakcje na planie i porównuje je z bazą danych interakcji jakie posiada. W razie trafienia zwraca je obok rośliny zwykłą czcionką.
+
+[Fig. yy - Błąd koilzji w rodzinie i przykładowa interakcja na planie]
+
+
+
+
 
 - Przeglądanie swoich planów w panelu "moje plany"
 
