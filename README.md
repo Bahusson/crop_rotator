@@ -214,20 +214,6 @@ Panel CR pozwala ustalić zmienne istotne dla funkcjonowania programu. Zmienne s
 
 - Czas cachowania w sekundach planu po ewaluacji, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy doświadczyli problemów na łączach, lub są zwyczajnie niecierpliwi i wciąż odświeżają stronę jeśli nie pojawi się ona w czasie krótszym niż przez nich oczekiwany. Serwer, jak powyżej nie reaguje wtedy na kolejne zapytania, tylko serwuje, w czasie wyrażonym w sekundach, stronę z cache bazodanowego.
 
-
-- Opisz pokrótce panel CR, tj. cachowanie i co ma na celu,
-  oraz ograniczanie ilości planów usera i co ma na celu.
-
-- Opisz jak działa uźródłowianie obrazków i ogólnie wszystkiego. Szeregowanie
-  źródeł i czemu to ma służyć.
-
-
-(...)
-
-6. PODSUMOWANIE (?)
-
-(...)
-
 ################
 
 DYSKUSJA
@@ -248,6 +234,13 @@ dane będzie pobierać ze strony za pomocą Django REST.
 Prędkość liczenia można zwiększyć jeszcze bardziej (4.2x) przechodząc
 z domyślnego kompilatora CPython na PyPy, który dobrze współgra
 z frameworkiem Django.
+
+Obecnie panel administracyjny jest w głównej mierze domyślnym panelem frameworku Django.
+To znaczy, że jest on bardzo nieintuicyjny i do prawidłowego działania właściwie wymaga obsługi programisty. Odpowiednio używany pozwala co prawda na dodawanie źródeł i linków zarówno do obrazków, jak i źródeł bibliograficznych na których opiera się baza danych, ale niestety w tej formie nie nadaje się do obsługi przez "zwykłego" administratora.
+
+Elementy potrzebne do stworzenia właściwego panelu administracyjnego są już obecne w kodzie, jednak z braku czasu nie zostały w pełni wdrożone i przetestowane.
+
+
 
 -Można zrobić tak, żeby user widział, czy plan jest opublikowany.
 
