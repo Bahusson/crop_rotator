@@ -236,63 +236,62 @@ z domyślnego kompilatora CPython na PyPy, który dobrze współgra
 z frameworkiem Django.
 
 Obecnie panel administracyjny jest w głównej mierze domyślnym panelem frameworku Django.
-To znaczy, że jest on bardzo nieintuicyjny i do prawidłowego działania właściwie wymaga obsługi programisty. Odpowiednio używany pozwala co prawda na dodawanie źródeł i linków zarówno do obrazków, jak i źródeł bibliograficznych na których opiera się baza danych, ale niestety w tej formie nie nadaje się do obsługi przez "zwykłego" administratora.
+To znaczy, że jest nieintuicyjny dla osób niewtajemniczonych i do prawidłowego działania właściwie wymaga obsługi programisty.
 
 Elementy potrzebne do stworzenia właściwego panelu administracyjnego są już obecne w kodzie, jednak z braku czasu nie zostały w pełni wdrożone i przetestowane.
 
+Poniżej pozwoliłem sobie zaprezentować jeszcze kilka funkcji, które z pewnością poprawiłyby funkcjonalność programu, a nie zostały wprowadzone z powodu ograniczonego czasu:
 
+- Podgląd stanu publikacji planu na widoku "moje plany" użytkownika.
 
--Można zrobić tak, żeby user widział, czy plan jest opublikowany.
+- Kompresja zdjęć roślin, aby były mniejsze i/lub wykonanie własnych.
 
--Można pozwolić userowy wybrać jak bardzo sztywno reguł ma się trzymać program
- obliczając wymagania dla danej rodziny/rośliny i pozwolić mu np. zaznaczyć to
- w opcjach zaawansowanych dla danego planu. Można zrobić opcje globalne, które
- będą dla danego usera domyślne w ustawieniach. (W tej chwili jest na sztywno,
- a są wprowadzone widełki przy rodzinach, a nawet przy konkretnych roślinach)
+- Menu w którym użytkownik mógłby wybrać jak bardzo sztywno reguł ma się trzymać program
+ obliczając wymagania dla danej rodziny/rośliny. Często te wymagania występują w widełkach i można przyjąć bardziej lub mniej wyśrubowane kryteria. Można zrobić nawet opcje globalne, które będą dla danego użytkownika domyślne w ustawieniach. W tej chwili jest to zrobione na sztywno, choć zostały przygotowane widełki przy rodzinach, a nawet przy konkretnych roślinach.
 
--Należy skompresować zdjęcia roślin, aby były mniejsze i/lub wykonać własne.
+- Można dodać tag i ikonkę informującą o typie i wielkości systemu korzeniowego
+ i na tej podstawie stworzyć interakcje. Ponieważ płodozmian można układać również na podstawie długości systemu korzeniowego.
 
--Należy dodać tag i ikonkę informującą o typie i wielkości systemu korzeniowego
- i na tej podstawie stworzyć interakcje.
+- Można dodać tag i ikonkę informujące o poziomie wymagań pokarmowych danej
+ rośliny i stworzyć na tej podstawie interakcje. Ponieważ płodozmian można układać również na podstawie wielkości wymagań pokarmowych.
 
--Należy dodać tag i ikonkę informujące o poziomie wymagań pokarmowych danej
- rośliny i stworzyć na tej podstawie interakcje.
+- Można zrobić globalne cachowanie strony użytkownika po ostatniej ewaluacji,
+ aby użytkownik podglądający cudzy plan widział do kolejnej aktualizacji właśnie ten plan już zewaluowany. W tej chwili widzi tylko sam plan bez interakcji.
 
--Można zrobić globalne cachowanie strony usera po ostatniej ewaluacji,
- aby użytkownik podglądający cudzy plan widział w nieskończoność ten plan
- (wbrew pozorom oszczędza to energię przy spiderach).
+- Wyszukiwarka planów według zadanego kryterium (po tytule, po tagu, po roślinie)
 
--Rejonizacja za pomocą wbudowanego w Django3 geo-taga + mapy powiatów x odmiany
- roślin x klasa ziemi i automatyczne filtrowanie sugerowanie roślin/mieszanek
- zależnie od regionu.
+- Wyszukiwarka roślin w kategorii "alfabetycznie"
 
--Komunikaty/sugestie upraw/ gotowe plany zmianowania zaciągane automatycznie
+- Dodanie kosmetycznej klasy wsiewek dla lepszego uporządkowania pracy.
+
+- Wprowadzenie orientacyjnych maksymalnych czasów plonowania i w związku z tym
+  ostrzeżeń, jeśli w płodozmianie są "dziury".
+
+Poniżej zaś prezentuję możliwości jakie program mógłby potencjalnie uzyskać w ramach integracji z większym systemem teleinformatycznym:
+
+- Wprowadzenie rejonizacji za pomocą wbudowanego w Django3 geo-taga,
+ naniesionych na mapy gmin z informacjami np. o możliwych i zalecanych uprawach
+ (okres wegetacyjny, ilość opadów), co wraz z podanej przez rolnika informacji o klasie ziemi pozwalałoby na automatyczne filtrowanie sugerowanych odmian, jeśli wyraziłby taką chęć.
+
+- Komunikaty/sugestie upraw/ gotowe plany zmianowania zaciągane automatycznie
  z COBORU dla danego regionu.
 
--Komunikaty/sugestie zaciągane automatycznie z centrum monitorowania agrofagów.
+- Komunikaty/sugestie zaciągane automatycznie z centrum monitorowania agrofagów
+przypięte do danej uprawy.
 
--Inne ważne, rejonizowane komunikaty i sugestie od pozostałych agencji.
+- Inne ważne, rejonizowane komunikaty i sugestie od pozostałych agencji.
 
--Sklep wysyłkowy z nasionami/sadzonkami kwalifikowanymi. Na podstawie lokalizacji
+- Na podstawie wszystkich wyżej wymienionych punktów "dziury" w płodozmianie można by automatycznie uzupełniać jednym kliknięciem za pomocą sugerowanych upraw/mieszanek.
+
+- Sklep wysyłkowy z nasionami/sadzonkami kwalifikowanymi. Na podstawie lokalizacji
  program sugeruje odmiany o konkretnych parametrach (odporność na suszę,
  wymarzanie, konkretne patogeny, zamienniki lepiej dopasowane do lokalizacji itp.)
  i automatycznie komponuje koszyk od najbliższych dostawców, żeby zaoszczędzić na
  kosztach dostaw, a docelowo np. można mieć jakieś punkty przeładunkowe jak Amazon.
 
--Narzędzie do raportowania zwrotnego (zbierania danych masowych) jak dane
+- Narzędzie do raportowania zwrotnego (zbierania danych masowych) jak dane
  zestawienie sprawdziło się na konkretnym terenie. Rolnik pobiera wtedy unikalny
  token identyfikujący i bierze udział w badaniu np. w zamian za rabat na
- nawozy/nasiona zamówione przez portal, albo darmową wysyłkę.
+ nawozy/nasiona zamówione przez portal, albo darmową wysyłkę. Po zbiorach wpisuje do programu jaki miał uzysk z każdego elementu płodozmianu, lub dostarcza inne dane - np. zawartość próchnicy itp.
 
--Wyszukiwarka planów według zadanego kryterium (po tagu, po roślinie)
-
--Wyszukiwarka roślin w kategorii "alfabetycznie".
-
--Dodanie kosmetycznej klasy wsiewek dla lepszego uporządkowania pracy.
-
--Wprowadzenie orientacyjnych maksymalnych czasów plonowania i w związku z tym
- ostrzeżeń, jeśli w płodozmianie są dziury.
-
--Dodanie opcji "autosugestie" dla takich dziur w planie.
-
--Porządny panel administracyjny.
+To tylko kilka z moich skromnych pomysłów na rozwój zaprezentowanego programu. Django jest bardzo popularnym frameworkiem z dużą społecznością, a Python to najbardziej popularny, dojrzały język programowania z największą obecnie społecznością programistów na całym świecie, która wciąż rośnie. Myślę zatem, że w dającej się przewidzieć przyszłości każdy kto tylko zechce będzie w stanie rozszerzyć i zmodyfikować ten program do własnych potrzeb dla ogólnego pożytku.
