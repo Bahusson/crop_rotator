@@ -75,6 +75,10 @@ systemu operacyjnego użytkownika - tj. jest "responsywny".
 
 2. FUNKCJE PROGRAMU - UŻYTKOWNIK NIEZALOGOWANY
 
+Obecnie program korzysta z pakietu tłumaczeniowego "django-modeltranslation", który pozwala w łatwy sposób tłumaczyć treści na stronie. W tej chwili zainstalowany jest język polski i angielski, ale w dowolnym momencie można dostosować ilość języków wedle uznania. W tej chwili program wykrywa język użytkownika na podstawie ustawień przeglądarki, a jeśli nie posiada takowego wybiera Polski. Użytkownik może zmieniać język w prawym górnym rogu na pasku nawigacji.
+
+[Fig. 0 - Ikona zmiany języka na pasku nawigacji]
+
 Niezalogowany użytkownik ma możliwość przeglądania gotowych planów zmianowania opublikowanych wcześniej przez innych użytkowników. Ogólne pojęcie o zawartości
 planu daje zestawienie statystyk na temat wyróżnionych kategorii.
 
@@ -186,24 +190,36 @@ W dowolnym momencie użytkownik może wycofać swój plan z publikacji wciskają
 
 4. FUNKCJE PROGRAMU - ADMINISTRATOR
 
-- Opisz na czym polega prekompilowanie bazy danych. Dlaczego tak i czym to skutkuje?
-  Np. widać kosmiczną liczbę interakcji zamiast kilkuset. Obsługiwanie wyjątków.
-  Brak sprzecznych interakcji. Opisz hierarchię automatycznego generowania interakcji
-  (9 rodzajów interakcji z czego tylko 1 ręcznie wprowadzany).
+Na skutek pojawienia się trzech kategorii danych podlegających interakcjom program ma w sumie do policzenia aż 9 różnych kombinacji (fig. 20). Gdybyśmy chcieli je liczyć za każdym razem, gdy wciskamy przycisk "ewaluacja", to mogłoby to zająć nawet minutę, czyli znacznie więcej niż przeciętny użytkownik internetu jest gotów czekać na wynik. Jest to też oczywiście dużym marnotrawstwem zasobów i szybko doprowadziłoby do zawieszenia serwera. Zwłaszcza, że tak naprawdę w ostatecznym rozrachunku to co program musi zrobić to sprowadzić je do najprostszego wspólnego mianownika, czyli do relacji roślina-roślina.
 
-- Opisz eksperymentalną funkcję dodawania i usuwania taga z jednej rosliny.
+[Tabela 1 - Kombinacje do policzenia i ta, której tak naprawde potrzebuje program]
 
-- Opisz jak działają mieszanki i nawozy - czym są dla programu
-  i jak się je wprowadza. Jaka mają rodzinę i czy jest widoczna dla usera.
-  (opcjonalnie opisz to wszystko u usera)
+W związku z powyższym w panelu administratora "CR" został wbudowany mechanizm, który pozwala na szybkie (właśnie około 1 minuty) policzenie wszystkich tych interakcji wynikających z pozostałych ośmiu interakcji i przekonwertowanie ich na interakcje typu roślina-roślina. Efektem tego działania jest ponad ośmiokrotne zwiększenie się liczby interakcji w bazie danych i bardzo duże (<1s na serwerze lokalnym) przyśpieszenie ewaluacji planów.
+
+Dodatkowym plusem tego rozwiązania jest możliwość dodawania wyjątków od reguł. Np. nie każdy członek kategorii "zboża" musi mieć pozytywną relację z "bobowatymi", jeśli go z niej wykluczymy. Wynika to z hierarchii jaką program stosuje przy tworzeniu relacji i reguły, że nie mogą być sprzeczne (tak naprawdę po prostu nie widzi znaku interakcji, a nie wolno mu powtórzyć już istniejącej interakcji).
+
+W praktyce oznacza to, że pierwszeństwo mają interakcje manualnie zdefiniowane przez użytkownika na poziomie roślina-roślina, potem wszystkie interakcje na poziomie rodzin, a dopiero potem kategorii.
+
+Minusem tego rozwiązania jest konieczność powtarzania zabiegu przeliczania bazy danych za każdym razem, gdy zostaną zmienione, lub dodane do niej nowe interakcje, zmienione zostaną kategorie, lub rodziny.
+
+Jest co prawda eksperymentalna funkcja dodawania i usuwania tagów, która powinna działać w ten sposób, że dodanie/usunięcie taga nie wymaga odświeżenia całej bazy tagów generowanych maszynowo, jednak nie było dość czasów na testy i nie polegałbym na niej za bardzo.
+
+Panel CR pozwala ustalić zmienne istotne dla funkcjonowania programu. Zmienne są w miarę jasno opisane, ale pozwolę je sobie tutaj opisać dla porządku:
+
+- Maksymalna ilość kroków w planie, to ilość kroków, którą użytkownik może maksymalnie dodać do swojego planu nim na widoku planu zniknie opcja "dodaj nowy krok". W istocie jest to maksymalna liczba lat na jaką pozwalamu użytkownikowi planować swój płodozmian.
+
+- Maksymalna ilość planów zmianowania na użytkownika, to maksymalna ilość planów jaką może dodać jeden użytkownik programu zanim otrzyma powiadomienie, że osiągnął swój limit, a opcja "dodaj now plan" zniknie.
+
+- Czas cachowania w minutach planów widzianych z zewnątrz, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy dużo klikają w kółko w jeden plan, oraz tzw. "web-crawlery". Serwer przez ten czas od wygenerowania strony, wyrażony w minutach, będzie serwował stronę z cache bazodanowego oszczędzając tym samym procesor.
+
+- Czas cachowania w sekundach planu po ewaluacji, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy doświadczyli problemów na łączach, lub są zwyczajnie niecierpliwi i wciąż odświeżają stronę jeśli nie pojawi się ona w czasie krótszym niż przez nich oczekiwany. Serwer, jak powyżej nie reaguje wtedy na kolejne zapytania, tylko serwuje, w czasie wyrażonym w sekundach, stronę z cache bazodanowego.
+
 
 - Opisz pokrótce panel CR, tj. cachowanie i co ma na celu,
   oraz ograniczanie ilości planów usera i co ma na celu.
 
 - Opisz jak działa uźródłowianie obrazków i ogólnie wszystkiego. Szeregowanie
   źródeł i czemu to ma służyć.
-
-- Dodatek tłumaczeniowy. Opisz jak działa django-modeltranslation
 
 
 (...)
@@ -285,3 +301,5 @@ z frameworkiem Django.
  ostrzeżeń, jeśli w płodozmianie są dziury.
 
 -Dodanie opcji "autosugestie" dla takich dziur w planie.
+
+-Porządny panel administracyjny.
