@@ -190,11 +190,36 @@ W dowolnym momencie użytkownik może wycofać swój plan z publikacji wciskają
 
 4. FUNKCJE PROGRAMU - ADMINISTRATOR
 
+CECHY I DODAWANIE NOWYCH ROŚLIN
+
+
+
+CECHY I DODAWANIE NOWYCH RODZIN
+
+CECHY I DODAWANIE NOWYCH ŹRÓÐEŁ
+
+CECHY I DODAWANIE NOWYCH INTERAKCJI
+
+PANEL CR
+
+Panel CR to fragment strony przygotowany częściowo w kierunku wyglądu docelowego panelu administracyjnego.
+Pozwala ustalić zmienne istotne dla funkcjonowania programu. Zmienne są w miarę jasno opisane, ale pozwolę je sobie tutaj opisać dla porządku:
+
+- Maksymalna ilość kroków w planie, to ilość kroków, którą użytkownik może maksymalnie dodać do swojego planu nim na widoku planu zniknie opcja "dodaj nowy krok". W istocie jest to maksymalna liczba lat na jaką pozwalamy użytkownikowi planować swój płodozmian.
+
+- Maksymalna ilość planów zmianowania na użytkownika, to maksymalna ilość planów jaką może dodać jeden użytkownik programu zanim otrzyma powiadomienie, że osiągnął swój limit, a opcja "dodaj nowy plan" zniknie.
+
+- Czas cachowania w minutach planów widzianych z zewnątrz, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy dużo klikają w kółko w jeden plan, oraz tzw. "web-crawlery". Serwer przez ten czas od wygenerowania strony, wyrażony w minutach, będzie serwował stronę z cache bazodanowego oszczędzając tym samym procesor. Sugerowane jest 15min.
+
+- Czas cachowania w sekundach planu po ewaluacji, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy doświadczyli problemów na łączach, lub są zwyczajnie niecierpliwi i wciąż odświeżają stronę jeśli nie pojawi się ona w czasie krótszym niż przez nich oczekiwany. Serwer, jak powyżej nie reaguje wtedy na kolejne zapytania, tylko serwuje, w czasie wyrażonym w sekundach, stronę z cache bazodanowego. Sugerowane jest 10s.
+
+WSTĘPNE MASOWE LICZENIE INTERAKCJI
+
 Na skutek pojawienia się trzech kategorii danych podlegających interakcjom program ma w sumie do policzenia aż 9 różnych kombinacji (fig. 20). Gdybyśmy chcieli je liczyć za każdym razem, gdy wciskamy przycisk "ewaluacja", to mogłoby to zająć nawet minutę, czyli znacznie więcej niż przeciętny użytkownik internetu jest gotów czekać na wynik. Jest to też oczywiście dużym marnotrawstwem zasobów i szybko doprowadziłoby do zawieszenia serwera. Zwłaszcza, że tak naprawdę w ostatecznym rozrachunku to co program musi zrobić to sprowadzić je do najprostszego wspólnego mianownika, czyli do relacji roślina-roślina.
 
-[Tabela 1 - Kombinacje do policzenia i ta, której tak naprawde potrzebuje program]
+[Tabela 1 - Kombinacje do policzenia i ta, której tak naprawdę potrzebuje program]
 
-W związku z powyższym w panelu administratora "CR" został wbudowany mechanizm, który pozwala na szybkie (właśnie około 1 minuty) policzenie wszystkich tych interakcji wynikających z pozostałych ośmiu interakcji i przekonwertowanie ich na interakcje typu roślina-roślina. Efektem tego działania jest ponad ośmiokrotne zwiększenie się liczby interakcji w bazie danych i bardzo duże (<1s na serwerze lokalnym) przyśpieszenie ewaluacji planów.
+W związku z powyższym w panelu administratora "CR" został wbudowany mechanizm, który pozwala na szybkie (właśnie około 1 minuty) policzenie wszystkich tych interakcji wynikających z pozostałych ośmiu interakcji i przekonwertowanie ich na interakcje typu roślina-roślina. Efektem tego działania jest ponad ośmiokrotne zwiększenie się liczby interakcji w bazie danych i bardzo duże (<1s na testowym serwerze lokalnym) przyśpieszenie ewaluacji planów.
 
 Dodatkowym plusem tego rozwiązania jest możliwość dodawania wyjątków od reguł. Np. nie każdy członek kategorii "zboża" musi mieć pozytywną relację z "bobowatymi", jeśli go z niej wykluczymy. Wynika to z hierarchii jaką program stosuje przy tworzeniu relacji i reguły, że nie mogą być sprzeczne (tak naprawdę po prostu nie widzi znaku interakcji, a nie wolno mu powtórzyć już istniejącej interakcji).
 
@@ -203,16 +228,8 @@ W praktyce oznacza to, że pierwszeństwo mają interakcje manualnie zdefiniowan
 Minusem tego rozwiązania jest konieczność powtarzania zabiegu przeliczania bazy danych za każdym razem, gdy zostaną zmienione, lub dodane do niej nowe interakcje, zmienione zostaną kategorie, lub rodziny.
 
 Jest co prawda eksperymentalna funkcja dodawania i usuwania tagów, która powinna działać w ten sposób, że dodanie/usunięcie taga nie wymaga odświeżenia całej bazy tagów generowanych maszynowo, jednak nie było dość czasów na testy i nie polegałbym na niej za bardzo.
-
-Panel CR pozwala ustalić zmienne istotne dla funkcjonowania programu. Zmienne są w miarę jasno opisane, ale pozwolę je sobie tutaj opisać dla porządku:
-
-- Maksymalna ilość kroków w planie, to ilość kroków, którą użytkownik może maksymalnie dodać do swojego planu nim na widoku planu zniknie opcja "dodaj nowy krok". W istocie jest to maksymalna liczba lat na jaką pozwalamu użytkownikowi planować swój płodozmian.
-
-- Maksymalna ilość planów zmianowania na użytkownika, to maksymalna ilość planów jaką może dodać jeden użytkownik programu zanim otrzyma powiadomienie, że osiągnął swój limit, a opcja "dodaj now plan" zniknie.
-
-- Czas cachowania w minutach planów widzianych z zewnątrz, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy dużo klikają w kółko w jeden plan, oraz tzw. "web-crawlery". Serwer przez ten czas od wygenerowania strony, wyrażony w minutach, będzie serwował stronę z cache bazodanowego oszczędzając tym samym procesor.
-
-- Czas cachowania w sekundach planu po ewaluacji, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy doświadczyli problemów na łączach, lub są zwyczajnie niecierpliwi i wciąż odświeżają stronę jeśli nie pojawi się ona w czasie krótszym niż przez nich oczekiwany. Serwer, jak powyżej nie reaguje wtedy na kolejne zapytania, tylko serwuje, w czasie wyrażonym w sekundach, stronę z cache bazodanowego.
+W przyszłości wypadałoby stworzyć i przetestować więcej takich funkcji, żeby zaoszczędzić
+zasoby na przeliczaniu bazy danych za każdym razem gdy trzeba wypuścić pomniejszą łatkę.
 
 ################
 
