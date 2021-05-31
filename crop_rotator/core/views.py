@@ -242,7 +242,6 @@ class CropAdmin(View):
                 cr = CropsInteraction.create(
                      title=signature,
                      signature=signature,
-                     is_positive=interaction.is_positive, # obsolete
                      interaction_sign=interaction.interaction_sign,
                      about_crop=about_crop,
                      about_family=None,

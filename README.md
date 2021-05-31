@@ -270,21 +270,48 @@ Interakcje ręcznie dla roślin, rodzin i kategorii tworzymy poprzez odpowiednio
 
 Wszystkie trzy subklasy są skonstruowane identycznie za pomocą rozszerzenia innej klasy.
 Ich elementy składowe to:
-Nazwa - title - do 150 znaków. Wewnętrzny tytuł po którym użytkownik odnajdzie źródło na liście wielokrotnego wyboru rośliny/rodziny/kategorii.
+Nazwa - title - do 150 znaków. Wewnętrzny tytuł po którym użytkownik odnajdzie źródło na liście wielokrotnego wyboru rośliny/rodziny/kategorii. Konwencja: [Nazwa rośliny/rodziny/kategorii która oddziałuje] [znak interakcji określony jako +/-/null] [nazwa rośliny/rodziny/kategorii na którą jest oddziaływanie] [(rodzaj) i (sezon) oddziaływania] Przykład: Kapustne + Słonecznik (N)(J) oznacza, że rośliny z rodziny kapustnych dobrze oddziałują na słonecznik w następnym sub-kroku jeśli jest to plon "wczesny".
 Znak interakcji - interaction_sign - Wybierane z listy rozwijanej. Należy wybrać czy dana interakcja jest pozytywna, negatywna, czy neutralna. Neutralna interakcja została wprowadzona dla obsłużenia wyjątków od szerszych reguł posiadających znak pozytywny lub negatywny.
 Trzy kolejne zmienne dotyczą wyboru rośliny/rodziny/kategorii, której dotyczy interakcja - (about_crop, about_family, about_tag) Zaznaczamy zawsze tylko jedną opcję z jednej listy rozwijanej.
 Źródło informacji na które się powołujemy - info source - Do wyboru z listy rozwijanej. Zdefiniowane wcześniej w trzech zakładkach typu "Crop data" omówionych wcześniej przy okazji dodawania źródeł.
+Rodzaj oddziaływania - type_of_interaction - Do wyboru z listy rozwijanej. Obecnie oddziaływania do wyboru wynikają z oddziaływań na jakie natknąłem się w źródłach. Do wyboru są:
+Oddziaływania względem sub-kroku:
+- Oddziaływanie współrzędne. Pokaże się tylko wtedy, kiedy dwie rośliny są zdefiniowane na tym samym sub-kroku. Np. kalarepa z marchwią razem jako plon wczesny.
+- Oddziaływanie następcze. Pokaże się tylko wtedy jeśli kolejna roślina jest zdefiniowana na kolejnym sub-kroku. Np. po rzepaku ozimym jako plonie późnym będzie to żyto jare jako plon wczesny w kolejnym kroku, lub śródplon jeśli plon wczesny nie został zdefiniowany.
+- Oddziaływanie allelopatyczne. Pokaże się w obydwu powyższych przypadkach.
+Oddziaływania względem kroku:
+- Oddziaływania w następnym, drugim i trzecim roku. Stworzone szczególnie z myślą o interakcjach z obornikiem. Wiele roślin ma swój ulubiony rok po zastosowaniu świeżego obornika i o to w tej interakcji chodziło, ale może też reprezentować cokolwiek innego.
+- Oddziaływanie w dwóch kolejnych latach. Stworzone z myślą o uprawie kapusty ekologicznej - chodzi o okres karencji przy nosicielstwie mątwika przez inne rośliny i rodziny niż kapustne.
+Można rzecz jasna w razie potrzeby zmienić tę listę z programowanej na sztywno, na tworzoną dynamicznie w panelu administracyjnym.
+Sezon dla którego zachodzi interakcja - season_of_interaction - wybierane z listy rozwijanej. Do wyboru jest "Jare", "Ozime" i "Brak". Pozwala w razie potrzeby zawęzić interakcję tylko do roślin uprawianych w danym sezonie bez potrzeby wyszczególniania dodatkowej odmiany.
 
-
-
-Pozostałe zmienne są w tej chwili nieużywane przez program, lub są generowane maszynowo.
+Pozostałe zmienne są generowane maszynowo.
 Nie należy ich uzupełniać. Docelowo w ogóle nie powinno być takiej możliwości.
-
 
 F. CECHY I DODAWANIE NOWYCH MIESZANEK
 
+Mieszanki to specjalna subklasa roślin pozwalająca na wprowadzenie interakcji tylko wtedy kiedy na jednym sub-kroku zostaną zdefiniowane rośliny o ściśle określonych parametrach.
+Definiujemy je w zakładce "Mix crop". Przykładem niech będzie "Mieszanka traw i koniczyny":
+
+Dla tej klasy definiujemy tylko następujące zmienne:
+Nazwa mieszanki - (name, name[pl], name[en], (...)) - Maksimum 150 znaków.
+W kolejnych polach wprowadzamy nazwę w kolejnych językach.
+Opis - (descr, descr[pl], descr[en], (...)) - Maksimum 500 znaków. Opcjonalnie. Opis szczegółowy.
+Rodzina - family - zaznaczamy "brak".
+Interakcje z innymi roślinami / rodzinami / kategoriami - crop_relationships - wybierane z listy wielokrotnego wyboru. Trzeba je zdefiniować wcześniej ręcznie w zakładce "Crops interactions". Wybieramy tylko te zdefiniowane ręcznie przez nas, bo pozostałe program wygeneruje i przydzieli automatycznie na późniejszym etapie.
+Jest mieszanką - is_crop_mix - checkbox. Powie programowi, żeby traktował ten wpis inaczej.
+Przekieruj do nazwa/id - (redirect_name, redirect_id) - W zależności czy i gdzie chcemy przekierowywać użytkownika, możemy to zrobić tutaj. Wpisujemy "crop", "family", lub "tag" odpowiednio dla rośliny, rodziny i kategorii, oraz odpowiednie ID elementu i na stronie interakcji tam właśnie będzie on przekierowywał. Obecnie wszystkie miksy przekierowują na swoją własną stronę ("crop" + id miksu), gdzie można podejrzeć ich interakcje, co obniża nieco wartość estetyczną i komplikuje program, ale mimo wszystko zwiększą jego wartość edukacyjną.
+Meta tagi - meta_tags - tutaj wpisujemy oddzielone przecinkami sygnatury elementów, które muszą się pojawić, aby miks został automatycznie dodany do sub-kroku i wywoływał interakcje. Wpisujemy je w formacie "litera + id", przy czym c - roślina, f - rodzina, t - kategoria. Przykład: t26,t21 oznacza, że miks pojawi się w momencie, gdy w subkroku zostanie zdefiniowana chociaż jeden element z kategorii 26 i jeden z kategorii 21. W tym wypadku trawy i koniczyny.
+
 G. CECHY i DODAWANIE NOWYCH NAWOZÓW
-(...)
+
+Nawozy dodajemy tak jak rośliny, z zakładki "Crops" z tą różnicą, że wypełniamy tylko następujące pola:
+Nazwa nawozu - (name, name[pl], name[en], (...)) - Maksimum 150 znaków.
+W kolejnych polach wprowadzamy nazwę w kolejnych językach.
+Opis - (descr, descr[pl], descr[en], (...)) - Maksimum 500 znaków. Opcjonalnie. Opis szczegółowy.
+Rodzina - family - zaznaczamy "brak".
+Interakcje z innymi roślinami / rodzinami / kategoriami - crop_relationships - wybierane z listy wielokrotnego wyboru. Trzeba je zdefiniować wcześniej ręcznie w zakładce "Crops interactions". Wybieramy tylko te zdefiniowane ręcznie przez nas, bo pozostałe program wygeneruje i przydzieli automatycznie na późniejszym etapie.
+Jest nawozem - is_fertilizer - checkbox. Powie programowi, żeby traktował ten wpis inaczej.
 
 Obecnie nie da się dodać nowych nawozów bez ingerencji w kod programu, ale dałoby się to łatwo zmienić, np. zmieniając obecne dwa przyciski nawozu zielonego/obornika na drugie rozwijane menu z wszystkimi dostępnymi nawozami. Nie widzę żadnych przeciwwskazań, żeby tak zrobić i zapewne tak będzie to wyglądać w przyszłości.
 
