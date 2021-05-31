@@ -271,6 +271,9 @@ Interakcje ręcznie dla roślin, rodzin i kategorii tworzymy poprzez odpowiednio
 Wszystkie trzy subklasy są skonstruowane identycznie za pomocą rozszerzenia innej klasy.
 Ich elementy składowe to:
 Nazwa - title - do 150 znaków. Wewnętrzny tytuł po którym użytkownik odnajdzie źródło na liście wielokrotnego wyboru rośliny/rodziny/kategorii.
+Znak interakcji - interaction_sign - Wybierane z listy rozwijanej. Należy wybrać czy dana interakcja jest pozytywna, negatywna, czy neutralna. Neutralna interakcja została wprowadzona dla obsłużenia wyjątków od szerszych reguł posiadających znak pozytywny lub negatywny.
+Trzy kolejne zmienne dotyczą wyboru rośliny/rodziny/kategorii, której dotyczy interakcja - (about_crop, about_family, about_tag) Zaznaczamy zawsze tylko jedną opcję z jednej listy rozwijanej.
+Źródło informacji na które się powołujemy - info source - Do wyboru z listy rozwijanej. Zdefiniowane wcześniej w trzech zakładkach typu "Crop data" omówionych wcześniej przy okazji dodawania źródeł.
 
 
 
@@ -366,6 +369,8 @@ Poniżej pozwoliłem sobie zaprezentować jeszcze kilka funkcji, które z pewno�
 - Wyszukiwarka roślin w kategorii "alfabetycznie"
 
 - Dodanie kosmetycznej klasy wsiewek dla lepszego uporządkowania pracy.
+
+- Przetłumaczyć "znak interakcji" na wartość numeryczną jak zostało to zaprezentowane w źródle (Krzysztoforski M. 2009 - Rolnictwo Zrównoważone). Byłoby to o wiele lepsze ze względu na lepszą wartość porównawczą, ale niestery ze względu na trudność ze zdobyciem takich (jednolitych i obszernych danych) na tym etapie prac byłoby to niepraktycznie.
 
 - Wprowadzenie orientacyjnych maksymalnych czasów plonowania i w związku z tym
   ostrzeżeń, jeśli w płodozmianie są "dziury".
