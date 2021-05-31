@@ -231,7 +231,24 @@ Podgrupy fitosanitarne - family_slaves - wybierane z listy wielokrotnego wyboru.
 
 C. CECHY I DODAWANIE NOWYCH KATEGORII
 
+Dodawanie nowych roślin obsługuje zakładka "Crop tags".
+
+Kategorię opisujemy za pomocą kolejnych zmiennych:
+Nazwa kategorii - (name, name[pl], name[en], (...)) - Maksimum 150 znaków.
+W kolejnych polach wprowadzamy nazwę w kolejnych językach.
+Opis - (descr, descr[pl], descr[en], (...)) - Maksimum 500 znaków. Szczególny opis kategorii.
+Interakcje z innymi roślinami / rodzinami / kategoriami - crop_relationships - wybierane z listy wielokrotnego wyboru. Trzeba je zdefiniować wcześniej ręcznie w zakładce "Tags interactions".
+Widoczność na podsumowaniach - checkbox. Po zaznaczeniu dany tag występuje w zestawieniach planów i jest obliczany jego procentowy udział celem ułatwienia użytkownikowi oceny składu płodozmianu.
+
 D. CECHY I DODAWANIE NOWYCH ŹRÓÐEŁ
+
+Nowe źródła dla książek i obrazków dodajemy odpowiednio za pomocą zakładek "Crop book strings" i "Crop image strings".
+
+Obydwie klasy są skonstruowane identycznie za pomocą rozszerzenia innej klasy.
+Ich elementy składowe to:
+Nazwa - name - nigdzie nie wyświetlana poza panelem administracyjnym. Służy do przypisywania źródła do innych elementów.
+Część tekstowa - part1 - W wypadku obrazków widoczna bezpośrednio pod nim. W przypadku źródeł widoczna w spisie źródeł na stronie źródeł, oraz przy każdej wyszczególnionej interakcji i odwołaniu na stronie opisującej szczegółowo roślinę.
+Link do strony - W wypadku obrazków zmienia część tekstową w hiperłącze. W przypadku źródeł książkowych nic w tej chwili nie robi (a mogłoby).
 
 E. CECHY I DODAWANIE NOWYCH INTERAKCJI
 

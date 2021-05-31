@@ -18,7 +18,8 @@
        <div class="row featurette">
         <div class="col-md-12">
           {% for source in sources %}
-            <p>{{ source.part1 }}</p>
+            {% if source.link %}<p><a href="{{source.link}}">{{ source.part1 }}</a></p>{% else %}
+            <p>{{ source.part1 }}</p>{% endif %}
           {% endfor %}
         </div>
       </div>
