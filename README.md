@@ -190,6 +190,14 @@ W dowolnym momencie użytkownik może wycofać swój plan z publikacji wciskają
 
 4. FUNKCJE PROGRAMU - ADMINISTRATOR
 
+STANDARDOWY PANEL DJANGO - KLUCZOWE ELEMENTY
+
+Ponieważ celem niniejszej pracy było stworzenie działającego programu, a nie przejrzystego
+panelu administracyjnego, to część administracyjna wciąż korzysta ze standardowego
+frontendu panelu administracyjnego Django 3. Powinno się to zmienić w przyszlości dla
+ułatwienia serwisowania i nawigacji po programie. Poniżej przedstawiam kluczowe elementy
+panelu standardowego, które są potrzebne dla prawidłowej obsługi progamu od strony administracyjnej.
+
 CECHY I DODAWANIE NOWYCH ROŚLIN
 
 
@@ -202,7 +210,7 @@ CECHY I DODAWANIE NOWYCH INTERAKCJI
 
 PANEL CR
 
-Panel CR to fragment strony przygotowany częściowo w kierunku wyglądu docelowego panelu administracyjnego.
+Panel CR to fragment strony przygotowany częściowo już z myślą o docelowym panelu administracyjnym.
 Pozwala ustalić zmienne istotne dla funkcjonowania programu. Zmienne są w miarę jasno opisane, ale pozwolę je sobie tutaj opisać dla porządku:
 
 - Maksymalna ilość kroków w planie, to ilość kroków, którą użytkownik może maksymalnie dodać do swojego planu nim na widoku planu zniknie opcja "dodaj nowy krok". W istocie jest to maksymalna liczba lat na jaką pozwalamy użytkownikowi planować swój płodozmian.

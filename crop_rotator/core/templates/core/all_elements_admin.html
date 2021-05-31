@@ -20,9 +20,9 @@
           <h1 class="text-center pt-3 ">{{ items.all_plants }} - {% if redir == "crop_admin" %}{{ items.by_crops }}{% elif redir == "family_admin" %}{{ items.by_families }}{% elif redir == "tag_admin" %}{{ items.by_tags }}{% endif %}</h1>
         </div>
         <div class="col-md-12 blog-main">'
-        {% if not redir == "crop_admin" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_crops_admin' %}">{{ items.by_crops }}</a></button>{% endif %}
-        {% if not redir == "family_admin" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_families_admin' %}">{{ items.by_families }}</a></button>{% endif %}
-        {% if not redir == "tag_admin" %}<button class="button btn btn-light btn-sm"><a href="{% url 'all_tags_admin' %}">{{ items.by_tags }}</a></button>{% endif %}
+        {% if not redir == "crop_admin" %}<a href="{% url 'all_crops_admin' %}"><button class="button btn btn-light btn-sm">{{ items.by_crops }}</button></a>{% endif %}
+        {% if not redir == "family_admin" %}<a href="{% url 'all_families_admin' %}"><button class="button btn btn-light btn-sm">{{ items.by_families }}</button></a>{% endif %}
+        {% if not redir == "tag_admin" %}<a href="{% url 'all_tags_admin' %}"><button class="button btn btn-light btn-sm">{{ items.by_tags }}</button></a>{% endif %}
       </div>
       </div>
       {% include 'strona/crop_parts/divide_list_by_3_part.html' %}
