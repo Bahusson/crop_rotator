@@ -194,19 +194,38 @@ STANDARDOWY PANEL DJANGO - KLUCZOWE ELEMENTY
 
 Ponieważ celem niniejszej pracy było stworzenie działającego programu, a nie przejrzystego
 panelu administracyjnego, to część administracyjna wciąż korzysta ze standardowego
-frontendu panelu administracyjnego Django 3. Powinno się to zmienić w przyszlości dla
+frontendu panelu administracyjnego Django 3. Powinno się to zmienić w przyszłości dla
 ułatwienia serwisowania i nawigacji po programie. Poniżej przedstawiam kluczowe elementy
-panelu standardowego, które są potrzebne dla prawidłowej obsługi progamu od strony administracyjnej.
+panelu standardowego, które są potrzebne dla prawidłowej obsługi programu od strony administracyjnej.
 
 CECHY I DODAWANIE NOWYCH ROŚLIN
 
+Dodawanie nowych roślin obsługuje klasa "Crops".
+Roślinę opisujemy za pomocą kolejnych zmiennych:
+Nazwa rośliny - (name, name[pl], name[en], (...)) - Maksimum 150 znaków.
+W kolejnych polach wprowadzamy nazwę w kolejnych językach.
+Nazwa po łacinie - latin_name - Maksimum 150 znaków.
+Opis - (descr, descr[pl], descr[en], (...)) - Maksimum 500 znaków. Szczególny opis rośliny. Pojawia się jako pierwszy na stronie opisu rośliny i jako jedyny w jej skrócie na planie zmianowania po wciśnięciu przycisku "info".
+Obrazek - image.
+Źródło obrazka - image_source - Wybierane z listy rozwijanej. Trzeba je wcześniej przygotować
+tworząc odpowiednie źródło w zakładce "Crop image strings". Jest widoczne pod obrazkiem na stronie rośliny.
+Rodzina - family - Wybierane z listy rozwijanej. Jeśli nie została wcześniej zdefiniowana, to należy to zrobić w zakładce "Crop Families". Definiuje część parametrów rośliny i interakcji z innymi roślinami, jak choćby minimalną długość płodozmianu i powoduje kolizje z innymi roślinami z tej samej rodziny. Na stronie rośliny jest widoczna jej rodzina, a na stronie rodziny są widoczne wszystkie rośliny, które do niej należą.
+Interakcje z innymi roślinami / rodzinami / kategoriami - crop_relationships - wybierane z listy wielokrotnego wyboru. Trzeba je zdefiniować wcześniej ręcznie w zakładce "Crops interactions". Wybieramy tylko te zdefiniowane ręcznie przez nas, bo pozostałe program wygeneruje i przydzieli automatycznie na późniejszym etapie.
+Kategorie do których należy roślina - tags - wybierane z listy wielokrotnego wyboru. Wybrane tu kategorie są widoczne na stronie rośliny i roślina jest widoczna na stronach tych kategorii. Na tej podstawie są też później tworzone interakcje automatyczne.
 
+Pozostałe zmienne są w tej chwili nieużywane przez program, dotyczą inny wariantów klasy "Crop", lub są generowane maszynowo. Nie należy ich uzupełniać.
 
 CECHY I DODAWANIE NOWYCH RODZIN
+
+
+
+CECHY I DODAWANIE NOWYCH KATEGORII
 
 CECHY I DODAWANIE NOWYCH ŹRÓÐEŁ
 
 CECHY I DODAWANIE NOWYCH INTERAKCJI
+
+CECHY I DODAWANIE NOWYCH MIESZANEK
 
 PANEL CR
 
