@@ -248,9 +248,35 @@ Obydwie klasy są skonstruowane identycznie za pomocą rozszerzenia innej klasy.
 Ich elementy składowe to:
 Nazwa - name - nigdzie nie wyświetlana poza panelem administracyjnym. Służy do przypisywania źródła do innych elementów.
 Część tekstowa - part1 - W wypadku obrazków widoczna bezpośrednio pod nim. W przypadku źródeł widoczna w spisie źródeł na stronie źródeł, oraz przy każdej wyszczególnionej interakcji i odwołaniu na stronie opisującej szczegółowo roślinę.
-Link do strony - W wypadku obrazków zmienia część tekstową w hiperłącze. W przypadku źródeł książkowych nic w tej chwili nie robi (a mogłoby).
+Link do strony zewnętrznej - link - Nieobowiązkowe. W wypadku obrazków zmienia część tekstową w hiperłącze. W przypadku źródeł książkowych tekst zmienia się w hiperłącze na stronie źródeł.
+
+Źródła szczegółowe dodajemy dla stron roślin, rodzin i kategorii odpowiednio w zakładkach "Crop data sources", "Crop data family sources" i "Crop data tag sources". Definiują one szczegółowe objaśnienia cytatów na bazie których konstruowane są potem interakcje. Mamy potem dzięki temu możliwość weryfikacji, czy podana interakcja faktycznie została prawidłowo zdefiniowana i w razie potrzeby namierzyć ją u samego źródła.
+
+Wszystkie trzy klasy są skonstruowane podobnie, z niewielką różnicą, którą oznaczę znakiem *.
+Ich elementy składowe to:
+Nazwa - title - do 150 znaków. Wewnętrzny tytuł po którym użytkownik odnajdzie źródło na liście rozwijanej interakcji. Zapisywane w konwencji "[nazwa rośliny/rodziny/taga] - [nazwa skrócona źródła]".
+Opis - (descr, descr[pl], descr[en], (...)) - Bez limitu znaków. Szczegółowy opis tego co zawiera źródło na temat danej rośliny.
+Roślina* - from_crop - Wybierane z listy rozwijanej. Roślina, której dotyczy źródło. Pozostawiamy puste w wypadku źródeł opisujących rodziny i kategorie.
+Kategorie - at_tag - Jeżeli źródło przypisuje roślinie jakąś kategorię, to można ją tu zaznaczyć dla wewnętrznej kontroli źródeł. W tej chwili funkcja niewykorzystywana, ale w przyszłości powinna służyć jako wyłączne/pomocnicze źródło kategorii dla roślin.
+Źródło książkowe - at_data_string - Wybierane z list rozwijanej. Tutaj wybieramy wcześniej zdefiniowane przez nas źródło.
+Strony od - pages_from - Jeżeli mamy tylko jedną stronę, lub zaczynamy cytować od tej strony to tutaj wpisujemy jej numer.
+Strony do - pages_to - Opcjonalne. Strona na której kończymy cytowanie źródła.
+Kolejność na liście źródeł. - order - Liczba. Sortowana rosnąco. Źródła na stronie elementu pokażą się w tej kolejności.
+Rodzina/Kategoria* - (from_family, from_tag) - Tak jak w wypadku rośliny wybieramy jedną opcję, której źródło dotyczy z listy rozwijanej.
 
 E. CECHY I DODAWANIE NOWYCH INTERAKCJI
+
+Interakcje ręcznie dla roślin, rodzin i kategorii tworzymy poprzez odpowiednio zakładki "Crops interactions", "Family interactions", "Tags interactions".
+
+Wszystkie trzy subklasy są skonstruowane identycznie za pomocą rozszerzenia innej klasy.
+Ich elementy składowe to:
+Nazwa - title - do 150 znaków. Wewnętrzny tytuł po którym użytkownik odnajdzie źródło na liście wielokrotnego wyboru rośliny/rodziny/kategorii.
+
+
+
+Pozostałe zmienne są w tej chwili nieużywane przez program, lub są generowane maszynowo.
+Nie należy ich uzupełniać. Docelowo w ogóle nie powinno być takiej możliwości.
+
 
 F. CECHY I DODAWANIE NOWYCH MIESZANEK
 
@@ -268,9 +294,9 @@ Pozwala ustalić zmienne istotne dla funkcjonowania programu. Zmienne są w miar
 
 - Maksymalna ilość planów zmianowania na użytkownika, to maksymalna ilość planów jaką może dodać jeden użytkownik programu zanim otrzyma powiadomienie, że osiągnął swój limit, a opcja "dodaj nowy plan" zniknie.
 
-- Czas cachowania w minutach planów widzianych z zewnątrz, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy dużo klikają w kółko w jeden plan, oraz tzw. "web-crawlery". Serwer przez ten czas od wygenerowania strony, wyrażony w minutach, będzie serwował stronę z cache bazodanowego oszczędzając tym samym procesor. Sugerowane jest 15min.
+- Czas cache'owania w minutach planów widzianych z zewnątrz, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy dużo klikają w kółko w jeden plan, oraz tzw. "web-crawlery". Serwer przez ten czas od wygenerowania strony, wyrażony w minutach, będzie serwował stronę z cache bazodanowego oszczędzając tym samym procesor. Sugerowane jest 15min.
 
-- Czas cachowania w sekundach planu po ewaluacji, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy doświadczyli problemów na łączach, lub są zwyczajnie niecierpliwi i wciąż odświeżają stronę jeśli nie pojawi się ona w czasie krótszym niż przez nich oczekiwany. Serwer, jak powyżej nie reaguje wtedy na kolejne zapytania, tylko serwuje, w czasie wyrażonym w sekundach, stronę z cache bazodanowego. Sugerowane jest 10s.
+- Czas cache'owania w sekundach planu po ewaluacji, pozwala na zaoszczędzenie zasobów serwera na użytkowników, którzy doświadczyli problemów na łączach, lub są zwyczajnie niecierpliwi i wciąż odświeżają stronę jeśli nie pojawi się ona w czasie krótszym niż przez nich oczekiwany. Serwer, jak powyżej nie reaguje wtedy na kolejne zapytania, tylko serwuje, w czasie wyrażonym w sekundach, stronę z cache bazodanowego. Sugerowane jest 10s.
 
 WSTĘPNE MASOWE LICZENIE INTERAKCJI
 

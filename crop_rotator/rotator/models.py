@@ -231,7 +231,7 @@ class CropInteraction(models.Model):
     title = models.CharField(max_length=150)  # Tytuł i od razu opis relacji
     signature = models.CharField(max_length=150, blank=True, null=True)  # Sygnatura dla serwera.
     # Poniżej do wywalenia po konwersji
-    is_positive = models.BooleanField(default=True)  # Typ oddziaływania
+    #is_positive = models.BooleanField(default=True)  # Typ oddziaływania
     interaction_sign = models.PositiveSmallIntegerField(
      choices=SIGNS, default=0
     )
