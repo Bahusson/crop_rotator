@@ -23,13 +23,13 @@ WSTĘP
 Zmiany klimatu dotykają nas coraz dotkliwiej.
 Pogłębia się susza i inne ekstremalne zjawiska pogodowe.
 W takich warunkach kluczową jest umiejętność szybkiego
-dostosowania się do dynamicznie zmieniająchych się warunków.
+dostosowania się do dynamicznie zmieniających się warunków.
 Stawką jest stabilne plonowanie, a co za tym idzie dobrostan społeczeństw.
 
 Z drugiej strony pojawia się konieczność natychmiastowej rezygnacji
-z paliw kopalnych (a wręc częściowe zastąpienie ich produktami rolnictwa,
+z paliw kopalnych (a wręcz częściowe zastąpienie ich produktami rolnictwa,
 tam gdzie nie byłoby to ze szkodą dla ludzi) a zatem ze zmniejszenia
-ogólnych nakładów energetycnych i dramatycznej poprawy wydajności w ogóle.
+ogólnych nakładów energetycznych i dramatycznej poprawy wydajności w ogóle.
 
 Z powodu ryzyka uodpornienia patogenów i agrofagów na chemiczne środki ochrony,
 oraz ich potencjalną niepożądaną, długoterminową szkodliwość dla reszty biosfery
@@ -38,14 +38,14 @@ również i te metody należy ograniczyć w ramach tzw. integrowanej ochrony ro�
 
 Kluczowe staje się więc zarządzanie wiedzą i automatyzacja tego procesu
 na szeroką skalę. W wielu krajach centralnie zarządzane systemy ostrzegania
-przed agrofagami i patogenami z dużą dokładnością przewidują powstanie
+przed agrofagami z dużą dokładnością przewidują powstanie
 zagrożenia i w porę informują rolników o konieczności przeprowadzenia
 minimalnych koniecznych zabiegów, co wpływa korzystnie zarówno na plon,
 jak i minimalizuje wpływ na środowisko.
 
 Dalsze integrowanie systemów teleinformatycznych celem uzyskania
 jeszcze większej ilości informacji i jeszcze większej synergii,
-jest tylko kewstią czasu.
+jest tylko kwestią czasu.
 
 W związku z powyższymi czynnikami, tj. koniecznością redukcji energii z paliw
 kopalnych, ograniczeniem środków ochrony roślin, potrzebą szybkiego dostosowania
@@ -53,7 +53,7 @@ się do warunków, a także szybkiej centralnie zarządzanej dystrybucji wiedzy
 i doradztwa, rośnie zapotrzebowanie na system teleinformatyczny, który wspomoże
 podejmowanie decyzji w zakresie odpowiedniego, złożonego zmianowania roślin.
 
-Program, który napisałem w ramach swojej pracy dylomowej, a który będę poniżej przedstawiał, ma za zadanie po części zaadresować tę potrzebę i być może
+Program, który napisałem w ramach swojej pracy dyplomowej, a który będę poniżej przedstawiał, ma za zadanie po części zaadresować tę potrzebę i być może
 w przyszłości stać się zaczątkiem bardziej zintegrowanego systemu.
 
 ###############
@@ -85,7 +85,7 @@ planu daje zestawienie statystyk na temat wyróżnionych kategorii.
 [Fig. 1 - podsumowanie zawartości planu]
 
 Bez logowania użytkownikowi przysługuje również możliwość przeglądania biblioteki
-wyszystkich roślin sortowanych alfabetycznie, według rodzin i kategorii.
+wszystkich roślin sortowanych alfabetycznie, według rodzin i kategorii.
 Po wejściu w odpowiednią opcję może on obejrzeć interakcje związane z danym
 elementem, jak również dowiedzieć się z opisu z czego one wynikają,
 oraz z jakich źródeł wynika taka a nie inna interakcja.
@@ -192,15 +192,14 @@ W dowolnym momencie użytkownik może wycofać swój plan z publikacji wciskają
 
 STANDARDOWY PANEL DJANGO - KLUCZOWE ELEMENTY
 
-Ponieważ celem niniejszej pracy było stworzenie działającego programu, a nie przejrzystego
-panelu administracyjnego, to część administracyjna wciąż korzysta ze standardowego
-frontendu panelu administracyjnego Django 3. Powinno się to zmienić w przyszłości dla
-ułatwienia serwisowania i nawigacji po programie. Poniżej przedstawiam kluczowe elementy
-panelu standardowego, które są potrzebne dla prawidłowej obsługi programu od strony administracyjnej.
+Ponieważ celem niniejszej pracy było przede wszystkim stworzenie działającego programu,
+a niekoniecznie przejrzystego panelu administracyjnego, to część administracyjna wciąż korzysta ze standardowego frontendu panelu administracyjnego Django 3.
+Powinno się to zmienić w przyszłości dla ułatwienia serwisowania i nawigacji po programie. Poniżej przedstawiam kluczowe elementy panelu standardowego, które są potrzebne dla prawidłowej obsługi programu od strony administracyjnej.:
 
-CECHY I DODAWANIE NOWYCH ROŚLIN
+A. CECHY I DODAWANIE NOWYCH ROŚLIN
 
-Dodawanie nowych roślin obsługuje klasa "Crops".
+Dodawanie nowych roślin obsługuje zakładka "Crops".
+
 Roślinę opisujemy za pomocą kolejnych zmiennych:
 Nazwa rośliny - (name, name[pl], name[en], (...)) - Maksimum 150 znaków.
 W kolejnych polach wprowadzamy nazwę w kolejnych językach.
@@ -214,18 +213,34 @@ Interakcje z innymi roślinami / rodzinami / kategoriami - crop_relationships - 
 Kategorie do których należy roślina - tags - wybierane z listy wielokrotnego wyboru. Wybrane tu kategorie są widoczne na stronie rośliny i roślina jest widoczna na stronach tych kategorii. Na tej podstawie są też później tworzone interakcje automatyczne.
 
 Pozostałe zmienne są w tej chwili nieużywane przez program, dotyczą inny wariantów klasy "Crop", lub są generowane maszynowo. Nie należy ich uzupełniać.
+Docelowo w ogóle nie powinno być takiej możliwości.
 
-CECHY I DODAWANIE NOWYCH RODZIN
+B. CECHY I DODAWANIE NOWYCH RODZIN
 
+Dodawanie nowych roślin obsługuje zakładka "Crop Families".
 
+Rodzinę opisujemy za pomocą kolejnych zmiennych:
+Nazwa rodziny - (name, name[pl], name[en], (...)) - Maksimum 150 znaków.
+W kolejnych polach wprowadzamy nazwę w kolejnych językach.
+Nazwa po łacinie - latin_name - Maksimum 150 znaków.
+Minimalny odstęp między członkami rodziny w płodozmianie - cooldown_min - wartość numeryczna.
+Interakcje z innymi roślinami / rodzinami / kategoriami - crop_relationships - wybierane z listy wielokrotnego wyboru. Trzeba je zdefiniować wcześniej ręcznie w zakładce "Family interactions".
+Jest podgrupą fitosanitarną - is_family_slave - checkbox. Po zaznaczeniu rodzina nie pojawia się na liście rodzin. Stworzona dla sytuacji typu owies wśród wiechlinowatych.
+Rodzina właściwa - family_master - wybierane z listy rozwijanej. Dla podgrup fitosanitarnych należy wybrać właściwą rodzinę na którą zostanie przekierowany użytkownik. Np. "wiechlinowate" dla owsa.
+Podgrupy fitosanitarne - family_slaves - wybierane z listy wielokrotnego wyboru. Zaznaczamy u rodziny właściwej wszystkie podgrupy, które formalnie należą do rodziny, ale jej członkowie są w tej rodzinie fitosanitarni dla rodziny głównej.
 
-CECHY I DODAWANIE NOWYCH KATEGORII
+C. CECHY I DODAWANIE NOWYCH KATEGORII
 
-CECHY I DODAWANIE NOWYCH ŹRÓÐEŁ
+D. CECHY I DODAWANIE NOWYCH ŹRÓÐEŁ
 
-CECHY I DODAWANIE NOWYCH INTERAKCJI
+E. CECHY I DODAWANIE NOWYCH INTERAKCJI
 
-CECHY I DODAWANIE NOWYCH MIESZANEK
+F. CECHY I DODAWANIE NOWYCH MIESZANEK
+
+G. CECHY i DODAWANIE NOWYCH NAWOZÓW
+(...)
+
+Obecnie nie da się dodać nowych nawozów bez ingerencji w kod programu, ale dałoby się to łatwo zmienić, np. zmieniając obecne dwa przyciski nawozu zielonego/obornika na drugie rozwijane menu z wszystkimi dostępnymi nawozami. Nie widzę żadnych przeciwwskazań, żeby tak zrobić i zapewne tak będzie to wyglądać w przyszłości.
 
 PANEL CR
 
@@ -280,7 +295,8 @@ z domyślnego kompilatora CPython na PyPy, który dobrze współgra
 z frameworkiem Django.
 
 Obecnie panel administracyjny jest w głównej mierze domyślnym panelem frameworku Django.
-To znaczy, że jest nieintuicyjny dla osób niewtajemniczonych i do prawidłowego działania właściwie wymaga obsługi programisty.
+To znaczy, że jest nieintuicyjny i żmudny w obsłudze. Umożliwia popełnienie błędów osobom
+niewtajemniczonym.
 
 Elementy potrzebne do stworzenia właściwego panelu administracyjnego są już obecne w kodzie, jednak z braku czasu nie zostały w pełni wdrożone i przetestowane.
 
@@ -311,7 +327,7 @@ Poniżej pozwoliłem sobie zaprezentować jeszcze kilka funkcji, które z pewno�
 - Wprowadzenie orientacyjnych maksymalnych czasów plonowania i w związku z tym
   ostrzeżeń, jeśli w płodozmianie są "dziury".
 
-Poniżej zaś prezentuję możliwości jakie program mógłby potencjalnie uzyskać w ramach integracji z większym systemem teleinformatycznym:
+Poniżej zaś prezentuję możliwości jakie program mógłby potencjalnie uzyskać w ramach integracji z większym systemem teleinformatycznym, a nawet zwykłego web-crawlera:
 
 - Wprowadzenie rejonizacji za pomocą wbudowanego w Django3 geo-taga,
  naniesionych na mapy gmin z informacjami np. o możliwych i zalecanych uprawach
