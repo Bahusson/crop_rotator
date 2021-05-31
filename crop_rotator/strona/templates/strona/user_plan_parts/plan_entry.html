@@ -6,7 +6,7 @@
   <br />
 </div>
 <div class="col-2">
-  <button class="button btn btn-light btn-sm"><a href="{% url 'plan_edit' plan.0.id %}">{{ translatables.editme }}</a></button>
+  <a href="{% url 'plan_edit' plan.0.id %}"><button class="button btn btn-light btn-sm">{{ translatables.editme }}</button></a>
 </div>
 </div>
 {% endif %}

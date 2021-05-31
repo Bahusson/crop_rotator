@@ -60,7 +60,7 @@
              </p></form>
             {% endif %}
             {% if eval_button_on %}
-            <button id="evalbutton" class="button btn btn-light btn-sm"><a href="{% url 'plan_evaluated' plan.id %}">{{ translatables.evaluate_button }}</a></button><button id="waitbutton" class="button btn btn-dark btn-sm hidden"><b>Obliczam...</b></button>*{{ translatables.analysis_by_text }}.
+            <a href="{% url 'plan_evaluated' plan.id %}"><button id="evalbutton" class="button btn btn-light btn-sm">{{ translatables.evaluate_button }}</button></a><button id="waitbutton" class="button btn btn-dark btn-sm hidden"><b>{{ translatables.wait_button }}</b></button>*{{ translatables.analysis_by_text }}.
             {% endif %}
             {% endif %}
 

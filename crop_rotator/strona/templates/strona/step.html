@@ -21,13 +21,14 @@
         <div class="col-md-12 plan-main">
           <div class="container">
             <h6 class="text-center pt-3 ">{{ translatables.u_edit_step_no }}{{ step.order }}:</h6>
-            <h1 class="text-center pt-3 ">{{ step.title }}</h1>
+            <h1 class="text-center pt-3 ">{{ step.title }}<a href="{% url 'plan' step.from_plan.id %}"><button class="btn btn-link-3 btn-light" href=>{{ translatables.return_to_plan }}</button></a></h1>
+
             <form name="StepChangeForm" method="post" class="form form-inline"> <!-- Formularz usuwa wydarzenie -->
              {% csrf_token %}
               <p>{{ translatables.title }}: {{ form.title }}</p>
               <p>{{ translatables.descr }}: {{ form.descr }}</p>
               <p><button class="btn btn-link-3 btn-light" name="save_step_changes" type="submit">{{ translatables.change }}</button>
-                 <button class="btn btn-link-3 btn-light"><a href="{% url 'plan' step.from_plan.id %}">{{ translatables.return_to_plan }}</a></button></p>
+            </p>
           </div>
           <div class="container">
               {% for button in buttons %}

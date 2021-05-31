@@ -162,7 +162,7 @@ class RotatorEditorPageNames(models.Model):
     manure_added = models.CharField(max_length=50, blank=True, null=True) # DODANO OBORNIK
     green_manure_destroyed = models.CharField(max_length=50, blank=True, null=True) # ZNISZCZONO NA ZIELONY NAWÓZ
     remove_button = models.CharField(max_length=50, blank=True, null=True) # Usuń
-
+    wait_button = models.CharField(max_length=50, blank=True, null=True) # Obliczam... button
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
