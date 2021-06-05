@@ -299,7 +299,9 @@ class CropPlanner(object):
                 error_len_crops.append(item[1])
                 self.clw = args[2].objects.filter(id__in=error_len_crops)
         if not self.clw:
-            for a, b in itertools.permutations(cooldown_list2, 2):  # permutacje
+            for a, b in itertools.permutations(cooldown_list2, 2):
+                if a[2] == b[2] and a[0] < b[0] and a[0]!=0 and b[0]!=0:
+                    a[0]=b[0]
                 if a[2] == b[2] and a[3][0] - b[3][0] < a[0] and a[3][0] - b[3][0] > 0:
                     level_off(self.top_tier, a, b)
                     err_tab_list.append(a[3][0])
