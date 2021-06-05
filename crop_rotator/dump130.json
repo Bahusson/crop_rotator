@@ -28,7 +28,7 @@
     "name_en": "Leguminosae",
     "latin_name": "Fabaceae",
     "culture": 1,
-    "cooldown_min": 3,
+    "cooldown_min": 4,
     "cooldown_max": 6,
     "is_manurable": false,
     "culture_manured": 0,
@@ -169,7 +169,7 @@
     "cooldown_max": 4,
     "is_manurable": false,
     "culture_manured": 0,
-    "is_mandatory_crop": true,
+    "is_mandatory_crop": false,
     "is_family_slave": false,
     "family_master": null,
     "crop_relationships": [
@@ -618,6 +618,7 @@
       622,
       629,
       688,
+      60200,
       669
     ]
   }
@@ -741,7 +742,10 @@
     "descr_en": "This species is a perennial fabaceae plant.",
     "image": "",
     "is_featured": false,
-    "crop_relationships": []
+    "crop_relationships": [
+      55070,
+      60202
+    ]
   }
 },
 {
@@ -10784,6 +10788,9 @@
     "redirect_name": null,
     "redirect_id": null,
     "crop_relationships": [
+      60199,
+      60198,
+      60197,
       9441,
       59003,
       59002,
@@ -127313,6 +127320,106 @@
   }
 },
 {
+  "model": "rotator.cropinteraction",
+  "pk": 60197,
+  "fields": {
+    "title": "Obornik + okopowe (W)",
+    "signature": null,
+    "interaction_sign": 2,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 17,
+    "info_source": 156,
+    "type_of_interaction": 0,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 60198,
+  "fields": {
+    "title": "Obornik + Zboża (RN)",
+    "signature": null,
+    "interaction_sign": 2,
+    "about_crop": null,
+    "about_family": null,
+    "about_tag": 19,
+    "info_source": 156,
+    "type_of_interaction": 6,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 60199,
+  "fields": {
+    "title": "Obornik + Strączkowe (RN)",
+    "signature": null,
+    "interaction_sign": 2,
+    "about_crop": null,
+    "about_family": 10,
+    "about_tag": null,
+    "info_source": null,
+    "type_of_interaction": 6,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 60200,
+  "fields": {
+    "title": "Okopowe + lucerna (N)",
+    "signature": null,
+    "interaction_sign": 2,
+    "about_crop": 49,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 157,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
+  "model": "rotator.cropinteraction",
+  "pk": 60202,
+  "fields": {
+    "title": "Bobowate wieloletnie - lucerna (N)",
+    "signature": null,
+    "interaction_sign": 1,
+    "about_crop": 49,
+    "about_family": null,
+    "about_tag": null,
+    "info_source": 157,
+    "type_of_interaction": 2,
+    "season_of_interaction": 0,
+    "is_server_generated": false,
+    "server_interaction": null,
+    "debug_line": null,
+    "trigger_crop": null,
+    "trigger_tag": null
+  }
+},
+{
   "model": "rotator.cropsinteraction",
   "pk": 613,
   "fields": {
@@ -127646,6 +127753,27 @@
   "pk": 9444,
   "fields": {
     "cropinteraction_ptr": 9444
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 60199,
+  "fields": {
+    "cropinteraction_ptr": 60199
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 60198,
+  "fields": {
+    "cropinteraction_ptr": 60198
+  }
+},
+{
+  "model": "rotator.cropsinteraction",
+  "pk": 60197,
+  "fields": {
+    "cropinteraction_ptr": 60197
   }
 },
 {
@@ -167774,6 +167902,13 @@
 },
 {
   "model": "rotator.tagsinteraction",
+  "pk": 60202,
+  "fields": {
+    "cropinteraction_ptr": 60202
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
   "pk": 617,
   "fields": {
     "cropinteraction_ptr": 617
@@ -167805,6 +167940,13 @@
   "pk": 688,
   "fields": {
     "cropinteraction_ptr": 688
+  }
+},
+{
+  "model": "rotator.tagsinteraction",
+  "pk": 60200,
+  "fields": {
+    "cropinteraction_ptr": 60200
   }
 },
 {
@@ -170752,6 +170894,38 @@
   }
 },
 {
+  "model": "rotator.cropdatasource",
+  "pk": 156,
+  "fields": {
+    "title": "Obornik - zasady układania płodozmianu",
+    "descr": "\"Z nawozów  naturalnych  obornik  stosuje  się  pod  rośliny  uprawiane  w  szerokich  międzyrzędziach tj. okopowe (buraki, ziemniaki) i kukurydzę. W następnym roku po oborniku powinno uprawiać się rośliny zbożowe i strączkowe na nasiona.\"",
+    "descr_pl": "\"Z nawozów  naturalnych  obornik  stosuje  się  pod  rośliny  uprawiane  w  szerokich  międzyrzędziach tj. okopowe (buraki, ziemniaki) i kukurydzę. W następnym roku po oborniku powinno uprawiać się rośliny zbożowe i strączkowe na nasiona.\"",
+    "descr_en": "Of natural fertilizers, manure if used with root crops and maize. In the year following manure one should cultivate cereals and pulses.",
+    "from_crop": 118,
+    "at_data_string": 13,
+    "pages_from": 11,
+    "pages_to": null,
+    "order": 0,
+    "at_tag": []
+  }
+},
+{
+  "model": "rotator.cropdatasource",
+  "pk": 157,
+  "fields": {
+    "title": "Lucerna - IOR metodyka",
+    "descr": "Dobrym przedplonem dla lucerny są okopowe i zboża ozime. Zły przedplon stanowią bobowate wieloletnie i rośliny strączkowe.",
+    "descr_pl": "Dobrym przedplonem dla lucerny są okopowe i zboża ozime. Zły przedplon stanowią bobowate wieloletnie i rośliny strączkowe.",
+    "descr_en": "Good forecrop for alfalfa are root crops and winter cereals. Bad forecrop are perennial fabacae and pulses.",
+    "from_crop": 49,
+    "at_data_string": 85,
+    "pages_from": 5,
+    "pages_to": null,
+    "order": 2,
+    "at_tag": []
+  }
+},
+{
   "model": "rotator.cropdatafamilysource",
   "pk": 94,
   "fields": {
@@ -170830,7 +171004,7 @@
   "pk": 13,
   "fields": {
     "title": "Zasady układania płodozmianu",
-    "part1": "Bliski z., Pikosz M. 2020. ZASADY UKŁADANIA PŁODOZMIANU",
+    "part1": "Bliski Z., Pikosz M. 2020. ZASADY UKŁADANIA PŁODOZMIANU",
     "link": "https://www.cdr.gov.pl/images/wydawnictwa/2020/Zasady_ukladania_plodozmianu.pdf"
   }
 },
@@ -171438,6 +171612,15 @@
   }
 },
 {
+  "model": "rotator.cropdatastring",
+  "pk": 85,
+  "fields": {
+    "title": "Metodyka integrowanej ochrony lucerny siewnej",
+    "part1": "Horoszkiewicz J., Mrówczyński M., Borodynko N., Gaweł E., Jajor E.,  Korbas M., Paradowski A., Strażyński P., 2012. Metodyka integrowanej ochrony lucerny siewnej",
+    "link": "https://www.ior.poznan.pl/plik,1519,metodyka-integrowanej-ochrony-lucerny-siewnej-dla-producentow-i-doradcow-pdf.pdf"
+  }
+},
+{
   "model": "rotator.cropbookstring",
   "pk": 63,
   "fields": {
@@ -171449,6 +171632,13 @@
   "pk": 82,
   "fields": {
     "cropdatastring_ptr": 82
+  }
+},
+{
+  "model": "rotator.cropbookstring",
+  "pk": 85,
+  "fields": {
+    "cropdatastring_ptr": 85
   }
 },
 {
