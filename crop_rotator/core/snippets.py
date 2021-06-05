@@ -83,9 +83,13 @@ def list_appending_short(item, vars, rss_list, rss_object):
     length = len(rss_list)
     seasondict = {1: "Summer", 2: None, 3: "Winter",}
     for i in item.crop_substep.all():
+        if i.cooldown_min_override:
+            cooldown_num = i.cooldown_min_override
+        else:
+            cooldown_num = i.family.cooldown_min
         vars[0].append(
             [
-                i.family.cooldown_min,
+                cooldown_num,
                 i.id,
                 i.family,
                 [vars[1].order, vars[3], seasondict[item.order]],
