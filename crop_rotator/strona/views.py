@@ -164,6 +164,11 @@ class InteractionPage(View):
         crop_tags_to = []
         crop_from = []
         crop_to = []
+        crop_to_new = []
+        crop_family_to_new = []
+        crop_tags_from_new = []
+        crop_tags_to_new = []
+
 
         # Crop
         if not self.is_family and not self.is_tag:
@@ -187,7 +192,6 @@ class InteractionPage(View):
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
              ).exclude(crop_relationships__interaction_sign=0)
-            crop_to_new = []
             crop_to = list_crops_to(
              pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
             remove_repeating(crop_to_new, crop_to)
@@ -218,7 +222,6 @@ class InteractionPage(View):
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
             ).exclude(crop_relationships__interaction_sign=0)
-            crop_family_to_new = []
             crop_family_to = list_crops_to(
              c_family, crop_to_f, family_to_f, tag_to_f, "family")
             remove_repeating(crop_family_to_new, crop_family_to)
@@ -245,7 +248,6 @@ class InteractionPage(View):
         # Tag
         if self.is_tag:
             tag = myitem.by_id(G404=G404, id=crop_id)
-            crop_tags_from_new = []
             for relationship in tag.crop_relationships.all():
                 crop_tags_from.append((tag, relationship))
             remove_repeating(crop_tags_from_new, crop_tags_from)
@@ -263,7 +265,6 @@ class InteractionPage(View):
             ).exclude(crop_relationships__interaction_sign=0)
             crop_tags_to_0 = list_crops_to(
              tag, crop_to_t, family_to_t, tag_to_t, "tag")
-            crop_tags_to_new = []
             for item in crop_tags_to_0:
                 crop_tags_to.append(item)
             remove_repeating(crop_tags_to_new, crop_tags_to)
@@ -278,7 +279,6 @@ class InteractionPage(View):
         # Crop
         if not self.is_family and not self.is_tag:
             for tag in pe_c_id.tags.all():
-                crop_tags_from_new = []
                 for relationship in tag.crop_relationships.all():
                     crop_tags_from.append((tag, relationship))
                 remove_repeating(crop_tags_from_new, crop_tags_from)
@@ -296,7 +296,6 @@ class InteractionPage(View):
                 ).exclude(crop_relationships__interaction_sign=0)
                 crop_tags_to_0 = list_crops_to(
                  tag, crop_to_t, family_to_t, tag_to_t, "tag")
-                crop_tags_to_new = []
                 for item in crop_tags_to_0:
                     crop_tags_to.append(item)
                 remove_repeating(crop_tags_to_new, crop_tags_to)
