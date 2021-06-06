@@ -163,6 +163,8 @@ class RotatorEditorPageNames(models.Model):
     green_manure_destroyed = models.CharField(max_length=50, blank=True, null=True) # ZNISZCZONO NA ZIELONY NAWÓZ
     remove_button = models.CharField(max_length=50, blank=True, null=True) # Usuń
     wait_button = models.CharField(max_length=50, blank=True, null=True) # Obliczam... button
+    second_third = models.CharField(max_length=50, blank=True, null=True) # W drugim i trzecim roku
+
 
     class Meta:
         verbose_name_plural = 'Rotator Editor Page Names'
