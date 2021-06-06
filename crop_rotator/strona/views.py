@@ -34,6 +34,7 @@ from core.snippets import (
     summarize_plans,
     list_crops_to,
     none_ify,
+    remove_repeating,
 )
 from operator import attrgetter
 from random import shuffle
@@ -186,13 +187,15 @@ class InteractionPage(View):
              crop_relationships__about_crop=crop_id,
              crop_relationships__is_server_generated=False,
              ).exclude(crop_relationships__interaction_sign=0)
+            crop_to_new = []
             crop_to = list_crops_to(
              pe_c_id, crop_to_c, family_to_c, tag_to_c, "crop")
+            remove_repeating(crop_to_new, crop_to)
             pe_cds = CDS.objects.filter(from_crop=crop_id)
             master_family = pe_c_id.family.name
             if pe_c_id.family.is_family_slave and not pe_c_id.is_fertilizer and not pe_c_id.is_crop_mix:
                 master_family = pe_c_id.family.family_master.name
-            
+
 
         # Family
         if self.is_family:
@@ -215,8 +218,11 @@ class InteractionPage(View):
              crop_relationships__about_family=family_id,
              crop_relationships__is_server_generated=False,
             ).exclude(crop_relationships__interaction_sign=0)
+            crop_family_to_new = []
             crop_family_to = list_crops_to(
              c_family, crop_to_f, family_to_f, tag_to_f, "family")
+            remove_repeating(crop_family_to_new, crop_family_to)
+
 
         # Crop, Tag
         if self.is_family:
@@ -239,8 +245,10 @@ class InteractionPage(View):
         # Tag
         if self.is_tag:
             tag = myitem.by_id(G404=G404, id=crop_id)
+            crop_tags_from_new = []
             for relationship in tag.crop_relationships.all():
                 crop_tags_from.append((tag, relationship))
+            remove_repeating(crop_tags_from_new, crop_tags_from)
             crop_to_t = Crop.objects.filter(
              crop_relationships__about_tag=tag.id,
              crop_relationships__is_server_generated=False,
@@ -255,8 +263,11 @@ class InteractionPage(View):
             ).exclude(crop_relationships__interaction_sign=0)
             crop_tags_to_0 = list_crops_to(
              tag, crop_to_t, family_to_t, tag_to_t, "tag")
+            crop_tags_to_new = []
             for item in crop_tags_to_0:
                 crop_tags_to.append(item)
+            remove_repeating(crop_tags_to_new, crop_tags_to)
+
             pe_cds = TDS.objects.filter(from_tag=crop_id)
             master_family = tag
             pe_c_id = tag
@@ -267,8 +278,10 @@ class InteractionPage(View):
         # Crop
         if not self.is_family and not self.is_tag:
             for tag in pe_c_id.tags.all():
+                crop_tags_from_new = []
                 for relationship in tag.crop_relationships.all():
                     crop_tags_from.append((tag, relationship))
+                remove_repeating(crop_tags_from_new, crop_tags_from)
                 crop_to_t = Crop.objects.filter(
                  crop_relationships__about_tag=tag.id,
                  crop_relationships__is_server_generated=False,
@@ -283,9 +296,10 @@ class InteractionPage(View):
                 ).exclude(crop_relationships__interaction_sign=0)
                 crop_tags_to_0 = list_crops_to(
                  tag, crop_to_t, family_to_t, tag_to_t, "tag")
+                crop_tags_to_new = []
                 for item in crop_tags_to_0:
                     crop_tags_to.append(item)
-                house.append(tag)
+                remove_repeating(crop_tags_to_new, crop_tags_to)
 
         house = sorted(house, key=attrgetter('name'))
         sl3 = slice_list_3(house)
@@ -296,14 +310,14 @@ class InteractionPage(View):
             "sources": pe_cds,
             "translatables": translatables,
             "crop_from": crop_from,
-            "crop_to": crop_to,
+            "crop_to": crop_to_new,
             "house": house,
             "ml1": sl3[0],
             "ml2": sl3[1],
             "crop_family_from": crop_family_from,
-            "crop_family_to": crop_family_to,
-            "crop_tags_from": crop_tags_from,
-            "crop_tags_to": crop_tags_to,
+            "crop_family_to": crop_family_to_new,
+            "crop_tags_from": crop_tags_from_new,
+            "crop_tags_to": crop_tags_to_new,
         }
         pl = PageLoad(P, L)
         context_lazy = pl.lazy_context(skins=S, context=context)
