@@ -191,6 +191,7 @@ class PlannerRelationship(object):
          4: [3, 3, False],  # W całym trzecim roku
          5: [1, 2, False],  # W pierwszym i drugim roku
          6: [1, 1, False],  # W całym następnym roku
+         7: [2, 3, False],  # W drugim i trzecim roku
          }
         signdict = {1:False, 2:True}
         self.given_list = kwargs['given_list']
