@@ -65,7 +65,7 @@ class Plan(View):
     VarCropPlanner = DummyCropPlanner
 
     def dispatch(self, request, plan_id, *args, **kwargs):
-        admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps - 1
+        admin_max_steps = pe(RotatorAdminPanel).baseattrs.max_steps
         pe_rp = pe(RotationPlan)
         self.pe_stp = pe(RotationStep)
         translatables = pe(RotatorEditorPageNames).baseattrs
@@ -184,7 +184,7 @@ def my_plans(request):
     plans_list = summarize_plans(pe_upl, RotationStep, RotationSubStep)
     translatables = pe(RotatorEditorPageNames).baseattrs
     user_limit_reached = False
-    if len(list(pe_upl)) > admin_max_plans-1:
+    if len(list(pe_upl)) > admin_max_plans:
         user_limit_reached = True
 
     if request.method == 'POST':

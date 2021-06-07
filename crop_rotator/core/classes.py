@@ -300,6 +300,36 @@ class CropPlanner(object):
     def top_tier(self):
         return self.top_tier
 
+def count_sources_pages(main_source):
+    sourcelist = []
+    for source in PageElement(main_source).allelements:
+        sourcelist.append([source.at_data_string, str(source.pages_from), str(source.pages_to)])
+    sourcelist1 = []
+    remove_repeating(sourcelist1, sourcelist)
+    sourcelist2 = copy.deepcopy(sourcelist1)
+    sourcelist3 = []
+    # Niewydajne - popraw!
+    for source in sourcelist1:
+        for source_bis in sourcelist2:
+            if source[0] == source_bis[0]:
+                if source[1]!= source_bis[1] or source[2] != source_bis[2]:
+                    if any(source[0] in sl for sl in sourcelist3):
+                        for sublist in sourcelist3:
+                            if source[0] in sublist:
+                                if source[2] == "None":
+                                    sublist[1].append((source[1],))
+                                else:
+                                    sublist[1].append((source[1], source[2]))
+
+                    else:
+                        sourcelist3.append([source[0], [(source[1], source[2])]])
+    sourcelist4 = []
+    for source in sourcelist3:
+        newsource = []
+        remove_repeating(newsource, source[1])
+        newsource = newsource.sort()
+        sourcelist4.append([source[0], newsource])
+    flare(sourcelist4)
 
 # Do ładowania po raz pierwszy na serwer.
 try:

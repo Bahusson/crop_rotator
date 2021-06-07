@@ -26,6 +26,8 @@ from crop_rotator.settings import LANGUAGES as L
 from core.classes import (
     PageElement as pe,
     PageLoad,
+    count_sources_pages,
+
 )
 from core.snippets import (
     flare,
@@ -39,7 +41,7 @@ from core.snippets import (
 from operator import attrgetter
 from random import shuffle
 from django.views import View
-
+import copy
 
 # Widok strony domowej.
 def home(request):
@@ -89,9 +91,11 @@ def about(request):
     return render(request, template, context_lazy)
 
 
+
 # Widok "O źródłach"
 def about_sources(request):
     pe_sources = pe(CropBookString).allelements
+    count_sources_pages(FDS)
     context = {
         "sources": pe_sources,
     }
