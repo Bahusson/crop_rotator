@@ -95,7 +95,7 @@ def about(request):
 # Widok "O źródłach"
 def about_sources(request):
     pe_sources = pe(CropBookString).allelements
-    count_sources_pages(FDS)
+    count_sources_pages(CDS)
     context = {
         "sources": pe_sources,
     }
