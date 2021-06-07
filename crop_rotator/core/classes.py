@@ -68,6 +68,7 @@ class PageLoad(object):
 
 
 # Nakładka na django do obsługi dodatku tłumaczeniowego django-modeltranslation.
+# Bo tak jest po prostu łatwiej...
 class PageElement(object):
     def __init__(self, *args, **kwargs):
         self.x = args[0]
@@ -76,62 +77,12 @@ class PageElement(object):
         self.elements = self.x.objects  # Obiekty
         self.baseattrs = self.listed[0]  # Pierwsze obiekty na liście
 
-    # Konkretnte obiekty na liście (nie pierwsze).
-    def list_specific(self, num):
-        self.listed_specific = self.listed[num]
-        return self.listed_specific
-
-    # Obcina listę obiektów w konretnych miejscach.
-    def list_shorter(self, **kwargs):
-        if "cut_fr" in kwargs:
-            cut_from = kwargs["cut_fr"]
-        else:
-            cut_to = None
-        if "cut_to" in kwargs:
-            cut_to = kwargs["cut_to"]
-        else:
-            cut_to = None
-        cut_list = self.listed[cut_from:cut_to]
-        return cut_list
-
-    # Działa tylko jeśli wszystkie atrybuty są tłumaczone.
-    # Zwraca gołe nazwy atrybutów bez względu na ilość języków.
-    def get_attrnames(self, langs, cut_fr=2):
-        preqlist = list(self.baseattrs.__dict__.keys())
-        preqlist2 = preqlist[cut_fr:]  # Obetnij czołówkę.
-        self.attrnames = preqlist2[0 :: len(langs) + 1]
-        return self.attrnames
-
-    # Zwraca pojedynczy przetłumaczony obiekt.
-    def get_setter(self, place, quarter, langs, cut_fr=2):
-        attrnames = self.get_attrnames(langs, cut_fr)
-        attrobjects = self.list_specific(place)
-        self.setter = attrobjects.__getattribute__(attrnames[int(quarter) - 1])
-        return self.setter
-
-    # Zwraca listę przetłumaczonych atrybutów
-    def get_setlist(self, place, langs, cut_fr=2):
-        attrnames = self.get_attrnames(langs, cut_fr)
-        attrobjects = self.list_specific(place)
-        self.setlist = []
-        for item in attrnames:
-            self.setlist.append(attrobjects.__getattribute__(item))
-        return self.setlist
-
     # Elementy po Id.
     def by_id(self, **kwargs):
         G404 = kwargs["G404"]
         x_id = kwargs["id"]
         one_by_id = G404(self.x, pk=x_id)
         return one_by_id
-
-    # lista integerów.
-    def listedint(self):
-        mylist = []
-        for item in self.listed:
-            mylist.append(int(item))
-        return mylist
-
 
 # Klasa ładuje stronę po dodaniu opcji typu panel admina.
 class PortalLoad(PageLoad):
