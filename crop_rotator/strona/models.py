@@ -102,11 +102,8 @@ class RotatorEditorPageNames(models.Model):
     early_crop = models.CharField(max_length=200) # Wczesny Plon
     middle_crop = models.CharField(max_length=200, blank=True, null=True) # Śródplon
     late_crop = models.CharField(max_length=200) # late_crop
-    destroy_early_crop = models.CharField(max_length=200) # Zniszcz wczesny plon na zielony nawóz
-    destroy_middle_crop = models.CharField(max_length=200, blank=True, null=True) # Zniszcz śródplon na zielony nawóz
-    destroy_late_crop = models.CharField(max_length=200) # Zniszcz późny plon na zielony nawóz
+    destroy_early_crop = models.CharField(max_length=200) # Zniszcz na zielony nawóz
     add_fertilizer = models.CharField(max_length=200) # Dodaj nawóz
-    add_fertilizer_onhover = models.CharField(max_length=800) # Wyjaśnienie co program rozumie przez nawóz w onhover nad ikonką "Info"
     change = models.CharField(max_length=200) # Zachowaj zmiany (button)
     publish = models.CharField(max_length=200, blank=True, null=True) # Opublikuj
     unpublish = models.CharField(max_length=200, blank=True, null=True) # Wycofaj
@@ -127,14 +124,12 @@ class RotatorEditorPageNames(models.Model):
     species = models.CharField(max_length=200, blank=True, null=True) # Gatunki
     sources = models.CharField(max_length=200, blank=True, null=True) # Źródła
     notes = models.CharField(max_length=200, blank=True, null=True) # Uwagi
-    allelopatic_conflict = models.CharField(max_length=200, blank=True, null=True) # Konflikt na tle allelopatycznym
     harms = models.CharField(max_length=200, blank=True, null=True) # Szkodzi
     in_step = models.CharField(max_length=200, blank=True, null=True) # W kroku
     well_cooperates = models.CharField(max_length=200, blank=True, null=True) # dobrze oddziaływuje na
     collides = models.CharField(max_length=200, blank=True, null=True) # Powoduje KOLIZJĘ z
     image_source = models.CharField(max_length=200, blank=True, null=True) # Źródło obrazka
     add_fertilizer_main = models.CharField(max_length=200, blank=True, null=True) # W tym planie brakuje nawozu z zewnątrz!
-    add_fertilizer_onhover_main = models.CharField(max_length=300, blank=True, null=True) # Dowiedz się więcej o dodawaniu nawozów do płodozmianu.
     infl_type = models.CharField(max_length=100, blank=True, null=True) # typ oddziaływania
     companion = models.CharField(max_length=100, blank=True, null=True) # współrzędna
     following = models.CharField(max_length=100, blank=True, null=True) # następcza

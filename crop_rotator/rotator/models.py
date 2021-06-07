@@ -23,12 +23,6 @@ class CropFamily(models.Model):
     # Ile lat nie wolno uprawiać po sobie minimum.
     cooldown_max = models.IntegerField(blank=True, null=True)
     # Ile lat nie wolno uprawiać po sobie maximum.
-    is_manurable = models.BooleanField(default=False)
-    # Czy wolno nawozić obornikiem i czy to poprawia kulturę gleby?
-    culture_manured = models.PositiveSmallIntegerField(
-        choices=AGRICULTURE_STATUS, default=0
-    )
-    # W jakiej kulturze zostawia po użyciu wraz z obornikiem?
     is_mandatory_crop = models.BooleanField(default=False)
     # Czy musi występować w płodozmianie? (Bo trzeba wyróżnić Bobowate)
     crop_relationships = models.ManyToManyField(
@@ -109,14 +103,6 @@ class Crop(models.Model):
         (MIDDLE_TOP, "Średnie-Wyższe"),
         (TOP, "Wyższe"),
     )
-    ANNUAL = 0
-    BIENNIAL = 1
-    PERENNIAL = 2
-    PLANT_TYPE = (
-        (ANNUAL, "Roczna"),
-        (BIENNIAL, "Dwuletnia"),
-        (PERENNIAL, "Wieloletnia"),
-    )
     name = models.CharField(max_length=150)
     latin_name = models.CharField(max_length=150, blank=True, null=True)
     descr = models.CharField(max_length=500, blank=True, null=True)
@@ -138,12 +124,6 @@ class Crop(models.Model):
     crop_relationships = models.ManyToManyField(
         "CropsInteraction", related_name="known_crops_interactions", blank=True
     )
-    is_demanding = models.BooleanField(default=False)
-    # Roślina wymagająca - tj. potrzebuje "lepszych" gleb pod uprawę.
-    is_deep_roots = models.BooleanField(default=False)
-    # Czy ma głęboki system korzeniowy?
-    is_leaves_mess = models.BooleanField(default=False)
-    # Czy zostawia dużo resztek pożniwnych?
     takes_mix_level = models.PositiveSmallIntegerField(
         choices=MIX_LEVEL, default=0)
     tags = models.ManyToManyField(
@@ -153,12 +133,9 @@ class Crop(models.Model):
     # minimalna norma wysiewu w kg/ha
     seed_norm_max = models.IntegerField(blank=True, null=True)
     # maksymalna norma wysiewu w kg/ha
-    plant_type = models.PositiveSmallIntegerField(choices=PLANT_TYPE, default=0)
     meta_tags_source = models.TextField(blank=True, null=True)
     is_crop_mix = models.BooleanField(default=False)
     is_fertilizer = models.BooleanField(default=False)
-    redirect_name = models.CharField(max_length=10, blank=True, null=True)
-    redirect_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
