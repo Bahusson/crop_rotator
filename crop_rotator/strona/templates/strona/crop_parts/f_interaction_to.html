@@ -1,5 +1,5 @@
 <p><b>{% if interaction.0.get_cname == "Crop" %}
-      {% include "strona/crop_parts/condition_cropmix.html" %}
+      <a href="{% url 'crop' interaction.0.id %}">
       {% elif interaction.0.get_cname == "CropFamily" %}<a href="{% url 'family' interaction.0.id %}">
       {% elif interaction.0.get_cname == "CropTag" %}<a href="{% url 'tag' interaction.0.id %}">{% endif %}
   {{ interaction.0.name }}</a></b> {% if interaction.1.interaction_sign == 2 %} {{ translatables.well_cooperates }} {% elif interaction.1.interaction_sign == 1 %} {{ translatables.harms }} {% endif %}

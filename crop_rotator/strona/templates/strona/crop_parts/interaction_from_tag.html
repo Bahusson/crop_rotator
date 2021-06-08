@@ -1,5 +1,5 @@
 <p><b><a href="{% url 'tag' interaction.0.id %}">{{ interaction.0.name }}</a></b>
   {% if interaction.1.interaction_sign == 2 %} {{ translatables.well_cooperates }} {% elif interaction.1.interaction_sign == 1 %} {{ translatables.harms }} {% endif %}
-  {% if interaction.1.about_crop %}{% include "strona/crop_parts/condition_cropmix_1.html" %}<b>{{ interaction.1.about_crop.name }}</b></a>
+  {% if interaction.1.about_crop %}<a href="{% url 'crop' interaction.1.about_crop.id %}"><b>{{ interaction.1.about_crop.name }}</b></a>
   {% elif interaction.1.about_family %}<a href="{% url 'family' interaction.1.about_family.id %}"><b>{{ interaction.1.about_family.name }}</b></a>
   {% elif interaction.1.about_tag %}<a href="{% url 'tag' interaction.1.about_tag.id %}"><b>{{ interaction.1.about_tag.name }}</b></a> {% endif %}
