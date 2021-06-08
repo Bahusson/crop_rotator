@@ -26,7 +26,7 @@ from crop_rotator.settings import LANGUAGES as L
 from core.classes import (
     PageElement as pe,
     PageLoad,
-    count_sources_pages,
+#    count_sources_pages,
 
 )
 from core.snippets import (
@@ -95,7 +95,7 @@ def about(request):
 # Widok "O źródłach"
 def about_sources(request):
     pe_sources = pe(CropBookString).allelements
-    count_sources_pages(CDS)
+#    count_sources_pages(CDS)
     context = {
         "sources": pe_sources,
     }
@@ -149,8 +149,6 @@ class AllCrops(AllPlantFamilies):
 
 
 # Bazowy widok strony podglądu interakcji. Domyślnie wyświetla "Crop"
-# Mam wrażenie, że trochę przekombinowałem z tą króliczą norą... :D
-# Chyba było lepiej jak były po prostu 3 funkcje. (Cyklomatyka, czytelność)
 # TODO: Przywrócić do stanu, żeby było czytelne.
 @method_decorator(cache_page(1), name='dispatch')
 class InteractionPage(View):

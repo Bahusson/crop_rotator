@@ -5,6 +5,6 @@
   {% for complex in complexity %}
       <p>{{ crop.name }}
         {% if complex.1 %} {{ translatables.well_cooperates }} {% else %} {{ translatables.harms }} {% endif %}
-      {{ complex.0.name }} {{ translatables.in_step }} {{ complex.2 }}</p>
+      {{ complex.0.name }} {{ translatables.in_step }} <b>{{ complex.2.1 }}</b> </p>
   {% endfor %}
 {% endif %}

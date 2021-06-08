@@ -6,7 +6,7 @@
     {% deep_list step_no=step.order search_by=crop.id search_pos=1 searched_item=4 as d_list %}
     {% if crop.id == d_list.0.id %}
       {% include 'strona/plan_parts/crop_properties.html' %}
-      <b> {{ translatables.collides }} {{ d_list.1.name }} {{ translatables.in_step }} {{ d_list.2 }} ! </b></p>
+      <b> {{ translatables.collides }} {{ d_list.1.name }} {{ translatables.in_step }} {{ d_list.2.1 }} ! </b></p>
         <!--Powyższe ostrzeżenie dać jako wykrzyknik piktogram z informacją onhover i zmianą formatowania wrapperem -->
     {% else %}
       {% include 'strona/plan_parts/crop_properties.html' %}</p>

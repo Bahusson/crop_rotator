@@ -225,11 +225,15 @@ class CropPlanner(object):
         fabacae = []
         top_tier_list = []
         sub_index = 0
+        sub_index_2 = 0
+        self.substep_indices = []
         for item in listed_pe_rs:
             pe_rss_pack = args[3].objects.filter(from_step=item)
             rss_list = []
             for sub_item in pe_rss_pack:
                 rss_list.append(sub_item)
+                sub_index_2 += 1
+                self.substep_indices.append((sub_item, sub_index_2))
             i4 = item.order
             top_tier_list.append(i4)
             vars = [cooldown_list, item, fabacae, sub_index]
@@ -285,6 +289,7 @@ class CropPlanner(object):
 
     def basic_context(self, **kwargs):
         self.context = {
+            "subs_indices": self.substep_indices,
             "interactions": self.interactions,
             "f_error": self.fabs_error,
             "efcs": self.error_family_crops,

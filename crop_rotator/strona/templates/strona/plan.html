@@ -128,15 +128,17 @@
 
               <div class="row">
               {% for substep in substeps %}
+
               {% if substep.from_step == step %}
                 <div class="col-md">
+                <h5>{% for sub in subs_indices %}{% if substep == sub.0 %}{{ sub.1 }}.{% endif %}{% endfor %}
                 {% if substep.order == 1 %}
-                  <h2>{{ translatables.early_crop }}:</h2>
+                  {{ translatables.early_crop }}:
                 {% elif substep.order == 2 %}
-                  <h2>{{ translatables.middle_crop }}:</h2>
+                  {{ translatables.middle_crop }}:
                 {% else %}
-                  <h2>{{ translatables.late_crop }}:</h2>
-                {% endif %}
+                  {{ translatables.late_crop }}:
+                {% endif %}</h5>
                 {% fertilizerlookup substep=substep as fertilizer_lookup %}
                 {% if fertilizer_lookup %}
                 {{ translatables.manure_added }}
